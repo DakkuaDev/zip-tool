@@ -1,0 +1,37 @@
+BACKEND
+
+Clase Zip:
+
+Métodos:
+- Existe o no el Zip
+- Return de lista con los archivos del Zip
+- Return del contenido de un archivo del Zip
+- Actualizar contenido de un archivo del Zip (Añadir o sobreescribir)
+
+
+(Buscar una libreria de Zip)
+
+FRONTED
+
+
+				1.Botón de seleccionar Zip
+
+
+2.Listado de los archivos
+del Zip					3.Editor con el contenido del Zip
+
+
+
+
+
+
+		      4.Botón de nuevo Documento - Botón de Guardar Zip
+
+
+
+
+
+
+CONFIGURACIÓN:
+
+- Archivo en Lua con configuraciones .lua varias sobre el fronted.

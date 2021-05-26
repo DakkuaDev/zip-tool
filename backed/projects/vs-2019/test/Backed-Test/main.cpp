@@ -6,7 +6,9 @@
 
 int main()
 {
-    
+    ZipManager test("example.zip");
+
+    test.update_content("hola.txt", "Hello World!");
     
 }
 
