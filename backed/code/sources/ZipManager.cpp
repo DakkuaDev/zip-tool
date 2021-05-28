@@ -4,13 +4,12 @@
 
 ZipManager::ZipManager(const string& _path) : file_path (_path), archive (ZipFile::Open(_path))
 {
-
 }
 
 bool ZipManager::is_open() const 
 {
 	return archive != nullptr;
-};
+}
 
 const list<string> ZipManager::file_list() const 
 {
@@ -30,7 +29,7 @@ const list<string> ZipManager::file_list() const
 	}
 
 	return entries_list;
-};
+}
 
 const string ZipManager::file_content(const string& file_name) const 
 {
@@ -55,7 +54,7 @@ const string ZipManager::file_content(const string& file_name) const
 	} 	while (!decompressStream->eof()); // Mientras no llegamos al final del archivo
 
 	return buffer.str();
-};
+}
 
 bool ZipManager::update_content(const string& file_name, const string& content) 
 {
@@ -86,4 +85,4 @@ bool ZipManager::update_content(const string& file_name, const string& content)
 	ZipFile::SaveAndClose(archive, file_path);
 
 	return true;
-};
+}

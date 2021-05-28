@@ -1,12 +1,15 @@
 #pragma once
 
 #include "ZipLib/ZipFile.h"
+
+#include "api.hpp"
+
 #include <string>
 #include <list>
 
 using namespace std;
 
-class ZipManager
+class TEST_API ZipManager
 {
 private:
 
@@ -17,7 +20,7 @@ public:
 
 	// Default
 	ZipManager(const string& path);
-	~ZipManager();
+	~ZipManager() = default;
 	
 
 public:
