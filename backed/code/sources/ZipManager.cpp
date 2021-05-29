@@ -2,26 +2,26 @@
 
 #include <fstream>
 
-ZipManager::ZipManager(const string& _path) : file_path (_path), archive (ZipFile::Open(_path))
+ZipManager::ZipManager(const string& _path) : file_path (_path)
 {
 }
 
-bool ZipManager::is_open() const 
-{
-	return archive != nullptr;
-}
 
 const list<string> ZipManager::file_list() const 
 {
+
+	ZipArchive::Ptr myArchive;
+	myArchive = ZipFile::Open(file_path);
+
 	// Obtenemos el número de entradas totales
-	size_t entries = archive->GetEntriesCount();
+	size_t entries = myArchive->GetEntriesCount();
 
 	list<string> entries_list;
 
 	// Recorremos las entradas
 	for (int i = 0; i < entries; i++)
 	{
-		auto entry = archive->GetEntry(int(i));
+		auto entry = myArchive->GetEntry(int(i));
 
 		string file_name = entry->GetFullName();
 
@@ -31,9 +31,14 @@ const list<string> ZipManager::file_list() const
 	return entries_list;
 }
 
-const string ZipManager::file_content(const string& file_name) const 
+const string ZipManager::file_content(const string& file_name) 
 {
-	ZipArchiveEntry::Ptr entry = archive->GetEntry(file_name);
+
+	ZipArchive::Ptr myArchive;
+	myArchive = ZipFile::Open(file_path);
+
+
+	ZipArchiveEntry::Ptr entry = myArchive->GetEntry(file_name);
 
 	std::istream* decompressStream = entry->GetDecompressionStream();
 
@@ -58,7 +63,8 @@ const string ZipManager::file_content(const string& file_name) const
 
 bool ZipManager::update_content(const string& file_name, const string& content) 
 {
-
+	ZipArchive::Ptr myArchive;
+	myArchive = ZipFile::Open(file_path);
 	// Añadimos el contenido a un archivo temporal
 
 	ofstream temporal_writer(file_name.c_str(), std::ios::trunc | std::ios::out);
@@ -69,20 +75,24 @@ bool ZipManager::update_content(const string& file_name, const string& content)
 
 
 	// Leemos el archivo temporal
-	ifstream temporal_reader(file_name.c_str());
+	ifstream temporal_reader(file_name.c_str(), std::ios::binary);
 
 	// Leemos la entrada
-	ZipArchiveEntry::Ptr entry = archive->GetEntry(file_name);
+	ZipArchiveEntry::Ptr entry = myArchive->GetEntry(file_name);
 
 	// La creamos si no existe
 	if (entry == nullptr)
 	{
-		entry = archive->CreateEntry(file_name);
+		entry = myArchive->CreateEntry(file_name);
 	}
 
 	entry->SetCompressionStream(temporal_reader);
 
-	ZipFile::SaveAndClose(archive, file_path);
+	ZipFile::Save(myArchive, file_path);
+
+	//ZipFile::Save(archive, file_path);
+
+	temporal_reader.close();
 
 	return true;
 }
