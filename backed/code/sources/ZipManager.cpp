@@ -1,4 +1,7 @@
+#include "ZipLib/ZipFile.h"
+
 #include "ZipManager.h"
+
 
 #include <fstream>
 

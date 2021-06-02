@@ -11,16 +11,16 @@
 
 #if defined(USE_THIS_LIBRARY_AS_STATIC)
 
-#define	TEST_API
+	#define	TEST_API
 
 #else
 
-#if defined(THIS_IS_THE_LIBRARY)
-#define TEST_API __declspec(dllexport)
+	#if defined(THIS_IS_THE_LIBRARY)
+	#define TEST_API __declspec(dllexport)
 
-#else
-#define TEST_API __declspec(dllimport)
+	#else
+	#define TEST_API __declspec(dllimport)
 
-#endif
+	#endif
 
 #endif

@@ -1,13 +1,13 @@
 #pragma once
 
-#include "api.hpp"
+
 
 #include <string>
 #include <list>
 
 using namespace std;
 
-class TEST_API ZipManager
+class ZipManager
 {
 private:
 
