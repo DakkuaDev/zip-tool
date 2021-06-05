@@ -20,46 +20,58 @@ ZipTool::ZipTool(QWidget* parent)
 
 void ZipTool::open_zip_file() 
 {
-    // Creo un 'File Dialog' que me permita abrir un selector de archivos de Windows
-    QFileDialog dialog(this);
+    try {
+        // Creo un 'File Dialog' que me permita abrir un selector de archivos de Windows
+        QFileDialog dialog(this);
 
-    dialog.setNameFilter(tr("Zip File (*.zip)"));
-    dialog.setViewMode(QFileDialog::Detail);
+        dialog.setNameFilter(tr("Zip File (*.zip)"));
+        dialog.setViewMode(QFileDialog::Detail);
 
-    // Creo una listado de archivos
-    QStringList fileNames;
+        // Creo una listado de archivos
+        QStringList fileNames;
 
-    // Si se selecciona un archivo correctamente...
-    if (dialog.exec()) 
-    {
-        fileNames = dialog.selectedFiles();
-
-        // Y contiene más de un archivo...
-        if (fileNames.size() > 0) 
+        // Si se selecciona un archivo correctamente...
+        if (dialog.exec()) 
         {
-            // 1. Creo un objeto ZipManager y listo el archivo
-            ZipManager manager(std::string(fileNames[0].toStdString()));
+            fileNames = dialog.selectedFiles();
 
-            auto file_list = manager.file_list();
-            auto model = new QStringListModel(this);
-
-            // 2. Creo un objeto de Lista de Qt, recorro la lista generada e imprimo los valores
-            QStringList qt_list;
-            
-            for (list<string>::iterator it = file_list.begin(); it != file_list.end(); it++)
+            // Y contiene más de un archivo...
+            if (fileNames.size() > 0) 
             {
-                qt_list << it->c_str();           
-            }
+                // 1. Creo un objeto ZipManager y listo el archivo
+                ZipManager manager(std::string(fileNames[0].toStdString()));
 
-            // 3. Se lo añado al modelo de Qt
-            model->setStringList(qt_list);
+                auto file_list = manager.file_list();
+                auto model = new QStringListModel(this);
+
+                // 2. Creo un objeto de Lista de Qt, recorro la lista generada e imprimo los valores
+                QStringList qt_list;
+            
+                for (list<string>::iterator it = file_list.begin(); it != file_list.end(); it++)
+                {
+                    qt_list << it->c_str();           
+                }
+
+                // 3. Se lo añado al modelo de Qt
+                model->setStringList(qt_list);
          
-            // 4. Muestro el modelo en la UI
-            ui.listZipPreview->setModel(model);
+                // 4. Muestro el modelo en la UI
+                ui.listZipPreview->setEnabled(true);
+                ui.listZipPreview->setModel(model);
 
-            this->manager = make_unique<ZipManager>(manager);
+                this->manager = make_unique<ZipManager>(manager);
+            }
         }
+        
     }
+    catch (...) {
+        // Si el usuario abre otro tipo de archivo o sucede algo, salta un mensaje advirtiéndole del fallo
+        QMessageBox msgBox;
+        msgBox.setText("An Error ocurred when you try to open the archive. Please try it once again.");
+        msgBox.exec();
+
+    }
+
 }
 
 void ZipTool::on_click_list_view(QModelIndex index) {
@@ -74,6 +86,7 @@ void ZipTool::on_click_list_view(QModelIndex index) {
     ui.txtZipContent->setText(content.c_str());
 
     ui.btnSaveContent->setEnabled(true);
+    ui.txtZipContent->setEnabled(true);
 }
 
 void ZipTool::on_click_save_zipfile()
@@ -86,9 +99,6 @@ void ZipTool::on_click_save_zipfile()
 
     // Creo una alerta
     QMessageBox msgBox;
-    msgBox.setText("Se ha guardado correctamente el archivo actualizado");
+    msgBox.setText("Save file updated correctly");
     msgBox.exec();
 }
-
-// TODO: 
-// 1. Ver que no se pueda abrir otro archivo que no sea un .zip sin que explote
