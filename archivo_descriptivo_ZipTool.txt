@@ -1,25 +1,74 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>ZipToolClass</class>
- <widget class="QWidget" name="ZipToolClass" >
-  <property name="objectName" >
-   <string notr="true">ZipToolClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QWidget" name="ZipToolClass">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>876</width>
+    <height>570</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>ZipTool</string>
-  </property>$centralwidget$
+  </property>
+  <widget class="QTextEdit" name="txtZipContent">
+   <property name="geometry">
+    <rect>
+     <x>503</x>
+     <y>90</y>
+     <width>241</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnOpenZip">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>80</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Open Zip</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="listZipPreview">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>70</y>
+     <width>221</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <property name="editTriggers">
+    <set>QAbstractItemView::NoEditTriggers</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="btnSaveContent">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>130</y>
+     <width>101</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save Content</string>
+   </property>
+  </widget>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-   <include location="ZipTool.qrc"/>
+  <include location="ZipTool.qrc"/>
  </resources>
  <connections/>
-</UI>
+</ui>

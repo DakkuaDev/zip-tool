@@ -1,6 +1,7 @@
 #include "ZipTool.hpp"
 #include <QFileDialog>
 #include <QStringListModel>
+#include <QMessageBox>
 
 
 using namespace std;
@@ -13,6 +14,7 @@ ZipTool::ZipTool(QWidget* parent)
     // Conectores
     connect(ui.btnOpenZip, SIGNAL(released()), this, SLOT(open_zip_file()));
     connect(ui.listZipPreview, SIGNAL(clicked(QModelIndex)), this, SLOT(on_click_list_view(QModelIndex)));
+    connect(ui.btnSaveContent, SIGNAL(released()), this, SLOT(on_click_save_zipfile()));
 }
 
 
@@ -54,11 +56,39 @@ void ZipTool::open_zip_file()
          
             // 4. Muestro el modelo en la UI
             ui.listZipPreview->setModel(model);
+
+            this->manager = make_unique<ZipManager>(manager);
         }
     }
 }
 
 void ZipTool::on_click_list_view(QModelIndex index) {
-    auto texto = index.data().toString();
-    ui.txtZipContent->setText(texto);
+
+    // Recojo el contenido actual del archivo
+    actual_archive = index.data().toString();
+
+    // Llamo al Zip Manager
+    std::string content = manager->file_content(actual_archive.toStdString());
+
+    // Actualizo la casilla del texto con el contenido
+    ui.txtZipContent->setText(content.c_str());
+
+    ui.btnSaveContent->setEnabled(true);
 }
+
+void ZipTool::on_click_save_zipfile()
+{
+    // Actualizo el contenido actual
+    auto new_content = ui.txtZipContent->toPlainText();
+    
+    // Llamo al Zip Manager
+    manager->update_content(actual_archive.toStdString(), new_content.toStdString());
+
+    // Creo una alerta
+    QMessageBox msgBox;
+    msgBox.setText("Se ha guardado correctamente el archivo actualizado");
+    msgBox.exec();
+}
+
+// TODO: 
+// 1. Ver que no se pueda abrir otro archivo que no sea un .zip sin que explote

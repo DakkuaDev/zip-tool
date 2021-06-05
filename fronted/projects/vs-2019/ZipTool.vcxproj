@@ -61,17 +61,22 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <AdditionalIncludeDirectories>../../libraries/ZipManager/source;$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);../../libraries/ZipManager/source;../../libraries/Lua/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);../../libraries/ZipManager/bin;../../libraries/ZipManager/lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(Qt_LIBS_);Backend.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);../../libraries/ZipManager/bin;../../libraries/ZipManager/lib;../../libraries/Lua/lib/vs-2019/x86-64/release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(Qt_LIBS_);Backend.lib;lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <LanguageStandard>stdcpp17</LanguageStandard>
+      <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);../../libraries/ZipManager/source;../../libraries/Lua/src</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);../../libraries/Lua/lib/vs-2019/x86-64/debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(Qt_LIBS_);lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">
     <ClCompile>
