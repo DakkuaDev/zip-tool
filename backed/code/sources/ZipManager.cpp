@@ -1,14 +1,10 @@
 #include "ZipLib/ZipFile.h"
-
 #include "ZipManager.h"
-
 
 #include <fstream>
 
-ZipManager::ZipManager(const string& _path) : file_path (_path)
-{
-}
 
+ZipManager::ZipManager(const string& _path) : file_path(_path) {}
 
 const list<string> ZipManager::file_list() const 
 {
@@ -99,3 +95,7 @@ bool ZipManager::update_content(const string& file_name, const string& content)
 
 	return true;
 }
+
+void ZipManager::delete_file(const string& file_name) { ZipFile::RemoveEntry(file_path.c_str(), file_name.c_str()); }
+
+void ZipManager::create_file(const string& file_name) { ZipFile::AddFile(file_path.c_str(), file_name.c_str()); }

@@ -13,12 +13,12 @@ private:
 
 	string file_path;
 
+
 public:
 
 	// Default
 	ZipManager(const string& path);
 	~ZipManager() = default;
-	
 
 public:
 
@@ -32,6 +32,13 @@ public:
 	/*Actualizamos el contenido del archivo*/
 	bool update_content(const string& file_name, const string& content);
 
+	/* Borramos un archivo del Zip */
+	void delete_file(const string& file_name);
+
+	/* Añadimos un archivo al Zip */
+	void create_file(const string& file_name);
+
 
 };
+
 

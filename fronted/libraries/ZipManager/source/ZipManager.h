@@ -1,13 +1,13 @@
 #pragma once
 
-
+#include "api.hpp"
 
 #include <string>
 #include <list>
 
 using namespace std;
 
-class ZipManager
+class TEST_API ZipManager
 {
 private:
 
@@ -31,6 +31,10 @@ public:
 
 	/*Actualizamos el contenido del archivo*/
 	bool update_content(const string& file_name, const string& content);
+
+	void delete_file(const string& file_name);
+
+	void create_file(const string& file_name);
 
 
 };
