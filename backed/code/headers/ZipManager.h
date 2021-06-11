@@ -1,3 +1,11 @@
+/*
+* @Author: Daniel Guerra Gallardo
+* @Description: Aplicación con Interfaz Gráfica de Usuario que permite tratar archivos Zip como documentos: Añadir, Quitar, Listar, Modificar y Guardar
+* Además contiene compatibilidad con scripting con Lua
+* @Title: Middleware. Práctica Final
+* @Date: 05/2021
+*/
+
 #pragma once
 
 #include "api.hpp"

@@ -1,3 +1,11 @@
+/*
+* @Author: Daniel Guerra Gallardo
+* @Description: Aplicación con Interfaz Gráfica de Usuario que permite tratar archivos Zip como documentos: Añadir, Quitar, Listar, Modificar y Guardar
+* Además contiene compatibilidad con scripting con Lua
+* @Title: Middleware. Práctica Final
+* @Date: 05/2021
+*/
+
 #include "ZipTool.hpp"
 #include <QFileDialog>
 #include <QStringListModel>
@@ -11,15 +19,17 @@
 
 using namespace std;
 
+ZipTool * ZipTool::last_instance = NULL;
+
 ZipTool::ZipTool(QWidget* parent)
     : QWidget(parent), manager(nullptr)
 {
-   // ZipTool::last_instance = make_unique<ZipTool>(this);
+     ZipTool::last_instance = this;
 
     ui.setupUi(this);
 
     // Conectores
-    connect(ui.btnOpenZip, SIGNAL(released()), this, SLOT(open_zip_file()));
+    connect(ui.btnOpenZip, SIGNAL(released()), this, SLOT(on_click_open_zip()));
     connect(ui.listZipPreview, SIGNAL(clicked(QModelIndex)), this, SLOT(on_click_list_view(QModelIndex)));
     connect(ui.btnSaveContent, SIGNAL(released()), this, SLOT(on_click_save_zipfile()));
     connect(ui.btnDeleteArchive, SIGNAL(released()), this, SLOT(on_click_delete_archive()));
@@ -27,8 +37,43 @@ ZipTool::ZipTool(QWidget* parent)
     connect(ui.btnExecuteLua, SIGNAL(released()), this, SLOT(on_click_execute_lua()));
 }
 
+void ZipTool::open_zip(const std::string& file) 
+{
+    // Creo mi singleton del ZipManager
+    ZipManager manager(file);
+    this->manager = make_unique<ZipManager>(manager);
 
-void ZipTool::open_zip_file() 
+    // Actualizo la UI
+    ui.btnAddArchive->setEnabled(true);
+
+    refresh_list();
+}
+
+void ZipTool::add_archive(const std::string& file) 
+{
+    // Llamo al Zip Manager (Backend)
+    manager->create_file(file);
+
+    // Actualizo la UI
+    ui.btnDeleteArchive->setEnabled(false);
+
+    refresh_list();
+}
+
+void ZipTool::delete_archive(const std::string& file) {
+
+    // Llamo al Zip Manager (Backend)
+    manager->delete_file(file);
+
+    // Actualizo la UI
+    ui.btnDeleteArchive->setEnabled(false);
+    ui.txtZipContent->setText("");
+
+    refresh_list();
+}
+
+
+void ZipTool::on_click_open_zip() 
 {
     try {
         // Creo un 'File Dialog' que me permita abrir un selector de archivos de Windows
@@ -48,13 +93,8 @@ void ZipTool::open_zip_file()
             // Y contiene más de un archivo...
             if (fileNames.size() > 0) 
             {
-                // 1. Creo un objeto ZipManager y listo el archivo
-                ZipManager manager(std::string(fileNames[0].toStdString()));
-                this->manager = make_unique<ZipManager>(manager);
-
-                refresh_list();
-
-                ui.btnAddArchive->setEnabled(true);
+                // Llamo al ZipManager (Backend)
+                this->open_zip(fileNames[0].toStdString());
             }
         }
         
@@ -66,7 +106,6 @@ void ZipTool::open_zip_file()
         msgBox.exec();
 
     }
-
 }
 
 void ZipTool::on_click_list_view(QModelIndex index) {
@@ -77,7 +116,7 @@ void ZipTool::on_click_list_view(QModelIndex index) {
     // Llamo al Zip Manager
     std::string content = manager->file_content(current_selected_file.toStdString());
 
-    // Actualizo la casilla del texto con el contenido
+    // Actualizo la UI
     ui.txtZipContent->setText(content.c_str());
 
     ui.btnSaveContent->setEnabled(true);
@@ -101,16 +140,7 @@ void ZipTool::on_click_save_zipfile()
 
 void ZipTool::on_click_delete_archive()
 {
-    // Llamo al Zip Manager
-    manager->delete_file(current_selected_file.toStdString());
-
-    ui.btnDeleteArchive->setEnabled(false);
-
-    // Borro el contenido que mostraba el archivo
-    ui.txtZipContent->setText("");
-
-    refresh_list();
-
+    delete_archive(current_selected_file.toStdString());
 }
 
 void ZipTool::on_click_add_Archive()
@@ -134,11 +164,9 @@ void ZipTool::on_click_add_Archive()
             // Y contiene más de un archivo...
             for (auto iterator = fileNames.begin(); iterator != fileNames.end(); ++iterator)
             {
-                manager->create_file(iterator->toStdString());
+                this->add_archive(iterator->toStdString());
             }
 
-            refresh_list();
-            ui.btnDeleteArchive->setEnabled(false);
         }
 
     }
@@ -173,12 +201,36 @@ void ZipTool::refresh_list()
 }
 
 
+// --------------------------------------  Funciones Puente Lua / C -----------------------------------------//
+static int open_zip_lua(lua_State* L) {
+
+    const char* nombre_fichero = lua_tostring(L, 1);
+
+    ZipTool::last_instance->open_zip(nombre_fichero);
+
+    return 0;
+}
+
+static int add_archive_lua(lua_State* L) 
+{
+    const char* nombre_fichero = lua_tostring(L, 1);
+
+    ZipTool::last_instance->add_archive(nombre_fichero);
+    return 0;
+}
+
+static int delete_archive_lua(lua_State* L) 
+{
+    const char* nombre_fichero = lua_tostring(L, 1);
+
+    ZipTool::last_instance->delete_archive(nombre_fichero);
+    return 0;
+}
+
+// --------------------------------------  Funciones Puente Lua / C -----------------------------------------//
+
 void ZipTool::on_click_execute_lua()
 {
-    // Creo una alerta
-    QMessageBox msgBox;
-    msgBox.setText("Lua Open");
-    msgBox.exec();
 
     QFileDialog dialog(this);
     dialog.setNameFilter(tr("Lua Files (*.lua)"));
@@ -195,42 +247,27 @@ void ZipTool::on_click_execute_lua()
         // Y contiene más de un archivo...
         if (fileNames.size() > 0)
         {
+            // Creo un nuevo estado de Lua (L) y abro sus librerias
             lua_State* L = luaL_newstate();
             luaL_openlibs(L);
+
+            // Agrego una función del script que asocio con una función puente del archivo
+            lua_pushcfunction(L, open_zip_lua);
+            lua_setglobal(L, "open_zip");
+
+            lua_pushcfunction(L, add_archive_lua);
+            lua_setglobal(L, "add_archive");
+
+            lua_pushcfunction(L, delete_archive_lua);
+            lua_setglobal(L, "delete_archive");
+
+            // Leo su contenido
             luaL_dofile(L, fileNames[0].toStdString().c_str());
-            lua_setglobal(L, "mymodule");
-            //  lua_settop(L, 0);
-
-            int top = lua_gettop(L);
-
-            lua_getglobal(L, "mymodule");
-            if (!lua_istable(L, -1)) {
-
-                msgBox.setText("Error");
-                msgBox.exec();
-                //return 0;
-            }
-
-            lua_getfield(L, -1, "test");  // -1 means stack top.
-            lua_call(L, 0, 1);
-            if (lua_isinteger(L, -1))  /* integer? */ {
-                msgBox.setText(QString("Resultado Open") + QString::number(lua_tointeger(L, -1)));
-                msgBox.exec();
-            }
-
+         
+            // Cierro el estado de Lua
             lua_close(L);
         }
     }
 }
 
-// TODO (Comunicación Lua - C++)
-//void abrirFiichero(char nombre_fichero[]) {
-//    //ZipTool::last_instance.open_zip(nombre_fichero);
-//}
-//void anadirFichero(char nuevo_fichero[]) {
-//    //ZipTool::last_instancea.add_file(nombre_fichero);
-//}
-//void eliminarFichero(char ficheroEliminar[]) {
-//    //ZipTool::last_instancea.delete_file(nombre_fichero);
-//}
 
