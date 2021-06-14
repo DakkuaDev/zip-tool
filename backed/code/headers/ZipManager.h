@@ -23,13 +23,13 @@ class TEST_API ZipManager
 	class Entry;
 private:
 
-	unique_ptr<DataModel> model = nullptr;
-	unique_ptr<Item> archive = nullptr;
+	shared_ptr<DataModel> model = nullptr;
+	shared_ptr<Item> archive = nullptr;
 
 public:
 
 	ZipManager() {};
-	ZipManager(string& path);
+	ZipManager(const string& path);
 	~ZipManager() = default;
 
 public:

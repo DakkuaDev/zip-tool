@@ -9,7 +9,7 @@
 #pragma once
 
 #include "api.hpp"
-#include "DataModel.h";
+#include "DataModel.h"
 
 #include <string>
 #include <list>
@@ -18,16 +18,18 @@
 
 using namespace std;
 
+class Entry;
 class TEST_API ZipManager
 {
-	class Entry;
 private:
 
-	unique_ptr<DataModel> model = nullptr;
-	unique_ptr<Item> archive = nullptr;
+	shared_ptr<DataModel> model = nullptr;
+	shared_ptr<Item> archive = nullptr;
 
 public:
 
+	ZipManager() {}
+	//ZipManager(const ZipManager&) {}
 	ZipManager(const string& path);
 	~ZipManager() = default;
 

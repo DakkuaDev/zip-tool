@@ -16,10 +16,11 @@
 
 using namespace std;
 
+class Item;
+class Entry;
+
 class TEST_API DataModel
 {
-	class Item;
-	class Entry;
 
 public:
 	DataModel() {};
@@ -45,12 +46,12 @@ public:
 class TEST_API Item
 {
 public:
-	Item(string& _name) : name(_name) {}
+	Item(const string& _name) : item_path(_name) {}
 	~Item() = default;
 
 private:
 
-	string name;
+	string item_path;
 
 	enum Compression
 	{
@@ -59,7 +60,7 @@ private:
 	};
 
 public:
-	inline string& get_archive_name() { return name; }
+	inline string& get_archive_name() { return item_path; }
 
 };
 

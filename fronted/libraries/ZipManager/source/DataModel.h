@@ -16,10 +16,11 @@
 
 using namespace std;
 
+class Item;
+class Entry;
+
 class TEST_API DataModel
 {
-	class Item;
-	class Entry;
 
 public:
 	DataModel() {};
@@ -51,6 +52,7 @@ public:
 private:
 
 	string name;
+
 	enum Compression
 	{
 		STORE,
@@ -66,7 +68,7 @@ class TEST_API Entry
 {
 public:
 
-	Entry(const string& _name) : name(_name) {}
+	Entry(string& _name) : name(_name) {}
 	~Entry() = default;
 
 private:

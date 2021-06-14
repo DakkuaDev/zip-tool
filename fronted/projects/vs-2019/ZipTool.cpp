@@ -41,8 +41,9 @@ ZipTool::ZipTool(QWidget* parent)
 void ZipTool::open_zip(const std::string& file) 
 {
     // Creo mi singleton del ZipManager
-    ZipManager manager(file);
-    this->manager = make_unique<ZipManager>(manager);
+    //ZipManager manager(file);
+    //this->manager = make_shared<ZipManager>(manager);
+    this->manager.reset(new ZipManager(file));
 
     // Actualizo la UI
     ui.btnAddArchive->setEnabled(true);
@@ -95,7 +96,8 @@ void ZipTool::on_click_open_zip()
             if (fileNames.size() > 0) 
             {
                 // Llamo al ZipManager (Backend)
-                this->open_zip(fileNames[0].toStdString());
+                auto x = fileNames[0].toStdString();
+                this->open_zip(x);
             }
         }
         

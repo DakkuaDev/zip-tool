@@ -64,7 +64,7 @@
       <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);../../libraries/ZipManager/source;../../libraries/Lua/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);../../libraries/ZipManager/bin;../../libraries/ZipManager/lib;../../libraries/Lua/lib/vs-2019/x86-64/release</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);%(AdditionalLibraryDirectories);../../libraries/ZipManager/lib;../../libraries/Lua/lib/vs-2019/x86-64/release</AdditionalLibraryDirectories>
       <AdditionalDependencies>$(Qt_LIBS_);Backend.lib;lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -74,8 +74,8 @@
       <AdditionalIncludeDirectories>$(Qt_INCLUDEPATH_);%(AdditionalIncludeDirectories);../../libraries/ZipManager/source;../../libraries/Lua/src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);../../libraries/Lua/lib/vs-2019/x86-64/debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>$(Qt_LIBS_);Backed-debug.lib;lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(Qt_LIBPATH_);../../libraries/Lua/lib/vs-2019/x86-64/debug;../../libraries/ZipManager/lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(Qt_LIBS_);Backend-debug.lib;lua.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="Configuration">

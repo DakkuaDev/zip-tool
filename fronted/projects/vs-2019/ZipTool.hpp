@@ -25,7 +25,7 @@ class ZipTool : public QWidget
 
 
 private:
-    unique_ptr<ZipManager> manager;
+    shared_ptr<ZipManager> manager;
 
     QString current_selected_file;
     Ui::ZipToolClass ui;
