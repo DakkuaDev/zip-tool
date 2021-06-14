@@ -12,9 +12,10 @@
 
 #include <fstream>
 
-ZipManager::ZipManager(const string& _archive) {
+ZipManager::ZipManager(string& _archive) 
+{
 	archive = make_unique<Item>(_archive);
-	model = make_unique<DataModel>();
+	model   = make_unique<DataModel>();
 }
 
 

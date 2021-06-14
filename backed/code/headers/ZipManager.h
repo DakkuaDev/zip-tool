@@ -28,7 +28,8 @@ private:
 
 public:
 
-	ZipManager(const string& path);
+	ZipManager() {};
+	ZipManager(string& path);
 	~ZipManager() = default;
 
 public:

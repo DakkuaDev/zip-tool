@@ -45,12 +45,13 @@ public:
 class TEST_API Item
 {
 public:
-	Item(const string& _name) : name(_name) {}
+	Item(string& _name) : name(_name) {}
 	~Item() = default;
 
 private:
 
 	string name;
+
 	enum Compression
 	{
 		STORE,
@@ -66,7 +67,7 @@ class TEST_API Entry
 {
 public:
 
-	Entry(const string& _name) : name(_name) {}
+	Entry(string& _name) : name(_name) {}
 	~Entry() = default;
 
 private:
