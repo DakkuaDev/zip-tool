@@ -7,6 +7,7 @@
 */
 
 #include "ZipTool.hpp"
+
 #include <QFileDialog>
 #include <QStringListModel>
 #include <QMessageBox>

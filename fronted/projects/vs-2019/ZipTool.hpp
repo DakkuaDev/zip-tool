@@ -8,8 +8,9 @@
 
 #pragma once
 
-#include <QtWidgets/QWidget>
 #include <memory>
+
+#include <QtWidgets/QWidget>
 #include "ui_ZipTool.h"
 #include "ZipManager.h"
 

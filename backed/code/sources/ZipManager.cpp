@@ -15,8 +15,6 @@
 ZipManager::ZipManager(const string& _archive) {
 	archive = make_unique<Item>(_archive);
 	model = make_unique<DataModel>();
-
-	//model.get()->set_item(make_shared<Item>(archive));
 }
 
 
