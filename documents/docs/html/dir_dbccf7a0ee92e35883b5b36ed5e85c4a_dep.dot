@@ -1,0 +1,11 @@
+digraph "source/ZipLib/compression/deflate" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_88ba5bba62e789d30998ea1f89fddce3 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="compression" fontname="Helvetica", fontsize="10", URL="dir_88ba5bba62e789d30998ea1f89fddce3.html"]
+  dir_dbccf7a0ee92e35883b5b36ed5e85c4a [shape=box, label="deflate", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_dbccf7a0ee92e35883b5b36ed5e85c4a.html"];
+  }
+  dir_9b5008529e996f99093986af23fc1ea4 [shape=box label="extlibs" fillcolor="white" style="filled" color="red" URL="dir_9b5008529e996f99093986af23fc1ea4.html"];
+  dir_dbccf7a0ee92e35883b5b36ed5e85c4a->dir_9b5008529e996f99093986af23fc1ea4 [headlabel="2", labeldistance=1.5 headhref="dir_000008_000013.html"];
+}

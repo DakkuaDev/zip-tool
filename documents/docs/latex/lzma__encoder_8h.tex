@@ -1,0 +1,63 @@
+\hypertarget{lzma__encoder_8h}{}\doxysection{source/\+Zip\+Lib/compression/lzma/lzma\+\_\+encoder.h File Reference}
+\label{lzma__encoder_8h}\index{source/ZipLib/compression/lzma/lzma\_encoder.h@{source/ZipLib/compression/lzma/lzma\_encoder.h}}
+{\ttfamily \#include \char`\"{}../compression\+\_\+interface.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}lzma\+\_\+encoder\+\_\+properties.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}detail/lzma\+\_\+alloc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}detail/lzma\+\_\+handle.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}detail/lzma\+\_\+header.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}detail/lzma\+\_\+in\+\_\+stream.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}detail/lzma\+\_\+out\+\_\+stream.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$ostream$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+Include dependency graph for lzma\+\_\+encoder.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbasic__lzma__encoder}{basic\+\_\+lzma\+\_\+encoder$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classbasic__lzma__encoder}{basic\+\_\+lzma\+\_\+encoder}}$<$ uint8\+\_\+t, std\+::char\+\_\+traits$<$ uint8\+\_\+t $>$ $>$ \mbox{\hyperlink{lzma__encoder_8h_aeaaa3cfabf9ba3a830db331e8f7ef267}{byte\+\_\+lzma\+\_\+encoder}}
+\item 
+typedef \mbox{\hyperlink{classbasic__lzma__encoder}{basic\+\_\+lzma\+\_\+encoder}}$<$ char, std\+::char\+\_\+traits$<$ char $>$ $>$ \mbox{\hyperlink{lzma__encoder_8h_a25d8b837ec6ef4f319ca40da108270c3}{lzma\+\_\+encoder}}
+\item 
+typedef \mbox{\hyperlink{classbasic__lzma__encoder}{basic\+\_\+lzma\+\_\+encoder}}$<$ wchar\+\_\+t, std\+::char\+\_\+traits$<$ wchar\+\_\+t $>$ $>$ \mbox{\hyperlink{lzma__encoder_8h_aa65a84f1d4eee3c8b8997165e2edfc7e}{wlzma\+\_\+encoder}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{lzma__encoder_8h_aeaaa3cfabf9ba3a830db331e8f7ef267}\label{lzma__encoder_8h_aeaaa3cfabf9ba3a830db331e8f7ef267}} 
+\index{lzma\_encoder.h@{lzma\_encoder.h}!byte\_lzma\_encoder@{byte\_lzma\_encoder}}
+\index{byte\_lzma\_encoder@{byte\_lzma\_encoder}!lzma\_encoder.h@{lzma\_encoder.h}}
+\doxysubsubsection{\texorpdfstring{byte\_lzma\_encoder}{byte\_lzma\_encoder}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classbasic__lzma__encoder}{basic\+\_\+lzma\+\_\+encoder}}$<$uint8\+\_\+t, std\+::char\+\_\+traits$<$uint8\+\_\+t$>$ $>$ \mbox{\hyperlink{lzma__encoder_8h_aeaaa3cfabf9ba3a830db331e8f7ef267}{byte\+\_\+lzma\+\_\+encoder}}}
+
+
+
+Definition at line 115 of file lzma\+\_\+encoder.\+h.
+
+\mbox{\Hypertarget{lzma__encoder_8h_a25d8b837ec6ef4f319ca40da108270c3}\label{lzma__encoder_8h_a25d8b837ec6ef4f319ca40da108270c3}} 
+\index{lzma\_encoder.h@{lzma\_encoder.h}!lzma\_encoder@{lzma\_encoder}}
+\index{lzma\_encoder@{lzma\_encoder}!lzma\_encoder.h@{lzma\_encoder.h}}
+\doxysubsubsection{\texorpdfstring{lzma\_encoder}{lzma\_encoder}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classbasic__lzma__encoder}{basic\+\_\+lzma\+\_\+encoder}}$<$char, std\+::char\+\_\+traits$<$char$>$ $>$ \mbox{\hyperlink{lzma__encoder_8h_a25d8b837ec6ef4f319ca40da108270c3}{lzma\+\_\+encoder}}}
+
+
+
+Definition at line 116 of file lzma\+\_\+encoder.\+h.
+
+\mbox{\Hypertarget{lzma__encoder_8h_aa65a84f1d4eee3c8b8997165e2edfc7e}\label{lzma__encoder_8h_aa65a84f1d4eee3c8b8997165e2edfc7e}} 
+\index{lzma\_encoder.h@{lzma\_encoder.h}!wlzma\_encoder@{wlzma\_encoder}}
+\index{wlzma\_encoder@{wlzma\_encoder}!lzma\_encoder.h@{lzma\_encoder.h}}
+\doxysubsubsection{\texorpdfstring{wlzma\_encoder}{wlzma\_encoder}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classbasic__lzma__encoder}{basic\+\_\+lzma\+\_\+encoder}}$<$wchar\+\_\+t, std\+::char\+\_\+traits$<$wchar\+\_\+t$>$ $>$ \mbox{\hyperlink{lzma__encoder_8h_aa65a84f1d4eee3c8b8997165e2edfc7e}{wlzma\+\_\+encoder}}}
+
+
+
+Definition at line 117 of file lzma\+\_\+encoder.\+h.
+

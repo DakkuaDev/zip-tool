@@ -1,0 +1,61 @@
+\hypertarget{enum__utils_8h}{}\doxysection{source/\+Zip\+Lib/utils/enum\+\_\+utils.h File Reference}
+\label{enum__utils_8h}\index{source/ZipLib/utils/enum\_utils.h@{source/ZipLib/utils/enum\_utils.h}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+Include dependency graph for enum\+\_\+utils.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{enum__utils_8h_a755b8d745bfd5b681c5e0256d639b266}{MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+BASE}}(Enum\+Type,  type,  friend)
+\item 
+\#define \mbox{\hyperlink{enum__utils_8h_a19de436b5ce9eccd5520ac5c9b6c3403}{MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS}}(Enum\+Type)~\mbox{\hyperlink{enum__utils_8h_a755b8d745bfd5b681c5e0256d639b266}{MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+BASE}}(Enum\+Type, uint32\+\_\+t, )
+\item 
+\#define \mbox{\hyperlink{enum__utils_8h_a80b21c034c045d85c1ffcc326af42d5a}{MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+FRIEND}}(Enum\+Type)~\mbox{\hyperlink{enum__utils_8h_a755b8d745bfd5b681c5e0256d639b266}{MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+BASE}}(Enum\+Type, uint32\+\_\+t, friend)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{enum__utils_8h_a19de436b5ce9eccd5520ac5c9b6c3403}\label{enum__utils_8h_a19de436b5ce9eccd5520ac5c9b6c3403}} 
+\index{enum\_utils.h@{enum\_utils.h}!MARK\_AS\_TYPED\_ENUMFLAGS@{MARK\_AS\_TYPED\_ENUMFLAGS}}
+\index{MARK\_AS\_TYPED\_ENUMFLAGS@{MARK\_AS\_TYPED\_ENUMFLAGS}!enum\_utils.h@{enum\_utils.h}}
+\doxysubsubsection{\texorpdfstring{MARK\_AS\_TYPED\_ENUMFLAGS}{MARK\_AS\_TYPED\_ENUMFLAGS}}
+{\footnotesize\ttfamily \#define MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS(\begin{DoxyParamCaption}\item[{}]{Enum\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{enum__utils_8h_a755b8d745bfd5b681c5e0256d639b266}{MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+BASE}}(Enum\+Type, uint32\+\_\+t, )}
+
+
+
+Definition at line 14 of file enum\+\_\+utils.\+h.
+
+\mbox{\Hypertarget{enum__utils_8h_a755b8d745bfd5b681c5e0256d639b266}\label{enum__utils_8h_a755b8d745bfd5b681c5e0256d639b266}} 
+\index{enum\_utils.h@{enum\_utils.h}!MARK\_AS\_TYPED\_ENUMFLAGS\_BASE@{MARK\_AS\_TYPED\_ENUMFLAGS\_BASE}}
+\index{MARK\_AS\_TYPED\_ENUMFLAGS\_BASE@{MARK\_AS\_TYPED\_ENUMFLAGS\_BASE}!enum\_utils.h@{enum\_utils.h}}
+\doxysubsubsection{\texorpdfstring{MARK\_AS\_TYPED\_ENUMFLAGS\_BASE}{MARK\_AS\_TYPED\_ENUMFLAGS\_BASE}}
+{\footnotesize\ttfamily \#define MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+BASE(\begin{DoxyParamCaption}\item[{}]{Enum\+Type,  }\item[{}]{type,  }\item[{}]{friend }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keyword}{inline} \textcolor{keyword}{friend} \textcolor{keywordtype}{bool}     operator !  (EnumType  lhs)                \{ \textcolor{keywordflow}{return} bool( ! type (lhs) ); \}                \(\backslash\)}
+\DoxyCodeLine{  inline \textcolor{keyword}{friend} EnumType operator \string~  (EnumType  lhs)                \{ \textcolor{keywordflow}{return} EnumType( \string~ type (lhs) ); \}            \(\backslash\)}
+\DoxyCodeLine{  inline \textcolor{keyword}{friend} EnumType operator |  (EnumType  lhs, EnumType rhs)  \{ \textcolor{keywordflow}{return} EnumType( type (lhs) | type (rhs) ); \} \(\backslash\)}
+\DoxyCodeLine{  inline \textcolor{keyword}{friend} EnumType operator \&  (EnumType  lhs, EnumType rhs)  \{ \textcolor{keywordflow}{return} EnumType( type (lhs) \& type (rhs) ); \} \(\backslash\)}
+\DoxyCodeLine{  inline \textcolor{keyword}{friend} EnumType operator \string^  (EnumType  lhs, EnumType rhs)  \{ \textcolor{keywordflow}{return} EnumType( type (lhs) \string^ type (rhs) ); \} \(\backslash\)}
+\DoxyCodeLine{  inline \textcolor{keyword}{friend} EnumType operator |= (EnumType\& lhs, EnumType rhs)  \{ \textcolor{keywordflow}{return} lhs = lhs | rhs; \}                     \(\backslash\)}
+\DoxyCodeLine{  inline \textcolor{keyword}{friend} EnumType operator \&= (EnumType\& lhs, EnumType rhs)  \{ \textcolor{keywordflow}{return} lhs = lhs \& rhs; \}                     \(\backslash\)}
+\DoxyCodeLine{  inline \textcolor{keyword}{friend} EnumType operator \string^= (EnumType\& lhs, EnumType rhs)  \{ \textcolor{keywordflow}{return} lhs = lhs \string^ rhs; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 4 of file enum\+\_\+utils.\+h.
+
+\mbox{\Hypertarget{enum__utils_8h_a80b21c034c045d85c1ffcc326af42d5a}\label{enum__utils_8h_a80b21c034c045d85c1ffcc326af42d5a}} 
+\index{enum\_utils.h@{enum\_utils.h}!MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND@{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND}}
+\index{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND@{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND}!enum\_utils.h@{enum\_utils.h}}
+\doxysubsubsection{\texorpdfstring{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND}{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND}}
+{\footnotesize\ttfamily \#define MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+FRIEND(\begin{DoxyParamCaption}\item[{}]{Enum\+Type }\end{DoxyParamCaption})~\mbox{\hyperlink{enum__utils_8h_a755b8d745bfd5b681c5e0256d639b266}{MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+BASE}}(Enum\+Type, uint32\+\_\+t, friend)}
+
+
+
+Definition at line 15 of file enum\+\_\+utils.\+h.
+

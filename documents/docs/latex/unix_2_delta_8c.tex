@@ -1,0 +1,47 @@
+\hypertarget{unix_2_delta_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Delta.c File Reference}
+\label{unix_2_delta_8c}\index{source/ZipLib/extlibs/lzma/unix/Delta.c@{source/ZipLib/extlibs/lzma/unix/Delta.c}}
+{\ttfamily \#include \char`\"{}Delta.\+h\char`\"{}}\newline
+Include dependency graph for Delta.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{unix_2_delta_8c_af3cbdc1f43f40e6d881614e0c5f7e11f}{Delta\+\_\+\+Init}} (\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$state)
+\item 
+void \mbox{\hyperlink{unix_2_delta_8c_a1b1be95d4794c92989d8a742fcd6bdf2}{Delta\+\_\+\+Encode}} (\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$state, unsigned delta, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$data, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} size)
+\item 
+void \mbox{\hyperlink{unix_2_delta_8c_a6a482659b4fdf1f4d373b4fc7308d62c}{Delta\+\_\+\+Decode}} (\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$state, unsigned delta, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$data, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_2_delta_8c_a6a482659b4fdf1f4d373b4fc7308d62c}\label{unix_2_delta_8c_a6a482659b4fdf1f4d373b4fc7308d62c}} 
+\index{Delta.c@{Delta.c}!Delta\_Decode@{Delta\_Decode}}
+\index{Delta\_Decode@{Delta\_Decode}!Delta.c@{Delta.c}}
+\doxysubsubsection{\texorpdfstring{Delta\_Decode()}{Delta\_Decode()}}
+{\footnotesize\ttfamily void Delta\+\_\+\+Decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{state,  }\item[{unsigned}]{delta,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 43 of file Delta.\+c.
+
+\mbox{\Hypertarget{unix_2_delta_8c_a1b1be95d4794c92989d8a742fcd6bdf2}\label{unix_2_delta_8c_a1b1be95d4794c92989d8a742fcd6bdf2}} 
+\index{Delta.c@{Delta.c}!Delta\_Encode@{Delta\_Encode}}
+\index{Delta\_Encode@{Delta\_Encode}!Delta.c@{Delta.c}}
+\doxysubsubsection{\texorpdfstring{Delta\_Encode()}{Delta\_Encode()}}
+{\footnotesize\ttfamily void Delta\+\_\+\+Encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{state,  }\item[{unsigned}]{delta,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 20 of file Delta.\+c.
+
+\mbox{\Hypertarget{unix_2_delta_8c_af3cbdc1f43f40e6d881614e0c5f7e11f}\label{unix_2_delta_8c_af3cbdc1f43f40e6d881614e0c5f7e11f}} 
+\index{Delta.c@{Delta.c}!Delta\_Init@{Delta\_Init}}
+\index{Delta\_Init@{Delta\_Init}!Delta.c@{Delta.c}}
+\doxysubsubsection{\texorpdfstring{Delta\_Init()}{Delta\_Init()}}
+{\footnotesize\ttfamily void Delta\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{state }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file Delta.\+c.
+

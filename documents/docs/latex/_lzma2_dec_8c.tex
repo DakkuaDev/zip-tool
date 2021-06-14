@@ -1,0 +1,347 @@
+\hypertarget{_lzma2_dec_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/\+Lzma2\+Dec.c File Reference}
+\label{_lzma2_dec_8c}\index{source/ZipLib/extlibs/lzma/Lzma2Dec.c@{source/ZipLib/extlibs/lzma/Lzma2Dec.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Lzma2\+Dec.\+h\char`\"{}}\newline
+Include dependency graph for Lzma2\+Dec.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_a9877f0d833987304396987a1f2989cb2}{LZMA2\+\_\+\+CONTROL\+\_\+\+LZMA}}~(1 $<$$<$ 7)
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_a027b06982752a91738352aa2cf5a5b83}{LZMA2\+\_\+\+CONTROL\+\_\+\+COPY\+\_\+\+NO\+\_\+\+RESET}}~2
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_a6ddc0ae411d3597bae0184f638dc6a94}{LZMA2\+\_\+\+CONTROL\+\_\+\+COPY\+\_\+\+RESET\+\_\+\+DIC}}~1
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_ab97968b2411efb32c359e66ee37cc70d}{LZMA2\+\_\+\+CONTROL\+\_\+\+EOF}}~0
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_a250d604d5b7b5d782480ade414a875c8}{LZMA2\+\_\+\+IS\+\_\+\+UNCOMPRESSED\+\_\+\+STATE}}(p)~(((p)-\/$>$control \& \mbox{\hyperlink{unix_2_lzma2_enc_8c_a9877f0d833987304396987a1f2989cb2}{LZMA2\+\_\+\+CONTROL\+\_\+\+LZMA}}) == 0)
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_af7cfbc22ea8dbe12fb571013e6aae1ab}{LZMA2\+\_\+\+GET\+\_\+\+LZMA\+\_\+\+MODE}}(p)~(((p)-\/$>$control $>$$>$ 5) \& 3)
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_a141b36498765787ce7ec4de46b7c6f66}{LZMA2\+\_\+\+IS\+\_\+\+THERE\+\_\+\+PROP}}(mode)~((mode) $>$= 2)
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_ab29d3bf2fef2b2e128c9ef9582868bc4}{LZMA2\+\_\+\+LCLP\+\_\+\+MAX}}~4
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_aaa12970e443d54553d075f0049e51949}{LZMA2\+\_\+\+DIC\+\_\+\+SIZE\+\_\+\+FROM\+\_\+\+PROP}}(p)~(((\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})2 $\vert$ ((p) \& 1)) $<$$<$ ((p) / 2 + 11))
+\item 
+\#define \mbox{\hyperlink{_lzma2_dec_8c_abf7dbba120babe0bf44dd2568f433add}{PRF}}(x)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8b}{ELzma2\+State}} \{ \newline
+\mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba39b0e3c26dc0c04ffb869cc4e70fafee}{LZMA2\+\_\+\+STATE\+\_\+\+CONTROL}}
+, \mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba1c40369be8c910708804f6f744bcea82}{LZMA2\+\_\+\+STATE\+\_\+\+UNPACK0}}
+, \mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba6840a8809b85deff8de72ef04e40e6d9}{LZMA2\+\_\+\+STATE\+\_\+\+UNPACK1}}
+, \mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba910e03fe277c7ad9eaf1b17e85b6f266}{LZMA2\+\_\+\+STATE\+\_\+\+PACK0}}
+, \newline
+\mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bae37c355b3e5673b3453feb71a2895ba1}{LZMA2\+\_\+\+STATE\+\_\+\+PACK1}}
+, \mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba9e1993c8e739df365426ae7618749d30}{LZMA2\+\_\+\+STATE\+\_\+\+PROP}}
+, \mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba44aa03b4ed64e8a8a4a82fd8ca6a6348}{LZMA2\+\_\+\+STATE\+\_\+\+DATA}}
+, \mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba61350b86b3aecd0d51587e0145697935}{LZMA2\+\_\+\+STATE\+\_\+\+DATA\+\_\+\+CONT}}
+, \newline
+\mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bab0e9d123d86abde858ec1b0ce114d38e}{LZMA2\+\_\+\+STATE\+\_\+\+FINISHED}}
+, \mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba06eebe7114159d332d4e7ec14002c4e9}{LZMA2\+\_\+\+STATE\+\_\+\+ERROR}}
+, \mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba39b0e3c26dc0c04ffb869cc4e70fafee}{LZMA2\+\_\+\+STATE\+\_\+\+CONTROL}}
+, \mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba1c40369be8c910708804f6f744bcea82}{LZMA2\+\_\+\+STATE\+\_\+\+UNPACK0}}
+, \newline
+\mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba6840a8809b85deff8de72ef04e40e6d9}{LZMA2\+\_\+\+STATE\+\_\+\+UNPACK1}}
+, \mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba910e03fe277c7ad9eaf1b17e85b6f266}{LZMA2\+\_\+\+STATE\+\_\+\+PACK0}}
+, \mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bae37c355b3e5673b3453feb71a2895ba1}{LZMA2\+\_\+\+STATE\+\_\+\+PACK1}}
+, \mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba9e1993c8e739df365426ae7618749d30}{LZMA2\+\_\+\+STATE\+\_\+\+PROP}}
+, \newline
+\mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba44aa03b4ed64e8a8a4a82fd8ca6a6348}{LZMA2\+\_\+\+STATE\+\_\+\+DATA}}
+, \mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba61350b86b3aecd0d51587e0145697935}{LZMA2\+\_\+\+STATE\+\_\+\+DATA\+\_\+\+CONT}}
+, \mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bab0e9d123d86abde858ec1b0ce114d38e}{LZMA2\+\_\+\+STATE\+\_\+\+FINISHED}}
+, \mbox{\hyperlink{unix_2_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba06eebe7114159d332d4e7ec14002c4e9}{LZMA2\+\_\+\+STATE\+\_\+\+ERROR}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma2_dec_8c_a7a1ea23aef060bcf26aadfb761b476a7}{Lzma2\+Dec\+\_\+\+Allocate\+Probs}} (\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$p, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} prop, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma2_dec_8c_a950868b297dc9525623171b274e80827}{Lzma2\+Dec\+\_\+\+Allocate}} (\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$p, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} prop, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{_lzma2_dec_8c_a3aca6449979b2d9b77824fe941046378}{Lzma2\+Dec\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$p)
+\item 
+void \mbox{\hyperlink{_lzma2_dec_8c_a9973d4d5eca28d1b20e60a5808c17f62}{Lzma\+Dec\+\_\+\+Init\+Dic\+And\+State}} (\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} init\+Dic, \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} init\+State)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma2_dec_8c_a5046ce9af1eb033f200d4893abfc6e18}{Lzma2\+Dec\+\_\+\+Decode\+To\+Dic}} (\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$p, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} dic\+Limit, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$src\+Len, \mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}} finish\+Mode, \mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$status)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma2_dec_8c_a1d60823d8eb5ee83e2a2b429286e0135}{Lzma2\+Dec\+\_\+\+Decode\+To\+Buf}} (\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$p, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$src\+Len, \mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}} finish\+Mode, \mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$status)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma2_dec_8c_a54c2c4b5be2b8ff4c7c480be8b90f6bb}{Lzma2\+Decode}} (\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$src\+Len, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} prop, \mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}} finish\+Mode, \mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$status, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_lzma2_dec_8c_a027b06982752a91738352aa2cf5a5b83}\label{_lzma2_dec_8c_a027b06982752a91738352aa2cf5a5b83}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_CONTROL\_COPY\_NO\_RESET@{LZMA2\_CONTROL\_COPY\_NO\_RESET}}
+\index{LZMA2\_CONTROL\_COPY\_NO\_RESET@{LZMA2\_CONTROL\_COPY\_NO\_RESET}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA2\_CONTROL\_COPY\_NO\_RESET}{LZMA2\_CONTROL\_COPY\_NO\_RESET}}
+{\footnotesize\ttfamily \#define LZMA2\+\_\+\+CONTROL\+\_\+\+COPY\+\_\+\+NO\+\_\+\+RESET~2}
+
+
+
+Definition at line 29 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a6ddc0ae411d3597bae0184f638dc6a94}\label{_lzma2_dec_8c_a6ddc0ae411d3597bae0184f638dc6a94}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_CONTROL\_COPY\_RESET\_DIC@{LZMA2\_CONTROL\_COPY\_RESET\_DIC}}
+\index{LZMA2\_CONTROL\_COPY\_RESET\_DIC@{LZMA2\_CONTROL\_COPY\_RESET\_DIC}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA2\_CONTROL\_COPY\_RESET\_DIC}{LZMA2\_CONTROL\_COPY\_RESET\_DIC}}
+{\footnotesize\ttfamily \#define LZMA2\+\_\+\+CONTROL\+\_\+\+COPY\+\_\+\+RESET\+\_\+\+DIC~1}
+
+
+
+Definition at line 30 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_ab97968b2411efb32c359e66ee37cc70d}\label{_lzma2_dec_8c_ab97968b2411efb32c359e66ee37cc70d}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_CONTROL\_EOF@{LZMA2\_CONTROL\_EOF}}
+\index{LZMA2\_CONTROL\_EOF@{LZMA2\_CONTROL\_EOF}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA2\_CONTROL\_EOF}{LZMA2\_CONTROL\_EOF}}
+{\footnotesize\ttfamily \#define LZMA2\+\_\+\+CONTROL\+\_\+\+EOF~0}
+
+
+
+Definition at line 31 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a9877f0d833987304396987a1f2989cb2}\label{_lzma2_dec_8c_a9877f0d833987304396987a1f2989cb2}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_CONTROL\_LZMA@{LZMA2\_CONTROL\_LZMA}}
+\index{LZMA2\_CONTROL\_LZMA@{LZMA2\_CONTROL\_LZMA}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA2\_CONTROL\_LZMA}{LZMA2\_CONTROL\_LZMA}}
+{\footnotesize\ttfamily \#define LZMA2\+\_\+\+CONTROL\+\_\+\+LZMA~(1 $<$$<$ 7)}
+
+
+
+Definition at line 28 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_aaa12970e443d54553d075f0049e51949}\label{_lzma2_dec_8c_aaa12970e443d54553d075f0049e51949}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_DIC\_SIZE\_FROM\_PROP@{LZMA2\_DIC\_SIZE\_FROM\_PROP}}
+\index{LZMA2\_DIC\_SIZE\_FROM\_PROP@{LZMA2\_DIC\_SIZE\_FROM\_PROP}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA2\_DIC\_SIZE\_FROM\_PROP}{LZMA2\_DIC\_SIZE\_FROM\_PROP}}
+{\footnotesize\ttfamily \#define LZMA2\+\_\+\+DIC\+\_\+\+SIZE\+\_\+\+FROM\+\_\+\+PROP(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~(((\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})2 $\vert$ ((p) \& 1)) $<$$<$ ((p) / 2 + 11))}
+
+
+
+Definition at line 39 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_af7cfbc22ea8dbe12fb571013e6aae1ab}\label{_lzma2_dec_8c_af7cfbc22ea8dbe12fb571013e6aae1ab}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_GET\_LZMA\_MODE@{LZMA2\_GET\_LZMA\_MODE}}
+\index{LZMA2\_GET\_LZMA\_MODE@{LZMA2\_GET\_LZMA\_MODE}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA2\_GET\_LZMA\_MODE}{LZMA2\_GET\_LZMA\_MODE}}
+{\footnotesize\ttfamily \#define LZMA2\+\_\+\+GET\+\_\+\+LZMA\+\_\+\+MODE(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~(((p)-\/$>$control $>$$>$ 5) \& 3)}
+
+
+
+Definition at line 35 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a141b36498765787ce7ec4de46b7c6f66}\label{_lzma2_dec_8c_a141b36498765787ce7ec4de46b7c6f66}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_IS\_THERE\_PROP@{LZMA2\_IS\_THERE\_PROP}}
+\index{LZMA2\_IS\_THERE\_PROP@{LZMA2\_IS\_THERE\_PROP}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA2\_IS\_THERE\_PROP}{LZMA2\_IS\_THERE\_PROP}}
+{\footnotesize\ttfamily \#define LZMA2\+\_\+\+IS\+\_\+\+THERE\+\_\+\+PROP(\begin{DoxyParamCaption}\item[{}]{mode }\end{DoxyParamCaption})~((mode) $>$= 2)}
+
+
+
+Definition at line 36 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a250d604d5b7b5d782480ade414a875c8}\label{_lzma2_dec_8c_a250d604d5b7b5d782480ade414a875c8}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_IS\_UNCOMPRESSED\_STATE@{LZMA2\_IS\_UNCOMPRESSED\_STATE}}
+\index{LZMA2\_IS\_UNCOMPRESSED\_STATE@{LZMA2\_IS\_UNCOMPRESSED\_STATE}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA2\_IS\_UNCOMPRESSED\_STATE}{LZMA2\_IS\_UNCOMPRESSED\_STATE}}
+{\footnotesize\ttfamily \#define LZMA2\+\_\+\+IS\+\_\+\+UNCOMPRESSED\+\_\+\+STATE(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~(((p)-\/$>$control \& \mbox{\hyperlink{unix_2_lzma2_enc_8c_a9877f0d833987304396987a1f2989cb2}{LZMA2\+\_\+\+CONTROL\+\_\+\+LZMA}}) == 0)}
+
+
+
+Definition at line 33 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_ab29d3bf2fef2b2e128c9ef9582868bc4}\label{_lzma2_dec_8c_ab29d3bf2fef2b2e128c9ef9582868bc4}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_LCLP\_MAX@{LZMA2\_LCLP\_MAX}}
+\index{LZMA2\_LCLP\_MAX@{LZMA2\_LCLP\_MAX}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA2\_LCLP\_MAX}{LZMA2\_LCLP\_MAX}}
+{\footnotesize\ttfamily \#define LZMA2\+\_\+\+LCLP\+\_\+\+MAX~4}
+
+
+
+Definition at line 38 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_abf7dbba120babe0bf44dd2568f433add}\label{_lzma2_dec_8c_abf7dbba120babe0bf44dd2568f433add}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!PRF@{PRF}}
+\index{PRF@{PRF}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{PRF}{PRF}}
+{\footnotesize\ttfamily \#define PRF(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 44 of file Lzma2\+Dec.\+c.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8b}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8b}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!ELzma2State@{ELzma2State}}
+\index{ELzma2State@{ELzma2State}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{ELzma2State}{ELzma2State}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8b}{ELzma2\+State}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_CONTROL@{LZMA2\_STATE\_CONTROL}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_CONTROL@{LZMA2\_STATE\_CONTROL}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba39b0e3c26dc0c04ffb869cc4e70fafee}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba39b0e3c26dc0c04ffb869cc4e70fafee}} 
+LZMA2\+\_\+\+STATE\+\_\+\+CONTROL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_UNPACK0@{LZMA2\_STATE\_UNPACK0}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_UNPACK0@{LZMA2\_STATE\_UNPACK0}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba1c40369be8c910708804f6f744bcea82}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba1c40369be8c910708804f6f744bcea82}} 
+LZMA2\+\_\+\+STATE\+\_\+\+UNPACK0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_UNPACK1@{LZMA2\_STATE\_UNPACK1}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_UNPACK1@{LZMA2\_STATE\_UNPACK1}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba6840a8809b85deff8de72ef04e40e6d9}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba6840a8809b85deff8de72ef04e40e6d9}} 
+LZMA2\+\_\+\+STATE\+\_\+\+UNPACK1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_PACK0@{LZMA2\_STATE\_PACK0}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_PACK0@{LZMA2\_STATE\_PACK0}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba910e03fe277c7ad9eaf1b17e85b6f266}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba910e03fe277c7ad9eaf1b17e85b6f266}} 
+LZMA2\+\_\+\+STATE\+\_\+\+PACK0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_PACK1@{LZMA2\_STATE\_PACK1}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_PACK1@{LZMA2\_STATE\_PACK1}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bae37c355b3e5673b3453feb71a2895ba1}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bae37c355b3e5673b3453feb71a2895ba1}} 
+LZMA2\+\_\+\+STATE\+\_\+\+PACK1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_PROP@{LZMA2\_STATE\_PROP}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_PROP@{LZMA2\_STATE\_PROP}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba9e1993c8e739df365426ae7618749d30}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba9e1993c8e739df365426ae7618749d30}} 
+LZMA2\+\_\+\+STATE\+\_\+\+PROP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_DATA@{LZMA2\_STATE\_DATA}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_DATA@{LZMA2\_STATE\_DATA}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba44aa03b4ed64e8a8a4a82fd8ca6a6348}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba44aa03b4ed64e8a8a4a82fd8ca6a6348}} 
+LZMA2\+\_\+\+STATE\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_DATA\_CONT@{LZMA2\_STATE\_DATA\_CONT}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_DATA\_CONT@{LZMA2\_STATE\_DATA\_CONT}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba61350b86b3aecd0d51587e0145697935}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba61350b86b3aecd0d51587e0145697935}} 
+LZMA2\+\_\+\+STATE\+\_\+\+DATA\+\_\+\+CONT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_FINISHED@{LZMA2\_STATE\_FINISHED}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_FINISHED@{LZMA2\_STATE\_FINISHED}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bab0e9d123d86abde858ec1b0ce114d38e}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bab0e9d123d86abde858ec1b0ce114d38e}} 
+LZMA2\+\_\+\+STATE\+\_\+\+FINISHED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_ERROR@{LZMA2\_STATE\_ERROR}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_ERROR@{LZMA2\_STATE\_ERROR}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba06eebe7114159d332d4e7ec14002c4e9}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba06eebe7114159d332d4e7ec14002c4e9}} 
+LZMA2\+\_\+\+STATE\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_CONTROL@{LZMA2\_STATE\_CONTROL}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_CONTROL@{LZMA2\_STATE\_CONTROL}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba39b0e3c26dc0c04ffb869cc4e70fafee}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba39b0e3c26dc0c04ffb869cc4e70fafee}} 
+LZMA2\+\_\+\+STATE\+\_\+\+CONTROL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_UNPACK0@{LZMA2\_STATE\_UNPACK0}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_UNPACK0@{LZMA2\_STATE\_UNPACK0}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba1c40369be8c910708804f6f744bcea82}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba1c40369be8c910708804f6f744bcea82}} 
+LZMA2\+\_\+\+STATE\+\_\+\+UNPACK0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_UNPACK1@{LZMA2\_STATE\_UNPACK1}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_UNPACK1@{LZMA2\_STATE\_UNPACK1}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba6840a8809b85deff8de72ef04e40e6d9}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba6840a8809b85deff8de72ef04e40e6d9}} 
+LZMA2\+\_\+\+STATE\+\_\+\+UNPACK1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_PACK0@{LZMA2\_STATE\_PACK0}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_PACK0@{LZMA2\_STATE\_PACK0}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba910e03fe277c7ad9eaf1b17e85b6f266}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba910e03fe277c7ad9eaf1b17e85b6f266}} 
+LZMA2\+\_\+\+STATE\+\_\+\+PACK0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_PACK1@{LZMA2\_STATE\_PACK1}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_PACK1@{LZMA2\_STATE\_PACK1}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bae37c355b3e5673b3453feb71a2895ba1}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bae37c355b3e5673b3453feb71a2895ba1}} 
+LZMA2\+\_\+\+STATE\+\_\+\+PACK1&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_PROP@{LZMA2\_STATE\_PROP}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_PROP@{LZMA2\_STATE\_PROP}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba9e1993c8e739df365426ae7618749d30}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba9e1993c8e739df365426ae7618749d30}} 
+LZMA2\+\_\+\+STATE\+\_\+\+PROP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_DATA@{LZMA2\_STATE\_DATA}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_DATA@{LZMA2\_STATE\_DATA}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba44aa03b4ed64e8a8a4a82fd8ca6a6348}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba44aa03b4ed64e8a8a4a82fd8ca6a6348}} 
+LZMA2\+\_\+\+STATE\+\_\+\+DATA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_DATA\_CONT@{LZMA2\_STATE\_DATA\_CONT}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_DATA\_CONT@{LZMA2\_STATE\_DATA\_CONT}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba61350b86b3aecd0d51587e0145697935}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba61350b86b3aecd0d51587e0145697935}} 
+LZMA2\+\_\+\+STATE\+\_\+\+DATA\+\_\+\+CONT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_FINISHED@{LZMA2\_STATE\_FINISHED}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_FINISHED@{LZMA2\_STATE\_FINISHED}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bab0e9d123d86abde858ec1b0ce114d38e}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8bab0e9d123d86abde858ec1b0ce114d38e}} 
+LZMA2\+\_\+\+STATE\+\_\+\+FINISHED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LZMA2\_STATE\_ERROR@{LZMA2\_STATE\_ERROR}!Lzma2Dec.c@{Lzma2Dec.c}}\index{Lzma2Dec.c@{Lzma2Dec.c}!LZMA2\_STATE\_ERROR@{LZMA2\_STATE\_ERROR}}}\mbox{\Hypertarget{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba06eebe7114159d332d4e7ec14002c4e9}\label{_lzma2_dec_8c_ae0f5ec6b12cde4150c8380484b76fe8ba06eebe7114159d332d4e7ec14002c4e9}} 
+LZMA2\+\_\+\+STATE\+\_\+\+ERROR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 47 of file Lzma2\+Dec.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_lzma2_dec_8c_a950868b297dc9525623171b274e80827}\label{_lzma2_dec_8c_a950868b297dc9525623171b274e80827}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!Lzma2Dec\_Allocate@{Lzma2Dec\_Allocate}}
+\index{Lzma2Dec\_Allocate@{Lzma2Dec\_Allocate}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{Lzma2Dec\_Allocate()}{Lzma2Dec\_Allocate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma2\+Dec\+\_\+\+Allocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}}}]{prop,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 82 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a7a1ea23aef060bcf26aadfb761b476a7}\label{_lzma2_dec_8c_a7a1ea23aef060bcf26aadfb761b476a7}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!Lzma2Dec\_AllocateProbs@{Lzma2Dec\_AllocateProbs}}
+\index{Lzma2Dec\_AllocateProbs@{Lzma2Dec\_AllocateProbs}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{Lzma2Dec\_AllocateProbs()}{Lzma2Dec\_AllocateProbs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma2\+Dec\+\_\+\+Allocate\+Probs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}}}]{prop,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a1d60823d8eb5ee83e2a2b429286e0135}\label{_lzma2_dec_8c_a1d60823d8eb5ee83e2a2b429286e0135}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!Lzma2Dec\_DecodeToBuf@{Lzma2Dec\_DecodeToBuf}}
+\index{Lzma2Dec\_DecodeToBuf@{Lzma2Dec\_DecodeToBuf}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{Lzma2Dec\_DecodeToBuf()}{Lzma2Dec\_DecodeToBuf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma2\+Dec\+\_\+\+Decode\+To\+Buf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{src\+Len,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}}}]{finish\+Mode,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 291 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a5046ce9af1eb033f200d4893abfc6e18}\label{_lzma2_dec_8c_a5046ce9af1eb033f200d4893abfc6e18}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!Lzma2Dec\_DecodeToDic@{Lzma2Dec\_DecodeToDic}}
+\index{Lzma2Dec\_DecodeToDic@{Lzma2Dec\_DecodeToDic}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{Lzma2Dec\_DecodeToDic()}{Lzma2Dec\_DecodeToDic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma2\+Dec\+\_\+\+Decode\+To\+Dic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{dic\+Limit,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{src\+Len,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}}}]{finish\+Mode,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 170 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a3aca6449979b2d9b77824fe941046378}\label{_lzma2_dec_8c_a3aca6449979b2d9b77824fe941046378}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!Lzma2Dec\_Init@{Lzma2Dec\_Init}}
+\index{Lzma2Dec\_Init@{Lzma2Dec\_Init}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{Lzma2Dec\_Init()}{Lzma2Dec\_Init()}}
+{\footnotesize\ttfamily void Lzma2\+Dec\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma2_dec}{CLzma2\+Dec}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 89 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a54c2c4b5be2b8ff4c7c480be8b90f6bb}\label{_lzma2_dec_8c_a54c2c4b5be2b8ff4c7c480be8b90f6bb}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!Lzma2Decode@{Lzma2Decode}}
+\index{Lzma2Decode@{Lzma2Decode}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{Lzma2Decode()}{Lzma2Decode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma2\+Decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{src\+Len,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}}}]{prop,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}}}]{finish\+Mode,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$}]{status,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 330 of file Lzma2\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma2_dec_8c_a9973d4d5eca28d1b20e60a5808c17f62}\label{_lzma2_dec_8c_a9973d4d5eca28d1b20e60a5808c17f62}} 
+\index{Lzma2Dec.c@{Lzma2Dec.c}!LzmaDec\_InitDicAndState@{LzmaDec\_InitDicAndState}}
+\index{LzmaDec\_InitDicAndState@{LzmaDec\_InitDicAndState}!Lzma2Dec.c@{Lzma2Dec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDec\_InitDicAndState()}{LzmaDec\_InitDicAndState()}}
+{\footnotesize\ttfamily void Lzma\+Dec\+\_\+\+Init\+Dic\+And\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}}}]{init\+Dic,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}}}]{init\+State }\end{DoxyParamCaption})}
+
+
+
+Definition at line 686 of file Lzma\+Dec.\+c.
+

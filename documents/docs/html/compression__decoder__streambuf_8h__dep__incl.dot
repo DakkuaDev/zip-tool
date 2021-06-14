@@ -1,0 +1,11 @@
+digraph "source/ZipLib/streams/streambuffs/compression_decoder_streambuf.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="source/ZipLib/streams\l/streambuffs/compression\l_decoder_streambuf.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="source/ZipLib/streams\l/compression_decoder\l_stream.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$compression__decoder__stream_8h.html",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="source/ZipLib/ZipArchive\lEntry.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_zip_archive_entry_8cpp.html",tooltip=" "];
+}

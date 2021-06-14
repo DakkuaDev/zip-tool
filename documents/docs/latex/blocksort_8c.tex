@@ -1,0 +1,393 @@
+\hypertarget{blocksort_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/bzip2/blocksort.c File Reference}
+\label{blocksort_8c}\index{source/ZipLib/extlibs/bzip2/blocksort.c@{source/ZipLib/extlibs/bzip2/blocksort.c}}
+{\ttfamily \#include \char`\"{}bzlib\+\_\+private.\+h\char`\"{}}\newline
+Include dependency graph for blocksort.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_ac445b187d175a89ecc216a915968544a}{fswap}}(zz1,  zz2)~   \{ \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} zztmp = zz1; zz1 = zz2; zz2 = zztmp; \}
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_ad060a167b40d01c40d0213c100140950}{fvswap}}(zzp1,  zzp2,  zzn)
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a3a446ef14fca6cda41a6634efdecdde6}{fmin}}(\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}},  \mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})~((\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}}) $<$ (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})) ? (\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}}) \+: (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a1a84bca877834c84a615addfcc75121c}{fpush}}(lz,  hz)
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a10dfd2fadea0be68cda3cb57ae6d6390}{fpop}}(lz,  hz)
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_af9fdfd0a20d01b5f5e6a0c98d5613e3d}{FALLBACK\+\_\+\+QSORT\+\_\+\+SMALL\+\_\+\+THRESH}}~10
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_ad72a13c8bc5733ba8e555e6192a9d5d2}{FALLBACK\+\_\+\+QSORT\+\_\+\+STACK\+\_\+\+SIZE}}~100
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a924f07eddb84b8ac6420328ffe4ba9d2}{SET\+\_\+\+BH}}(zz)~bhtab\mbox{[}(zz) $>$$>$ 5\mbox{]} $\vert$= (1 $<$$<$ ((zz) \& 31))
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_af4b766792d234bb80c65766a5d4db12a}{CLEAR\+\_\+\+BH}}(zz)~bhtab\mbox{[}(zz) $>$$>$ 5\mbox{]} \&= $\sim$(1 $<$$<$ ((zz) \& 31))
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a4a016d07392daa53c3af08213a208304}{ISSET\+\_\+\+BH}}(zz)~(bhtab\mbox{[}(zz) $>$$>$ 5\mbox{]} \& (1 $<$$<$ ((zz) \& 31)))
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a345de47c14e724d816633f21721cefe3}{WORD\+\_\+\+BH}}(zz)~bhtab\mbox{[}(zz) $>$$>$ 5\mbox{]}
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a7cc55e5c6eea01faf39662a8cbcc7dd9}{UNALIGNED\+\_\+\+BH}}(zz)~((zz) \& 0x01f)
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_ae573c117e4e9afac7bf09f172f8adbe0}{mswap}}(zz1,  zz2)~   \{ \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} zztmp = zz1; zz1 = zz2; zz2 = zztmp; \}
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a237ead4d4598250debc5887c990db5ac}{mvswap}}(zzp1,  zzp2,  zzn)
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_ad7cf61b6843c3ed06b7b1399d5e2fd21}{mmin}}(\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}},  \mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})~((\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}}) $<$ (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})) ? (\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}}) \+: (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_ab8b51c8377f4d14b0b95148996a5b846}{mpush}}(lz,  hz,  dz)
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a87b04f85112c84376e4eca97cc0eff07}{mpop}}(lz,  hz,  dz)
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a979c1ae5aac379123b3fd05aaa261ac7}{mnextsize}}(az)~(next\+Hi\mbox{[}az\mbox{]}-\/next\+Lo\mbox{[}az\mbox{]})
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_ae782115b234a7cdf2558978506b95d79}{mnextswap}}(az,  bz)
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a4a7f5a87cffcfeaf6960d5e167640148}{MAIN\+\_\+\+QSORT\+\_\+\+SMALL\+\_\+\+THRESH}}~20
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_aba9147c3d53a417053f6d690ab2af5b7}{MAIN\+\_\+\+QSORT\+\_\+\+DEPTH\+\_\+\+THRESH}}~(\mbox{\hyperlink{bzlib__private_8h_a8699f0da0e5326ac6a2b21e481297adb}{BZ\+\_\+\+N\+\_\+\+RADIX}} + \mbox{\hyperlink{bzlib__private_8h_a731f36ead7339c4ed70d81e317bc5079}{BZ\+\_\+\+N\+\_\+\+QSORT}})
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a1cb1a268a37cdaa3ce0aad0e5da82282}{MAIN\+\_\+\+QSORT\+\_\+\+STACK\+\_\+\+SIZE}}~100
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_af6677da9f8724a884908abe8e67fc4ef}{BIGFREQ}}(\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})~(ftab\mbox{[}((\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})+1) $<$$<$ 8\mbox{]} -\/ ftab\mbox{[}(\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}}) $<$$<$ 8\mbox{]})
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_a1bf446b5a9b8b5aa3feee8bb7b742166}{SETMASK}}~(1 $<$$<$ 21)
+\item 
+\#define \mbox{\hyperlink{blocksort_8c_ae7162657f5dbb2557674f2983006d29e}{CLEARMASK}}~($\sim$(\mbox{\hyperlink{blocksort_8c_a1bf446b5a9b8b5aa3feee8bb7b742166}{SETMASK}}))
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{blocksort_8c_aa472771468d845a21f3ce8a1769f2b6e}{BZ2\+\_\+block\+Sort}} (\mbox{\hyperlink{struct_e_state}{EState}} $\ast$s)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{blocksort_8c_af6677da9f8724a884908abe8e67fc4ef}\label{blocksort_8c_af6677da9f8724a884908abe8e67fc4ef}} 
+\index{blocksort.c@{blocksort.c}!BIGFREQ@{BIGFREQ}}
+\index{BIGFREQ@{BIGFREQ}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{BIGFREQ}{BIGFREQ}}
+{\footnotesize\ttfamily \#define BIGFREQ(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}} }\end{DoxyParamCaption})~(ftab\mbox{[}((\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})+1) $<$$<$ 8\mbox{]} -\/ ftab\mbox{[}(\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}}) $<$$<$ 8\mbox{]})}
+
+
+
+Definition at line 746 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_af4b766792d234bb80c65766a5d4db12a}\label{blocksort_8c_af4b766792d234bb80c65766a5d4db12a}} 
+\index{blocksort.c@{blocksort.c}!CLEAR\_BH@{CLEAR\_BH}}
+\index{CLEAR\_BH@{CLEAR\_BH}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{CLEAR\_BH}{CLEAR\_BH}}
+{\footnotesize\ttfamily \#define CLEAR\+\_\+\+BH(\begin{DoxyParamCaption}\item[{}]{zz }\end{DoxyParamCaption})~bhtab\mbox{[}(zz) $>$$>$ 5\mbox{]} \&= $\sim$(1 $<$$<$ ((zz) \& 31))}
+
+
+
+Definition at line 206 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_ae7162657f5dbb2557674f2983006d29e}\label{blocksort_8c_ae7162657f5dbb2557674f2983006d29e}} 
+\index{blocksort.c@{blocksort.c}!CLEARMASK@{CLEARMASK}}
+\index{CLEARMASK@{CLEARMASK}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{CLEARMASK}{CLEARMASK}}
+{\footnotesize\ttfamily \#define CLEARMASK~($\sim$(\mbox{\hyperlink{blocksort_8c_a1bf446b5a9b8b5aa3feee8bb7b742166}{SETMASK}}))}
+
+
+
+Definition at line 748 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_af9fdfd0a20d01b5f5e6a0c98d5613e3d}\label{blocksort_8c_af9fdfd0a20d01b5f5e6a0c98d5613e3d}} 
+\index{blocksort.c@{blocksort.c}!FALLBACK\_QSORT\_SMALL\_THRESH@{FALLBACK\_QSORT\_SMALL\_THRESH}}
+\index{FALLBACK\_QSORT\_SMALL\_THRESH@{FALLBACK\_QSORT\_SMALL\_THRESH}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{FALLBACK\_QSORT\_SMALL\_THRESH}{FALLBACK\_QSORT\_SMALL\_THRESH}}
+{\footnotesize\ttfamily \#define FALLBACK\+\_\+\+QSORT\+\_\+\+SMALL\+\_\+\+THRESH~10}
+
+
+
+Definition at line 88 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_ad72a13c8bc5733ba8e555e6192a9d5d2}\label{blocksort_8c_ad72a13c8bc5733ba8e555e6192a9d5d2}} 
+\index{blocksort.c@{blocksort.c}!FALLBACK\_QSORT\_STACK\_SIZE@{FALLBACK\_QSORT\_STACK\_SIZE}}
+\index{FALLBACK\_QSORT\_STACK\_SIZE@{FALLBACK\_QSORT\_STACK\_SIZE}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{FALLBACK\_QSORT\_STACK\_SIZE}{FALLBACK\_QSORT\_STACK\_SIZE}}
+{\footnotesize\ttfamily \#define FALLBACK\+\_\+\+QSORT\+\_\+\+STACK\+\_\+\+SIZE~100}
+
+
+
+Definition at line 89 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a3a446ef14fca6cda41a6634efdecdde6}\label{blocksort_8c_a3a446ef14fca6cda41a6634efdecdde6}} 
+\index{blocksort.c@{blocksort.c}!fmin@{fmin}}
+\index{fmin@{fmin}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{fmin}{fmin}}
+{\footnotesize\ttfamily \#define fmin(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}},  }\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}} }\end{DoxyParamCaption})~((\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}}) $<$ (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})) ? (\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}}) \+: (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})}
+
+
+
+Definition at line 78 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a10dfd2fadea0be68cda3cb57ae6d6390}\label{blocksort_8c_a10dfd2fadea0be68cda3cb57ae6d6390}} 
+\index{blocksort.c@{blocksort.c}!fpop@{fpop}}
+\index{fpop@{fpop}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{fpop}{fpop}}
+{\footnotesize\ttfamily \#define fpop(\begin{DoxyParamCaption}\item[{}]{lz,  }\item[{}]{hz }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                      \{ sp-\/-\/;              \(\backslash\)}
+\DoxyCodeLine{                      lz = stackLo[sp];  \(\backslash\)}
+\DoxyCodeLine{                      hz = stackHi[sp]; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 84 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a1a84bca877834c84a615addfcc75121c}\label{blocksort_8c_a1a84bca877834c84a615addfcc75121c}} 
+\index{blocksort.c@{blocksort.c}!fpush@{fpush}}
+\index{fpush@{fpush}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{fpush}{fpush}}
+{\footnotesize\ttfamily \#define fpush(\begin{DoxyParamCaption}\item[{}]{lz,  }\item[{}]{hz }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                       \{ stackLo[sp] = lz; \(\backslash\)}
+\DoxyCodeLine{                       stackHi[sp] = hz; \(\backslash\)}
+\DoxyCodeLine{                       sp++; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 80 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_ac445b187d175a89ecc216a915968544a}\label{blocksort_8c_ac445b187d175a89ecc216a915968544a}} 
+\index{blocksort.c@{blocksort.c}!fswap@{fswap}}
+\index{fswap@{fswap}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{fswap}{fswap}}
+{\footnotesize\ttfamily \#define fswap(\begin{DoxyParamCaption}\item[{}]{zz1,  }\item[{}]{zz2 }\end{DoxyParamCaption})~   \{ \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} zztmp = zz1; zz1 = zz2; zz2 = zztmp; \}}
+
+
+
+Definition at line 63 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_ad060a167b40d01c40d0213c100140950}\label{blocksort_8c_ad060a167b40d01c40d0213c100140950}} 
+\index{blocksort.c@{blocksort.c}!fvswap@{fvswap}}
+\index{fvswap@{fvswap}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{fvswap}{fvswap}}
+{\footnotesize\ttfamily \#define fvswap(\begin{DoxyParamCaption}\item[{}]{zzp1,  }\item[{}]{zzp2,  }\item[{}]{zzn }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                                     \(\backslash\)}
+\DoxyCodeLine{   Int32 yyp1 = (zzp1);               \(\backslash\)}
+\DoxyCodeLine{   Int32 yyp2 = (zzp2);               \(\backslash\)}
+\DoxyCodeLine{   Int32 yyn  = (zzn);                \(\backslash\)}
+\DoxyCodeLine{   while (yyn > 0) \{                  \(\backslash\)}
+\DoxyCodeLine{      fswap(fmap[yyp1], fmap[yyp2]);  \(\backslash\)}
+\DoxyCodeLine{      yyp1++; yyp2++; yyn-\/-\/;          \(\backslash\)}
+\DoxyCodeLine{   \}                                  \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 66 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a4a016d07392daa53c3af08213a208304}\label{blocksort_8c_a4a016d07392daa53c3af08213a208304}} 
+\index{blocksort.c@{blocksort.c}!ISSET\_BH@{ISSET\_BH}}
+\index{ISSET\_BH@{ISSET\_BH}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{ISSET\_BH}{ISSET\_BH}}
+{\footnotesize\ttfamily \#define ISSET\+\_\+\+BH(\begin{DoxyParamCaption}\item[{}]{zz }\end{DoxyParamCaption})~(bhtab\mbox{[}(zz) $>$$>$ 5\mbox{]} \& (1 $<$$<$ ((zz) \& 31)))}
+
+
+
+Definition at line 207 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_aba9147c3d53a417053f6d690ab2af5b7}\label{blocksort_8c_aba9147c3d53a417053f6d690ab2af5b7}} 
+\index{blocksort.c@{blocksort.c}!MAIN\_QSORT\_DEPTH\_THRESH@{MAIN\_QSORT\_DEPTH\_THRESH}}
+\index{MAIN\_QSORT\_DEPTH\_THRESH@{MAIN\_QSORT\_DEPTH\_THRESH}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{MAIN\_QSORT\_DEPTH\_THRESH}{MAIN\_QSORT\_DEPTH\_THRESH}}
+{\footnotesize\ttfamily \#define MAIN\+\_\+\+QSORT\+\_\+\+DEPTH\+\_\+\+THRESH~(\mbox{\hyperlink{bzlib__private_8h_a8699f0da0e5326ac6a2b21e481297adb}{BZ\+\_\+\+N\+\_\+\+RADIX}} + \mbox{\hyperlink{bzlib__private_8h_a731f36ead7339c4ed70d81e317bc5079}{BZ\+\_\+\+N\+\_\+\+QSORT}})}
+
+
+
+Definition at line 617 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a4a7f5a87cffcfeaf6960d5e167640148}\label{blocksort_8c_a4a7f5a87cffcfeaf6960d5e167640148}} 
+\index{blocksort.c@{blocksort.c}!MAIN\_QSORT\_SMALL\_THRESH@{MAIN\_QSORT\_SMALL\_THRESH}}
+\index{MAIN\_QSORT\_SMALL\_THRESH@{MAIN\_QSORT\_SMALL\_THRESH}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{MAIN\_QSORT\_SMALL\_THRESH}{MAIN\_QSORT\_SMALL\_THRESH}}
+{\footnotesize\ttfamily \#define MAIN\+\_\+\+QSORT\+\_\+\+SMALL\+\_\+\+THRESH~20}
+
+
+
+Definition at line 616 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a1cb1a268a37cdaa3ce0aad0e5da82282}\label{blocksort_8c_a1cb1a268a37cdaa3ce0aad0e5da82282}} 
+\index{blocksort.c@{blocksort.c}!MAIN\_QSORT\_STACK\_SIZE@{MAIN\_QSORT\_STACK\_SIZE}}
+\index{MAIN\_QSORT\_STACK\_SIZE@{MAIN\_QSORT\_STACK\_SIZE}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{MAIN\_QSORT\_STACK\_SIZE}{MAIN\_QSORT\_STACK\_SIZE}}
+{\footnotesize\ttfamily \#define MAIN\+\_\+\+QSORT\+\_\+\+STACK\+\_\+\+SIZE~100}
+
+
+
+Definition at line 618 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_ad7cf61b6843c3ed06b7b1399d5e2fd21}\label{blocksort_8c_ad7cf61b6843c3ed06b7b1399d5e2fd21}} 
+\index{blocksort.c@{blocksort.c}!mmin@{mmin}}
+\index{mmin@{mmin}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{mmin}{mmin}}
+{\footnotesize\ttfamily \#define mmin(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}},  }\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}} }\end{DoxyParamCaption})~((\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}}) $<$ (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})) ? (\mbox{\hyperlink{unix_2_sha256_8c_aa9b8e98b3989bdffd7f36b281c72a693}{a}}) \+: (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})}
+
+
+
+Definition at line 594 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a979c1ae5aac379123b3fd05aaa261ac7}\label{blocksort_8c_a979c1ae5aac379123b3fd05aaa261ac7}} 
+\index{blocksort.c@{blocksort.c}!mnextsize@{mnextsize}}
+\index{mnextsize@{mnextsize}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{mnextsize}{mnextsize}}
+{\footnotesize\ttfamily \#define mnextsize(\begin{DoxyParamCaption}\item[{}]{az }\end{DoxyParamCaption})~(next\+Hi\mbox{[}az\mbox{]}-\/next\+Lo\mbox{[}az\mbox{]})}
+
+
+
+Definition at line 607 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_ae782115b234a7cdf2558978506b95d79}\label{blocksort_8c_ae782115b234a7cdf2558978506b95d79}} 
+\index{blocksort.c@{blocksort.c}!mnextswap@{mnextswap}}
+\index{mnextswap@{mnextswap}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{mnextswap}{mnextswap}}
+{\footnotesize\ttfamily \#define mnextswap(\begin{DoxyParamCaption}\item[{}]{az,  }\item[{}]{bz }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \{ \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} tz;                                                  \(\backslash\)}
+\DoxyCodeLine{     tz = nextLo[az]; nextLo[az] = nextLo[bz]; nextLo[bz] = tz; \(\backslash\)}
+\DoxyCodeLine{     tz = nextHi[az]; nextHi[az] = nextHi[bz]; nextHi[bz] = tz; \(\backslash\)}
+\DoxyCodeLine{     tz = nextD [az]; nextD [az] = nextD [bz]; nextD [bz] = tz; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 609 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a87b04f85112c84376e4eca97cc0eff07}\label{blocksort_8c_a87b04f85112c84376e4eca97cc0eff07}} 
+\index{blocksort.c@{blocksort.c}!mpop@{mpop}}
+\index{mpop@{mpop}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{mpop}{mpop}}
+{\footnotesize\ttfamily \#define mpop(\begin{DoxyParamCaption}\item[{}]{lz,  }\item[{}]{hz,  }\item[{}]{dz }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                         \{ sp-\/-\/;             \(\backslash\)}
+\DoxyCodeLine{                         lz = stackLo[sp]; \(\backslash\)}
+\DoxyCodeLine{                         hz = stackHi[sp]; \(\backslash\)}
+\DoxyCodeLine{                         dz = stackD [sp]; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 601 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_ab8b51c8377f4d14b0b95148996a5b846}\label{blocksort_8c_ab8b51c8377f4d14b0b95148996a5b846}} 
+\index{blocksort.c@{blocksort.c}!mpush@{mpush}}
+\index{mpush@{mpush}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{mpush}{mpush}}
+{\footnotesize\ttfamily \#define mpush(\begin{DoxyParamCaption}\item[{}]{lz,  }\item[{}]{hz,  }\item[{}]{dz }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                          \{ stackLo[sp] = lz; \(\backslash\)}
+\DoxyCodeLine{                          stackHi[sp] = hz; \(\backslash\)}
+\DoxyCodeLine{                          stackD [sp] = dz; \(\backslash\)}
+\DoxyCodeLine{                          sp++; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 596 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_ae573c117e4e9afac7bf09f172f8adbe0}\label{blocksort_8c_ae573c117e4e9afac7bf09f172f8adbe0}} 
+\index{blocksort.c@{blocksort.c}!mswap@{mswap}}
+\index{mswap@{mswap}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{mswap}{mswap}}
+{\footnotesize\ttfamily \#define mswap(\begin{DoxyParamCaption}\item[{}]{zz1,  }\item[{}]{zz2 }\end{DoxyParamCaption})~   \{ \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} zztmp = zz1; zz1 = zz2; zz2 = zztmp; \}}
+
+
+
+Definition at line 567 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a237ead4d4598250debc5887c990db5ac}\label{blocksort_8c_a237ead4d4598250debc5887c990db5ac}} 
+\index{blocksort.c@{blocksort.c}!mvswap@{mvswap}}
+\index{mvswap@{mvswap}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{mvswap}{mvswap}}
+{\footnotesize\ttfamily \#define mvswap(\begin{DoxyParamCaption}\item[{}]{zzp1,  }\item[{}]{zzp2,  }\item[{}]{zzn }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                                     \(\backslash\)}
+\DoxyCodeLine{   Int32 yyp1 = (zzp1);               \(\backslash\)}
+\DoxyCodeLine{   Int32 yyp2 = (zzp2);               \(\backslash\)}
+\DoxyCodeLine{   Int32 yyn  = (zzn);                \(\backslash\)}
+\DoxyCodeLine{   while (yyn > 0) \{                  \(\backslash\)}
+\DoxyCodeLine{      mswap(ptr[yyp1], ptr[yyp2]);    \(\backslash\)}
+\DoxyCodeLine{      yyp1++; yyp2++; yyn-\/-\/;          \(\backslash\)}
+\DoxyCodeLine{   \}                                  \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 570 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a924f07eddb84b8ac6420328ffe4ba9d2}\label{blocksort_8c_a924f07eddb84b8ac6420328ffe4ba9d2}} 
+\index{blocksort.c@{blocksort.c}!SET\_BH@{SET\_BH}}
+\index{SET\_BH@{SET\_BH}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{SET\_BH}{SET\_BH}}
+{\footnotesize\ttfamily \#define SET\+\_\+\+BH(\begin{DoxyParamCaption}\item[{}]{zz }\end{DoxyParamCaption})~bhtab\mbox{[}(zz) $>$$>$ 5\mbox{]} $\vert$= (1 $<$$<$ ((zz) \& 31))}
+
+
+
+Definition at line 205 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a1bf446b5a9b8b5aa3feee8bb7b742166}\label{blocksort_8c_a1bf446b5a9b8b5aa3feee8bb7b742166}} 
+\index{blocksort.c@{blocksort.c}!SETMASK@{SETMASK}}
+\index{SETMASK@{SETMASK}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{SETMASK}{SETMASK}}
+{\footnotesize\ttfamily \#define SETMASK~(1 $<$$<$ 21)}
+
+
+
+Definition at line 747 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a7cc55e5c6eea01faf39662a8cbcc7dd9}\label{blocksort_8c_a7cc55e5c6eea01faf39662a8cbcc7dd9}} 
+\index{blocksort.c@{blocksort.c}!UNALIGNED\_BH@{UNALIGNED\_BH}}
+\index{UNALIGNED\_BH@{UNALIGNED\_BH}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{UNALIGNED\_BH}{UNALIGNED\_BH}}
+{\footnotesize\ttfamily \#define UNALIGNED\+\_\+\+BH(\begin{DoxyParamCaption}\item[{}]{zz }\end{DoxyParamCaption})~((zz) \& 0x01f)}
+
+
+
+Definition at line 209 of file blocksort.\+c.
+
+\mbox{\Hypertarget{blocksort_8c_a345de47c14e724d816633f21721cefe3}\label{blocksort_8c_a345de47c14e724d816633f21721cefe3}} 
+\index{blocksort.c@{blocksort.c}!WORD\_BH@{WORD\_BH}}
+\index{WORD\_BH@{WORD\_BH}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{WORD\_BH}{WORD\_BH}}
+{\footnotesize\ttfamily \#define WORD\+\_\+\+BH(\begin{DoxyParamCaption}\item[{}]{zz }\end{DoxyParamCaption})~bhtab\mbox{[}(zz) $>$$>$ 5\mbox{]}}
+
+
+
+Definition at line 208 of file blocksort.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{blocksort_8c_aa472771468d845a21f3ce8a1769f2b6e}\label{blocksort_8c_aa472771468d845a21f3ce8a1769f2b6e}} 
+\index{blocksort.c@{blocksort.c}!BZ2\_blockSort@{BZ2\_blockSort}}
+\index{BZ2\_blockSort@{BZ2\_blockSort}!blocksort.c@{blocksort.c}}
+\doxysubsubsection{\texorpdfstring{BZ2\_blockSort()}{BZ2\_blockSort()}}
+{\footnotesize\ttfamily void BZ2\+\_\+block\+Sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_e_state}{EState}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1031 of file blocksort.\+c.
+

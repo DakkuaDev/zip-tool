@@ -1,0 +1,144 @@
+\hypertarget{7z_file_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/7z\+File.c File Reference}
+\label{7z_file_8c}\index{source/ZipLib/extlibs/lzma/7zFile.c@{source/ZipLib/extlibs/lzma/7zFile.c}}
+{\ttfamily \#include \char`\"{}7z\+File.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+Include dependency graph for 7z\+File.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{7z_file_8c_a111fc2848cbd3d24690080ccb4912cda}{File\+\_\+\+Construct}} (\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{7z_file_8c_abbfd0ec3a1881e34668bd9d597442c73}{In\+File\+\_\+\+Open}} (\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$name)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{7z_file_8c_aee8306388e21e3dfb817850822d57130}{Out\+File\+\_\+\+Open}} (\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$name)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{7z_file_8c_ad4ad194221ed4facb7c7b6aa7f4f094a}{File\+\_\+\+Close}} (\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{7z_file_8c_ad5e38b6f7a843ba3041753f31d8008be}{File\+\_\+\+Read}} (\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$p, void $\ast$data, size\+\_\+t $\ast$size)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{7z_file_8c_a3c6078b875145b484dd9b87423833072}{File\+\_\+\+Write}} (\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} void $\ast$data, size\+\_\+t $\ast$size)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{7z_file_8c_a91363f00595cb65b0c9dfe4502eb159f}{File\+\_\+\+Seek}} (\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$p, \mbox{\hyperlink{_types_8h_ade5ca5eec203b16d15253b7c422808bf}{Int64}} $\ast$pos, \mbox{\hyperlink{_types_8h_ab0216441b8737c13f5b275408f9e9709}{ESz\+Seek}} origin)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{7z_file_8c_a38bf8c24a998db9e7da69da8bb8baf84}{File\+\_\+\+Get\+Length}} (\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$p, \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} $\ast$length)
+\item 
+void \mbox{\hyperlink{7z_file_8c_a3e1642e63258e7f14d9685876682789d}{File\+Seq\+In\+Stream\+\_\+\+Create\+VTable}} (\mbox{\hyperlink{struct_c_file_seq_in_stream}{CFile\+Seq\+In\+Stream}} $\ast$p)
+\item 
+void \mbox{\hyperlink{7z_file_8c_a0a7be33711c0ff12cfb5b6dd579afd34}{File\+In\+Stream\+\_\+\+Create\+VTable}} (\mbox{\hyperlink{struct_c_file_in_stream}{CFile\+In\+Stream}} $\ast$p)
+\item 
+void \mbox{\hyperlink{7z_file_8c_aa3465175eaf12a1ce102e0a6ef607c96}{File\+Out\+Stream\+\_\+\+Create\+VTable}} (\mbox{\hyperlink{struct_c_file_out_stream}{CFile\+Out\+Stream}} $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{7z_file_8c_ad4ad194221ed4facb7c7b6aa7f4f094a}\label{7z_file_8c_ad4ad194221ed4facb7c7b6aa7f4f094a}} 
+\index{7zFile.c@{7zFile.c}!File\_Close@{File\_Close}}
+\index{File\_Close@{File\_Close}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{File\_Close()}{File\_Close()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} File\+\_\+\+Close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 76 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_a111fc2848cbd3d24690080ccb4912cda}\label{7z_file_8c_a111fc2848cbd3d24690080ccb4912cda}} 
+\index{7zFile.c@{7zFile.c}!File\_Construct@{File\_Construct}}
+\index{File\_Construct@{File\_Construct}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{File\_Construct()}{File\_Construct()}}
+{\footnotesize\ttfamily void File\+\_\+\+Construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_a38bf8c24a998db9e7da69da8bb8baf84}\label{7z_file_8c_a38bf8c24a998db9e7da69da8bb8baf84}} 
+\index{7zFile.c@{7zFile.c}!File\_GetLength@{File\_GetLength}}
+\index{File\_GetLength@{File\_GetLength}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{File\_GetLength()}{File\_GetLength()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} File\+\_\+\+Get\+Length (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} $\ast$}]{length }\end{DoxyParamCaption})}
+
+
+
+Definition at line 210 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_ad5e38b6f7a843ba3041753f31d8008be}\label{7z_file_8c_ad5e38b6f7a843ba3041753f31d8008be}} 
+\index{7zFile.c@{7zFile.c}!File\_Read@{File\_Read}}
+\index{File\_Read@{File\_Read}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{File\_Read()}{File\_Read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} File\+\_\+\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$}]{p,  }\item[{void $\ast$}]{data,  }\item[{size\+\_\+t $\ast$}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 97 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_a91363f00595cb65b0c9dfe4502eb159f}\label{7z_file_8c_a91363f00595cb65b0c9dfe4502eb159f}} 
+\index{7zFile.c@{7zFile.c}!File\_Seek@{File\_Seek}}
+\index{File\_Seek@{File\_Seek}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{File\_Seek()}{File\_Seek()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} File\+\_\+\+Seek (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ade5ca5eec203b16d15253b7c422808bf}{Int64}} $\ast$}]{pos,  }\item[{\mbox{\hyperlink{_types_8h_ab0216441b8737c13f5b275408f9e9709}{ESz\+Seek}}}]{origin }\end{DoxyParamCaption})}
+
+
+
+Definition at line 167 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_a3c6078b875145b484dd9b87423833072}\label{7z_file_8c_a3c6078b875145b484dd9b87423833072}} 
+\index{7zFile.c@{7zFile.c}!File\_Write@{File\_Write}}
+\index{File\_Write@{File\_Write}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{File\_Write()}{File\_Write()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} File\+\_\+\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} void $\ast$}]{data,  }\item[{size\+\_\+t $\ast$}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 132 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_a0a7be33711c0ff12cfb5b6dd579afd34}\label{7z_file_8c_a0a7be33711c0ff12cfb5b6dd579afd34}} 
+\index{7zFile.c@{7zFile.c}!FileInStream\_CreateVTable@{FileInStream\_CreateVTable}}
+\index{FileInStream\_CreateVTable@{FileInStream\_CreateVTable}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{FileInStream\_CreateVTable()}{FileInStream\_CreateVTable()}}
+{\footnotesize\ttfamily void File\+In\+Stream\+\_\+\+Create\+VTable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_file_in_stream}{CFile\+In\+Stream}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 265 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_aa3465175eaf12a1ce102e0a6ef607c96}\label{7z_file_8c_aa3465175eaf12a1ce102e0a6ef607c96}} 
+\index{7zFile.c@{7zFile.c}!FileOutStream\_CreateVTable@{FileOutStream\_CreateVTable}}
+\index{FileOutStream\_CreateVTable@{FileOutStream\_CreateVTable}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{FileOutStream\_CreateVTable()}{FileOutStream\_CreateVTable()}}
+{\footnotesize\ttfamily void File\+Out\+Stream\+\_\+\+Create\+VTable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_file_out_stream}{CFile\+Out\+Stream}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 281 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_a3e1642e63258e7f14d9685876682789d}\label{7z_file_8c_a3e1642e63258e7f14d9685876682789d}} 
+\index{7zFile.c@{7zFile.c}!FileSeqInStream\_CreateVTable@{FileSeqInStream\_CreateVTable}}
+\index{FileSeqInStream\_CreateVTable@{FileSeqInStream\_CreateVTable}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{FileSeqInStream\_CreateVTable()}{FileSeqInStream\_CreateVTable()}}
+{\footnotesize\ttfamily void File\+Seq\+In\+Stream\+\_\+\+Create\+VTable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_file_seq_in_stream}{CFile\+Seq\+In\+Stream}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 245 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_abbfd0ec3a1881e34668bd9d597442c73}\label{7z_file_8c_abbfd0ec3a1881e34668bd9d597442c73}} 
+\index{7zFile.c@{7zFile.c}!InFile\_Open@{InFile\_Open}}
+\index{InFile\_Open@{InFile\_Open}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{InFile\_Open()}{InFile\_Open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} In\+File\+\_\+\+Open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 58 of file 7z\+File.\+c.
+
+\mbox{\Hypertarget{7z_file_8c_aee8306388e21e3dfb817850822d57130}\label{7z_file_8c_aee8306388e21e3dfb817850822d57130}} 
+\index{7zFile.c@{7zFile.c}!OutFile\_Open@{OutFile\_Open}}
+\index{OutFile\_Open@{OutFile\_Open}!7zFile.c@{7zFile.c}}
+\doxysubsubsection{\texorpdfstring{OutFile\_Open()}{OutFile\_Open()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Out\+File\+\_\+\+Open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sz_file}{CSz\+File}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$}]{name }\end{DoxyParamCaption})}
+
+
+
+Definition at line 59 of file 7z\+File.\+c.
+

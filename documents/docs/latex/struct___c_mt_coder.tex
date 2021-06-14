@@ -1,0 +1,172 @@
+\hypertarget{struct___c_mt_coder}{}\doxysection{\+\_\+\+CMt\+Coder Struct Reference}
+\label{struct___c_mt_coder}\index{\_CMtCoder@{\_CMtCoder}}
+
+
+{\ttfamily \#include $<$Mt\+Coder.\+h$>$}
+
+
+
+Collaboration diagram for \+\_\+\+CMt\+Coder\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct___c_mt_coder_ad415a9cc8d689bb5a7dc28605e8c1f46}{block\+Size}}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct___c_mt_coder_a4808cc4674a270855842fdceb0b93dc7}{dest\+Block\+Size}}
+\item 
+unsigned \mbox{\hyperlink{struct___c_mt_coder_a9351fd1ebf3cc7c064c9776c4d42aca5}{num\+Threads}}
+\item 
+\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$ \mbox{\hyperlink{struct___c_mt_coder_a01ac677d3bf97f3497a46d5dcd11a7e1}{in\+Stream}}
+\item 
+\mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$ \mbox{\hyperlink{struct___c_mt_coder_af6ce9294eb2a6bd899a230cd5442bc18}{out\+Stream}}
+\item 
+\mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$ \mbox{\hyperlink{struct___c_mt_coder_ae970783a87426f0f2c8fca453478ce04}{progress}}
+\item 
+\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$ \mbox{\hyperlink{struct___c_mt_coder_a0d29d7fa9a5e8851ecf6443df27027e6}{alloc}}
+\item 
+\mbox{\hyperlink{struct_i_mt_coder_callback}{IMt\+Coder\+Callback}} $\ast$ \mbox{\hyperlink{struct___c_mt_coder_a464d0faa35b19f020fe2f411cf7eb104}{mt\+Callback}}
+\item 
+\mbox{\hyperlink{struct_c_critical_section}{CCritical\+Section}} \mbox{\hyperlink{struct___c_mt_coder_a473e4fc6d54cea39ffb9344926ed791f}{cs}}
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{struct___c_mt_coder_a9631e9313a252e3723e68ea6da9e5de3}{res}}
+\item 
+\mbox{\hyperlink{struct_c_mt_progress}{CMt\+Progress}} \mbox{\hyperlink{struct___c_mt_coder_a266199c35dbfcf48bbcd7edafa7184fc}{mt\+Progress}}
+\item 
+\mbox{\hyperlink{struct_c_mt_thread}{CMt\+Thread}} \mbox{\hyperlink{struct___c_mt_coder_a6ad655c779f3626f6ce0ac04fd749104}{threads}} \mbox{[}\mbox{\hyperlink{unix_2_mt_coder_8h_a5d5fcc0a119e812efc47b2f8d0282ca9}{NUM\+\_\+\+MT\+\_\+\+CODER\+\_\+\+THREADS\+\_\+\+MAX}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 73 of file Mt\+Coder.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct___c_mt_coder_a0d29d7fa9a5e8851ecf6443df27027e6}\label{struct___c_mt_coder_a0d29d7fa9a5e8851ecf6443df27027e6}} 
+\index{\_CMtCoder@{\_CMtCoder}!alloc@{alloc}}
+\index{alloc@{alloc}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{alloc}{alloc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$ \+\_\+\+CMt\+Coder\+::alloc}
+
+
+
+Definition at line 82 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_ad415a9cc8d689bb5a7dc28605e8c1f46}\label{struct___c_mt_coder_ad415a9cc8d689bb5a7dc28605e8c1f46}} 
+\index{\_CMtCoder@{\_CMtCoder}!blockSize@{blockSize}}
+\index{blockSize@{blockSize}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{blockSize}{blockSize}}
+{\footnotesize\ttfamily size\+\_\+t \+\_\+\+CMt\+Coder\+::block\+Size}
+
+
+
+Definition at line 75 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_a473e4fc6d54cea39ffb9344926ed791f}\label{struct___c_mt_coder_a473e4fc6d54cea39ffb9344926ed791f}} 
+\index{\_CMtCoder@{\_CMtCoder}!cs@{cs}}
+\index{cs@{cs}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{cs}{cs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_critical_section}{CCritical\+Section}} \+\_\+\+CMt\+Coder\+::cs}
+
+
+
+Definition at line 85 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_a4808cc4674a270855842fdceb0b93dc7}\label{struct___c_mt_coder_a4808cc4674a270855842fdceb0b93dc7}} 
+\index{\_CMtCoder@{\_CMtCoder}!destBlockSize@{destBlockSize}}
+\index{destBlockSize@{destBlockSize}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{destBlockSize}{destBlockSize}}
+{\footnotesize\ttfamily size\+\_\+t \+\_\+\+CMt\+Coder\+::dest\+Block\+Size}
+
+
+
+Definition at line 76 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_a01ac677d3bf97f3497a46d5dcd11a7e1}\label{struct___c_mt_coder_a01ac677d3bf97f3497a46d5dcd11a7e1}} 
+\index{\_CMtCoder@{\_CMtCoder}!inStream@{inStream}}
+\index{inStream@{inStream}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{inStream}{inStream}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$ \+\_\+\+CMt\+Coder\+::in\+Stream}
+
+
+
+Definition at line 79 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_a464d0faa35b19f020fe2f411cf7eb104}\label{struct___c_mt_coder_a464d0faa35b19f020fe2f411cf7eb104}} 
+\index{\_CMtCoder@{\_CMtCoder}!mtCallback@{mtCallback}}
+\index{mtCallback@{mtCallback}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{mtCallback}{mtCallback}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_i_mt_coder_callback}{IMt\+Coder\+Callback}} $\ast$ \+\_\+\+CMt\+Coder\+::mt\+Callback}
+
+
+
+Definition at line 84 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_a266199c35dbfcf48bbcd7edafa7184fc}\label{struct___c_mt_coder_a266199c35dbfcf48bbcd7edafa7184fc}} 
+\index{\_CMtCoder@{\_CMtCoder}!mtProgress@{mtProgress}}
+\index{mtProgress@{mtProgress}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{mtProgress}{mtProgress}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_mt_progress}{CMt\+Progress}} \+\_\+\+CMt\+Coder\+::mt\+Progress}
+
+
+
+Definition at line 88 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_a9351fd1ebf3cc7c064c9776c4d42aca5}\label{struct___c_mt_coder_a9351fd1ebf3cc7c064c9776c4d42aca5}} 
+\index{\_CMtCoder@{\_CMtCoder}!numThreads@{numThreads}}
+\index{numThreads@{numThreads}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{numThreads}{numThreads}}
+{\footnotesize\ttfamily unsigned \+\_\+\+CMt\+Coder\+::num\+Threads}
+
+
+
+Definition at line 77 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_af6ce9294eb2a6bd899a230cd5442bc18}\label{struct___c_mt_coder_af6ce9294eb2a6bd899a230cd5442bc18}} 
+\index{\_CMtCoder@{\_CMtCoder}!outStream@{outStream}}
+\index{outStream@{outStream}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{outStream}{outStream}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$ \+\_\+\+CMt\+Coder\+::out\+Stream}
+
+
+
+Definition at line 80 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_ae970783a87426f0f2c8fca453478ce04}\label{struct___c_mt_coder_ae970783a87426f0f2c8fca453478ce04}} 
+\index{\_CMtCoder@{\_CMtCoder}!progress@{progress}}
+\index{progress@{progress}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{progress}{progress}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$ \+\_\+\+CMt\+Coder\+::progress}
+
+
+
+Definition at line 81 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_a9631e9313a252e3723e68ea6da9e5de3}\label{struct___c_mt_coder_a9631e9313a252e3723e68ea6da9e5de3}} 
+\index{\_CMtCoder@{\_CMtCoder}!res@{res}}
+\index{res@{res}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{res}{res}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \+\_\+\+CMt\+Coder\+::res}
+
+
+
+Definition at line 86 of file Mt\+Coder.\+h.
+
+\mbox{\Hypertarget{struct___c_mt_coder_a6ad655c779f3626f6ce0ac04fd749104}\label{struct___c_mt_coder_a6ad655c779f3626f6ce0ac04fd749104}} 
+\index{\_CMtCoder@{\_CMtCoder}!threads@{threads}}
+\index{threads@{threads}!\_CMtCoder@{\_CMtCoder}}
+\doxysubsubsection{\texorpdfstring{threads}{threads}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_mt_thread}{CMt\+Thread}} \+\_\+\+CMt\+Coder\+::threads}
+
+
+
+Definition at line 89 of file Mt\+Coder.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/extlibs/lzma/\mbox{\hyperlink{_mt_coder_8h}{Mt\+Coder.\+h}}\end{DoxyCompactItemize}

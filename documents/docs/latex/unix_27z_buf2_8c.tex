@@ -1,0 +1,60 @@
+\hypertarget{unix_27z_buf2_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/7z\+Buf2.c File Reference}
+\label{unix_27z_buf2_8c}\index{source/ZipLib/extlibs/lzma/unix/7zBuf2.c@{source/ZipLib/extlibs/lzma/unix/7zBuf2.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}7z\+Buf.\+h\char`\"{}}\newline
+Include dependency graph for 7z\+Buf2.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{unix_27z_buf2_8c_a36eed4087a3e792487a7ff603b585899}{Dyn\+Buf\+\_\+\+Construct}} (\mbox{\hyperlink{struct_c_dyn_buf}{CDyn\+Buf}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_27z_buf2_8c_a1bd19587aaa730660eb0a4db1082701d}{Dyn\+Buf\+\_\+\+Seek\+To\+Beg}} (\mbox{\hyperlink{struct_c_dyn_buf}{CDyn\+Buf}} $\ast$p)
+\item 
+int \mbox{\hyperlink{unix_27z_buf2_8c_af50a75fbc8ca4f3c31c9333d851d3cc7}{Dyn\+Buf\+\_\+\+Write}} (\mbox{\hyperlink{struct_c_dyn_buf}{CDyn\+Buf}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$buf, size\+\_\+t size, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{unix_27z_buf2_8c_a0eacd117a90d885f2f66db8b9559aa53}{Dyn\+Buf\+\_\+\+Free}} (\mbox{\hyperlink{struct_c_dyn_buf}{CDyn\+Buf}} $\ast$p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_27z_buf2_8c_a36eed4087a3e792487a7ff603b585899}\label{unix_27z_buf2_8c_a36eed4087a3e792487a7ff603b585899}} 
+\index{7zBuf2.c@{7zBuf2.c}!DynBuf\_Construct@{DynBuf\_Construct}}
+\index{DynBuf\_Construct@{DynBuf\_Construct}!7zBuf2.c@{7zBuf2.c}}
+\doxysubsubsection{\texorpdfstring{DynBuf\_Construct()}{DynBuf\_Construct()}}
+{\footnotesize\ttfamily void Dyn\+Buf\+\_\+\+Construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_dyn_buf}{CDyn\+Buf}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file 7z\+Buf2.\+c.
+
+\mbox{\Hypertarget{unix_27z_buf2_8c_a0eacd117a90d885f2f66db8b9559aa53}\label{unix_27z_buf2_8c_a0eacd117a90d885f2f66db8b9559aa53}} 
+\index{7zBuf2.c@{7zBuf2.c}!DynBuf\_Free@{DynBuf\_Free}}
+\index{DynBuf\_Free@{DynBuf\_Free}!7zBuf2.c@{7zBuf2.c}}
+\doxysubsubsection{\texorpdfstring{DynBuf\_Free()}{DynBuf\_Free()}}
+{\footnotesize\ttfamily void Dyn\+Buf\+\_\+\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_dyn_buf}{CDyn\+Buf}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 39 of file 7z\+Buf2.\+c.
+
+\mbox{\Hypertarget{unix_27z_buf2_8c_a1bd19587aaa730660eb0a4db1082701d}\label{unix_27z_buf2_8c_a1bd19587aaa730660eb0a4db1082701d}} 
+\index{7zBuf2.c@{7zBuf2.c}!DynBuf\_SeekToBeg@{DynBuf\_SeekToBeg}}
+\index{DynBuf\_SeekToBeg@{DynBuf\_SeekToBeg}!7zBuf2.c@{7zBuf2.c}}
+\doxysubsubsection{\texorpdfstring{DynBuf\_SeekToBeg()}{DynBuf\_SeekToBeg()}}
+{\footnotesize\ttfamily void Dyn\+Buf\+\_\+\+Seek\+To\+Beg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_dyn_buf}{CDyn\+Buf}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 14 of file 7z\+Buf2.\+c.
+
+\mbox{\Hypertarget{unix_27z_buf2_8c_af50a75fbc8ca4f3c31c9333d851d3cc7}\label{unix_27z_buf2_8c_af50a75fbc8ca4f3c31c9333d851d3cc7}} 
+\index{7zBuf2.c@{7zBuf2.c}!DynBuf\_Write@{DynBuf\_Write}}
+\index{DynBuf\_Write@{DynBuf\_Write}!7zBuf2.c@{7zBuf2.c}}
+\doxysubsubsection{\texorpdfstring{DynBuf\_Write()}{DynBuf\_Write()}}
+{\footnotesize\ttfamily int Dyn\+Buf\+\_\+\+Write (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_dyn_buf}{CDyn\+Buf}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{buf,  }\item[{size\+\_\+t}]{size,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file 7z\+Buf2.\+c.
+

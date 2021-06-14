@@ -1,0 +1,990 @@
+\hypertarget{zlib_8h}{}\doxysection{source/\+Zip\+Lib/extlibs/zlib/zlib.h File Reference}
+\label{zlib_8h}\index{source/ZipLib/extlibs/zlib/zlib.h@{source/ZipLib/extlibs/zlib/zlib.h}}
+{\ttfamily \#include \char`\"{}zconf.\+h\char`\"{}}\newline
+Include dependency graph for zlib.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structz__stream__s}{z\+\_\+stream\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structgz__header__s}{gz\+\_\+header\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structgz_file__s}{gz\+File\+\_\+s}}
+\item 
+struct \mbox{\hyperlink{structinternal__state}{internal\+\_\+state}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}{ZLIB\+\_\+\+VERSION}}~\char`\"{}1.\+2.\+7\char`\"{}
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a6413cdfb4cdc0b5a09cf9b5f3f8f48ef}{ZLIB\+\_\+\+VERNUM}}~0x1270
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a52eec052f38e306d472e75bfafda9608}{ZLIB\+\_\+\+VER\+\_\+\+MAJOR}}~1
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a82109105b5511ffa8f8373b6a917e1e4}{ZLIB\+\_\+\+VER\+\_\+\+MINOR}}~2
+\item 
+\#define \mbox{\hyperlink{zlib_8h_ad3662b8749a50045ec1c120354fb7e9d}{ZLIB\+\_\+\+VER\+\_\+\+REVISION}}~7
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a788ea49a5b65e12b11d7f274542d5af5}{ZLIB\+\_\+\+VER\+\_\+\+SUBREVISION}}~0
+\item 
+\#define \mbox{\hyperlink{zlib_8h_ac3b62e37b9922d9496014515acd6083a}{Z\+\_\+\+NO\+\_\+\+FLUSH}}~0
+\item 
+\#define \mbox{\hyperlink{zlib_8h_adbd49089a5611593f05ac80c9e12cc7f}{Z\+\_\+\+PARTIAL\+\_\+\+FLUSH}}~1
+\item 
+\#define \mbox{\hyperlink{zlib_8h_aa32ca175522e0ef314f4dc0b0196bada}{Z\+\_\+\+SYNC\+\_\+\+FLUSH}}~2
+\item 
+\#define \mbox{\hyperlink{zlib_8h_aed4fbb038c3973aacf52fccffbc44b53}{Z\+\_\+\+FULL\+\_\+\+FLUSH}}~3
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a876a626ba14eb12eea4bbf6823b6ca50}{Z\+\_\+\+FINISH}}~4
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a73e5f4c24156c63ba863014396685062}{Z\+\_\+\+BLOCK}}~5
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a0c44b4d8d05cacb1227b535cd8ed538f}{Z\+\_\+\+TREES}}~6
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a8cb802b6a11e926478dc6547c514c65c}{Z\+\_\+\+OK}}~0
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a7d94a4a852228a899864a0053162e7a8}{Z\+\_\+\+STREAM\+\_\+\+END}}~1
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a32916ba675b2d06463da2576b6a49d64}{Z\+\_\+\+NEED\+\_\+\+DICT}}~2
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a3c66d64c427c0337c64e578537478737}{Z\+\_\+\+ERRNO}}~(-\/1)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_aad97cde83a9a4bb77f5c3b03bb68e483}{Z\+\_\+\+STREAM\+\_\+\+ERROR}}~(-\/2)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a9eda83d428a71752d148f38b5dbe04f2}{Z\+\_\+\+DATA\+\_\+\+ERROR}}~(-\/3)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_ae2be6be871e377c6e2c25a7296ce320c}{Z\+\_\+\+MEM\+\_\+\+ERROR}}~(-\/4)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a425e2f0664e1b1f75bf2bffab88d353d}{Z\+\_\+\+BUF\+\_\+\+ERROR}}~(-\/5)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a7634cdd55f955ee1be99c065c6977371}{Z\+\_\+\+VERSION\+\_\+\+ERROR}}~(-\/6)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a496a4523776bcfa14568cd083b59f24c}{Z\+\_\+\+NO\+\_\+\+COMPRESSION}}~0
+\item 
+\#define \mbox{\hyperlink{zlib_8h_ad5222ae19b77c6e83815d07ca5d03fd8}{Z\+\_\+\+BEST\+\_\+\+SPEED}}~1
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a8db83edd9dea51f8cf0afd1727838b95}{Z\+\_\+\+BEST\+\_\+\+COMPRESSION}}~9
+\item 
+\#define \mbox{\hyperlink{zlib_8h_af5387baee05124298e431ebe6fe96b17}{Z\+\_\+\+DEFAULT\+\_\+\+COMPRESSION}}~(-\/1)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_af01ccb5a9db8d415cde987d9553ad200}{Z\+\_\+\+FILTERED}}~1
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a1eec3d3720ba91fd54fa08d2757c1785}{Z\+\_\+\+HUFFMAN\+\_\+\+ONLY}}~2
+\item 
+\#define \mbox{\hyperlink{zlib_8h_af52c1220e7193d2da78332d75f9251ea}{Z\+\_\+\+RLE}}~3
+\item 
+\#define \mbox{\hyperlink{zlib_8h_aaa5c996fbc985d5ec43f99112c0ac4a6}{Z\+\_\+\+FIXED}}~4
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a580d7c2527e653ddd783109271750849}{Z\+\_\+\+DEFAULT\+\_\+\+STRATEGY}}~0
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a2bfe22ed89d3553335d18a4c3cab67af}{Z\+\_\+\+BINARY}}~0
+\item 
+\#define \mbox{\hyperlink{zlib_8h_ac5c9021ac9271248094c6b93c61e1f02}{Z\+\_\+\+TEXT}}~1
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a9a852d9163cdb10687403d4e79dda06e}{Z\+\_\+\+ASCII}}~\mbox{\hyperlink{zlib_8h_ac5c9021ac9271248094c6b93c61e1f02}{Z\+\_\+\+TEXT}}   /$\ast$ for compatibility with 1.\+2.\+2 and earlier $\ast$/
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a4be54d9d68d40adb73f87492284cc290}{Z\+\_\+\+UNKNOWN}}~2
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a27a96226f3dc88e4743131c632adf32f}{Z\+\_\+\+DEFLATED}}~8
+\item 
+\#define \mbox{\hyperlink{zlib_8h_ad15afa2776b41b2f4d8582dd152bd736}{Z\+\_\+\+NULL}}~0  /$\ast$ for initializing zalloc, zfree, opaque $\ast$/
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a1f228220c3e6935eb171761c61487059}{zlib\+\_\+version}}~\mbox{\hyperlink{zutil_8c_a705cd706dfe534aa9161a253a1c9a81a}{zlib\+Version}}()
+\item 
+\#define \mbox{\hyperlink{zlib_8h_ae7440c1c5a8becba6dbf410275dc0a5c}{deflate\+Init}}(strm,  level)~        \mbox{\hyperlink{deflate_8c_a0e6601591faa9573f27340153b0f3296}{deflate\+Init\+\_\+}}((strm), (level), \mbox{\hyperlink{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}{ZLIB\+\_\+\+VERSION}}, (int)sizeof(\mbox{\hyperlink{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}{z\+\_\+stream}}))
+\item 
+\#define \mbox{\hyperlink{zlib_8h_ad7c6797b618699f70f61323c5184f26e}{inflate\+Init}}(strm)~        \mbox{\hyperlink{inflate_8c_aed01e9084fe1ed4d8808bbcf525dfe63}{inflate\+Init\+\_\+}}((strm), \mbox{\hyperlink{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}{ZLIB\+\_\+\+VERSION}}, (int)sizeof(\mbox{\hyperlink{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}{z\+\_\+stream}}))
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a59b575a521efe7ea0d3b9dd3c8d315c1}{deflate\+Init2}}(strm,  level,  method,  window\+Bits,  mem\+Level,  strategy)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a611fc206e69f34e812ca8b590982fdd5}{inflate\+Init2}}(strm,  window\+Bits)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_a9253571ea0fc77cc53c330c0411b8c19}{inflate\+Back\+Init}}(strm,  window\+Bits,  window)
+\item 
+\#define \mbox{\hyperlink{zlib_8h_ac66eb8047c407f8613bc35e440b7b337}{gzgetc}}(\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}})~          ((\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}})-\/$>$have ? ((\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}})-\/$>$have-\/-\/, (\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}})-\/$>$pos++, $\ast$((\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}})-\/$>$next)++) \+: gzgetc(\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}}))
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} alloc\+\_\+func \mbox{\hyperlink{zlib_8h_a8614d49a5dd53697f4689073c0dbecbb}{OF}}((\mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} opaque, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} items, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} size))
+\item 
+typedef struct \mbox{\hyperlink{structz__stream__s}{z\+\_\+stream\+\_\+s}} \mbox{\hyperlink{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}{z\+\_\+stream}}
+\item 
+typedef \mbox{\hyperlink{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}{z\+\_\+stream}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$ \mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}
+\item 
+typedef struct \mbox{\hyperlink{structgz__header__s}{gz\+\_\+header\+\_\+s}} \mbox{\hyperlink{zlib_8h_aae85b4a4f7931ee1f67f54c459007421}{gz\+\_\+header}}
+\item 
+typedef \mbox{\hyperlink{zlib_8h_aae85b4a4f7931ee1f67f54c459007421}{gz\+\_\+header}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$ \mbox{\hyperlink{zlib_8h_a40e9dcc294796d99b25e98fb06477fc8}{gz\+\_\+headerp}}
+\item 
+typedef struct \mbox{\hyperlink{structgz_file__s}{gz\+File\+\_\+s}} $\ast$ \mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$\mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zutil_8c_a705cd706dfe534aa9161a253a1c9a81a}{zlib\+Version}} \mbox{\hyperlink{zlib_8h_ab1bbaa8881cd84bb4d6c306e3a315241}{OF}} ((void))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_aedba3a94d6e827d61b660443ae5b9f09}{deflate}} \mbox{\hyperlink{zlib_8h_a2e6d9561156aac56578c2f1434dc2595}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int flush))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_ada68769789b1d84de7e708d6e848a075}{deflate\+End}} \mbox{\hyperlink{zlib_8h_aaf595349427894f1dbaff9b509791256}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a4e2855f986abd56d4515e9bb09986a5b}{deflate\+Set\+Dictionary}} \mbox{\hyperlink{zlib_8h_a2a46b5c7e44d2163fa24d943211aedf2}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dictionary, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} dict\+Length))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a496430688ab9f4179689c883a6776b02}{deflate\+Copy}} \mbox{\hyperlink{zlib_8h_ae1a33ab7164b2fbab7683c4bea4c50c4}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} dest, \mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} source))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a6be3d26b7e317aa4db6c7870b1911d4d}{deflate\+Params}} \mbox{\hyperlink{zlib_8h_a35cdc947fd49a1bc22481945422bb97e}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int level, int strategy))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_aa2f2f8ee11441c80c35f035ad7efbb8e}{deflate\+Tune}} \mbox{\hyperlink{zlib_8h_a769be8bd85feda1b2dcb502abc010b23}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int good\+\_\+length, int max\+\_\+lazy, int nice\+\_\+length, int max\+\_\+chain))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a746d0203373d0033ab69055f72a370e8}{deflate\+Bound}} \mbox{\hyperlink{zlib_8h_ab8bfcdd5ca05f2544694149a771644fa}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} source\+Len))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a2c7406a0a5e85267e255cdb3ec39ee0d}{deflate\+Pending}} \mbox{\hyperlink{zlib_8h_a5332ba95660cfdfcfb02e4dca16b16f0}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, unsigned $\ast$pending, int $\ast$bits))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_aa8ca15b272bfde8fd23ab658d789aa87}{deflate\+Prime}} \mbox{\hyperlink{zlib_8h_a4891be63c26cb4dc463c8b2fba7e5ae2}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int bits, int value))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a0bb9d562cacbe698297de30cdeeb2153}{deflate\+Set\+Header}} \mbox{\hyperlink{zlib_8h_a77ea653416e54d2d8415fecdcfd2472c}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zlib_8h_a40e9dcc294796d99b25e98fb06477fc8}{gz\+\_\+headerp}} head))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_af5a145c15cfb580ef24ce3fc4d292a02}{inflate\+Reset2}} \mbox{\hyperlink{zlib_8h_a2b1869016067f610d37462ef1862e2bb}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int window\+Bits))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{infback_8c_a6568b72b098ada9bd162fc0365943f5c}{inflate\+Back}} \mbox{\hyperlink{zlib_8h_a8df5cf36f8df181376ad722b2c13c8c2}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, in\+\_\+func in, void \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$in\+\_\+desc, out\+\_\+func out, void \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$out\+\_\+desc))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zlib_2compress_8c_aef315743418d760a360e1be293d27cd1}{compress}} \mbox{\hyperlink{zlib_8h_a85df695aadb45de9c814f7a11f74705c}{OF}} ((\mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dest, \mbox{\hyperlink{zconf_8h_a0426a5a0ed418ec4ae15af8281c64254}{u\+Longf}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$source, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} source\+Len))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zlib_2compress_8c_aede7e438c033a969a1a40ba6b44f91f9}{compress2}} \mbox{\hyperlink{zlib_8h_aa38fec9fd654c448681296d8bfee871a}{OF}} ((\mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dest, \mbox{\hyperlink{zconf_8h_a0426a5a0ed418ec4ae15af8281c64254}{u\+Longf}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$source, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} source\+Len, int level))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zlib_2compress_8c_a6bfd92b4426ff6008c841c2cc6f8fed3}{compress\+Bound}} \mbox{\hyperlink{zlib_8h_a4d4f28ef1b8cbd7884aa62fc9f7ab22b}{OF}} ((\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} source\+Len))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzdopen \mbox{\hyperlink{zlib_8h_a60335f5e60905450d17d415a99db1d0e}{OF}} ((int fd, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$mode))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzbuffer \mbox{\hyperlink{zlib_8h_af62128c92c5321dd139070108189a639}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, unsigned size))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzsetparams \mbox{\hyperlink{zlib_8h_a4bf8da17c7ec075cfbe8ba5340897cfd}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, int level, int strategy))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzread \mbox{\hyperlink{zlib_8h_afe848f00a307b58004de5a0ed5c7a98d}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, \mbox{\hyperlink{zconf_8h_aa3397ff439b5e076528b04bc9b8b086a}{voidp}} buf, unsigned len))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzwrite \mbox{\hyperlink{zlib_8h_ab8124cca4e0111abc3a089ac1fc53ecf}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, \mbox{\hyperlink{zconf_8h_a7db54413d7060e4b57868c2b23c0ec1c}{voidpc}} buf, unsigned len))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_af38d1853df635eee27f1a02f96457b22}{ZEXPORTVA}} gzprintf \mbox{\hyperlink{zlib_8h_add2ee03340fa2cb5f9146e0ebe52367c}{Z\+\_\+\+ARG}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$format,...))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzputs \mbox{\hyperlink{zlib_8h_afce6ce4068efaf8d5035a06a2a8ef8d4}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$s))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} char $\ast$\mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzgets \mbox{\hyperlink{zlib_8h_aeb249b54a8b291ffedd96a0f3309d17b}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, char $\ast$buf, int len))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzputc \mbox{\hyperlink{zlib_8h_a71bf5da80bd11fd776592fc319d6305c}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, int \mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}}))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zlib_8h_ac66eb8047c407f8613bc35e440b7b337}{gzgetc}} \mbox{\hyperlink{zlib_8h_a200aee6968107e38df3efcf80e9b696f}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzungetc \mbox{\hyperlink{zlib_8h_a731d6b0156abd7f9b38ccb8d1841f371}{OF}} ((int \mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}}, \mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzflush \mbox{\hyperlink{zlib_8h_a1f60ebb9d0a34dc0246d08f8c17892e4}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, int flush))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$\mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzerror \mbox{\hyperlink{zlib_8h_a8719df7ce51af4f5f1b2ed8e8454a56c}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, int $\ast$errnum))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{adler32_8c_a86607743a4b76949b24cf5cc2f01a40d}{adler32}} \mbox{\hyperlink{zlib_8h_a58d297b6efb8e8abf76451b5be91eac9}{OF}} ((\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} adler, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$buf, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{crc32_8c_af5a1c7b05170540ef3bb084e6cf903c4}{crc32}} \mbox{\hyperlink{zlib_8h_a6fd2dcbf92d74eb1debc04f1ad4a7064}{OF}} ((\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} crc, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$buf, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a0e6601591faa9573f27340153b0f3296}{deflate\+Init\+\_\+}} \mbox{\hyperlink{zlib_8h_aee7a3a2881b7bfd06796c01120975964}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int level, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_aed01e9084fe1ed4d8808bbcf525dfe63}{inflate\+Init\+\_\+}} \mbox{\hyperlink{zlib_8h_a6fd21cd770ef0aeb9689108a28c17848}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_ae501d2862c68d17b909d6f1c9264815c}{deflate\+Init2\+\_\+}} \mbox{\hyperlink{zlib_8h_a655c43f39bb876aa13ff7d3b4857d0d1}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int level, int method, int window\+Bits, int mem\+Level, int strategy, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_aa87e80daa481d931b2d4d414769d432a}{inflate\+Init2\+\_\+}} \mbox{\hyperlink{zlib_8h_afd10a0d837b233c416cd330bc1982de4}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int window\+Bits, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{infback_8c_a00558519755e3bab13ee6f8378973913}{inflate\+Back\+Init\+\_\+}} \mbox{\hyperlink{zlib_8h_a740e2f0087d5e04edd8d19fd124e0114}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int window\+Bits, unsigned char \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$window, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzopen \mbox{\hyperlink{zlib_8h_acc5e4836cd9b15b586b2c1e69787b536}{OF}} ((\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzseek \mbox{\hyperlink{zlib_8h_a079c739f233e67c4d7da395ad397d8ba}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}}, \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}}, int))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gztell \mbox{\hyperlink{zlib_8h_a641d9e9557d2e7aaed9976c1dba2b2bb}{OF}} ((\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}}))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{adler32_8c_af4a8b45f615e831c56b08da530870e59}{adler32\+\_\+combine}} \mbox{\hyperlink{zlib_8h_afef7201299fbeb2183f6efe1f5df3b22}{OF}} ((\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}}, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}}, \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}}))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$\mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zutil_8c_a43d0ecf9c894ba2ed44845a6ffc36209}{z\+Error}} \mbox{\hyperlink{zlib_8h_aeb600ab48f5eefd73b51e2e9d94d40cf}{OF}} ((int))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a4499ff5c57a6da7b10a834e82c3e5ab8}{inflate\+Sync\+Point}} \mbox{\hyperlink{zlib_8h_ac9f4214f59c605d1fa213aaca45ac537}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}))
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a8975366f04bd9e4adefd64f6ad6ce362}{inflate\+Undermine}} \mbox{\hyperlink{zlib_8h_a1e8430bf8a5f5fca764d705eb17cae0b}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}, int))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{zlib_8h_ae7440c1c5a8becba6dbf410275dc0a5c}\label{zlib_8h_ae7440c1c5a8becba6dbf410275dc0a5c}} 
+\index{zlib.h@{zlib.h}!deflateInit@{deflateInit}}
+\index{deflateInit@{deflateInit}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{deflateInit}{deflateInit}}
+{\footnotesize\ttfamily \#define deflate\+Init(\begin{DoxyParamCaption}\item[{}]{strm,  }\item[{}]{level }\end{DoxyParamCaption})~        \mbox{\hyperlink{deflate_8c_a0e6601591faa9573f27340153b0f3296}{deflate\+Init\+\_\+}}((strm), (level), \mbox{\hyperlink{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}{ZLIB\+\_\+\+VERSION}}, (int)sizeof(\mbox{\hyperlink{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}{z\+\_\+stream}}))}
+
+
+
+Definition at line 1630 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a59b575a521efe7ea0d3b9dd3c8d315c1}\label{zlib_8h_a59b575a521efe7ea0d3b9dd3c8d315c1}} 
+\index{zlib.h@{zlib.h}!deflateInit2@{deflateInit2}}
+\index{deflateInit2@{deflateInit2}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{deflateInit2}{deflateInit2}}
+{\footnotesize\ttfamily \#define deflate\+Init2(\begin{DoxyParamCaption}\item[{}]{strm,  }\item[{}]{level,  }\item[{}]{method,  }\item[{}]{window\+Bits,  }\item[{}]{mem\+Level,  }\item[{}]{strategy }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \mbox{\hyperlink{deflate_8c_ae501d2862c68d17b909d6f1c9264815c}{deflateInit2\_}}((strm),(level),(method),(windowBits),(memLevel),\(\backslash\)}
+\DoxyCodeLine{                      (strategy), \mbox{\hyperlink{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}{ZLIB\_VERSION}}, (\textcolor{keywordtype}{int})\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structz__stream__s}{z\_stream}}))}
+
+\end{DoxyCode}
+
+
+Definition at line 1634 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_ac66eb8047c407f8613bc35e440b7b337}\label{zlib_8h_ac66eb8047c407f8613bc35e440b7b337}} 
+\index{zlib.h@{zlib.h}!gzgetc@{gzgetc}}
+\index{gzgetc@{gzgetc}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{gzgetc}{gzgetc}}
+{\footnotesize\ttfamily \#define gzgetc(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}} }\end{DoxyParamCaption})~          ((\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}})-\/$>$have ? ((\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}})-\/$>$have-\/-\/, (\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}})-\/$>$pos++, $\ast$((\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}})-\/$>$next)++) \+: gzgetc(\mbox{\hyperlink{unix_2_sha256_8c_a9608045402267746965fa49d90bbada4}{g}}))}
+
+
+
+Definition at line 1664 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a9253571ea0fc77cc53c330c0411b8c19}\label{zlib_8h_a9253571ea0fc77cc53c330c0411b8c19}} 
+\index{zlib.h@{zlib.h}!inflateBackInit@{inflateBackInit}}
+\index{inflateBackInit@{inflateBackInit}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{inflateBackInit}{inflateBackInit}}
+{\footnotesize\ttfamily \#define inflate\+Back\+Init(\begin{DoxyParamCaption}\item[{}]{strm,  }\item[{}]{window\+Bits,  }\item[{}]{window }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \mbox{\hyperlink{infback_8c_a00558519755e3bab13ee6f8378973913}{inflateBackInit\_}}((strm), (windowBits), (window), \(\backslash\)}
+\DoxyCodeLine{                      \mbox{\hyperlink{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}{ZLIB\_VERSION}}, (\textcolor{keywordtype}{int})\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structz__stream__s}{z\_stream}}))}
+
+\end{DoxyCode}
+
+
+Definition at line 1640 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_ad7c6797b618699f70f61323c5184f26e}\label{zlib_8h_ad7c6797b618699f70f61323c5184f26e}} 
+\index{zlib.h@{zlib.h}!inflateInit@{inflateInit}}
+\index{inflateInit@{inflateInit}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{inflateInit}{inflateInit}}
+{\footnotesize\ttfamily \#define inflate\+Init(\begin{DoxyParamCaption}\item[{}]{strm }\end{DoxyParamCaption})~        \mbox{\hyperlink{inflate_8c_aed01e9084fe1ed4d8808bbcf525dfe63}{inflate\+Init\+\_\+}}((strm), \mbox{\hyperlink{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}{ZLIB\+\_\+\+VERSION}}, (int)sizeof(\mbox{\hyperlink{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}{z\+\_\+stream}}))}
+
+
+
+Definition at line 1632 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a611fc206e69f34e812ca8b590982fdd5}\label{zlib_8h_a611fc206e69f34e812ca8b590982fdd5}} 
+\index{zlib.h@{zlib.h}!inflateInit2@{inflateInit2}}
+\index{inflateInit2@{inflateInit2}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{inflateInit2}{inflateInit2}}
+{\footnotesize\ttfamily \#define inflate\+Init2(\begin{DoxyParamCaption}\item[{}]{strm,  }\item[{}]{window\+Bits }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{        \mbox{\hyperlink{inflate_8c_aa87e80daa481d931b2d4d414769d432a}{inflateInit2\_}}((strm), (windowBits), \mbox{\hyperlink{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}{ZLIB\_VERSION}}, \(\backslash\)}
+\DoxyCodeLine{                      (\textcolor{keywordtype}{int})\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structz__stream__s}{z\_stream}}))}
+
+\end{DoxyCode}
+
+
+Definition at line 1637 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a9a852d9163cdb10687403d4e79dda06e}\label{zlib_8h_a9a852d9163cdb10687403d4e79dda06e}} 
+\index{zlib.h@{zlib.h}!Z\_ASCII@{Z\_ASCII}}
+\index{Z\_ASCII@{Z\_ASCII}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_ASCII}{Z\_ASCII}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+ASCII~\mbox{\hyperlink{zlib_8h_ac5c9021ac9271248094c6b93c61e1f02}{Z\+\_\+\+TEXT}}   /$\ast$ for compatibility with 1.\+2.\+2 and earlier $\ast$/}
+
+
+
+Definition at line 201 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a8db83edd9dea51f8cf0afd1727838b95}\label{zlib_8h_a8db83edd9dea51f8cf0afd1727838b95}} 
+\index{zlib.h@{zlib.h}!Z\_BEST\_COMPRESSION@{Z\_BEST\_COMPRESSION}}
+\index{Z\_BEST\_COMPRESSION@{Z\_BEST\_COMPRESSION}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_BEST\_COMPRESSION}{Z\_BEST\_COMPRESSION}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+BEST\+\_\+\+COMPRESSION~9}
+
+
+
+Definition at line 188 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_ad5222ae19b77c6e83815d07ca5d03fd8}\label{zlib_8h_ad5222ae19b77c6e83815d07ca5d03fd8}} 
+\index{zlib.h@{zlib.h}!Z\_BEST\_SPEED@{Z\_BEST\_SPEED}}
+\index{Z\_BEST\_SPEED@{Z\_BEST\_SPEED}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_BEST\_SPEED}{Z\_BEST\_SPEED}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+BEST\+\_\+\+SPEED~1}
+
+
+
+Definition at line 187 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a2bfe22ed89d3553335d18a4c3cab67af}\label{zlib_8h_a2bfe22ed89d3553335d18a4c3cab67af}} 
+\index{zlib.h@{zlib.h}!Z\_BINARY@{Z\_BINARY}}
+\index{Z\_BINARY@{Z\_BINARY}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_BINARY}{Z\_BINARY}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+BINARY~0}
+
+
+
+Definition at line 199 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a73e5f4c24156c63ba863014396685062}\label{zlib_8h_a73e5f4c24156c63ba863014396685062}} 
+\index{zlib.h@{zlib.h}!Z\_BLOCK@{Z\_BLOCK}}
+\index{Z\_BLOCK@{Z\_BLOCK}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_BLOCK}{Z\_BLOCK}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+BLOCK~5}
+
+
+
+Definition at line 169 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a425e2f0664e1b1f75bf2bffab88d353d}\label{zlib_8h_a425e2f0664e1b1f75bf2bffab88d353d}} 
+\index{zlib.h@{zlib.h}!Z\_BUF\_ERROR@{Z\_BUF\_ERROR}}
+\index{Z\_BUF\_ERROR@{Z\_BUF\_ERROR}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_BUF\_ERROR}{Z\_BUF\_ERROR}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+BUF\+\_\+\+ERROR~(-\/5)}
+
+
+
+Definition at line 180 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a9eda83d428a71752d148f38b5dbe04f2}\label{zlib_8h_a9eda83d428a71752d148f38b5dbe04f2}} 
+\index{zlib.h@{zlib.h}!Z\_DATA\_ERROR@{Z\_DATA\_ERROR}}
+\index{Z\_DATA\_ERROR@{Z\_DATA\_ERROR}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_DATA\_ERROR}{Z\_DATA\_ERROR}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+DATA\+\_\+\+ERROR~(-\/3)}
+
+
+
+Definition at line 178 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_af5387baee05124298e431ebe6fe96b17}\label{zlib_8h_af5387baee05124298e431ebe6fe96b17}} 
+\index{zlib.h@{zlib.h}!Z\_DEFAULT\_COMPRESSION@{Z\_DEFAULT\_COMPRESSION}}
+\index{Z\_DEFAULT\_COMPRESSION@{Z\_DEFAULT\_COMPRESSION}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_DEFAULT\_COMPRESSION}{Z\_DEFAULT\_COMPRESSION}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+DEFAULT\+\_\+\+COMPRESSION~(-\/1)}
+
+
+
+Definition at line 189 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a580d7c2527e653ddd783109271750849}\label{zlib_8h_a580d7c2527e653ddd783109271750849}} 
+\index{zlib.h@{zlib.h}!Z\_DEFAULT\_STRATEGY@{Z\_DEFAULT\_STRATEGY}}
+\index{Z\_DEFAULT\_STRATEGY@{Z\_DEFAULT\_STRATEGY}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_DEFAULT\_STRATEGY}{Z\_DEFAULT\_STRATEGY}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+DEFAULT\+\_\+\+STRATEGY~0}
+
+
+
+Definition at line 196 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a27a96226f3dc88e4743131c632adf32f}\label{zlib_8h_a27a96226f3dc88e4743131c632adf32f}} 
+\index{zlib.h@{zlib.h}!Z\_DEFLATED@{Z\_DEFLATED}}
+\index{Z\_DEFLATED@{Z\_DEFLATED}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_DEFLATED}{Z\_DEFLATED}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+DEFLATED~8}
+
+
+
+Definition at line 205 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a3c66d64c427c0337c64e578537478737}\label{zlib_8h_a3c66d64c427c0337c64e578537478737}} 
+\index{zlib.h@{zlib.h}!Z\_ERRNO@{Z\_ERRNO}}
+\index{Z\_ERRNO@{Z\_ERRNO}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_ERRNO}{Z\_ERRNO}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+ERRNO~(-\/1)}
+
+
+
+Definition at line 176 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_af01ccb5a9db8d415cde987d9553ad200}\label{zlib_8h_af01ccb5a9db8d415cde987d9553ad200}} 
+\index{zlib.h@{zlib.h}!Z\_FILTERED@{Z\_FILTERED}}
+\index{Z\_FILTERED@{Z\_FILTERED}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_FILTERED}{Z\_FILTERED}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+FILTERED~1}
+
+
+
+Definition at line 192 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a876a626ba14eb12eea4bbf6823b6ca50}\label{zlib_8h_a876a626ba14eb12eea4bbf6823b6ca50}} 
+\index{zlib.h@{zlib.h}!Z\_FINISH@{Z\_FINISH}}
+\index{Z\_FINISH@{Z\_FINISH}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_FINISH}{Z\_FINISH}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+FINISH~4}
+
+
+
+Definition at line 168 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_aaa5c996fbc985d5ec43f99112c0ac4a6}\label{zlib_8h_aaa5c996fbc985d5ec43f99112c0ac4a6}} 
+\index{zlib.h@{zlib.h}!Z\_FIXED@{Z\_FIXED}}
+\index{Z\_FIXED@{Z\_FIXED}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_FIXED}{Z\_FIXED}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+FIXED~4}
+
+
+
+Definition at line 195 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_aed4fbb038c3973aacf52fccffbc44b53}\label{zlib_8h_aed4fbb038c3973aacf52fccffbc44b53}} 
+\index{zlib.h@{zlib.h}!Z\_FULL\_FLUSH@{Z\_FULL\_FLUSH}}
+\index{Z\_FULL\_FLUSH@{Z\_FULL\_FLUSH}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_FULL\_FLUSH}{Z\_FULL\_FLUSH}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+FULL\+\_\+\+FLUSH~3}
+
+
+
+Definition at line 167 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a1eec3d3720ba91fd54fa08d2757c1785}\label{zlib_8h_a1eec3d3720ba91fd54fa08d2757c1785}} 
+\index{zlib.h@{zlib.h}!Z\_HUFFMAN\_ONLY@{Z\_HUFFMAN\_ONLY}}
+\index{Z\_HUFFMAN\_ONLY@{Z\_HUFFMAN\_ONLY}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_HUFFMAN\_ONLY}{Z\_HUFFMAN\_ONLY}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+HUFFMAN\+\_\+\+ONLY~2}
+
+
+
+Definition at line 193 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_ae2be6be871e377c6e2c25a7296ce320c}\label{zlib_8h_ae2be6be871e377c6e2c25a7296ce320c}} 
+\index{zlib.h@{zlib.h}!Z\_MEM\_ERROR@{Z\_MEM\_ERROR}}
+\index{Z\_MEM\_ERROR@{Z\_MEM\_ERROR}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_MEM\_ERROR}{Z\_MEM\_ERROR}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+MEM\+\_\+\+ERROR~(-\/4)}
+
+
+
+Definition at line 179 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a32916ba675b2d06463da2576b6a49d64}\label{zlib_8h_a32916ba675b2d06463da2576b6a49d64}} 
+\index{zlib.h@{zlib.h}!Z\_NEED\_DICT@{Z\_NEED\_DICT}}
+\index{Z\_NEED\_DICT@{Z\_NEED\_DICT}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_NEED\_DICT}{Z\_NEED\_DICT}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+NEED\+\_\+\+DICT~2}
+
+
+
+Definition at line 175 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a496a4523776bcfa14568cd083b59f24c}\label{zlib_8h_a496a4523776bcfa14568cd083b59f24c}} 
+\index{zlib.h@{zlib.h}!Z\_NO\_COMPRESSION@{Z\_NO\_COMPRESSION}}
+\index{Z\_NO\_COMPRESSION@{Z\_NO\_COMPRESSION}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_NO\_COMPRESSION}{Z\_NO\_COMPRESSION}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+NO\+\_\+\+COMPRESSION~0}
+
+
+
+Definition at line 186 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_ac3b62e37b9922d9496014515acd6083a}\label{zlib_8h_ac3b62e37b9922d9496014515acd6083a}} 
+\index{zlib.h@{zlib.h}!Z\_NO\_FLUSH@{Z\_NO\_FLUSH}}
+\index{Z\_NO\_FLUSH@{Z\_NO\_FLUSH}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_NO\_FLUSH}{Z\_NO\_FLUSH}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+NO\+\_\+\+FLUSH~0}
+
+
+
+Definition at line 164 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_ad15afa2776b41b2f4d8582dd152bd736}\label{zlib_8h_ad15afa2776b41b2f4d8582dd152bd736}} 
+\index{zlib.h@{zlib.h}!Z\_NULL@{Z\_NULL}}
+\index{Z\_NULL@{Z\_NULL}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_NULL}{Z\_NULL}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+NULL~0  /$\ast$ for initializing zalloc, zfree, opaque $\ast$/}
+
+
+
+Definition at line 208 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a8cb802b6a11e926478dc6547c514c65c}\label{zlib_8h_a8cb802b6a11e926478dc6547c514c65c}} 
+\index{zlib.h@{zlib.h}!Z\_OK@{Z\_OK}}
+\index{Z\_OK@{Z\_OK}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_OK}{Z\_OK}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+OK~0}
+
+
+
+Definition at line 173 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_adbd49089a5611593f05ac80c9e12cc7f}\label{zlib_8h_adbd49089a5611593f05ac80c9e12cc7f}} 
+\index{zlib.h@{zlib.h}!Z\_PARTIAL\_FLUSH@{Z\_PARTIAL\_FLUSH}}
+\index{Z\_PARTIAL\_FLUSH@{Z\_PARTIAL\_FLUSH}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_PARTIAL\_FLUSH}{Z\_PARTIAL\_FLUSH}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+PARTIAL\+\_\+\+FLUSH~1}
+
+
+
+Definition at line 165 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_af52c1220e7193d2da78332d75f9251ea}\label{zlib_8h_af52c1220e7193d2da78332d75f9251ea}} 
+\index{zlib.h@{zlib.h}!Z\_RLE@{Z\_RLE}}
+\index{Z\_RLE@{Z\_RLE}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_RLE}{Z\_RLE}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+RLE~3}
+
+
+
+Definition at line 194 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a7d94a4a852228a899864a0053162e7a8}\label{zlib_8h_a7d94a4a852228a899864a0053162e7a8}} 
+\index{zlib.h@{zlib.h}!Z\_STREAM\_END@{Z\_STREAM\_END}}
+\index{Z\_STREAM\_END@{Z\_STREAM\_END}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_STREAM\_END}{Z\_STREAM\_END}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+STREAM\+\_\+\+END~1}
+
+
+
+Definition at line 174 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_aad97cde83a9a4bb77f5c3b03bb68e483}\label{zlib_8h_aad97cde83a9a4bb77f5c3b03bb68e483}} 
+\index{zlib.h@{zlib.h}!Z\_STREAM\_ERROR@{Z\_STREAM\_ERROR}}
+\index{Z\_STREAM\_ERROR@{Z\_STREAM\_ERROR}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_STREAM\_ERROR}{Z\_STREAM\_ERROR}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+STREAM\+\_\+\+ERROR~(-\/2)}
+
+
+
+Definition at line 177 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_aa32ca175522e0ef314f4dc0b0196bada}\label{zlib_8h_aa32ca175522e0ef314f4dc0b0196bada}} 
+\index{zlib.h@{zlib.h}!Z\_SYNC\_FLUSH@{Z\_SYNC\_FLUSH}}
+\index{Z\_SYNC\_FLUSH@{Z\_SYNC\_FLUSH}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_SYNC\_FLUSH}{Z\_SYNC\_FLUSH}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+SYNC\+\_\+\+FLUSH~2}
+
+
+
+Definition at line 166 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_ac5c9021ac9271248094c6b93c61e1f02}\label{zlib_8h_ac5c9021ac9271248094c6b93c61e1f02}} 
+\index{zlib.h@{zlib.h}!Z\_TEXT@{Z\_TEXT}}
+\index{Z\_TEXT@{Z\_TEXT}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_TEXT}{Z\_TEXT}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+TEXT~1}
+
+
+
+Definition at line 200 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a0c44b4d8d05cacb1227b535cd8ed538f}\label{zlib_8h_a0c44b4d8d05cacb1227b535cd8ed538f}} 
+\index{zlib.h@{zlib.h}!Z\_TREES@{Z\_TREES}}
+\index{Z\_TREES@{Z\_TREES}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_TREES}{Z\_TREES}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+TREES~6}
+
+
+
+Definition at line 170 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a4be54d9d68d40adb73f87492284cc290}\label{zlib_8h_a4be54d9d68d40adb73f87492284cc290}} 
+\index{zlib.h@{zlib.h}!Z\_UNKNOWN@{Z\_UNKNOWN}}
+\index{Z\_UNKNOWN@{Z\_UNKNOWN}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_UNKNOWN}{Z\_UNKNOWN}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+UNKNOWN~2}
+
+
+
+Definition at line 202 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a7634cdd55f955ee1be99c065c6977371}\label{zlib_8h_a7634cdd55f955ee1be99c065c6977371}} 
+\index{zlib.h@{zlib.h}!Z\_VERSION\_ERROR@{Z\_VERSION\_ERROR}}
+\index{Z\_VERSION\_ERROR@{Z\_VERSION\_ERROR}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_VERSION\_ERROR}{Z\_VERSION\_ERROR}}
+{\footnotesize\ttfamily \#define Z\+\_\+\+VERSION\+\_\+\+ERROR~(-\/6)}
+
+
+
+Definition at line 181 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a52eec052f38e306d472e75bfafda9608}\label{zlib_8h_a52eec052f38e306d472e75bfafda9608}} 
+\index{zlib.h@{zlib.h}!ZLIB\_VER\_MAJOR@{ZLIB\_VER\_MAJOR}}
+\index{ZLIB\_VER\_MAJOR@{ZLIB\_VER\_MAJOR}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{ZLIB\_VER\_MAJOR}{ZLIB\_VER\_MAJOR}}
+{\footnotesize\ttfamily \#define ZLIB\+\_\+\+VER\+\_\+\+MAJOR~1}
+
+
+
+Definition at line 42 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a82109105b5511ffa8f8373b6a917e1e4}\label{zlib_8h_a82109105b5511ffa8f8373b6a917e1e4}} 
+\index{zlib.h@{zlib.h}!ZLIB\_VER\_MINOR@{ZLIB\_VER\_MINOR}}
+\index{ZLIB\_VER\_MINOR@{ZLIB\_VER\_MINOR}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{ZLIB\_VER\_MINOR}{ZLIB\_VER\_MINOR}}
+{\footnotesize\ttfamily \#define ZLIB\+\_\+\+VER\+\_\+\+MINOR~2}
+
+
+
+Definition at line 43 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_ad3662b8749a50045ec1c120354fb7e9d}\label{zlib_8h_ad3662b8749a50045ec1c120354fb7e9d}} 
+\index{zlib.h@{zlib.h}!ZLIB\_VER\_REVISION@{ZLIB\_VER\_REVISION}}
+\index{ZLIB\_VER\_REVISION@{ZLIB\_VER\_REVISION}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{ZLIB\_VER\_REVISION}{ZLIB\_VER\_REVISION}}
+{\footnotesize\ttfamily \#define ZLIB\+\_\+\+VER\+\_\+\+REVISION~7}
+
+
+
+Definition at line 44 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a788ea49a5b65e12b11d7f274542d5af5}\label{zlib_8h_a788ea49a5b65e12b11d7f274542d5af5}} 
+\index{zlib.h@{zlib.h}!ZLIB\_VER\_SUBREVISION@{ZLIB\_VER\_SUBREVISION}}
+\index{ZLIB\_VER\_SUBREVISION@{ZLIB\_VER\_SUBREVISION}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{ZLIB\_VER\_SUBREVISION}{ZLIB\_VER\_SUBREVISION}}
+{\footnotesize\ttfamily \#define ZLIB\+\_\+\+VER\+\_\+\+SUBREVISION~0}
+
+
+
+Definition at line 45 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a6413cdfb4cdc0b5a09cf9b5f3f8f48ef}\label{zlib_8h_a6413cdfb4cdc0b5a09cf9b5f3f8f48ef}} 
+\index{zlib.h@{zlib.h}!ZLIB\_VERNUM@{ZLIB\_VERNUM}}
+\index{ZLIB\_VERNUM@{ZLIB\_VERNUM}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{ZLIB\_VERNUM}{ZLIB\_VERNUM}}
+{\footnotesize\ttfamily \#define ZLIB\+\_\+\+VERNUM~0x1270}
+
+
+
+Definition at line 41 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}\label{zlib_8h_a51dc9dc65e483b3222c1f0f6a87eb76e}} 
+\index{zlib.h@{zlib.h}!ZLIB\_VERSION@{ZLIB\_VERSION}}
+\index{ZLIB\_VERSION@{ZLIB\_VERSION}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{ZLIB\_VERSION}{ZLIB\_VERSION}}
+{\footnotesize\ttfamily \#define ZLIB\+\_\+\+VERSION~\char`\"{}1.\+2.\+7\char`\"{}}
+
+
+
+Definition at line 40 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a1f228220c3e6935eb171761c61487059}\label{zlib_8h_a1f228220c3e6935eb171761c61487059}} 
+\index{zlib.h@{zlib.h}!zlib\_version@{zlib\_version}}
+\index{zlib\_version@{zlib\_version}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{zlib\_version}{zlib\_version}}
+{\footnotesize\ttfamily \#define zlib\+\_\+version~\mbox{\hyperlink{zutil_8c_a705cd706dfe534aa9161a253a1c9a81a}{zlib\+Version}}()}
+
+
+
+Definition at line 210 of file zlib.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{zlib_8h_aae85b4a4f7931ee1f67f54c459007421}\label{zlib_8h_aae85b4a4f7931ee1f67f54c459007421}} 
+\index{zlib.h@{zlib.h}!gz\_header@{gz\_header}}
+\index{gz\_header@{gz\_header}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{gz\_header}{gz\_header}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structgz__header__s}{gz\+\_\+header\+\_\+s}} \mbox{\hyperlink{zlib_8h_aae85b4a4f7931ee1f67f54c459007421}{gz\+\_\+header}}}
+
+\mbox{\Hypertarget{zlib_8h_a40e9dcc294796d99b25e98fb06477fc8}\label{zlib_8h_a40e9dcc294796d99b25e98fb06477fc8}} 
+\index{zlib.h@{zlib.h}!gz\_headerp@{gz\_headerp}}
+\index{gz\_headerp@{gz\_headerp}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{gz\_headerp}{gz\_headerp}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{zlib_8h_aae85b4a4f7931ee1f67f54c459007421}{gz\+\_\+header}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}}$\ast$ \mbox{\hyperlink{zlib_8h_a40e9dcc294796d99b25e98fb06477fc8}{gz\+\_\+headerp}}}
+
+
+
+Definition at line 129 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}\label{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}} 
+\index{zlib.h@{zlib.h}!gzFile@{gzFile}}
+\index{gzFile@{gzFile}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{gzFile}{gzFile}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structgz_file__s}{gz\+File\+\_\+s}}$\ast$ \mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}}}
+
+
+
+Definition at line 1207 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_a8614d49a5dd53697f4689073c0dbecbb}\label{zlib_8h_a8614d49a5dd53697f4689073c0dbecbb}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF}{OF}}
+{\footnotesize\ttfamily typedef int out\+\_\+func OF((void \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$, unsigned char \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$, unsigned))}
+
+
+
+Definition at line 80 of file zlib.\+h.
+
+\mbox{\Hypertarget{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}\label{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}} 
+\index{zlib.h@{zlib.h}!z\_stream@{z\_stream}}
+\index{z\_stream@{z\_stream}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{z\_stream}{z\_stream}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structz__stream__s}{z\+\_\+stream\+\_\+s}} \mbox{\hyperlink{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}{z\+\_\+stream}}}
+
+\mbox{\Hypertarget{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}\label{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}} 
+\index{zlib.h@{zlib.h}!z\_streamp@{z\_streamp}}
+\index{z\_streamp@{z\_streamp}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{z\_streamp}{z\_streamp}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{zlib_8h_aa4751fbf6d882976fb300ea9815f5010}{z\+\_\+stream}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}}$\ast$ \mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}
+
+
+
+Definition at line 106 of file zlib.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{zlib_8h_a85df695aadb45de9c814f7a11f74705c}\label{zlib_8h_a85df695aadb45de9c814f7a11f74705c}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [1/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zlib_2compress_8c_aef315743418d760a360e1be293d27cd1}{compress}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dest, \mbox{\hyperlink{zconf_8h_a0426a5a0ed418ec4ae15af8281c64254}{u\+Longf}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$source, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} source\+Len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_aa38fec9fd654c448681296d8bfee871a}\label{zlib_8h_aa38fec9fd654c448681296d8bfee871a}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [2/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zlib_2compress_8c_aede7e438c033a969a1a40ba6b44f91f9}{compress2}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dest, \mbox{\hyperlink{zconf_8h_a0426a5a0ed418ec4ae15af8281c64254}{u\+Longf}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$source, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} source\+Len, int level)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_acc5e4836cd9b15b586b2c1e69787b536}\label{zlib_8h_acc5e4836cd9b15b586b2c1e69787b536}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [3/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzopen OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a200aee6968107e38df3efcf80e9b696f}\label{zlib_8h_a200aee6968107e38df3efcf80e9b696f}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [4/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zlib_8h_ac66eb8047c407f8613bc35e440b7b337}{gzgetc}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_aeb249b54a8b291ffedd96a0f3309d17b}\label{zlib_8h_aeb249b54a8b291ffedd96a0f3309d17b}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [5/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} char$\ast$ \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzgets OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, char $\ast$buf, int len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_afce6ce4068efaf8d5035a06a2a8ef8d4}\label{zlib_8h_afce6ce4068efaf8d5035a06a2a8ef8d4}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [6/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzputs OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$s)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a8719df7ce51af4f5f1b2ed8e8454a56c}\label{zlib_8h_a8719df7ce51af4f5f1b2ed8e8454a56c}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [7/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char$\ast$ \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzerror OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, int $\ast$errnum)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a71bf5da80bd11fd776592fc319d6305c}\label{zlib_8h_a71bf5da80bd11fd776592fc319d6305c}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [8/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzputc OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, int \mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}})}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a1f60ebb9d0a34dc0246d08f8c17892e4}\label{zlib_8h_a1f60ebb9d0a34dc0246d08f8c17892e4}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [9/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzflush OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, int flush)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a4bf8da17c7ec075cfbe8ba5340897cfd}\label{zlib_8h_a4bf8da17c7ec075cfbe8ba5340897cfd}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [10/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzsetparams OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, int level, int strategy)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_af62128c92c5321dd139070108189a639}\label{zlib_8h_af62128c92c5321dd139070108189a639}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [11/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzbuffer OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, unsigned size)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_afe848f00a307b58004de5a0ed5c7a98d}\label{zlib_8h_afe848f00a307b58004de5a0ed5c7a98d}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [12/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzread OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, \mbox{\hyperlink{zconf_8h_aa3397ff439b5e076528b04bc9b8b086a}{voidp}} buf, unsigned len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_ab8124cca4e0111abc3a089ac1fc53ecf}\label{zlib_8h_ab8124cca4e0111abc3a089ac1fc53ecf}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [13/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzwrite OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, \mbox{\hyperlink{zconf_8h_a7db54413d7060e4b57868c2b23c0ec1c}{voidpc}} buf, unsigned len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a641d9e9557d2e7aaed9976c1dba2b2bb}\label{zlib_8h_a641d9e9557d2e7aaed9976c1dba2b2bb}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [14/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gztell OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}})}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a079c739f233e67c4d7da395ad397d8ba}\label{zlib_8h_a079c739f233e67c4d7da395ad397d8ba}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [15/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzseek OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}}, \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}}, int)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a731d6b0156abd7f9b38ccb8d1841f371}\label{zlib_8h_a731d6b0156abd7f9b38ccb8d1841f371}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [16/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzungetc OF (\begin{DoxyParamCaption}\item[{(int \mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}}, \mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a60335f5e60905450d17d415a99db1d0e}\label{zlib_8h_a60335f5e60905450d17d415a99db1d0e}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [17/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} gzdopen OF (\begin{DoxyParamCaption}\item[{(int fd, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$mode)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_aeb600ab48f5eefd73b51e2e9d94d40cf}\label{zlib_8h_aeb600ab48f5eefd73b51e2e9d94d40cf}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [18/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char$\ast$ \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zutil_8c_a43d0ecf9c894ba2ed44845a6ffc36209}{z\+Error}} OF (\begin{DoxyParamCaption}\item[{(int)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a58d297b6efb8e8abf76451b5be91eac9}\label{zlib_8h_a58d297b6efb8e8abf76451b5be91eac9}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [19/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{adler32_8c_a86607743a4b76949b24cf5cc2f01a40d}{adler32}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} adler, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$buf, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a6fd2dcbf92d74eb1debc04f1ad4a7064}\label{zlib_8h_a6fd2dcbf92d74eb1debc04f1ad4a7064}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [20/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{crc32_8c_af5a1c7b05170540ef3bb084e6cf903c4}{crc32}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} crc, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$buf, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a4d4f28ef1b8cbd7884aa62fc9f7ab22b}\label{zlib_8h_a4d4f28ef1b8cbd7884aa62fc9f7ab22b}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [21/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zlib_2compress_8c_a6bfd92b4426ff6008c841c2cc6f8fed3}{compress\+Bound}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} source\+Len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_afef7201299fbeb2183f6efe1f5df3b22}\label{zlib_8h_afef7201299fbeb2183f6efe1f5df3b22}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [22/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{adler32_8c_af4a8b45f615e831c56b08da530870e59}{adler32\+\_\+combine}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}}, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}}, \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}})}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_ab1bbaa8881cd84bb4d6c306e3a315241}\label{zlib_8h_ab1bbaa8881cd84bb4d6c306e3a315241}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [23/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char$\ast$ \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{zutil_8c_a705cd706dfe534aa9161a253a1c9a81a}{zlib\+Version}} OF (\begin{DoxyParamCaption}\item[{(void)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_ae1a33ab7164b2fbab7683c4bea4c50c4}\label{zlib_8h_ae1a33ab7164b2fbab7683c4bea4c50c4}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [24/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a496430688ab9f4179689c883a6776b02}{deflate\+Copy}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} dest, \mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} source)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_aaf595349427894f1dbaff9b509791256}\label{zlib_8h_aaf595349427894f1dbaff9b509791256}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [25/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_ada68769789b1d84de7e708d6e848a075}{deflate\+End}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a2a46b5c7e44d2163fa24d943211aedf2}\label{zlib_8h_a2a46b5c7e44d2163fa24d943211aedf2}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [26/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a4e2855f986abd56d4515e9bb09986a5b}{deflate\+Set\+Dictionary}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dictionary, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} dict\+Length)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a6fd21cd770ef0aeb9689108a28c17848}\label{zlib_8h_a6fd21cd770ef0aeb9689108a28c17848}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [27/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_aed01e9084fe1ed4d8808bbcf525dfe63}{inflate\+Init\+\_\+}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a77ea653416e54d2d8415fecdcfd2472c}\label{zlib_8h_a77ea653416e54d2d8415fecdcfd2472c}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [28/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a0bb9d562cacbe698297de30cdeeb2153}{deflate\+Set\+Header}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zlib_8h_a40e9dcc294796d99b25e98fb06477fc8}{gz\+\_\+headerp}} head)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a8df5cf36f8df181376ad722b2c13c8c2}\label{zlib_8h_a8df5cf36f8df181376ad722b2c13c8c2}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [29/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{infback_8c_a6568b72b098ada9bd162fc0365943f5c}{inflate\+Back}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, in\+\_\+func in, void \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$in\+\_\+desc, out\+\_\+func out, void \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$out\+\_\+desc)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a4891be63c26cb4dc463c8b2fba7e5ae2}\label{zlib_8h_a4891be63c26cb4dc463c8b2fba7e5ae2}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [30/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_aa8ca15b272bfde8fd23ab658d789aa87}{deflate\+Prime}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int bits, int value)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a2e6d9561156aac56578c2f1434dc2595}\label{zlib_8h_a2e6d9561156aac56578c2f1434dc2595}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [31/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_aedba3a94d6e827d61b660443ae5b9f09}{deflate}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int flush)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a769be8bd85feda1b2dcb502abc010b23}\label{zlib_8h_a769be8bd85feda1b2dcb502abc010b23}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [32/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_aa2f2f8ee11441c80c35f035ad7efbb8e}{deflate\+Tune}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int good\+\_\+length, int max\+\_\+lazy, int nice\+\_\+length, int max\+\_\+chain)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_aee7a3a2881b7bfd06796c01120975964}\label{zlib_8h_aee7a3a2881b7bfd06796c01120975964}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [33/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a0e6601591faa9573f27340153b0f3296}{deflate\+Init\+\_\+}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int level, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a655c43f39bb876aa13ff7d3b4857d0d1}\label{zlib_8h_a655c43f39bb876aa13ff7d3b4857d0d1}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [34/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_ae501d2862c68d17b909d6f1c9264815c}{deflate\+Init2\+\_\+}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int level, int method, int window\+Bits, int mem\+Level, int strategy, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a35cdc947fd49a1bc22481945422bb97e}\label{zlib_8h_a35cdc947fd49a1bc22481945422bb97e}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [35/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a6be3d26b7e317aa4db6c7870b1911d4d}{deflate\+Params}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int level, int strategy)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a2b1869016067f610d37462ef1862e2bb}\label{zlib_8h_a2b1869016067f610d37462ef1862e2bb}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [36/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_af5a145c15cfb580ef24ce3fc4d292a02}{inflate\+Reset2}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int window\+Bits)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_afd10a0d837b233c416cd330bc1982de4}\label{zlib_8h_afd10a0d837b233c416cd330bc1982de4}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [37/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_aa87e80daa481d931b2d4d414769d432a}{inflate\+Init2\+\_\+}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int window\+Bits, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a740e2f0087d5e04edd8d19fd124e0114}\label{zlib_8h_a740e2f0087d5e04edd8d19fd124e0114}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [38/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{infback_8c_a00558519755e3bab13ee6f8378973913}{inflate\+Back\+Init\+\_\+}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int window\+Bits, unsigned char \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$window, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_ab8bfcdd5ca05f2544694149a771644fa}\label{zlib_8h_ab8bfcdd5ca05f2544694149a771644fa}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [39/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a746d0203373d0033ab69055f72a370e8}{deflate\+Bound}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} source\+Len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a5332ba95660cfdfcfb02e4dca16b16f0}\label{zlib_8h_a5332ba95660cfdfcfb02e4dca16b16f0}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [40/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{deflate_8c_a2c7406a0a5e85267e255cdb3ec39ee0d}{deflate\+Pending}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, unsigned $\ast$pending, int $\ast$bits)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_ac9f4214f59c605d1fa213aaca45ac537}\label{zlib_8h_ac9f4214f59c605d1fa213aaca45ac537}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [41/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a4499ff5c57a6da7b10a834e82c3e5ab8}{inflate\+Sync\+Point}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}})}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_a1e8430bf8a5f5fca764d705eb17cae0b}\label{zlib_8h_a1e8430bf8a5f5fca764d705eb17cae0b}} 
+\index{zlib.h@{zlib.h}!OF@{OF}}
+\index{OF@{OF}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [42/42]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a8975366f04bd9e4adefd64f6ad6ce362}{inflate\+Undermine}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}, int)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zlib_8h_add2ee03340fa2cb5f9146e0ebe52367c}\label{zlib_8h_add2ee03340fa2cb5f9146e0ebe52367c}} 
+\index{zlib.h@{zlib.h}!Z\_ARG@{Z\_ARG}}
+\index{Z\_ARG@{Z\_ARG}!zlib.h@{zlib.h}}
+\doxysubsubsection{\texorpdfstring{Z\_ARG()}{Z\_ARG()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} int \mbox{\hyperlink{zconf_8h_af38d1853df635eee27f1a02f96457b22}{ZEXPORTVA}} gzprintf Z\+\_\+\+ARG (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a8e80bd9e2c359bc5bdabb2e97b4e62bf}{gz\+File}} file, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$format,...)}]{ }\end{DoxyParamCaption})}
+

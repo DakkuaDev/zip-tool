@@ -1,0 +1,381 @@
+\hypertarget{_ppmd8_8h}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Ppmd8.h File Reference}
+\label{_ppmd8_8h}\index{source/ZipLib/extlibs/lzma/unix/Ppmd8.h@{source/ZipLib/extlibs/lzma/unix/Ppmd8.h}}
+{\ttfamily \#include \char`\"{}Ppmd.\+h\char`\"{}}\newline
+Include dependency graph for Ppmd8.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_ppmd8___context__}{CPpmd8\+\_\+\+Context\+\_\+}}
+\item 
+struct \mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_a63275c5802f8b551c8943cd4e6b06ada}{PPMD8\+\_\+\+MIN\+\_\+\+ORDER}}~2
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_a46bcd62b4582fa90096741818949640f}{PPMD8\+\_\+\+MAX\+\_\+\+ORDER}}~16
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_a43336c96638e4ce1d31537090076021f}{Ppmd8\+Context\+\_\+\+One\+State}}(p)~((\mbox{\hyperlink{struct_c_ppmd___state}{CPpmd\+\_\+\+State}} $\ast$)\&(p)-\/$>$Summ\+Freq)
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_af82088e1ffe7354d27a0174fa4640a82}{Ppmd8\+\_\+\+Was\+Allocated}}(p)~((p)-\/$>$Base != NULL)
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_a653d4df065eab0c8ad841f4439e51388}{Ppmd8\+\_\+\+Get\+Ptr}}(p,  offs)~((void $\ast$)((p)-\/$>$Base + (offs)))
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_a6433cde61d8b5d6c1279ee571a36ba4c}{Ppmd8\+\_\+\+Get\+Context}}(p,  offs)~((\mbox{\hyperlink{_ppmd8_8h_a1c3d956ef2e18947ff8ba10b0a86b4c1}{CPpmd8\+\_\+\+Context}} $\ast$)\mbox{\hyperlink{_ppmd8_8h_a653d4df065eab0c8ad841f4439e51388}{Ppmd8\+\_\+\+Get\+Ptr}}((p), (offs)))
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_a480c6be338dbf61aa960b4ae63ae9ee9}{Ppmd8\+\_\+\+Get\+Stats}}(p,  ctx)~((\mbox{\hyperlink{struct_c_ppmd___state}{CPpmd\+\_\+\+State}} $\ast$)\mbox{\hyperlink{_ppmd8_8h_a653d4df065eab0c8ad841f4439e51388}{Ppmd8\+\_\+\+Get\+Ptr}}((p), ((ctx)-\/$>$Stats)))
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_a8c18d632b0c31e3aea4443dbef2ea916}{Ppmd8\+\_\+\+Get\+Bin\+Summ}}(p)
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_a70ca414389769096747b6eb037075ea5}{Ppmd8\+\_\+\+Range\+Dec\+\_\+\+Is\+Finished\+OK}}(p)~((p)-\/$>$\mbox{\hyperlink{deflate_8h_a068e76e6034d06450385bc98b69ea53e}{Code}} == 0)
+\item 
+\#define \mbox{\hyperlink{_ppmd8_8h_ae9486dc9d5fb62d2c814c90fe7e4c0b3}{Ppmd8\+\_\+\+Range\+Enc\+\_\+\+Init}}(p)~\{ (p)-\/$>$Low = 0; (p)-\/$>$Range = 0x\+FFFFFFFF; \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{_ppmd8_8h_aba8563ed2dc9dce23954ee830da38cce}{CPpmd8\+\_\+\+Context\+\_\+\+Ref}}
+\item 
+typedef struct \mbox{\hyperlink{struct_c_ppmd8___context__}{CPpmd8\+\_\+\+Context\+\_\+}} \mbox{\hyperlink{_ppmd8_8h_a1c3d956ef2e18947ff8ba10b0a86b4c1}{CPpmd8\+\_\+\+Context}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{_ppmd8_8h_abed82baf7f470b522273a3e37c24c600a9e17e91219df8f8e16ba982d575d436a}{PPMD8\+\_\+\+RESTORE\+\_\+\+METHOD\+\_\+\+RESTART}}
+, \mbox{\hyperlink{_ppmd8_8h_abed82baf7f470b522273a3e37c24c600af590d6cf0817b6c848b0f8760ad5ede1}{PPMD8\+\_\+\+RESTORE\+\_\+\+METHOD\+\_\+\+CUT\+\_\+\+OFF}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_ppmd8_8h_ab79c1c161ed54eb5732b92260bd3738f}{Ppmd8\+\_\+\+Construct}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} \mbox{\hyperlink{_ppmd8_8h_a6fecb3bff0cf72862d54eff55a12ba67}{Ppmd8\+\_\+\+Alloc}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} size, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{_ppmd8_8h_aba1a853f964b35652a13249808acad4d}{Ppmd8\+\_\+\+Free}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{_ppmd8_8h_a6c022b0f7332425f22e51004f7349cf8}{Ppmd8\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p, unsigned max\+Order, unsigned restore\+Method)
+\item 
+void \mbox{\hyperlink{_ppmd8_8h_a9e159fb5f781808bf9d9e360c3c4b653}{Ppmd8\+\_\+\+Update1}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p)
+\item 
+void \mbox{\hyperlink{_ppmd8_8h_a373f361931ba715f969b717ef04348e0}{Ppmd8\+\_\+\+Update1\+\_\+0}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p)
+\item 
+void \mbox{\hyperlink{_ppmd8_8h_a69d6776eb7d2f2709e4037e710cbb400}{Ppmd8\+\_\+\+Update2}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p)
+\item 
+void \mbox{\hyperlink{_ppmd8_8h_aa1a2d9f6e822591ee3e6ed2a623035b5}{Ppmd8\+\_\+\+Update\+Bin}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p)
+\item 
+\mbox{\hyperlink{struct_c_ppmd___see}{CPpmd\+\_\+\+See}} $\ast$ \mbox{\hyperlink{_ppmd8_8h_ac02cf411eeb5816d7de3228aaf9919ba}{Ppmd8\+\_\+\+Make\+Esc\+Freq}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p, unsigned num\+Masked, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$scale)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} \mbox{\hyperlink{_ppmd8_8h_a4c43854332ddd55c451599339b86131b}{Ppmd8\+\_\+\+Range\+Dec\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p)
+\item 
+int \mbox{\hyperlink{_ppmd8_8h_aed674c591bf1eba603ce073aede8319e}{Ppmd8\+\_\+\+Decode\+Symbol}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p)
+\item 
+void \mbox{\hyperlink{_ppmd8_8h_a1585706780cb7451215a94d7ee6d31b0}{Ppmd8\+\_\+\+Range\+Enc\+\_\+\+Flush\+Data}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p)
+\item 
+void \mbox{\hyperlink{_ppmd8_8h_a5d3647d7eefa194ee77db9c968676514}{Ppmd8\+\_\+\+Encode\+Symbol}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p, int symbol)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} \mbox{\hyperlink{_ppmd8_8h_a12b7b912dce899d178f7f5d7179e846b}{PPMD8\+\_\+k\+Exp\+Escape}} \mbox{[}16\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_ppmd8_8h_a8c18d632b0c31e3aea4443dbef2ea916}\label{_ppmd8_8h_a8c18d632b0c31e3aea4443dbef2ea916}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_GetBinSumm@{Ppmd8\_GetBinSumm}}
+\index{Ppmd8\_GetBinSumm@{Ppmd8\_GetBinSumm}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_GetBinSumm}{Ppmd8\_GetBinSumm}}
+{\footnotesize\ttfamily \#define Ppmd8\+\_\+\+Get\+Bin\+Summ(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \&p-\/>BinSumm[p-\/>NS2Indx[\mbox{\hyperlink{_ppmd8_8h_a43336c96638e4ce1d31537090076021f}{Ppmd8Context\_OneState}}(p-\/>MinContext)-\/>Freq -\/ 1]][ \(\backslash\)}
+\DoxyCodeLine{    p-\/>NS2BSIndx[\mbox{\hyperlink{_ppmd8_8h_a6433cde61d8b5d6c1279ee571a36ba4c}{Ppmd8\_GetContext}}(p, p-\/>MinContext-\/>Suffix)-\/>NumStats] + \(\backslash\)}
+\DoxyCodeLine{    p-\/>PrevSuccess + p-\/>MinContext-\/>Flags + ((p-\/>RunLength >> 26) \& 0x20)]}
+
+\end{DoxyCode}
+
+
+Definition at line 110 of file Ppmd8.\+h.
+
+\mbox{\Hypertarget{_ppmd8_8h_a6433cde61d8b5d6c1279ee571a36ba4c}\label{_ppmd8_8h_a6433cde61d8b5d6c1279ee571a36ba4c}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_GetContext@{Ppmd8\_GetContext}}
+\index{Ppmd8\_GetContext@{Ppmd8\_GetContext}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_GetContext}{Ppmd8\_GetContext}}
+{\footnotesize\ttfamily \#define Ppmd8\+\_\+\+Get\+Context(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{offs }\end{DoxyParamCaption})~((\mbox{\hyperlink{_ppmd8_8h_a1c3d956ef2e18947ff8ba10b0a86b4c1}{CPpmd8\+\_\+\+Context}} $\ast$)\mbox{\hyperlink{_ppmd8_8h_a653d4df065eab0c8ad841f4439e51388}{Ppmd8\+\_\+\+Get\+Ptr}}((p), (offs)))}
+
+
+
+Definition at line 101 of file Ppmd8.\+h.
+
+\mbox{\Hypertarget{_ppmd8_8h_a653d4df065eab0c8ad841f4439e51388}\label{_ppmd8_8h_a653d4df065eab0c8ad841f4439e51388}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_GetPtr@{Ppmd8\_GetPtr}}
+\index{Ppmd8\_GetPtr@{Ppmd8\_GetPtr}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_GetPtr}{Ppmd8\_GetPtr}}
+{\footnotesize\ttfamily \#define Ppmd8\+\_\+\+Get\+Ptr(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{offs }\end{DoxyParamCaption})~((void $\ast$)((p)-\/$>$Base + (offs)))}
+
+
+
+Definition at line 100 of file Ppmd8.\+h.
+
+\mbox{\Hypertarget{_ppmd8_8h_a480c6be338dbf61aa960b4ae63ae9ee9}\label{_ppmd8_8h_a480c6be338dbf61aa960b4ae63ae9ee9}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_GetStats@{Ppmd8\_GetStats}}
+\index{Ppmd8\_GetStats@{Ppmd8\_GetStats}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_GetStats}{Ppmd8\_GetStats}}
+{\footnotesize\ttfamily \#define Ppmd8\+\_\+\+Get\+Stats(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{ctx }\end{DoxyParamCaption})~((\mbox{\hyperlink{struct_c_ppmd___state}{CPpmd\+\_\+\+State}} $\ast$)\mbox{\hyperlink{_ppmd8_8h_a653d4df065eab0c8ad841f4439e51388}{Ppmd8\+\_\+\+Get\+Ptr}}((p), ((ctx)-\/$>$Stats)))}
+
+
+
+Definition at line 102 of file Ppmd8.\+h.
+
+\mbox{\Hypertarget{_ppmd8_8h_a46bcd62b4582fa90096741818949640f}\label{_ppmd8_8h_a46bcd62b4582fa90096741818949640f}} 
+\index{Ppmd8.h@{Ppmd8.h}!PPMD8\_MAX\_ORDER@{PPMD8\_MAX\_ORDER}}
+\index{PPMD8\_MAX\_ORDER@{PPMD8\_MAX\_ORDER}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{PPMD8\_MAX\_ORDER}{PPMD8\_MAX\_ORDER}}
+{\footnotesize\ttfamily \#define PPMD8\+\_\+\+MAX\+\_\+\+ORDER~16}
+
+
+
+Definition at line 15 of file Ppmd8.\+h.
+
+\mbox{\Hypertarget{_ppmd8_8h_a63275c5802f8b551c8943cd4e6b06ada}\label{_ppmd8_8h_a63275c5802f8b551c8943cd4e6b06ada}} 
+\index{Ppmd8.h@{Ppmd8.h}!PPMD8\_MIN\_ORDER@{PPMD8\_MIN\_ORDER}}
+\index{PPMD8\_MIN\_ORDER@{PPMD8\_MIN\_ORDER}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{PPMD8\_MIN\_ORDER}{PPMD8\_MIN\_ORDER}}
+{\footnotesize\ttfamily \#define PPMD8\+\_\+\+MIN\+\_\+\+ORDER~2}
+
+
+
+Definition at line 14 of file Ppmd8.\+h.
+
+\mbox{\Hypertarget{_ppmd8_8h_a70ca414389769096747b6eb037075ea5}\label{_ppmd8_8h_a70ca414389769096747b6eb037075ea5}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_RangeDec\_IsFinishedOK@{Ppmd8\_RangeDec\_IsFinishedOK}}
+\index{Ppmd8\_RangeDec\_IsFinishedOK@{Ppmd8\_RangeDec\_IsFinishedOK}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_RangeDec\_IsFinishedOK}{Ppmd8\_RangeDec\_IsFinishedOK}}
+{\footnotesize\ttfamily \#define Ppmd8\+\_\+\+Range\+Dec\+\_\+\+Is\+Finished\+OK(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~((p)-\/$>$\mbox{\hyperlink{deflate_8h_a068e76e6034d06450385bc98b69ea53e}{Code}} == 0)}
+
+
+
+Definition at line 121 of file Ppmd8.\+h.
+
+\mbox{\Hypertarget{_ppmd8_8h_ae9486dc9d5fb62d2c814c90fe7e4c0b3}\label{_ppmd8_8h_ae9486dc9d5fb62d2c814c90fe7e4c0b3}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_RangeEnc\_Init@{Ppmd8\_RangeEnc\_Init}}
+\index{Ppmd8\_RangeEnc\_Init@{Ppmd8\_RangeEnc\_Init}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_RangeEnc\_Init}{Ppmd8\_RangeEnc\_Init}}
+{\footnotesize\ttfamily \#define Ppmd8\+\_\+\+Range\+Enc\+\_\+\+Init(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~\{ (p)-\/$>$Low = 0; (p)-\/$>$Range = 0x\+FFFFFFFF; \}}
+
+
+
+Definition at line 127 of file Ppmd8.\+h.
+
+\mbox{\Hypertarget{_ppmd8_8h_af82088e1ffe7354d27a0174fa4640a82}\label{_ppmd8_8h_af82088e1ffe7354d27a0174fa4640a82}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_WasAllocated@{Ppmd8\_WasAllocated}}
+\index{Ppmd8\_WasAllocated@{Ppmd8\_WasAllocated}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_WasAllocated}{Ppmd8\_WasAllocated}}
+{\footnotesize\ttfamily \#define Ppmd8\+\_\+\+Was\+Allocated(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~((p)-\/$>$Base != NULL)}
+
+
+
+Definition at line 88 of file Ppmd8.\+h.
+
+\mbox{\Hypertarget{_ppmd8_8h_a43336c96638e4ce1d31537090076021f}\label{_ppmd8_8h_a43336c96638e4ce1d31537090076021f}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8Context\_OneState@{Ppmd8Context\_OneState}}
+\index{Ppmd8Context\_OneState@{Ppmd8Context\_OneState}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8Context\_OneState}{Ppmd8Context\_OneState}}
+{\footnotesize\ttfamily \#define Ppmd8\+Context\+\_\+\+One\+State(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~((\mbox{\hyperlink{struct_c_ppmd___state}{CPpmd\+\_\+\+State}} $\ast$)\&(p)-\/$>$Summ\+Freq)}
+
+
+
+Definition at line 36 of file Ppmd8.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_ppmd8_8h_a1c3d956ef2e18947ff8ba10b0a86b4c1}\label{_ppmd8_8h_a1c3d956ef2e18947ff8ba10b0a86b4c1}} 
+\index{Ppmd8.h@{Ppmd8.h}!CPpmd8\_Context@{CPpmd8\_Context}}
+\index{CPpmd8\_Context@{CPpmd8\_Context}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{CPpmd8\_Context}{CPpmd8\_Context}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct_c_ppmd8___context__}{CPpmd8\+\_\+\+Context\+\_\+}} \mbox{\hyperlink{_ppmd8_8h_a1c3d956ef2e18947ff8ba10b0a86b4c1}{CPpmd8\+\_\+\+Context}}}
+
+\mbox{\Hypertarget{_ppmd8_8h_aba8563ed2dc9dce23954ee830da38cce}\label{_ppmd8_8h_aba8563ed2dc9dce23954ee830da38cce}} 
+\index{Ppmd8.h@{Ppmd8.h}!CPpmd8\_Context\_Ref@{CPpmd8\_Context\_Ref}}
+\index{CPpmd8\_Context\_Ref@{CPpmd8\_Context\_Ref}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{CPpmd8\_Context\_Ref}{CPpmd8\_Context\_Ref}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{_ppmd8_8h_aba8563ed2dc9dce23954ee830da38cce}{CPpmd8\+\_\+\+Context\+\_\+\+Ref}}}
+
+
+
+Definition at line 25 of file Ppmd8.\+h.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_ppmd8_8h_abed82baf7f470b522273a3e37c24c600}\label{_ppmd8_8h_abed82baf7f470b522273a3e37c24c600}} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PPMD8\_RESTORE\_METHOD\_RESTART@{PPMD8\_RESTORE\_METHOD\_RESTART}!Ppmd8.h@{Ppmd8.h}}\index{Ppmd8.h@{Ppmd8.h}!PPMD8\_RESTORE\_METHOD\_RESTART@{PPMD8\_RESTORE\_METHOD\_RESTART}}}\mbox{\Hypertarget{_ppmd8_8h_abed82baf7f470b522273a3e37c24c600a9e17e91219df8f8e16ba982d575d436a}\label{_ppmd8_8h_abed82baf7f470b522273a3e37c24c600a9e17e91219df8f8e16ba982d575d436a}} 
+PPMD8\+\_\+\+RESTORE\+\_\+\+METHOD\+\_\+\+RESTART&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PPMD8\_RESTORE\_METHOD\_CUT\_OFF@{PPMD8\_RESTORE\_METHOD\_CUT\_OFF}!Ppmd8.h@{Ppmd8.h}}\index{Ppmd8.h@{Ppmd8.h}!PPMD8\_RESTORE\_METHOD\_CUT\_OFF@{PPMD8\_RESTORE\_METHOD\_CUT\_OFF}}}\mbox{\Hypertarget{_ppmd8_8h_abed82baf7f470b522273a3e37c24c600af590d6cf0817b6c848b0f8760ad5ede1}\label{_ppmd8_8h_abed82baf7f470b522273a3e37c24c600af590d6cf0817b6c848b0f8760ad5ede1}} 
+PPMD8\+\_\+\+RESTORE\+\_\+\+METHOD\+\_\+\+CUT\+\_\+\+OFF&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 42 of file Ppmd8.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_ppmd8_8h_a6fecb3bff0cf72862d54eff55a12ba67}\label{_ppmd8_8h_a6fecb3bff0cf72862d54eff55a12ba67}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_Alloc@{Ppmd8\_Alloc}}
+\index{Ppmd8\_Alloc@{Ppmd8\_Alloc}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_Alloc()}{Ppmd8\_Alloc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} Ppmd8\+\_\+\+Alloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{size,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 94 of file Ppmd8.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_ab79c1c161ed54eb5732b92260bd3738f}\label{_ppmd8_8h_ab79c1c161ed54eb5732b92260bd3738f}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_Construct@{Ppmd8\_Construct}}
+\index{Ppmd8\_Construct@{Ppmd8\_Construct}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_Construct()}{Ppmd8\_Construct()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 59 of file Ppmd8.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_aed674c591bf1eba603ce073aede8319e}\label{_ppmd8_8h_aed674c591bf1eba603ce073aede8319e}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_DecodeSymbol@{Ppmd8\_DecodeSymbol}}
+\index{Ppmd8\_DecodeSymbol@{Ppmd8\_DecodeSymbol}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_DecodeSymbol()}{Ppmd8\_DecodeSymbol()}}
+{\footnotesize\ttfamily int Ppmd8\+\_\+\+Decode\+Symbol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 46 of file Ppmd8\+Dec.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_a5d3647d7eefa194ee77db9c968676514}\label{_ppmd8_8h_a5d3647d7eefa194ee77db9c968676514}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_EncodeSymbol@{Ppmd8\_EncodeSymbol}}
+\index{Ppmd8\_EncodeSymbol@{Ppmd8\_EncodeSymbol}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_EncodeSymbol()}{Ppmd8\_EncodeSymbol()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Encode\+Symbol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p,  }\item[{int}]{symbol }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file Ppmd8\+Enc.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_aba1a853f964b35652a13249808acad4d}\label{_ppmd8_8h_aba1a853f964b35652a13249808acad4d}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_Free@{Ppmd8\_Free}}
+\index{Ppmd8\_Free@{Ppmd8\_Free}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_Free()}{Ppmd8\_Free()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 87 of file Ppmd8.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_a6c022b0f7332425f22e51004f7349cf8}\label{_ppmd8_8h_a6c022b0f7332425f22e51004f7349cf8}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_Init@{Ppmd8\_Init}}
+\index{Ppmd8\_Init@{Ppmd8\_Init}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_Init()}{Ppmd8\_Init()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p,  }\item[{unsigned}]{max\+Order,  }\item[{unsigned}]{restore\+Method }\end{DoxyParamCaption})}
+
+
+
+Definition at line 398 of file Ppmd8.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_ac02cf411eeb5816d7de3228aaf9919ba}\label{_ppmd8_8h_ac02cf411eeb5816d7de3228aaf9919ba}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_MakeEscFreq@{Ppmd8\_MakeEscFreq}}
+\index{Ppmd8\_MakeEscFreq@{Ppmd8\_MakeEscFreq}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_MakeEscFreq()}{Ppmd8\_MakeEscFreq()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_ppmd___see}{CPpmd\+\_\+\+See}}$\ast$ Ppmd8\+\_\+\+Make\+Esc\+Freq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p,  }\item[{unsigned}]{num\+Masked,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$}]{scale }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1033 of file Ppmd8.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_a4c43854332ddd55c451599339b86131b}\label{_ppmd8_8h_a4c43854332ddd55c451599339b86131b}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_RangeDec\_Init@{Ppmd8\_RangeDec\_Init}}
+\index{Ppmd8\_RangeDec\_Init@{Ppmd8\_RangeDec\_Init}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_RangeDec\_Init()}{Ppmd8\_RangeDec\_Init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} Ppmd8\+\_\+\+Range\+Dec\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file Ppmd8\+Dec.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_a1585706780cb7451215a94d7ee6d31b0}\label{_ppmd8_8h_a1585706780cb7451215a94d7ee6d31b0}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_RangeEnc\_FlushData@{Ppmd8\_RangeEnc\_FlushData}}
+\index{Ppmd8\_RangeEnc\_FlushData@{Ppmd8\_RangeEnc\_FlushData}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_RangeEnc\_FlushData()}{Ppmd8\_RangeEnc\_FlushData()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Range\+Enc\+\_\+\+Flush\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file Ppmd8\+Enc.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_a9e159fb5f781808bf9d9e360c3c4b653}\label{_ppmd8_8h_a9e159fb5f781808bf9d9e360c3c4b653}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_Update1@{Ppmd8\_Update1}}
+\index{Ppmd8\_Update1@{Ppmd8\_Update1}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_Update1()}{Ppmd8\_Update1()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Update1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1069 of file Ppmd8.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_a373f361931ba715f969b717ef04348e0}\label{_ppmd8_8h_a373f361931ba715f969b717ef04348e0}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_Update1\_0@{Ppmd8\_Update1\_0}}
+\index{Ppmd8\_Update1\_0@{Ppmd8\_Update1\_0}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_Update1\_0()}{Ppmd8\_Update1\_0()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Update1\+\_\+0 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1084 of file Ppmd8.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_a69d6776eb7d2f2709e4037e710cbb400}\label{_ppmd8_8h_a69d6776eb7d2f2709e4037e710cbb400}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_Update2@{Ppmd8\_Update2}}
+\index{Ppmd8\_Update2@{Ppmd8\_Update2}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_Update2()}{Ppmd8\_Update2()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Update2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1102 of file Ppmd8.\+c.
+
+\mbox{\Hypertarget{_ppmd8_8h_aa1a2d9f6e822591ee3e6ed2a623035b5}\label{_ppmd8_8h_aa1a2d9f6e822591ee3e6ed2a623035b5}} 
+\index{Ppmd8.h@{Ppmd8.h}!Ppmd8\_UpdateBin@{Ppmd8\_UpdateBin}}
+\index{Ppmd8\_UpdateBin@{Ppmd8\_UpdateBin}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_UpdateBin()}{Ppmd8\_UpdateBin()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Update\+Bin (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1094 of file Ppmd8.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{_ppmd8_8h_a12b7b912dce899d178f7f5d7179e846b}\label{_ppmd8_8h_a12b7b912dce899d178f7f5d7179e846b}} 
+\index{Ppmd8.h@{Ppmd8.h}!PPMD8\_kExpEscape@{PPMD8\_kExpEscape}}
+\index{PPMD8\_kExpEscape@{PPMD8\_kExpEscape}!Ppmd8.h@{Ppmd8.h}}
+\doxysubsubsection{\texorpdfstring{PPMD8\_kExpEscape}{PPMD8\_kExpEscape}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} PPMD8\+\_\+k\+Exp\+Escape\mbox{[}16\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 9 of file Ppmd8.\+c.
+

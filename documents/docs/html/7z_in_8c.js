@@ -1,0 +1,28 @@
+var 7z_in_8c =
+[
+    [ "_CSzState", "struct___c_sz_state.html", "struct___c_sz_state" ],
+    [ "MY_ALLOC", "7z_in_8c.html#a3b553b94992904e06f8115d5d0354b11", null ],
+    [ "NUM_CODER_STREAMS_MAX", "7z_in_8c.html#a74e5ee8108d8febfa57fb2c91b79d296", null ],
+    [ "NUM_FOLDER_CODERS_MAX", "7z_in_8c.html#a4b9d1f59fc8679e42e96f885cf2c5b6c", null ],
+    [ "RINOM", "7z_in_8c.html#a7320e92310d216121f23d51c0c160f57", null ],
+    [ "CSzData", "7z_in_8c.html#a96a099ee1184ffa045e0807dff21767a", null ],
+    [ "SzAr_Free", "7z_in_8c.html#aba9825d236681ba41dc7c5475d065a8f", null ],
+    [ "SzAr_Init", "7z_in_8c.html#a4fcb4b6ce79050923204aa23682dbbcc", null ],
+    [ "SzArEx_Extract", "7z_in_8c.html#ae72d77d3d72d10ac96deeb741661d42e", null ],
+    [ "SzArEx_Free", "7z_in_8c.html#a66aec5e19e1d6558c54db816468b421d", null ],
+    [ "SzArEx_GetFileNameUtf16", "7z_in_8c.html#a3c51f5a63d4179e78d488e758b4cac62", null ],
+    [ "SzArEx_GetFolderFullPackSize", "7z_in_8c.html#ac093f6c52075a18e6b674c939433c518", null ],
+    [ "SzArEx_GetFolderStreamPos", "7z_in_8c.html#ab731ce378606d16df3d2128459bf11b6", null ],
+    [ "SzArEx_Init", "7z_in_8c.html#af80a540d57d9fb82547404b8a1b2031b", null ],
+    [ "SzArEx_Open", "7z_in_8c.html#a341cbca250c4f5d36b20eabe44e7e4cb", null ],
+    [ "SzCoderInfo_Free", "7z_in_8c.html#a0407572d16c0d4177991803612e80fc1", null ],
+    [ "SzCoderInfo_Init", "7z_in_8c.html#ade69674f6843059c1c9475680e79787a", null ],
+    [ "SzFile_Init", "7z_in_8c.html#aa2680b576ba789ba18f034c021ab7214", null ],
+    [ "SzFolder_FindBindPairForInStream", "7z_in_8c.html#a8321555ed916f5a3b10f1278ab32c4a1", null ],
+    [ "SzFolder_FindBindPairForOutStream", "7z_in_8c.html#a9e6487a7c1aa64cefb1341e521f0808b", null ],
+    [ "SzFolder_Free", "7z_in_8c.html#af9c8b49cdee984df00e99028a3d01f25", null ],
+    [ "SzFolder_GetNumOutStreams", "7z_in_8c.html#adbb0d6e82f122cc7fa1128ab561adeae", null ],
+    [ "SzFolder_GetUnpackSize", "7z_in_8c.html#ac8dcdc9dd9872f158609968bc0c06d22", null ],
+    [ "SzFolder_Init", "7z_in_8c.html#a93703132ead1190b888f40b6ba3ac70b", null ],
+    [ "k7zSignature", "7z_in_8c.html#acb74a8505f701ff91c00529c830a22fd", null ]
+];

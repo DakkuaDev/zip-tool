@@ -1,0 +1,484 @@
+\hypertarget{struct_e_state}{}\doxysection{EState Struct Reference}
+\label{struct_e_state}\index{EState@{EState}}
+
+
+{\ttfamily \#include $<$bzlib\+\_\+private.\+h$>$}
+
+
+
+Collaboration diagram for EState\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structbz__stream}{bz\+\_\+stream}} $\ast$ \mbox{\hyperlink{struct_e_state_a7063b24558691ab4405a034558ca0780}{strm}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_aa8bcff8ad3c08aa1d4104f3a1f98675e}{mode}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a103955affd2678bb4be0b7d272cea6d8}{state}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_e_state_a2c253cc7ac4cb5906bfa27a95f9d8f40}{avail\+\_\+in\+\_\+expect}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$ \mbox{\hyperlink{struct_e_state_a913260bad0cf37079a08b9a133293aaa}{arr1}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$ \mbox{\hyperlink{struct_e_state_ae482d96bff0988edaf4422eef4a7050c}{arr2}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$ \mbox{\hyperlink{struct_e_state_a28875568269ede0a2e40d6ec21636113}{ftab}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_ae5f37ef91f4b3a4165f99a7444eeae6f}{orig\+Ptr}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$ \mbox{\hyperlink{struct_e_state_a6d014c56a52f7f0a4c680ddbae266577}{ptr}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} $\ast$ \mbox{\hyperlink{struct_e_state_a01dfb158ecac9c783c7007cdb6f4a134}{block}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_accc14a7c843716dfed734f3a03e8d2b6}{UInt16}} $\ast$ \mbox{\hyperlink{struct_e_state_a04e02704011d96987d184068e76f9ce6}{mtfv}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} $\ast$ \mbox{\hyperlink{struct_e_state_ac2f697608f9395215fd34c69790ce80b}{zbits}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a1b3153c7686e280308cc7a09b3b82fcf}{work\+Factor}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_e_state_a48c350c8933b39cf4794c437be09869a}{state\+\_\+in\+\_\+ch}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a18b495f4454542c6e6444be9350c7c80}{state\+\_\+in\+\_\+len}}
+\item 
+\mbox{\hyperlink{struct_e_state_a2e27af3fdf6b56fc73378bbfc476d370}{BZ\+\_\+\+RAND\+\_\+\+DECLS}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a130783c7cebf81dc5c5889446678c6ca}{nblock}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a11e19592a99ecd5f3cd7ffc058040501}{nblock\+MAX}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a729f911fbecc78cb9f282270cad840d8}{numZ}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_aa6309250de1b114c27b4da9896be6f55}{state\+\_\+out\+\_\+pos}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_aa30ade5aef28689f57122d6119aa9bff}{n\+In\+Use}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} \mbox{\hyperlink{struct_e_state_a1e9b34981e1bbbb106c6eeccad9cd668}{in\+Use}} \mbox{[}256\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} \mbox{\hyperlink{struct_e_state_ade1a23376ccc11a7e225063a119d951c}{unseq\+To\+Seq}} \mbox{[}256\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_e_state_a607c896aec76ecf3c0c1eb315dfcd99d}{bs\+Buff}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a37196697485ef9e0e364b946d2b01ccf}{bs\+Live}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_e_state_a22ef0f152597ee53cd607b38cbee7fcb}{block\+CRC}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_e_state_a0b65364ceea3626073c4f1cbb79cf0f9}{combined\+CRC}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a92924062b63ae6c4fff9a78bb2589718}{verbosity}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a951cc702525b4d28b65b18d3fe1bbf89}{block\+No}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a75d0cb0855e1980b56090f39033b8418}{block\+Size100k}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_ac96a39944095f50734d32bb0acfc4434}{n\+MTF}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a0fa38a2a57e2a040fb71fda8fdef5894}{mtf\+Freq}} \mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} \mbox{\hyperlink{struct_e_state_a0bd78fee5e462a5fd92ccb6eee6eaf38}{selector}} \mbox{[}\mbox{\hyperlink{bzlib__private_8h_a26466738efd235c4d54c347ea2e6ff02}{BZ\+\_\+\+MAX\+\_\+\+SELECTORS}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} \mbox{\hyperlink{struct_e_state_a67428eed73074a40558aa653a3f21d86}{selector\+Mtf}} \mbox{[}\mbox{\hyperlink{bzlib__private_8h_a26466738efd235c4d54c347ea2e6ff02}{BZ\+\_\+\+MAX\+\_\+\+SELECTORS}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} \mbox{\hyperlink{struct_e_state_aa5f9af18cdba3dac5c071b915446c8c5}{len}} \mbox{[}\mbox{\hyperlink{bzlib__private_8h_a08b3a970e4a4fd0223c08479c933b2b2}{BZ\+\_\+\+N\+\_\+\+GROUPS}}\mbox{]}\mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a138b520fed9d5bbb10d830f1f4e4dab1}{code}} \mbox{[}\mbox{\hyperlink{bzlib__private_8h_a08b3a970e4a4fd0223c08479c933b2b2}{BZ\+\_\+\+N\+\_\+\+GROUPS}}\mbox{]}\mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{struct_e_state_a9a925e22f64a78c4a1080c66ffa0ef62}{rfreq}} \mbox{[}\mbox{\hyperlink{bzlib__private_8h_a08b3a970e4a4fd0223c08479c933b2b2}{BZ\+\_\+\+N\+\_\+\+GROUPS}}\mbox{]}\mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_e_state_a2ab0ad3f8a3bb1b6e03977a26c2b64af}{len\+\_\+pack}} \mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}\mbox{[}4\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 196 of file bzlib\+\_\+private.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_e_state_a913260bad0cf37079a08b9a133293aaa}\label{struct_e_state_a913260bad0cf37079a08b9a133293aaa}} 
+\index{EState@{EState}!arr1@{arr1}}
+\index{arr1@{arr1}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{arr1}{arr1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}$\ast$ EState\+::arr1}
+
+
+
+Definition at line 210 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_ae482d96bff0988edaf4422eef4a7050c}\label{struct_e_state_ae482d96bff0988edaf4422eef4a7050c}} 
+\index{EState@{EState}!arr2@{arr2}}
+\index{arr2@{arr2}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{arr2}{arr2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}$\ast$ EState\+::arr2}
+
+
+
+Definition at line 211 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a2c253cc7ac4cb5906bfa27a95f9d8f40}\label{struct_e_state_a2c253cc7ac4cb5906bfa27a95f9d8f40}} 
+\index{EState@{EState}!avail\_in\_expect@{avail\_in\_expect}}
+\index{avail\_in\_expect@{avail\_in\_expect}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{avail\_in\_expect}{avail\_in\_expect}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} EState\+::avail\+\_\+in\+\_\+expect}
+
+
+
+Definition at line 207 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a01dfb158ecac9c783c7007cdb6f4a134}\label{struct_e_state_a01dfb158ecac9c783c7007cdb6f4a134}} 
+\index{EState@{EState}!block@{block}}
+\index{block@{block}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{block}{block}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}}$\ast$ EState\+::block}
+
+
+
+Definition at line 217 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a22ef0f152597ee53cd607b38cbee7fcb}\label{struct_e_state_a22ef0f152597ee53cd607b38cbee7fcb}} 
+\index{EState@{EState}!blockCRC@{blockCRC}}
+\index{blockCRC@{blockCRC}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{blockCRC}{blockCRC}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} EState\+::block\+CRC}
+
+
+
+Definition at line 245 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a951cc702525b4d28b65b18d3fe1bbf89}\label{struct_e_state_a951cc702525b4d28b65b18d3fe1bbf89}} 
+\index{EState@{EState}!blockNo@{blockNo}}
+\index{blockNo@{blockNo}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{blockNo}{blockNo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::block\+No}
+
+
+
+Definition at line 250 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a75d0cb0855e1980b56090f39033b8418}\label{struct_e_state_a75d0cb0855e1980b56090f39033b8418}} 
+\index{EState@{EState}!blockSize100k@{blockSize100k}}
+\index{blockSize100k@{blockSize100k}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{blockSize100k}{blockSize100k}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::block\+Size100k}
+
+
+
+Definition at line 251 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a607c896aec76ecf3c0c1eb315dfcd99d}\label{struct_e_state_a607c896aec76ecf3c0c1eb315dfcd99d}} 
+\index{EState@{EState}!bsBuff@{bsBuff}}
+\index{bsBuff@{bsBuff}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{bsBuff}{bsBuff}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} EState\+::bs\+Buff}
+
+
+
+Definition at line 241 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a37196697485ef9e0e364b946d2b01ccf}\label{struct_e_state_a37196697485ef9e0e364b946d2b01ccf}} 
+\index{EState@{EState}!bsLive@{bsLive}}
+\index{bsLive@{bsLive}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{bsLive}{bsLive}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::bs\+Live}
+
+
+
+Definition at line 242 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a2e27af3fdf6b56fc73378bbfc476d370}\label{struct_e_state_a2e27af3fdf6b56fc73378bbfc476d370}} 
+\index{EState@{EState}!BZ\_RAND\_DECLS@{BZ\_RAND\_DECLS}}
+\index{BZ\_RAND\_DECLS@{BZ\_RAND\_DECLS}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{BZ\_RAND\_DECLS}{BZ\_RAND\_DECLS}}
+{\footnotesize\ttfamily EState\+::\+BZ\+\_\+\+RAND\+\_\+\+DECLS}
+
+
+
+Definition at line 227 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a138b520fed9d5bbb10d830f1f4e4dab1}\label{struct_e_state_a138b520fed9d5bbb10d830f1f4e4dab1}} 
+\index{EState@{EState}!code@{code}}
+\index{code@{code}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{code}{code}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::code\mbox{[}\mbox{\hyperlink{bzlib__private_8h_a08b3a970e4a4fd0223c08479c933b2b2}{BZ\+\_\+\+N\+\_\+\+GROUPS}}\mbox{]}\mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+Definition at line 260 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a0b65364ceea3626073c4f1cbb79cf0f9}\label{struct_e_state_a0b65364ceea3626073c4f1cbb79cf0f9}} 
+\index{EState@{EState}!combinedCRC@{combinedCRC}}
+\index{combinedCRC@{combinedCRC}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{combinedCRC}{combinedCRC}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} EState\+::combined\+CRC}
+
+
+
+Definition at line 246 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a28875568269ede0a2e40d6ec21636113}\label{struct_e_state_a28875568269ede0a2e40d6ec21636113}} 
+\index{EState@{EState}!ftab@{ftab}}
+\index{ftab@{ftab}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{ftab}{ftab}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}$\ast$ EState\+::ftab}
+
+
+
+Definition at line 212 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a1e9b34981e1bbbb106c6eeccad9cd668}\label{struct_e_state_a1e9b34981e1bbbb106c6eeccad9cd668}} 
+\index{EState@{EState}!inUse@{inUse}}
+\index{inUse@{inUse}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{inUse}{inUse}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} EState\+::in\+Use\mbox{[}256\mbox{]}}
+
+
+
+Definition at line 237 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_aa5f9af18cdba3dac5c071b915446c8c5}\label{struct_e_state_aa5f9af18cdba3dac5c071b915446c8c5}} 
+\index{EState@{EState}!len@{len}}
+\index{len@{len}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{len}{len}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} EState\+::len\mbox{[}\mbox{\hyperlink{bzlib__private_8h_a08b3a970e4a4fd0223c08479c933b2b2}{BZ\+\_\+\+N\+\_\+\+GROUPS}}\mbox{]}\mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+Definition at line 259 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a2ab0ad3f8a3bb1b6e03977a26c2b64af}\label{struct_e_state_a2ab0ad3f8a3bb1b6e03977a26c2b64af}} 
+\index{EState@{EState}!len\_pack@{len\_pack}}
+\index{len\_pack@{len\_pack}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{len\_pack}{len\_pack}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} EState\+::len\+\_\+pack\mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}\mbox{[}4\mbox{]}}
+
+
+
+Definition at line 263 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_aa8bcff8ad3c08aa1d4104f3a1f98675e}\label{struct_e_state_aa8bcff8ad3c08aa1d4104f3a1f98675e}} 
+\index{EState@{EState}!mode@{mode}}
+\index{mode@{mode}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::mode}
+
+
+
+Definition at line 203 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a0fa38a2a57e2a040fb71fda8fdef5894}\label{struct_e_state_a0fa38a2a57e2a040fb71fda8fdef5894}} 
+\index{EState@{EState}!mtfFreq@{mtfFreq}}
+\index{mtfFreq@{mtfFreq}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{mtfFreq}{mtfFreq}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::mtf\+Freq\mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+Definition at line 255 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a04e02704011d96987d184068e76f9ce6}\label{struct_e_state_a04e02704011d96987d184068e76f9ce6}} 
+\index{EState@{EState}!mtfv@{mtfv}}
+\index{mtfv@{mtfv}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{mtfv}{mtfv}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_accc14a7c843716dfed734f3a03e8d2b6}{UInt16}}$\ast$ EState\+::mtfv}
+
+
+
+Definition at line 218 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a130783c7cebf81dc5c5889446678c6ca}\label{struct_e_state_a130783c7cebf81dc5c5889446678c6ca}} 
+\index{EState@{EState}!nblock@{nblock}}
+\index{nblock@{nblock}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{nblock}{nblock}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::nblock}
+
+
+
+Definition at line 230 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a11e19592a99ecd5f3cd7ffc058040501}\label{struct_e_state_a11e19592a99ecd5f3cd7ffc058040501}} 
+\index{EState@{EState}!nblockMAX@{nblockMAX}}
+\index{nblockMAX@{nblockMAX}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{nblockMAX}{nblockMAX}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::nblock\+MAX}
+
+
+
+Definition at line 231 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_aa30ade5aef28689f57122d6119aa9bff}\label{struct_e_state_aa30ade5aef28689f57122d6119aa9bff}} 
+\index{EState@{EState}!nInUse@{nInUse}}
+\index{nInUse@{nInUse}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{nInUse}{nInUse}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::n\+In\+Use}
+
+
+
+Definition at line 236 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_ac96a39944095f50734d32bb0acfc4434}\label{struct_e_state_ac96a39944095f50734d32bb0acfc4434}} 
+\index{EState@{EState}!nMTF@{nMTF}}
+\index{nMTF@{nMTF}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{nMTF}{nMTF}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::n\+MTF}
+
+
+
+Definition at line 254 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a729f911fbecc78cb9f282270cad840d8}\label{struct_e_state_a729f911fbecc78cb9f282270cad840d8}} 
+\index{EState@{EState}!numZ@{numZ}}
+\index{numZ@{numZ}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{numZ}{numZ}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::numZ}
+
+
+
+Definition at line 232 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_ae5f37ef91f4b3a4165f99a7444eeae6f}\label{struct_e_state_ae5f37ef91f4b3a4165f99a7444eeae6f}} 
+\index{EState@{EState}!origPtr@{origPtr}}
+\index{origPtr@{origPtr}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{origPtr}{origPtr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::orig\+Ptr}
+
+
+
+Definition at line 213 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a6d014c56a52f7f0a4c680ddbae266577}\label{struct_e_state_a6d014c56a52f7f0a4c680ddbae266577}} 
+\index{EState@{EState}!ptr@{ptr}}
+\index{ptr@{ptr}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{ptr}{ptr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}$\ast$ EState\+::ptr}
+
+
+
+Definition at line 216 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a9a925e22f64a78c4a1080c66ffa0ef62}\label{struct_e_state_a9a925e22f64a78c4a1080c66ffa0ef62}} 
+\index{EState@{EState}!rfreq@{rfreq}}
+\index{rfreq@{rfreq}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{rfreq}{rfreq}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::rfreq\mbox{[}\mbox{\hyperlink{bzlib__private_8h_a08b3a970e4a4fd0223c08479c933b2b2}{BZ\+\_\+\+N\+\_\+\+GROUPS}}\mbox{]}\mbox{[}\mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\+\_\+\+MAX\+\_\+\+ALPHA\+\_\+\+SIZE}}\mbox{]}}
+
+
+
+Definition at line 261 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a0bd78fee5e462a5fd92ccb6eee6eaf38}\label{struct_e_state_a0bd78fee5e462a5fd92ccb6eee6eaf38}} 
+\index{EState@{EState}!selector@{selector}}
+\index{selector@{selector}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{selector}{selector}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} EState\+::selector\mbox{[}\mbox{\hyperlink{bzlib__private_8h_a26466738efd235c4d54c347ea2e6ff02}{BZ\+\_\+\+MAX\+\_\+\+SELECTORS}}\mbox{]}}
+
+
+
+Definition at line 256 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a67428eed73074a40558aa653a3f21d86}\label{struct_e_state_a67428eed73074a40558aa653a3f21d86}} 
+\index{EState@{EState}!selectorMtf@{selectorMtf}}
+\index{selectorMtf@{selectorMtf}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{selectorMtf}{selectorMtf}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} EState\+::selector\+Mtf\mbox{[}\mbox{\hyperlink{bzlib__private_8h_a26466738efd235c4d54c347ea2e6ff02}{BZ\+\_\+\+MAX\+\_\+\+SELECTORS}}\mbox{]}}
+
+
+
+Definition at line 257 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a103955affd2678bb4be0b7d272cea6d8}\label{struct_e_state_a103955affd2678bb4be0b7d272cea6d8}} 
+\index{EState@{EState}!state@{state}}
+\index{state@{state}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::state}
+
+
+
+Definition at line 204 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a48c350c8933b39cf4794c437be09869a}\label{struct_e_state_a48c350c8933b39cf4794c437be09869a}} 
+\index{EState@{EState}!state\_in\_ch@{state\_in\_ch}}
+\index{state\_in\_ch@{state\_in\_ch}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{state\_in\_ch}{state\_in\_ch}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} EState\+::state\+\_\+in\+\_\+ch}
+
+
+
+Definition at line 225 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a18b495f4454542c6e6444be9350c7c80}\label{struct_e_state_a18b495f4454542c6e6444be9350c7c80}} 
+\index{EState@{EState}!state\_in\_len@{state\_in\_len}}
+\index{state\_in\_len@{state\_in\_len}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{state\_in\_len}{state\_in\_len}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::state\+\_\+in\+\_\+len}
+
+
+
+Definition at line 226 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_aa6309250de1b114c27b4da9896be6f55}\label{struct_e_state_aa6309250de1b114c27b4da9896be6f55}} 
+\index{EState@{EState}!state\_out\_pos@{state\_out\_pos}}
+\index{state\_out\_pos@{state\_out\_pos}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{state\_out\_pos}{state\_out\_pos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::state\+\_\+out\+\_\+pos}
+
+
+
+Definition at line 233 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a7063b24558691ab4405a034558ca0780}\label{struct_e_state_a7063b24558691ab4405a034558ca0780}} 
+\index{EState@{EState}!strm@{strm}}
+\index{strm@{strm}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{strm}{strm}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structbz__stream}{bz\+\_\+stream}}$\ast$ EState\+::strm}
+
+
+
+Definition at line 199 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_ade1a23376ccc11a7e225063a119d951c}\label{struct_e_state_ade1a23376ccc11a7e225063a119d951c}} 
+\index{EState@{EState}!unseqToSeq@{unseqToSeq}}
+\index{unseqToSeq@{unseqToSeq}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{unseqToSeq}{unseqToSeq}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} EState\+::unseq\+To\+Seq\mbox{[}256\mbox{]}}
+
+
+
+Definition at line 238 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a92924062b63ae6c4fff9a78bb2589718}\label{struct_e_state_a92924062b63ae6c4fff9a78bb2589718}} 
+\index{EState@{EState}!verbosity@{verbosity}}
+\index{verbosity@{verbosity}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{verbosity}{verbosity}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::verbosity}
+
+
+
+Definition at line 249 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_a1b3153c7686e280308cc7a09b3b82fcf}\label{struct_e_state_a1b3153c7686e280308cc7a09b3b82fcf}} 
+\index{EState@{EState}!workFactor@{workFactor}}
+\index{workFactor@{workFactor}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{workFactor}{workFactor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} EState\+::work\+Factor}
+
+
+
+Definition at line 222 of file bzlib\+\_\+private.\+h.
+
+\mbox{\Hypertarget{struct_e_state_ac2f697608f9395215fd34c69790ce80b}\label{struct_e_state_ac2f697608f9395215fd34c69790ce80b}} 
+\index{EState@{EState}!zbits@{zbits}}
+\index{zbits@{zbits}!EState@{EState}}
+\doxysubsubsection{\texorpdfstring{zbits}{zbits}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}}$\ast$ EState\+::zbits}
+
+
+
+Definition at line 219 of file bzlib\+\_\+private.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/extlibs/bzip2/\mbox{\hyperlink{bzlib__private_8h}{bzlib\+\_\+private.\+h}}\end{DoxyCompactItemize}

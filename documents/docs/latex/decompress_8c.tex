@@ -1,0 +1,147 @@
+\hypertarget{decompress_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/bzip2/decompress.c File Reference}
+\label{decompress_8c}\index{source/ZipLib/extlibs/bzip2/decompress.c@{source/ZipLib/extlibs/bzip2/decompress.c}}
+{\ttfamily \#include \char`\"{}bzlib\+\_\+private.\+h\char`\"{}}\newline
+Include dependency graph for decompress.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{decompress_8c_a417dccbe92a67b6ad7db726673410d21}{RETURN}}(rrr)~   \{ ret\+Val = rrr; goto save\+\_\+state\+\_\+and\+\_\+return; \};
+\item 
+\#define \mbox{\hyperlink{decompress_8c_af56b9d9d05def9a5d989f26e75f086be}{GET\+\_\+\+BITS}}(lll,  vvv,  nnn)
+\item 
+\#define \mbox{\hyperlink{decompress_8c_a076d9e54d0efc514ac9a0df70fa92a10}{GET\+\_\+\+UCHAR}}(lll,  uuu)~   \mbox{\hyperlink{decompress_8c_af56b9d9d05def9a5d989f26e75f086be}{GET\+\_\+\+BITS}}(lll,uuu,8)
+\item 
+\#define \mbox{\hyperlink{decompress_8c_ae0730fc572d59b5631b129bbe79b911e}{GET\+\_\+\+BIT}}(lll,  uuu)~   \mbox{\hyperlink{decompress_8c_af56b9d9d05def9a5d989f26e75f086be}{GET\+\_\+\+BITS}}(lll,uuu,1)
+\item 
+\#define \mbox{\hyperlink{decompress_8c_a4c25676be9e8d39cbb45ec710266e320}{GET\+\_\+\+MTF\+\_\+\+VAL}}(label1,  label2,  lval)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} \mbox{\hyperlink{decompress_8c_a4363bf4c57bbccf863c62361e39d2c97}{BZ2\+\_\+decompress}} (\mbox{\hyperlink{struct_d_state}{DState}} $\ast$s)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{decompress_8c_ae0730fc572d59b5631b129bbe79b911e}\label{decompress_8c_ae0730fc572d59b5631b129bbe79b911e}} 
+\index{decompress.c@{decompress.c}!GET\_BIT@{GET\_BIT}}
+\index{GET\_BIT@{GET\_BIT}!decompress.c@{decompress.c}}
+\doxysubsubsection{\texorpdfstring{GET\_BIT}{GET\_BIT}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{lll,  }\item[{}]{uuu }\end{DoxyParamCaption})~   \mbox{\hyperlink{decompress_8c_af56b9d9d05def9a5d989f26e75f086be}{GET\+\_\+\+BITS}}(lll,uuu,1)}
+
+
+
+Definition at line 70 of file decompress.\+c.
+
+\mbox{\Hypertarget{decompress_8c_af56b9d9d05def9a5d989f26e75f086be}\label{decompress_8c_af56b9d9d05def9a5d989f26e75f086be}} 
+\index{decompress.c@{decompress.c}!GET\_BITS@{GET\_BITS}}
+\index{GET\_BITS@{GET\_BITS}!decompress.c@{decompress.c}}
+\doxysubsubsection{\texorpdfstring{GET\_BITS}{GET\_BITS}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+BITS(\begin{DoxyParamCaption}\item[{}]{lll,  }\item[{}]{vvv,  }\item[{}]{nnn }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   \textcolor{keywordflow}{case} lll: s-\/>state = lll;                      \(\backslash\)}
+\DoxyCodeLine{   while (\mbox{\hyperlink{bzlib__private_8h_add3ca9eefe3b5b754426f51d3043e579}{True}}) \{                                 \(\backslash\)}
+\DoxyCodeLine{      if (s-\/>bsLive >= nnn) \{                     \(\backslash\)}
+\DoxyCodeLine{         UInt32 v;                                \(\backslash\)}
+\DoxyCodeLine{         v = (s-\/>bsBuff >>                        \(\backslash\)}
+\DoxyCodeLine{             (s-\/>bsLive-\/nnn)) \& ((1 << nnn)-\/1);   \(\backslash\)}
+\DoxyCodeLine{         s-\/>bsLive -\/= nnn;                        \(\backslash\)}
+\DoxyCodeLine{         vvv = v;                                 \(\backslash\)}
+\DoxyCodeLine{         break;                                   \(\backslash\)}
+\DoxyCodeLine{      \}                                           \(\backslash\)}
+\DoxyCodeLine{      if (s-\/>strm-\/>avail\_in == 0) \mbox{\hyperlink{decompress_8c_a417dccbe92a67b6ad7db726673410d21}{RETURN}}(\mbox{\hyperlink{bzlib_8h_a61417364d1847b31d7edfb28ecda6971}{BZ\_OK}});  \(\backslash\)}
+\DoxyCodeLine{      s-\/>bsBuff                                   \(\backslash\)}
+\DoxyCodeLine{         = (s-\/>bsBuff << 8) |                     \(\backslash\)}
+\DoxyCodeLine{           ((\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})                              \(\backslash\)}
+\DoxyCodeLine{              (*((\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}}*)(s-\/>strm-\/>next\_in))));   \(\backslash\)}
+\DoxyCodeLine{      s-\/>bsLive += 8;                             \(\backslash\)}
+\DoxyCodeLine{      s-\/>strm-\/>next\_in++;                         \(\backslash\)}
+\DoxyCodeLine{      s-\/>strm-\/>avail\_in-\/-\/;                        \(\backslash\)}
+\DoxyCodeLine{      s-\/>strm-\/>total\_in\_lo32++;                   \(\backslash\)}
+\DoxyCodeLine{      if (s-\/>strm-\/>total\_in\_lo32 == 0)            \(\backslash\)}
+\DoxyCodeLine{         s-\/>strm-\/>total\_in\_hi32++;                \(\backslash\)}
+\DoxyCodeLine{   \}}
+
+\end{DoxyCode}
+
+
+Definition at line 43 of file decompress.\+c.
+
+\mbox{\Hypertarget{decompress_8c_a4c25676be9e8d39cbb45ec710266e320}\label{decompress_8c_a4c25676be9e8d39cbb45ec710266e320}} 
+\index{decompress.c@{decompress.c}!GET\_MTF\_VAL@{GET\_MTF\_VAL}}
+\index{GET\_MTF\_VAL@{GET\_MTF\_VAL}!decompress.c@{decompress.c}}
+\doxysubsubsection{\texorpdfstring{GET\_MTF\_VAL}{GET\_MTF\_VAL}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+MTF\+\_\+\+VAL(\begin{DoxyParamCaption}\item[{}]{label1,  }\item[{}]{label2,  }\item[{}]{lval }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                                                 \(\backslash\)}
+\DoxyCodeLine{   if (groupPos == 0) \{                           \(\backslash\)}
+\DoxyCodeLine{      groupNo++;                                  \(\backslash\)}
+\DoxyCodeLine{      if (groupNo >= nSelectors)                  \(\backslash\)}
+\DoxyCodeLine{         RETURN(\mbox{\hyperlink{bzlib_8h_a7a16281753e49ae475255c10d0b79c35}{BZ\_DATA\_ERROR}});                   \(\backslash\)}
+\DoxyCodeLine{      groupPos = \mbox{\hyperlink{bzlib__private_8h_a9bd73e4921a11b7f864c7c2147cab08a}{BZ\_G\_SIZE}};                       \(\backslash\)}
+\DoxyCodeLine{      gSel = s-\/>selector[groupNo];                \(\backslash\)}
+\DoxyCodeLine{      gMinlen = s-\/>minLens[gSel];                 \(\backslash\)}
+\DoxyCodeLine{      gLimit = \&(s-\/>limit[gSel][0]);              \(\backslash\)}
+\DoxyCodeLine{      gPerm = \&(s-\/>perm[gSel][0]);                \(\backslash\)}
+\DoxyCodeLine{      gBase = \&(s-\/>base[gSel][0]);                \(\backslash\)}
+\DoxyCodeLine{   \}                                              \(\backslash\)}
+\DoxyCodeLine{   groupPos-\/-\/;                                    \(\backslash\)}
+\DoxyCodeLine{   zn = gMinlen;                                  \(\backslash\)}
+\DoxyCodeLine{   GET\_BITS(label1, zvec, zn);                    \(\backslash\)}
+\DoxyCodeLine{   while (1) \{                                    \(\backslash\)}
+\DoxyCodeLine{      if (zn > 20 \textcolor{comment}{/* the longest code */})         \(\backslash\)}
+\DoxyCodeLine{         RETURN(\mbox{\hyperlink{bzlib_8h_a7a16281753e49ae475255c10d0b79c35}{BZ\_DATA\_ERROR}});                   \(\backslash\)}
+\DoxyCodeLine{      if (zvec <= gLimit[zn]) \textcolor{keywordflow}{break};              \(\backslash\)}
+\DoxyCodeLine{      zn++;                                       \(\backslash\)}
+\DoxyCodeLine{      GET\_BIT(label2, zj);                        \(\backslash\)}
+\DoxyCodeLine{      zvec = (zvec << 1) | zj;                    \(\backslash\)}
+\DoxyCodeLine{   \};                                             \(\backslash\)}
+\DoxyCodeLine{   if (zvec -\/ gBase[zn] < 0                       \(\backslash\)}
+\DoxyCodeLine{       || zvec -\/ gBase[zn] >= \mbox{\hyperlink{bzlib__private_8h_ae7c260f98aba4276a72bce60b015545e}{BZ\_MAX\_ALPHA\_SIZE}})  \(\backslash\)}
+\DoxyCodeLine{      RETURN(\mbox{\hyperlink{bzlib_8h_a7a16281753e49ae475255c10d0b79c35}{BZ\_DATA\_ERROR}});                      \(\backslash\)}
+\DoxyCodeLine{   lval = gPerm[zvec -\/ gBase[zn]];                \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 74 of file decompress.\+c.
+
+\mbox{\Hypertarget{decompress_8c_a076d9e54d0efc514ac9a0df70fa92a10}\label{decompress_8c_a076d9e54d0efc514ac9a0df70fa92a10}} 
+\index{decompress.c@{decompress.c}!GET\_UCHAR@{GET\_UCHAR}}
+\index{GET\_UCHAR@{GET\_UCHAR}!decompress.c@{decompress.c}}
+\doxysubsubsection{\texorpdfstring{GET\_UCHAR}{GET\_UCHAR}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+UCHAR(\begin{DoxyParamCaption}\item[{}]{lll,  }\item[{}]{uuu }\end{DoxyParamCaption})~   \mbox{\hyperlink{decompress_8c_af56b9d9d05def9a5d989f26e75f086be}{GET\+\_\+\+BITS}}(lll,uuu,8)}
+
+
+
+Definition at line 67 of file decompress.\+c.
+
+\mbox{\Hypertarget{decompress_8c_a417dccbe92a67b6ad7db726673410d21}\label{decompress_8c_a417dccbe92a67b6ad7db726673410d21}} 
+\index{decompress.c@{decompress.c}!RETURN@{RETURN}}
+\index{RETURN@{RETURN}!decompress.c@{decompress.c}}
+\doxysubsubsection{\texorpdfstring{RETURN}{RETURN}}
+{\footnotesize\ttfamily \#define RETURN(\begin{DoxyParamCaption}\item[{}]{rrr }\end{DoxyParamCaption})~   \{ ret\+Val = rrr; goto save\+\_\+state\+\_\+and\+\_\+return; \};}
+
+
+
+Definition at line 40 of file decompress.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{decompress_8c_a4363bf4c57bbccf863c62361e39d2c97}\label{decompress_8c_a4363bf4c57bbccf863c62361e39d2c97}} 
+\index{decompress.c@{decompress.c}!BZ2\_decompress@{BZ2\_decompress}}
+\index{BZ2\_decompress@{BZ2\_decompress}!decompress.c@{decompress.c}}
+\doxysubsubsection{\texorpdfstring{BZ2\_decompress()}{BZ2\_decompress()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} BZ2\+\_\+decompress (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_d_state}{DState}} $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line 106 of file decompress.\+c.
+

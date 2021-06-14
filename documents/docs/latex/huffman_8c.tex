@@ -1,0 +1,163 @@
+\hypertarget{huffman_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/bzip2/huffman.c File Reference}
+\label{huffman_8c}\index{source/ZipLib/extlibs/bzip2/huffman.c@{source/ZipLib/extlibs/bzip2/huffman.c}}
+{\ttfamily \#include \char`\"{}bzlib\+\_\+private.\+h\char`\"{}}\newline
+Include dependency graph for huffman.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{huffman_8c_a0d49b9240dc646993a99b12031b47422}{WEIGHTOF}}(zz0)~((zz0) \& 0xffffff00)
+\item 
+\#define \mbox{\hyperlink{huffman_8c_aa6ab35c8ec4be1aa47d542af6530d974}{DEPTHOF}}(zz1)~((zz1) \& 0x000000ff)
+\item 
+\#define \mbox{\hyperlink{huffman_8c_ac9ffa1e9f0e80f90a8e72d9e103c4ae7}{MYMAX}}(zz2,  zz3)~((zz2) $>$ (zz3) ? (zz2) \+: (zz3))
+\item 
+\#define \mbox{\hyperlink{huffman_8c_abc8bffe7d0e78b73513852dc3385af22}{ADDWEIGHTS}}(zw1,  zw2)
+\item 
+\#define \mbox{\hyperlink{huffman_8c_a70bdc23b697f0ef0e1ec782fb3fb37e9}{UPHEAP}}(z)
+\item 
+\#define \mbox{\hyperlink{huffman_8c_ab36a3f266fad7420f74f491535df285f}{DOWNHEAP}}(z)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{huffman_8c_ae19302af1ed2d2a366d15564b4fffd7b}{BZ2\+\_\+hb\+Make\+Code\+Lengths}} (\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} $\ast$len, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$freq, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} alpha\+Size, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} max\+Len)
+\item 
+void \mbox{\hyperlink{huffman_8c_abb13ef9c3915838284e7cf4eea929c75}{BZ2\+\_\+hb\+Assign\+Codes}} (\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$\mbox{\hyperlink{structcode}{code}}, \mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} $\ast$length, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} min\+Len, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} max\+Len, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} alpha\+Size)
+\item 
+void \mbox{\hyperlink{huffman_8c_a66c46fe4b4330e9d4c4ea76e34792514}{BZ2\+\_\+hb\+Create\+Decode\+Tables}} (\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$limit, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$base, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$perm, \mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} $\ast$length, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} min\+Len, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} max\+Len, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} alpha\+Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{huffman_8c_abc8bffe7d0e78b73513852dc3385af22}\label{huffman_8c_abc8bffe7d0e78b73513852dc3385af22}} 
+\index{huffman.c@{huffman.c}!ADDWEIGHTS@{ADDWEIGHTS}}
+\index{ADDWEIGHTS@{ADDWEIGHTS}!huffman.c@{huffman.c}}
+\doxysubsubsection{\texorpdfstring{ADDWEIGHTS}{ADDWEIGHTS}}
+{\footnotesize\ttfamily \#define ADDWEIGHTS(\begin{DoxyParamCaption}\item[{}]{zw1,  }\item[{}]{zw2 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{   (\mbox{\hyperlink{huffman_8c_a0d49b9240dc646993a99b12031b47422}{WEIGHTOF}}(zw1)+\mbox{\hyperlink{huffman_8c_a0d49b9240dc646993a99b12031b47422}{WEIGHTOF}}(zw2)) |                    \(\backslash\)}
+\DoxyCodeLine{   (1 + \mbox{\hyperlink{huffman_8c_ac9ffa1e9f0e80f90a8e72d9e103c4ae7}{MYMAX}}(\mbox{\hyperlink{huffman_8c_aa6ab35c8ec4be1aa47d542af6530d974}{DEPTHOF}}(zw1),\mbox{\hyperlink{huffman_8c_aa6ab35c8ec4be1aa47d542af6530d974}{DEPTHOF}}(zw2)))}
+
+\end{DoxyCode}
+
+
+Definition at line 29 of file huffman.\+c.
+
+\mbox{\Hypertarget{huffman_8c_aa6ab35c8ec4be1aa47d542af6530d974}\label{huffman_8c_aa6ab35c8ec4be1aa47d542af6530d974}} 
+\index{huffman.c@{huffman.c}!DEPTHOF@{DEPTHOF}}
+\index{DEPTHOF@{DEPTHOF}!huffman.c@{huffman.c}}
+\doxysubsubsection{\texorpdfstring{DEPTHOF}{DEPTHOF}}
+{\footnotesize\ttfamily \#define DEPTHOF(\begin{DoxyParamCaption}\item[{}]{zz1 }\end{DoxyParamCaption})~((zz1) \& 0x000000ff)}
+
+
+
+Definition at line 26 of file huffman.\+c.
+
+\mbox{\Hypertarget{huffman_8c_ab36a3f266fad7420f74f491535df285f}\label{huffman_8c_ab36a3f266fad7420f74f491535df285f}} 
+\index{huffman.c@{huffman.c}!DOWNHEAP@{DOWNHEAP}}
+\index{DOWNHEAP@{DOWNHEAP}!huffman.c@{huffman.c}}
+\doxysubsubsection{\texorpdfstring{DOWNHEAP}{DOWNHEAP}}
+{\footnotesize\ttfamily \#define DOWNHEAP(\begin{DoxyParamCaption}\item[{}]{z }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                                                     \(\backslash\)}
+\DoxyCodeLine{   Int32 zz, yy, tmp;                                 \(\backslash\)}
+\DoxyCodeLine{   zz = z; tmp = heap[zz];                            \(\backslash\)}
+\DoxyCodeLine{   while (\mbox{\hyperlink{bzlib__private_8h_add3ca9eefe3b5b754426f51d3043e579}{True}}) \{                                     \(\backslash\)}
+\DoxyCodeLine{      yy = zz << 1;                                   \(\backslash\)}
+\DoxyCodeLine{      if (yy > nHeap) \textcolor{keywordflow}{break};                          \(\backslash\)}
+\DoxyCodeLine{      if (yy < nHeap \&\&                               \(\backslash\)}
+\DoxyCodeLine{          weight[heap[yy+1]] < weight[heap[yy]])      \(\backslash\)}
+\DoxyCodeLine{         yy++;                                        \(\backslash\)}
+\DoxyCodeLine{      if (weight[tmp] < weight[heap[yy]]) \textcolor{keywordflow}{break};      \(\backslash\)}
+\DoxyCodeLine{      heap[zz] = heap[yy];                            \(\backslash\)}
+\DoxyCodeLine{      zz = yy;                                        \(\backslash\)}
+\DoxyCodeLine{   \}                                                  \(\backslash\)}
+\DoxyCodeLine{   heap[zz] = tmp;                                    \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 44 of file huffman.\+c.
+
+\mbox{\Hypertarget{huffman_8c_ac9ffa1e9f0e80f90a8e72d9e103c4ae7}\label{huffman_8c_ac9ffa1e9f0e80f90a8e72d9e103c4ae7}} 
+\index{huffman.c@{huffman.c}!MYMAX@{MYMAX}}
+\index{MYMAX@{MYMAX}!huffman.c@{huffman.c}}
+\doxysubsubsection{\texorpdfstring{MYMAX}{MYMAX}}
+{\footnotesize\ttfamily \#define MYMAX(\begin{DoxyParamCaption}\item[{}]{zz2,  }\item[{}]{zz3 }\end{DoxyParamCaption})~((zz2) $>$ (zz3) ? (zz2) \+: (zz3))}
+
+
+
+Definition at line 27 of file huffman.\+c.
+
+\mbox{\Hypertarget{huffman_8c_a70bdc23b697f0ef0e1ec782fb3fb37e9}\label{huffman_8c_a70bdc23b697f0ef0e1ec782fb3fb37e9}} 
+\index{huffman.c@{huffman.c}!UPHEAP@{UPHEAP}}
+\index{UPHEAP@{UPHEAP}!huffman.c@{huffman.c}}
+\doxysubsubsection{\texorpdfstring{UPHEAP}{UPHEAP}}
+{\footnotesize\ttfamily \#define UPHEAP(\begin{DoxyParamCaption}\item[{}]{z }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{                                                     \(\backslash\)}
+\DoxyCodeLine{   Int32 zz, tmp;                                     \(\backslash\)}
+\DoxyCodeLine{   zz = z; tmp = heap[zz];                            \(\backslash\)}
+\DoxyCodeLine{   while (weight[tmp] < weight[heap[zz >> 1]]) \{      \(\backslash\)}
+\DoxyCodeLine{      heap[zz] = heap[zz >> 1];                       \(\backslash\)}
+\DoxyCodeLine{      zz >>= 1;                                       \(\backslash\)}
+\DoxyCodeLine{   \}                                                  \(\backslash\)}
+\DoxyCodeLine{   heap[zz] = tmp;                                    \(\backslash\)}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Definition at line 33 of file huffman.\+c.
+
+\mbox{\Hypertarget{huffman_8c_a0d49b9240dc646993a99b12031b47422}\label{huffman_8c_a0d49b9240dc646993a99b12031b47422}} 
+\index{huffman.c@{huffman.c}!WEIGHTOF@{WEIGHTOF}}
+\index{WEIGHTOF@{WEIGHTOF}!huffman.c@{huffman.c}}
+\doxysubsubsection{\texorpdfstring{WEIGHTOF}{WEIGHTOF}}
+{\footnotesize\ttfamily \#define WEIGHTOF(\begin{DoxyParamCaption}\item[{}]{zz0 }\end{DoxyParamCaption})~((zz0) \& 0xffffff00)}
+
+
+
+Definition at line 25 of file huffman.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{huffman_8c_abb13ef9c3915838284e7cf4eea929c75}\label{huffman_8c_abb13ef9c3915838284e7cf4eea929c75}} 
+\index{huffman.c@{huffman.c}!BZ2\_hbAssignCodes@{BZ2\_hbAssignCodes}}
+\index{BZ2\_hbAssignCodes@{BZ2\_hbAssignCodes}!huffman.c@{huffman.c}}
+\doxysubsubsection{\texorpdfstring{BZ2\_hbAssignCodes()}{BZ2\_hbAssignCodes()}}
+{\footnotesize\ttfamily void BZ2\+\_\+hb\+Assign\+Codes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$}]{code,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} $\ast$}]{length,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}}}]{min\+Len,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}}}]{max\+Len,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}}}]{alpha\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 152 of file huffman.\+c.
+
+\mbox{\Hypertarget{huffman_8c_a66c46fe4b4330e9d4c4ea76e34792514}\label{huffman_8c_a66c46fe4b4330e9d4c4ea76e34792514}} 
+\index{huffman.c@{huffman.c}!BZ2\_hbCreateDecodeTables@{BZ2\_hbCreateDecodeTables}}
+\index{BZ2\_hbCreateDecodeTables@{BZ2\_hbCreateDecodeTables}!huffman.c@{huffman.c}}
+\doxysubsubsection{\texorpdfstring{BZ2\_hbCreateDecodeTables()}{BZ2\_hbCreateDecodeTables()}}
+{\footnotesize\ttfamily void BZ2\+\_\+hb\+Create\+Decode\+Tables (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$}]{limit,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$}]{base,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$}]{perm,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} $\ast$}]{length,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}}}]{min\+Len,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}}}]{max\+Len,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}}}]{alpha\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 170 of file huffman.\+c.
+
+\mbox{\Hypertarget{huffman_8c_ae19302af1ed2d2a366d15564b4fffd7b}\label{huffman_8c_ae19302af1ed2d2a366d15564b4fffd7b}} 
+\index{huffman.c@{huffman.c}!BZ2\_hbMakeCodeLengths@{BZ2\_hbMakeCodeLengths}}
+\index{BZ2\_hbMakeCodeLengths@{BZ2\_hbMakeCodeLengths}!huffman.c@{huffman.c}}
+\doxysubsubsection{\texorpdfstring{BZ2\_hbMakeCodeLengths()}{BZ2\_hbMakeCodeLengths()}}
+{\footnotesize\ttfamily void BZ2\+\_\+hb\+Make\+Code\+Lengths (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bzlib__private_8h_a5a0fa7fd26bf95968c50ea6c1dc48825}{UChar}} $\ast$}]{len,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} $\ast$}]{freq,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}}}]{alpha\+Size,  }\item[{\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}}}]{max\+Len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file huffman.\+c.
+

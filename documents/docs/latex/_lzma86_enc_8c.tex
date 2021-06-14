@@ -1,0 +1,45 @@
+\hypertarget{_lzma86_enc_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/\+Lzma86\+Enc.c File Reference}
+\label{_lzma86_enc_8c}\index{source/ZipLib/extlibs/lzma/Lzma86Enc.c@{source/ZipLib/extlibs/lzma/Lzma86Enc.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Lzma86.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Alloc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Bra.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lzma\+Enc.\+h\char`\"{}}\newline
+Include dependency graph for Lzma86\+Enc.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_lzma86_enc_8c_a4ec5e9bd59d94d967ff34edab3f4c9a0}{SZE\+\_\+\+OUT\+\_\+\+OVERFLOW}}~SZE\+\_\+\+DATA\+\_\+\+ERROR
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_lzma86_enc_8c_a318acd3bacdf541c7185c44af08d8959}{Lzma86\+\_\+\+Encode}} (\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, size\+\_\+t $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, size\+\_\+t src\+Len, int level, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} dict\+Size, int filter\+Mode)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_lzma86_enc_8c_a4ec5e9bd59d94d967ff34edab3f4c9a0}\label{_lzma86_enc_8c_a4ec5e9bd59d94d967ff34edab3f4c9a0}} 
+\index{Lzma86Enc.c@{Lzma86Enc.c}!SZE\_OUT\_OVERFLOW@{SZE\_OUT\_OVERFLOW}}
+\index{SZE\_OUT\_OVERFLOW@{SZE\_OUT\_OVERFLOW}!Lzma86Enc.c@{Lzma86Enc.c}}
+\doxysubsubsection{\texorpdfstring{SZE\_OUT\_OVERFLOW}{SZE\_OUT\_OVERFLOW}}
+{\footnotesize\ttfamily \#define SZE\+\_\+\+OUT\+\_\+\+OVERFLOW~SZE\+\_\+\+DATA\+\_\+\+ERROR}
+
+
+
+Definition at line 12 of file Lzma86\+Enc.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_lzma86_enc_8c_a318acd3bacdf541c7185c44af08d8959}\label{_lzma86_enc_8c_a318acd3bacdf541c7185c44af08d8959}} 
+\index{Lzma86Enc.c@{Lzma86Enc.c}!Lzma86\_Encode@{Lzma86\_Encode}}
+\index{Lzma86\_Encode@{Lzma86\_Encode}!Lzma86Enc.c@{Lzma86Enc.c}}
+\doxysubsubsection{\texorpdfstring{Lzma86\_Encode()}{Lzma86\_Encode()}}
+{\footnotesize\ttfamily int Lzma86\+\_\+\+Encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{size\+\_\+t $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Len,  }\item[{int}]{level,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{dict\+Size,  }\item[{int}]{filter\+Mode }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file Lzma86\+Enc.\+c.
+

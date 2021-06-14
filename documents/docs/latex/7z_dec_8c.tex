@@ -1,0 +1,167 @@
+\hypertarget{7z_dec_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/7z\+Dec.c File Reference}
+\label{7z_dec_8c}\index{source/ZipLib/extlibs/lzma/7zDec.c@{source/ZipLib/extlibs/lzma/7zDec.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}7z.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Bcj2.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Bra.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Cpu\+Arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lzma\+Dec.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lzma2\+Dec.\+h\char`\"{}}\newline
+Include dependency graph for 7z\+Dec.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_a429c1d6bbd16758bb1f20d58fefed63b}{k\+\_\+\+Copy}}~0
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_a528bd6dd26c3f0efcc12e89e5e0143d3}{k\+\_\+\+LZMA2}}~0x21
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_a11324bf74a00851014be48b62bc750cf}{k\+\_\+\+LZMA}}~0x30101
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_a133a8301b9c5a164ba20a7453b6ce842}{k\+\_\+\+BCJ}}~0x03030103
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_acbd5c1b3d91a49ddfa69c8724ffb8f4c}{k\+\_\+\+PPC}}~0x03030205
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_a5df82fc09aec30f595c0620889513590}{k\+\_\+\+ARM}}~0x03030501
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_a59edcad39f9099b267a0d0bf38d4900d}{k\+\_\+\+ARMT}}~0x03030701
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_a43d8f35f7630ada69ea92c62395782dd}{k\+\_\+\+SPARC}}~0x03030805
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_a6d7b79e02ca7b40ef7172a9f1b26d45f}{k\+\_\+\+BCJ2}}~0x0303011B
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_ab6806af1f76b8956d6581f16b59c4edf}{IS\+\_\+\+BCJ2}}(\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}})~((\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}})-\/$>$Method\+ID == \mbox{\hyperlink{7z_dec_8c_a6d7b79e02ca7b40ef7172a9f1b26d45f}{k\+\_\+\+BCJ2}} \&\& (\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}})-\/$>$Num\+In\+Streams == 4 \&\& (\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}})-\/$>$Num\+Out\+Streams == 1)
+\item 
+\#define \mbox{\hyperlink{7z_dec_8c_ad2830df05b27161b6f6635d6f9bc4798}{CASE\+\_\+\+BRA\+\_\+\+CONV}}(isa)~case k\+\_\+ \#\# isa\+: isa \#\# \+\_\+\+Convert(out\+Buffer, out\+Size, 0, 0); break;
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{7z_dec_8c_a5dca4d37b2c3c0e4a119f5b57a2a879c}{Sz\+Folder\+\_\+\+Decode}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_sz_folder}{CSz\+Folder}} $\ast$folder, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} $\ast$pack\+Sizes, \mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$in\+Stream, \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} start\+Pos, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$out\+Buffer, size\+\_\+t out\+Size, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc\+Main)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{7z_dec_8c_ad2830df05b27161b6f6635d6f9bc4798}\label{7z_dec_8c_ad2830df05b27161b6f6635d6f9bc4798}} 
+\index{7zDec.c@{7zDec.c}!CASE\_BRA\_CONV@{CASE\_BRA\_CONV}}
+\index{CASE\_BRA\_CONV@{CASE\_BRA\_CONV}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{CASE\_BRA\_CONV}{CASE\_BRA\_CONV}}
+{\footnotesize\ttfamily \#define CASE\+\_\+\+BRA\+\_\+\+CONV(\begin{DoxyParamCaption}\item[{}]{isa }\end{DoxyParamCaption})~case k\+\_\+ \#\# isa\+: isa \#\# \+\_\+\+Convert(out\+Buffer, out\+Size, 0, 0); break;}
+
+
+
+Definition at line 333 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_ab6806af1f76b8956d6581f16b59c4edf}\label{7z_dec_8c_ab6806af1f76b8956d6581f16b59c4edf}} 
+\index{7zDec.c@{7zDec.c}!IS\_BCJ2@{IS\_BCJ2}}
+\index{IS\_BCJ2@{IS\_BCJ2}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{IS\_BCJ2}{IS\_BCJ2}}
+{\footnotesize\ttfamily \#define IS\+\_\+\+BCJ2(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}} }\end{DoxyParamCaption})~((\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}})-\/$>$Method\+ID == \mbox{\hyperlink{7z_dec_8c_a6d7b79e02ca7b40ef7172a9f1b26d45f}{k\+\_\+\+BCJ2}} \&\& (\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}})-\/$>$Num\+In\+Streams == 4 \&\& (\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}})-\/$>$Num\+Out\+Streams == 1)}
+
+
+
+Definition at line 267 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_a5df82fc09aec30f595c0620889513590}\label{7z_dec_8c_a5df82fc09aec30f595c0620889513590}} 
+\index{7zDec.c@{7zDec.c}!k\_ARM@{k\_ARM}}
+\index{k\_ARM@{k\_ARM}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{k\_ARM}{k\_ARM}}
+{\footnotesize\ttfamily \#define k\+\_\+\+ARM~0x03030501}
+
+
+
+Definition at line 24 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_a59edcad39f9099b267a0d0bf38d4900d}\label{7z_dec_8c_a59edcad39f9099b267a0d0bf38d4900d}} 
+\index{7zDec.c@{7zDec.c}!k\_ARMT@{k\_ARMT}}
+\index{k\_ARMT@{k\_ARMT}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{k\_ARMT}{k\_ARMT}}
+{\footnotesize\ttfamily \#define k\+\_\+\+ARMT~0x03030701}
+
+
+
+Definition at line 25 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_a133a8301b9c5a164ba20a7453b6ce842}\label{7z_dec_8c_a133a8301b9c5a164ba20a7453b6ce842}} 
+\index{7zDec.c@{7zDec.c}!k\_BCJ@{k\_BCJ}}
+\index{k\_BCJ@{k\_BCJ}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{k\_BCJ}{k\_BCJ}}
+{\footnotesize\ttfamily \#define k\+\_\+\+BCJ~0x03030103}
+
+
+
+Definition at line 22 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_a6d7b79e02ca7b40ef7172a9f1b26d45f}\label{7z_dec_8c_a6d7b79e02ca7b40ef7172a9f1b26d45f}} 
+\index{7zDec.c@{7zDec.c}!k\_BCJ2@{k\_BCJ2}}
+\index{k\_BCJ2@{k\_BCJ2}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{k\_BCJ2}{k\_BCJ2}}
+{\footnotesize\ttfamily \#define k\+\_\+\+BCJ2~0x0303011B}
+
+
+
+Definition at line 27 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_a429c1d6bbd16758bb1f20d58fefed63b}\label{7z_dec_8c_a429c1d6bbd16758bb1f20d58fefed63b}} 
+\index{7zDec.c@{7zDec.c}!k\_Copy@{k\_Copy}}
+\index{k\_Copy@{k\_Copy}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{k\_Copy}{k\_Copy}}
+{\footnotesize\ttfamily \#define k\+\_\+\+Copy~0}
+
+
+
+Definition at line 19 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_a11324bf74a00851014be48b62bc750cf}\label{7z_dec_8c_a11324bf74a00851014be48b62bc750cf}} 
+\index{7zDec.c@{7zDec.c}!k\_LZMA@{k\_LZMA}}
+\index{k\_LZMA@{k\_LZMA}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{k\_LZMA}{k\_LZMA}}
+{\footnotesize\ttfamily \#define k\+\_\+\+LZMA~0x30101}
+
+
+
+Definition at line 21 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_a528bd6dd26c3f0efcc12e89e5e0143d3}\label{7z_dec_8c_a528bd6dd26c3f0efcc12e89e5e0143d3}} 
+\index{7zDec.c@{7zDec.c}!k\_LZMA2@{k\_LZMA2}}
+\index{k\_LZMA2@{k\_LZMA2}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{k\_LZMA2}{k\_LZMA2}}
+{\footnotesize\ttfamily \#define k\+\_\+\+LZMA2~0x21}
+
+
+
+Definition at line 20 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_acbd5c1b3d91a49ddfa69c8724ffb8f4c}\label{7z_dec_8c_acbd5c1b3d91a49ddfa69c8724ffb8f4c}} 
+\index{7zDec.c@{7zDec.c}!k\_PPC@{k\_PPC}}
+\index{k\_PPC@{k\_PPC}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{k\_PPC}{k\_PPC}}
+{\footnotesize\ttfamily \#define k\+\_\+\+PPC~0x03030205}
+
+
+
+Definition at line 23 of file 7z\+Dec.\+c.
+
+\mbox{\Hypertarget{7z_dec_8c_a43d8f35f7630ada69ea92c62395782dd}\label{7z_dec_8c_a43d8f35f7630ada69ea92c62395782dd}} 
+\index{7zDec.c@{7zDec.c}!k\_SPARC@{k\_SPARC}}
+\index{k\_SPARC@{k\_SPARC}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{k\_SPARC}{k\_SPARC}}
+{\footnotesize\ttfamily \#define k\+\_\+\+SPARC~0x03030805}
+
+
+
+Definition at line 26 of file 7z\+Dec.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{7z_dec_8c_a5dca4d37b2c3c0e4a119f5b57a2a879c}\label{7z_dec_8c_a5dca4d37b2c3c0e4a119f5b57a2a879c}} 
+\index{7zDec.c@{7zDec.c}!SzFolder\_Decode@{SzFolder\_Decode}}
+\index{SzFolder\_Decode@{SzFolder\_Decode}!7zDec.c@{7zDec.c}}
+\doxysubsubsection{\texorpdfstring{SzFolder\_Decode()}{SzFolder\_Decode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Sz\+Folder\+\_\+\+Decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_sz_folder}{CSz\+Folder}} $\ast$}]{folder,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} $\ast$}]{pack\+Sizes,  }\item[{\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$}]{in\+Stream,  }\item[{\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}}}]{start\+Pos,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{out\+Buffer,  }\item[{size\+\_\+t}]{out\+Size,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc\+Main }\end{DoxyParamCaption})}
+
+
+
+Definition at line 459 of file 7z\+Dec.\+c.
+

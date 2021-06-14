@@ -1,0 +1,25 @@
+digraph "source/ZipLib/compression/lzma/lzma_encoder_properties.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="source/ZipLib/compression\l/lzma/lzma_encoder_properties.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="../compression_interface.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$compression__interface_8h.html",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="iostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="algorithm",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="detail/lzma_handle.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lzma__handle_8h.html",tooltip=" "];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="lzma_alloc.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$lzma__alloc_8h.html",tooltip=" "];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="../../../extlibs/lzma\l/Types.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_types_8h.html",tooltip=" "];
+  Node7 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="stddef.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node5 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="../../../extlibs/lzma\l/LzmaEnc.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_lzma_enc_8h.html",tooltip=" "];
+  Node9 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+}

@@ -1,0 +1,190 @@
+\hypertarget{class_i_compression_method}{}\doxysection{ICompression\+Method Class Reference}
+\label{class_i_compression_method}\index{ICompressionMethod@{ICompressionMethod}}
+
+
+{\ttfamily \#include $<$ICompression\+Method.\+h$>$}
+
+
+
+Inheritance diagram for ICompression\+Method\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_compression_method}{ICompression\+Method}} $>$ \mbox{\hyperlink{class_i_compression_method_acd3399e6e9105459b043b8f0401defbd}{Ptr}}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{compression__interface_8h_a0fe01539a0b677763b0583e71e0b08a2}{compression\+\_\+encoder\+\_\+interface}} $>$ \mbox{\hyperlink{class_i_compression_method_a1ac32a70485796ea6534e12fdeb0e238}{encoder\+\_\+t}}
+\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{compression__interface_8h_ac4738fae6eb8e2e15e78224b8e1903ea}{compression\+\_\+decoder\+\_\+interface}} $>$ \mbox{\hyperlink{class_i_compression_method_a26cc5ee00e8c553ca304e1760a382ebe}{decoder\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_compression_method_a1ac32a70485796ea6534e12fdeb0e238}{encoder\+\_\+t}} \mbox{\hyperlink{class_i_compression_method_a175fa6d80c0fc8cea7565c35f4c95b6f}{Get\+Encoder}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+\mbox{\hyperlink{class_i_compression_method_a26cc5ee00e8c553ca304e1760a382ebe}{decoder\+\_\+t}} \mbox{\hyperlink{class_i_compression_method_a9609a406210dfac9bb612f7593eaec12}{Get\+Decoder}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+virtual \mbox{\hyperlink{structcompression__encoder__properties__interface}{compression\+\_\+encoder\+\_\+properties\+\_\+interface}} \& \mbox{\hyperlink{class_i_compression_method_a2994973fadb900a05c6e40c5cd78edf1}{Get\+Encoder\+Properties}} ()=0
+\item 
+virtual \mbox{\hyperlink{structcompression__decoder__properties__interface}{compression\+\_\+decoder\+\_\+properties\+\_\+interface}} \& \mbox{\hyperlink{class_i_compression_method_a5e34386b26ed2a9fe9771b4660c5bc27}{Get\+Decoder\+Properties}} ()=0
+\item 
+virtual \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_zip_method_descriptor}{Zip\+Method\+Descriptor}} \& \mbox{\hyperlink{class_i_compression_method_a55fa4589896cc5fd7749acc926b24a77}{Get\+Zip\+Method\+Descriptor}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_zip_method_descriptor}{Zip\+Method\+Descriptor}} \& \mbox{\hyperlink{class_i_compression_method_a14f22a308de51b4699d47d1ef816aea4}{Get\+Zip\+Method\+Descriptor\+Static}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} uint16\+\_\+t \mbox{\hyperlink{class_i_compression_method_af104a457fd3287941fd566094175b676}{Stored\+Compression\+Method}} = 0
+\item 
+static \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} uint16\+\_\+t \mbox{\hyperlink{class_i_compression_method_a9cbcc57a7b262a5c353b514b1a0a4c8f}{Stored\+Version\+Needed\+To\+Extract}} = 10
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_i_compression_method_a63f231441f83fb46b3a1638d2b844a9c}{Set\+Encoder}} (\mbox{\hyperlink{class_i_compression_method_a1ac32a70485796ea6534e12fdeb0e238}{encoder\+\_\+t}} encoder)
+\item 
+void \mbox{\hyperlink{class_i_compression_method_a11f4cf35bf3222ca81320453872b1269}{Set\+Decoder}} (\mbox{\hyperlink{class_i_compression_method_a26cc5ee00e8c553ca304e1760a382ebe}{decoder\+\_\+t}} decoder)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 71 of file ICompression\+Method.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_i_compression_method_a26cc5ee00e8c553ca304e1760a382ebe}\label{class_i_compression_method_a26cc5ee00e8c553ca304e1760a382ebe}} 
+\index{ICompressionMethod@{ICompressionMethod}!decoder\_t@{decoder\_t}}
+\index{decoder\_t@{decoder\_t}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{decoder\_t}{decoder\_t}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{compression__interface_8h_ac4738fae6eb8e2e15e78224b8e1903ea}{compression\+\_\+decoder\+\_\+interface}}$>$ \mbox{\hyperlink{class_i_compression_method_a26cc5ee00e8c553ca304e1760a382ebe}{ICompression\+Method\+::decoder\+\_\+t}}}
+
+
+
+Definition at line 80 of file ICompression\+Method.\+h.
+
+\mbox{\Hypertarget{class_i_compression_method_a1ac32a70485796ea6534e12fdeb0e238}\label{class_i_compression_method_a1ac32a70485796ea6534e12fdeb0e238}} 
+\index{ICompressionMethod@{ICompressionMethod}!encoder\_t@{encoder\_t}}
+\index{encoder\_t@{encoder\_t}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{encoder\_t}{encoder\_t}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{compression__interface_8h_a0fe01539a0b677763b0583e71e0b08a2}{compression\+\_\+encoder\+\_\+interface}}$>$ \mbox{\hyperlink{class_i_compression_method_a1ac32a70485796ea6534e12fdeb0e238}{ICompression\+Method\+::encoder\+\_\+t}}}
+
+
+
+Definition at line 79 of file ICompression\+Method.\+h.
+
+\mbox{\Hypertarget{class_i_compression_method_acd3399e6e9105459b043b8f0401defbd}\label{class_i_compression_method_acd3399e6e9105459b043b8f0401defbd}} 
+\index{ICompressionMethod@{ICompressionMethod}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_i_compression_method}{ICompression\+Method}}$>$ \mbox{\hyperlink{class_i_compression_method_acd3399e6e9105459b043b8f0401defbd}{ICompression\+Method\+::\+Ptr}}}
+
+
+
+Definition at line 77 of file ICompression\+Method.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_compression_method_a9609a406210dfac9bb612f7593eaec12}\label{class_i_compression_method_a9609a406210dfac9bb612f7593eaec12}} 
+\index{ICompressionMethod@{ICompressionMethod}!GetDecoder@{GetDecoder}}
+\index{GetDecoder@{GetDecoder}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{GetDecoder()}{GetDecoder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_compression_method_a26cc5ee00e8c553ca304e1760a382ebe}{decoder\+\_\+t}} ICompression\+Method\+::\+Get\+Decoder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 83 of file ICompression\+Method.\+h.
+
+\mbox{\Hypertarget{class_i_compression_method_a5e34386b26ed2a9fe9771b4660c5bc27}\label{class_i_compression_method_a5e34386b26ed2a9fe9771b4660c5bc27}} 
+\index{ICompressionMethod@{ICompressionMethod}!GetDecoderProperties@{GetDecoderProperties}}
+\index{GetDecoderProperties@{GetDecoderProperties}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{GetDecoderProperties()}{GetDecoderProperties()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structcompression__decoder__properties__interface}{compression\+\_\+decoder\+\_\+properties\+\_\+interface}}\& ICompression\+Method\+::\+Get\+Decoder\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{class_i_compression_method_a175fa6d80c0fc8cea7565c35f4c95b6f}\label{class_i_compression_method_a175fa6d80c0fc8cea7565c35f4c95b6f}} 
+\index{ICompressionMethod@{ICompressionMethod}!GetEncoder@{GetEncoder}}
+\index{GetEncoder@{GetEncoder}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{GetEncoder()}{GetEncoder()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_compression_method_a1ac32a70485796ea6534e12fdeb0e238}{encoder\+\_\+t}} ICompression\+Method\+::\+Get\+Encoder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 82 of file ICompression\+Method.\+h.
+
+\mbox{\Hypertarget{class_i_compression_method_a2994973fadb900a05c6e40c5cd78edf1}\label{class_i_compression_method_a2994973fadb900a05c6e40c5cd78edf1}} 
+\index{ICompressionMethod@{ICompressionMethod}!GetEncoderProperties@{GetEncoderProperties}}
+\index{GetEncoderProperties@{GetEncoderProperties}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{GetEncoderProperties()}{GetEncoderProperties()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{structcompression__encoder__properties__interface}{compression\+\_\+encoder\+\_\+properties\+\_\+interface}}\& ICompression\+Method\+::\+Get\+Encoder\+Properties (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{class_i_compression_method_a55fa4589896cc5fd7749acc926b24a77}\label{class_i_compression_method_a55fa4589896cc5fd7749acc926b24a77}} 
+\index{ICompressionMethod@{ICompressionMethod}!GetZipMethodDescriptor@{GetZipMethodDescriptor}}
+\index{GetZipMethodDescriptor@{GetZipMethodDescriptor}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{GetZipMethodDescriptor()}{GetZipMethodDescriptor()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_zip_method_descriptor}{Zip\+Method\+Descriptor}}\& ICompression\+Method\+::\+Get\+Zip\+Method\+Descriptor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{class_i_compression_method_a14f22a308de51b4699d47d1ef816aea4}\label{class_i_compression_method_a14f22a308de51b4699d47d1ef816aea4}} 
+\index{ICompressionMethod@{ICompressionMethod}!GetZipMethodDescriptorStatic@{GetZipMethodDescriptorStatic}}
+\index{GetZipMethodDescriptorStatic@{GetZipMethodDescriptorStatic}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{GetZipMethodDescriptorStatic()}{GetZipMethodDescriptorStatic()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_zip_method_descriptor}{Zip\+Method\+Descriptor}}\& ICompression\+Method\+::\+Get\+Zip\+Method\+Descriptor\+Static (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 89 of file ICompression\+Method.\+h.
+
+\mbox{\Hypertarget{class_i_compression_method_a11f4cf35bf3222ca81320453872b1269}\label{class_i_compression_method_a11f4cf35bf3222ca81320453872b1269}} 
+\index{ICompressionMethod@{ICompressionMethod}!SetDecoder@{SetDecoder}}
+\index{SetDecoder@{SetDecoder}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{SetDecoder()}{SetDecoder()}}
+{\footnotesize\ttfamily void ICompression\+Method\+::\+Set\+Decoder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_compression_method_a26cc5ee00e8c553ca304e1760a382ebe}{decoder\+\_\+t}}}]{decoder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 98 of file ICompression\+Method.\+h.
+
+\mbox{\Hypertarget{class_i_compression_method_a63f231441f83fb46b3a1638d2b844a9c}\label{class_i_compression_method_a63f231441f83fb46b3a1638d2b844a9c}} 
+\index{ICompressionMethod@{ICompressionMethod}!SetEncoder@{SetEncoder}}
+\index{SetEncoder@{SetEncoder}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{SetEncoder()}{SetEncoder()}}
+{\footnotesize\ttfamily void ICompression\+Method\+::\+Set\+Encoder (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_compression_method_a1ac32a70485796ea6534e12fdeb0e238}{encoder\+\_\+t}}}]{encoder }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 97 of file ICompression\+Method.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_i_compression_method_af104a457fd3287941fd566094175b676}\label{class_i_compression_method_af104a457fd3287941fd566094175b676}} 
+\index{ICompressionMethod@{ICompressionMethod}!StoredCompressionMethod@{StoredCompressionMethod}}
+\index{StoredCompressionMethod@{StoredCompressionMethod}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{StoredCompressionMethod}{StoredCompressionMethod}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} uint16\+\_\+t ICompression\+Method\+::\+Stored\+Compression\+Method = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 74 of file ICompression\+Method.\+h.
+
+\mbox{\Hypertarget{class_i_compression_method_a9cbcc57a7b262a5c353b514b1a0a4c8f}\label{class_i_compression_method_a9cbcc57a7b262a5c353b514b1a0a4c8f}} 
+\index{ICompressionMethod@{ICompressionMethod}!StoredVersionNeededToExtract@{StoredVersionNeededToExtract}}
+\index{StoredVersionNeededToExtract@{StoredVersionNeededToExtract}!ICompressionMethod@{ICompressionMethod}}
+\doxysubsubsection{\texorpdfstring{StoredVersionNeededToExtract}{StoredVersionNeededToExtract}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} uint16\+\_\+t ICompression\+Method\+::\+Stored\+Version\+Needed\+To\+Extract = 10\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 75 of file ICompression\+Method.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/methods/\mbox{\hyperlink{_i_compression_method_8h}{ICompression\+Method.\+h}}\end{DoxyCompactItemize}

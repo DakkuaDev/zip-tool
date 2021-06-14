@@ -1,0 +1,172 @@
+\hypertarget{class_bzip2_method}{}\doxysection{Bzip2\+Method Class Reference}
+\label{class_bzip2_method}\index{Bzip2Method@{Bzip2Method}}
+
+
+{\ttfamily \#include $<$Bzip2\+Method.\+h$>$}
+
+
+
+Inheritance diagram for Bzip2\+Method\+:
+% FIG 0
+
+
+Collaboration diagram for Bzip2\+Method\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9aff}{Block\+Size}} \+: int \{ \newline
+\mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa0cbbb54371c016770e74aa3c528085f6}{B100}} = 1
+, \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affaff94a9292710b7a191f8ff8eb7af5bae}{B200}} = 2
+, \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa288c6cc44743569624d05709023821e1}{B300}} = 3
+, \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affaa91afef2a14c7b33ede5d75cf623225a}{B400}} = 4
+, \newline
+\mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa684de9fd176bad67200462f8c35d9190}{B500}} = 5
+, \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa894aa069b554edd8b78cf016f2b18e4d}{B600}} = 6
+, \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa9ce89e60e3c1dcfdb5181ceba8331eb2}{B700}} = 7
+, \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa19d2b55e32339fa56c8d61d5e65f4229}{B800}} = 8
+, \newline
+\mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa5cf35b93615b0ee7dd6ad398008bf3e5}{B900}} = 9
+, \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa90fd7fdf6f41406a75e5265b9583bb4e}{Fastest}} = B100
+, \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa7a1920d61156abc05a60135aefe8bc67}{Default}} = B600
+, \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa68ef004de6166492c1d668eb8efe09bd}{Best}} = B900
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_bzip2_method_a73651085a5eac755f4b08219cdd0879a}{ZIP\+\_\+\+METHOD\+\_\+\+CLASS\+\_\+\+PROLOGUE}} (\mbox{\hyperlink{class_bzip2_method}{Bzip2\+Method}}, \mbox{\hyperlink{bzip2__encoder_8h_aa0e03f7782f9d5daca7ad6e24b943d8d}{bzip2\+\_\+encoder}}, \mbox{\hyperlink{bzip2__decoder_8h_a7b00ff51154437c498b800ebd013f408}{bzip2\+\_\+decoder}}, \+\_\+encoder\+Props, \+\_\+decoder\+Props, 12, 46)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_bzip2_method_a0f42c15e068e22a9985c89fb310281ba}{Get\+Buffer\+Capacity}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+void \mbox{\hyperlink{class_bzip2_method_ad3deafd04fb8dd48ba644b27eae2623d}{Set\+Buffer\+Capacity}} (size\+\_\+t buffer\+Capacity)
+\item 
+\mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9aff}{Block\+Size}} \mbox{\hyperlink{class_bzip2_method_a30fc38d7dad313dedebdb8702c4d102d}{Get\+Block\+Size}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+void \mbox{\hyperlink{class_bzip2_method_ae7164cfbf32377240e4efc77d04c11e7}{Set\+Block\+Size}} (\mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9aff}{Block\+Size}} compression\+Level)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 8 of file Bzip2\+Method.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9aff}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9aff}} 
+\index{Bzip2Method@{Bzip2Method}!BlockSize@{BlockSize}}
+\index{BlockSize@{BlockSize}!Bzip2Method@{Bzip2Method}}
+\doxysubsubsection{\texorpdfstring{BlockSize}{BlockSize}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9aff}{Bzip2\+Method\+::\+Block\+Size}} \+: int\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B100@{B100}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!B100@{B100}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa0cbbb54371c016770e74aa3c528085f6}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa0cbbb54371c016770e74aa3c528085f6}} 
+B100&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B200@{B200}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!B200@{B200}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affaff94a9292710b7a191f8ff8eb7af5bae}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affaff94a9292710b7a191f8ff8eb7af5bae}} 
+B200&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B300@{B300}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!B300@{B300}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa288c6cc44743569624d05709023821e1}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa288c6cc44743569624d05709023821e1}} 
+B300&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B400@{B400}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!B400@{B400}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affaa91afef2a14c7b33ede5d75cf623225a}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affaa91afef2a14c7b33ede5d75cf623225a}} 
+B400&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B500@{B500}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!B500@{B500}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa684de9fd176bad67200462f8c35d9190}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa684de9fd176bad67200462f8c35d9190}} 
+B500&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B600@{B600}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!B600@{B600}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa894aa069b554edd8b78cf016f2b18e4d}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa894aa069b554edd8b78cf016f2b18e4d}} 
+B600&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B700@{B700}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!B700@{B700}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa9ce89e60e3c1dcfdb5181ceba8331eb2}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa9ce89e60e3c1dcfdb5181ceba8331eb2}} 
+B700&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B800@{B800}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!B800@{B800}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa19d2b55e32339fa56c8d61d5e65f4229}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa19d2b55e32339fa56c8d61d5e65f4229}} 
+B800&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B900@{B900}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!B900@{B900}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa5cf35b93615b0ee7dd6ad398008bf3e5}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa5cf35b93615b0ee7dd6ad398008bf3e5}} 
+B900&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Fastest@{Fastest}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!Fastest@{Fastest}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa90fd7fdf6f41406a75e5265b9583bb4e}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa90fd7fdf6f41406a75e5265b9583bb4e}} 
+Fastest&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Default@{Default}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!Default@{Default}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa7a1920d61156abc05a60135aefe8bc67}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa7a1920d61156abc05a60135aefe8bc67}} 
+Default&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Best@{Best}!Bzip2Method@{Bzip2Method}}\index{Bzip2Method@{Bzip2Method}!Best@{Best}}}\mbox{\Hypertarget{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa68ef004de6166492c1d668eb8efe09bd}\label{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9affa68ef004de6166492c1d668eb8efe09bd}} 
+Best&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 20 of file Bzip2\+Method.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bzip2_method_a30fc38d7dad313dedebdb8702c4d102d}\label{class_bzip2_method_a30fc38d7dad313dedebdb8702c4d102d}} 
+\index{Bzip2Method@{Bzip2Method}!GetBlockSize@{GetBlockSize}}
+\index{GetBlockSize@{GetBlockSize}!Bzip2Method@{Bzip2Method}}
+\doxysubsubsection{\texorpdfstring{GetBlockSize()}{GetBlockSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9aff}{Block\+Size}} Bzip2\+Method\+::\+Get\+Block\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 40 of file Bzip2\+Method.\+h.
+
+\mbox{\Hypertarget{class_bzip2_method_a0f42c15e068e22a9985c89fb310281ba}\label{class_bzip2_method_a0f42c15e068e22a9985c89fb310281ba}} 
+\index{Bzip2Method@{Bzip2Method}!GetBufferCapacity@{GetBufferCapacity}}
+\index{GetBufferCapacity@{GetBufferCapacity}!Bzip2Method@{Bzip2Method}}
+\doxysubsubsection{\texorpdfstring{GetBufferCapacity()}{GetBufferCapacity()}}
+{\footnotesize\ttfamily size\+\_\+t Bzip2\+Method\+::\+Get\+Buffer\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 37 of file Bzip2\+Method.\+h.
+
+\mbox{\Hypertarget{class_bzip2_method_ae7164cfbf32377240e4efc77d04c11e7}\label{class_bzip2_method_ae7164cfbf32377240e4efc77d04c11e7}} 
+\index{Bzip2Method@{Bzip2Method}!SetBlockSize@{SetBlockSize}}
+\index{SetBlockSize@{SetBlockSize}!Bzip2Method@{Bzip2Method}}
+\doxysubsubsection{\texorpdfstring{SetBlockSize()}{SetBlockSize()}}
+{\footnotesize\ttfamily void Bzip2\+Method\+::\+Set\+Block\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_bzip2_method_aed21d1628eb50c49bc33b43439bb9aff}{Block\+Size}}}]{compression\+Level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 41 of file Bzip2\+Method.\+h.
+
+\mbox{\Hypertarget{class_bzip2_method_ad3deafd04fb8dd48ba644b27eae2623d}\label{class_bzip2_method_ad3deafd04fb8dd48ba644b27eae2623d}} 
+\index{Bzip2Method@{Bzip2Method}!SetBufferCapacity@{SetBufferCapacity}}
+\index{SetBufferCapacity@{SetBufferCapacity}!Bzip2Method@{Bzip2Method}}
+\doxysubsubsection{\texorpdfstring{SetBufferCapacity()}{SetBufferCapacity()}}
+{\footnotesize\ttfamily void Bzip2\+Method\+::\+Set\+Buffer\+Capacity (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{buffer\+Capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 38 of file Bzip2\+Method.\+h.
+
+\mbox{\Hypertarget{class_bzip2_method_a73651085a5eac755f4b08219cdd0879a}\label{class_bzip2_method_a73651085a5eac755f4b08219cdd0879a}} 
+\index{Bzip2Method@{Bzip2Method}!ZIP\_METHOD\_CLASS\_PROLOGUE@{ZIP\_METHOD\_CLASS\_PROLOGUE}}
+\index{ZIP\_METHOD\_CLASS\_PROLOGUE@{ZIP\_METHOD\_CLASS\_PROLOGUE}!Bzip2Method@{Bzip2Method}}
+\doxysubsubsection{\texorpdfstring{ZIP\_METHOD\_CLASS\_PROLOGUE()}{ZIP\_METHOD\_CLASS\_PROLOGUE()}}
+{\footnotesize\ttfamily Bzip2\+Method\+::\+ZIP\+\_\+\+METHOD\+\_\+\+CLASS\+\_\+\+PROLOGUE (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_bzip2_method}{Bzip2\+Method}}}]{,  }\item[{\mbox{\hyperlink{bzip2__encoder_8h_aa0e03f7782f9d5daca7ad6e24b943d8d}{bzip2\+\_\+encoder}}}]{,  }\item[{\mbox{\hyperlink{bzip2__decoder_8h_a7b00ff51154437c498b800ebd013f408}{bzip2\+\_\+decoder}}}]{,  }\item[{\+\_\+encoder\+Props}]{,  }\item[{\+\_\+decoder\+Props}]{,  }\item[{12}]{,  }\item[{46}]{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/methods/\mbox{\hyperlink{_bzip2_method_8h}{Bzip2\+Method.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,445 @@
+\hypertarget{zutil_8h}{}\doxysection{source/\+Zip\+Lib/extlibs/zlib/zutil.h File Reference}
+\label{zutil_8h}\index{source/ZipLib/extlibs/zlib/zutil.h@{source/ZipLib/extlibs/zlib/zutil.h}}
+{\ttfamily \#include \char`\"{}zlib.\+h\char`\"{}}\newline
+Include dependency graph for zutil.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}}
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a08023ea6765c99d60a6a3840cd07156e}{local}}~static
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a66466516a4a71f3c78ccc40d203c92e5}{ERR\+\_\+\+MSG}}(err)~\mbox{\hyperlink{zutil_8h_ace9cfadbe3490be7fea6728608c4428d}{z\+\_\+errmsg}}\mbox{[}\mbox{\hyperlink{zlib_8h_a32916ba675b2d06463da2576b6a49d64}{Z\+\_\+\+NEED\+\_\+\+DICT}}-\/(err)\mbox{]}
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a0fcc2fe26110263e812ce50919b6a5c1}{ERR\+\_\+\+RETURN}}(strm,  err)~  return (strm-\/$>$msg = (char$\ast$)\mbox{\hyperlink{zutil_8h_a66466516a4a71f3c78ccc40d203c92e5}{ERR\+\_\+\+MSG}}(err), (err))
+\item 
+\#define \mbox{\hyperlink{zutil_8h_aef084f32d9ca8b9273a1c826b89b979a}{DEF\+\_\+\+WBITS}}~\mbox{\hyperlink{zconf_8h_abd2f406ac1f9c49236376115d78ccb5b}{MAX\+\_\+\+WBITS}}
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a19c8e60fa32d4ddf303ce988ba97af61}{DEF\+\_\+\+MEM\+\_\+\+LEVEL}}~8
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a9f650bc9c1fbd9499098e3a70d295b8a}{STORED\+\_\+\+BLOCK}}~0
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a0f63a9090acfe4f653f117b638b289d1}{STATIC\+\_\+\+TREES}}~1
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a40a71de753262f20a0bcacc2304e7b19}{DYN\+\_\+\+TREES}}~2
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a7984ceb1ff48ac91172976b91ed43f60}{MIN\+\_\+\+MATCH}}~3
+\item 
+\#define \mbox{\hyperlink{zutil_8h_ab7a9188dce25dac8d3a970c01b89b0c6}{MAX\+\_\+\+MATCH}}~258
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a1156d73d88538d122acfa852b95492bd}{PRESET\+\_\+\+DICT}}~0x20 /$\ast$ preset dictionary flag in zlib header $\ast$/
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a919da7d9b61966c3af796ab42e618bef}{OS\+\_\+\+CODE}}~0x03  /$\ast$ assume Unix $\ast$/
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a7d40e22cfc0ad4087bf371d61290a0f5}{F\+\_\+\+OPEN}}(name,  mode)~fopen((name), (mode))
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a5c8d8d889189d1461d10df831f3cd40e}{Assert}}(cond,  msg)
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a93bbe97269cf8304b452a4d472dba191}{Trace}}(x)
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a67eab10382e740297e8a59d69f85464e}{Tracev}}(x)
+\item 
+\#define \mbox{\hyperlink{zutil_8h_ae65182ff511f0b12345c20b6533f32d9}{Tracevv}}(x)
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a15ce9096835263938f62694aee7a0a99}{Tracec}}(\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}},  x)
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a54a66ee51c61d67607b64678b055af6b}{Tracecv}}(\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}},  x)
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a39679d03501d691bdfc62a3324cb9548}{ZALLOC}}(strm,  items,  size)~           ($\ast$((strm)-\/$>$zalloc))((strm)-\/$>$opaque, (items), (size))
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a71d7c4f186ae3a055367c92db5a8ab18}{ZFREE}}(strm,  addr)~($\ast$((strm)-\/$>$zfree))((strm)-\/$>$opaque, (\mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}})(addr))
+\item 
+\#define \mbox{\hyperlink{zutil_8h_a8a5cef3599266dcaa129ed959a42bcf6}{TRY\+\_\+\+FREE}}(s,  p)~\{if (p) \mbox{\hyperlink{zutil_8h_a71d7c4f186ae3a055367c92db5a8ab18}{ZFREE}}(s, p);\}
+\item 
+\#define \mbox{\hyperlink{zutil_8h_aac7705d985486c2ec7f09c96b349f311}{ZSWAP32}}(q)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned char \mbox{\hyperlink{zutil_8h_af3307af5922c72924a837559c801a8a4}{uch}}
+\item 
+typedef \mbox{\hyperlink{zutil_8h_af3307af5922c72924a837559c801a8a4}{uch}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} \mbox{\hyperlink{zutil_8h_aaa6fdf02a2fdaf3731f17a19920ddb0b}{uchf}}
+\item 
+typedef unsigned short \mbox{\hyperlink{zutil_8h_a3754180d606d4ed15468d15d9665aa2e}{ush}}
+\item 
+typedef \mbox{\hyperlink{zutil_8h_a3754180d606d4ed15468d15d9665aa2e}{ush}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} \mbox{\hyperlink{zutil_8h_ab854e4722acf30ada8a7a71b58d1b238}{ushf}}
+\item 
+typedef unsigned long \mbox{\hyperlink{zutil_8h_abd6f60bf9450af2ecb94097a32c19a64}{ulg}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{adler32_8c_a02d5e6475de540c47e56fe0c37178c22}{adler32\+\_\+combine64}} \mbox{\hyperlink{zutil_8h_af4c7589f992eb4a3749eb5346a388481}{OF}} ((\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}}, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}}, \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}}))
+\item 
+void \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_aac7aa2bbd8584b96c89e311b6c3409a5}{zmemcpy}} \mbox{\hyperlink{zutil_8h_a7dfda152913a0f49d451d4ccf9505010}{OF}} ((\mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dest, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$source, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len))
+\item 
+int \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_afa24e136b162a10f0ad3b2ed3000b413}{zmemcmp}} \mbox{\hyperlink{zutil_8h_a1955fd2c6541c1efd6655ae1f13f2d6b}{OF}} ((\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$\mbox{\hyperlink{unix_2_sha256_8c_ac1e4ed4e56436a432900cad5a1225731}{s1}}, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$s2, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len))
+\item 
+void \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_a9d1ad31f82b89b791ce9c70c24d3947c}{zmemzero}} \mbox{\hyperlink{zutil_8h_a06f4a75197c392dddbdae31128c49958}{OF}} ((\mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dest, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len))
+\item 
+\mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_a41dc53193e9af4588e7bcbe459f4f834}{zcalloc}} \mbox{\hyperlink{zutil_8h_a085a6a51699c29d2fbbb5e04ed624563}{OF}} ((\mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} opaque, unsigned items, unsigned size))
+\item 
+void \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_a03a8230ad4ec43e8916fa91aad05bfd3}{zcfree}} \mbox{\hyperlink{zutil_8h_afd7c8a4ea1366968a93bf375c2b9b942}{OF}} ((\mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} opaque, \mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} ptr))
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zutil_8h_ace9cfadbe3490be7fea6728608c4428d}{z\+\_\+errmsg}} \mbox{[}10\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{zutil_8h_a5c8d8d889189d1461d10df831f3cd40e}\label{zutil_8h_a5c8d8d889189d1461d10df831f3cd40e}} 
+\index{zutil.h@{zutil.h}!Assert@{Assert}}
+\index{Assert@{Assert}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{Assert}{Assert}}
+{\footnotesize\ttfamily \#define Assert(\begin{DoxyParamCaption}\item[{}]{cond,  }\item[{}]{msg }\end{DoxyParamCaption})}
+
+
+
+Definition at line 229 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a19c8e60fa32d4ddf303ce988ba97af61}\label{zutil_8h_a19c8e60fa32d4ddf303ce988ba97af61}} 
+\index{zutil.h@{zutil.h}!DEF\_MEM\_LEVEL@{DEF\_MEM\_LEVEL}}
+\index{DEF\_MEM\_LEVEL@{DEF\_MEM\_LEVEL}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{DEF\_MEM\_LEVEL}{DEF\_MEM\_LEVEL}}
+{\footnotesize\ttfamily \#define DEF\+\_\+\+MEM\+\_\+\+LEVEL~8}
+
+
+
+Definition at line 64 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_aef084f32d9ca8b9273a1c826b89b979a}\label{zutil_8h_aef084f32d9ca8b9273a1c826b89b979a}} 
+\index{zutil.h@{zutil.h}!DEF\_WBITS@{DEF\_WBITS}}
+\index{DEF\_WBITS@{DEF\_WBITS}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{DEF\_WBITS}{DEF\_WBITS}}
+{\footnotesize\ttfamily \#define DEF\+\_\+\+WBITS~\mbox{\hyperlink{zconf_8h_abd2f406ac1f9c49236376115d78ccb5b}{MAX\+\_\+\+WBITS}}}
+
+
+
+Definition at line 59 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a40a71de753262f20a0bcacc2304e7b19}\label{zutil_8h_a40a71de753262f20a0bcacc2304e7b19}} 
+\index{zutil.h@{zutil.h}!DYN\_TREES@{DYN\_TREES}}
+\index{DYN\_TREES@{DYN\_TREES}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{DYN\_TREES}{DYN\_TREES}}
+{\footnotesize\ttfamily \#define DYN\+\_\+\+TREES~2}
+
+
+
+Definition at line 72 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a66466516a4a71f3c78ccc40d203c92e5}\label{zutil_8h_a66466516a4a71f3c78ccc40d203c92e5}} 
+\index{zutil.h@{zutil.h}!ERR\_MSG@{ERR\_MSG}}
+\index{ERR\_MSG@{ERR\_MSG}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{ERR\_MSG}{ERR\_MSG}}
+{\footnotesize\ttfamily \#define ERR\+\_\+\+MSG(\begin{DoxyParamCaption}\item[{}]{err }\end{DoxyParamCaption})~\mbox{\hyperlink{zutil_8h_ace9cfadbe3490be7fea6728608c4428d}{z\+\_\+errmsg}}\mbox{[}\mbox{\hyperlink{zlib_8h_a32916ba675b2d06463da2576b6a49d64}{Z\+\_\+\+NEED\+\_\+\+DICT}}-\/(err)\mbox{]}}
+
+
+
+Definition at line 50 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a0fcc2fe26110263e812ce50919b6a5c1}\label{zutil_8h_a0fcc2fe26110263e812ce50919b6a5c1}} 
+\index{zutil.h@{zutil.h}!ERR\_RETURN@{ERR\_RETURN}}
+\index{ERR\_RETURN@{ERR\_RETURN}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{ERR\_RETURN}{ERR\_RETURN}}
+{\footnotesize\ttfamily \#define ERR\+\_\+\+RETURN(\begin{DoxyParamCaption}\item[{}]{strm,  }\item[{}]{err }\end{DoxyParamCaption})~  return (strm-\/$>$msg = (char$\ast$)\mbox{\hyperlink{zutil_8h_a66466516a4a71f3c78ccc40d203c92e5}{ERR\+\_\+\+MSG}}(err), (err))}
+
+
+
+Definition at line 52 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a7d40e22cfc0ad4087bf371d61290a0f5}\label{zutil_8h_a7d40e22cfc0ad4087bf371d61290a0f5}} 
+\index{zutil.h@{zutil.h}!F\_OPEN@{F\_OPEN}}
+\index{F\_OPEN@{F\_OPEN}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{F\_OPEN}{F\_OPEN}}
+{\footnotesize\ttfamily \#define F\+\_\+\+OPEN(\begin{DoxyParamCaption}\item[{}]{name,  }\item[{}]{mode }\end{DoxyParamCaption})~fopen((name), (mode))}
+
+
+
+Definition at line 183 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a08023ea6765c99d60a6a3840cd07156e}\label{zutil_8h_a08023ea6765c99d60a6a3840cd07156e}} 
+\index{zutil.h@{zutil.h}!local@{local}}
+\index{local@{local}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{local}{local}}
+{\footnotesize\ttfamily \#define local~static}
+
+
+
+Definition at line 37 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_ab7a9188dce25dac8d3a970c01b89b0c6}\label{zutil_8h_ab7a9188dce25dac8d3a970c01b89b0c6}} 
+\index{zutil.h@{zutil.h}!MAX\_MATCH@{MAX\_MATCH}}
+\index{MAX\_MATCH@{MAX\_MATCH}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_MATCH}{MAX\_MATCH}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+MATCH~258}
+
+
+
+Definition at line 76 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a7984ceb1ff48ac91172976b91ed43f60}\label{zutil_8h_a7984ceb1ff48ac91172976b91ed43f60}} 
+\index{zutil.h@{zutil.h}!MIN\_MATCH@{MIN\_MATCH}}
+\index{MIN\_MATCH@{MIN\_MATCH}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_MATCH}{MIN\_MATCH}}
+{\footnotesize\ttfamily \#define MIN\+\_\+\+MATCH~3}
+
+
+
+Definition at line 75 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a919da7d9b61966c3af796ab42e618bef}\label{zutil_8h_a919da7d9b61966c3af796ab42e618bef}} 
+\index{zutil.h@{zutil.h}!OS\_CODE@{OS\_CODE}}
+\index{OS\_CODE@{OS\_CODE}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{OS\_CODE}{OS\_CODE}}
+{\footnotesize\ttfamily \#define OS\+\_\+\+CODE~0x03  /$\ast$ assume Unix $\ast$/}
+
+
+
+Definition at line 179 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a1156d73d88538d122acfa852b95492bd}\label{zutil_8h_a1156d73d88538d122acfa852b95492bd}} 
+\index{zutil.h@{zutil.h}!PRESET\_DICT@{PRESET\_DICT}}
+\index{PRESET\_DICT@{PRESET\_DICT}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{PRESET\_DICT}{PRESET\_DICT}}
+{\footnotesize\ttfamily \#define PRESET\+\_\+\+DICT~0x20 /$\ast$ preset dictionary flag in zlib header $\ast$/}
+
+
+
+Definition at line 79 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a0f63a9090acfe4f653f117b638b289d1}\label{zutil_8h_a0f63a9090acfe4f653f117b638b289d1}} 
+\index{zutil.h@{zutil.h}!STATIC\_TREES@{STATIC\_TREES}}
+\index{STATIC\_TREES@{STATIC\_TREES}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{STATIC\_TREES}{STATIC\_TREES}}
+{\footnotesize\ttfamily \#define STATIC\+\_\+\+TREES~1}
+
+
+
+Definition at line 71 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a9f650bc9c1fbd9499098e3a70d295b8a}\label{zutil_8h_a9f650bc9c1fbd9499098e3a70d295b8a}} 
+\index{zutil.h@{zutil.h}!STORED\_BLOCK@{STORED\_BLOCK}}
+\index{STORED\_BLOCK@{STORED\_BLOCK}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{STORED\_BLOCK}{STORED\_BLOCK}}
+{\footnotesize\ttfamily \#define STORED\+\_\+\+BLOCK~0}
+
+
+
+Definition at line 70 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a93bbe97269cf8304b452a4d472dba191}\label{zutil_8h_a93bbe97269cf8304b452a4d472dba191}} 
+\index{zutil.h@{zutil.h}!Trace@{Trace}}
+\index{Trace@{Trace}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{Trace}{Trace}}
+{\footnotesize\ttfamily \#define Trace(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 230 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a15ce9096835263938f62694aee7a0a99}\label{zutil_8h_a15ce9096835263938f62694aee7a0a99}} 
+\index{zutil.h@{zutil.h}!Tracec@{Tracec}}
+\index{Tracec@{Tracec}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{Tracec}{Tracec}}
+{\footnotesize\ttfamily \#define Tracec(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}},  }\item[{}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 233 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a54a66ee51c61d67607b64678b055af6b}\label{zutil_8h_a54a66ee51c61d67607b64678b055af6b}} 
+\index{zutil.h@{zutil.h}!Tracecv@{Tracecv}}
+\index{Tracecv@{Tracecv}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{Tracecv}{Tracecv}}
+{\footnotesize\ttfamily \#define Tracecv(\begin{DoxyParamCaption}\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}},  }\item[{}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 234 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a67eab10382e740297e8a59d69f85464e}\label{zutil_8h_a67eab10382e740297e8a59d69f85464e}} 
+\index{zutil.h@{zutil.h}!Tracev@{Tracev}}
+\index{Tracev@{Tracev}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{Tracev}{Tracev}}
+{\footnotesize\ttfamily \#define Tracev(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 231 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_ae65182ff511f0b12345c20b6533f32d9}\label{zutil_8h_ae65182ff511f0b12345c20b6533f32d9}} 
+\index{zutil.h@{zutil.h}!Tracevv@{Tracevv}}
+\index{Tracevv@{Tracevv}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{Tracevv}{Tracevv}}
+{\footnotesize\ttfamily \#define Tracevv(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+
+
+Definition at line 232 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a8a5cef3599266dcaa129ed959a42bcf6}\label{zutil_8h_a8a5cef3599266dcaa129ed959a42bcf6}} 
+\index{zutil.h@{zutil.h}!TRY\_FREE@{TRY\_FREE}}
+\index{TRY\_FREE@{TRY\_FREE}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{TRY\_FREE}{TRY\_FREE}}
+{\footnotesize\ttfamily \#define TRY\+\_\+\+FREE(\begin{DoxyParamCaption}\item[{}]{s,  }\item[{}]{p }\end{DoxyParamCaption})~\{if (p) \mbox{\hyperlink{zutil_8h_a71d7c4f186ae3a055367c92db5a8ab18}{ZFREE}}(s, p);\}}
+
+
+
+Definition at line 246 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a39679d03501d691bdfc62a3324cb9548}\label{zutil_8h_a39679d03501d691bdfc62a3324cb9548}} 
+\index{zutil.h@{zutil.h}!ZALLOC@{ZALLOC}}
+\index{ZALLOC@{ZALLOC}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{ZALLOC}{ZALLOC}}
+{\footnotesize\ttfamily \#define ZALLOC(\begin{DoxyParamCaption}\item[{}]{strm,  }\item[{}]{items,  }\item[{}]{size }\end{DoxyParamCaption})~           ($\ast$((strm)-\/$>$zalloc))((strm)-\/$>$opaque, (items), (size))}
+
+
+
+Definition at line 243 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a71d7c4f186ae3a055367c92db5a8ab18}\label{zutil_8h_a71d7c4f186ae3a055367c92db5a8ab18}} 
+\index{zutil.h@{zutil.h}!ZFREE@{ZFREE}}
+\index{ZFREE@{ZFREE}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{ZFREE}{ZFREE}}
+{\footnotesize\ttfamily \#define ZFREE(\begin{DoxyParamCaption}\item[{}]{strm,  }\item[{}]{addr }\end{DoxyParamCaption})~($\ast$((strm)-\/$>$zfree))((strm)-\/$>$opaque, (\mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}})(addr))}
+
+
+
+Definition at line 245 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}\label{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}} 
+\index{zutil.h@{zutil.h}!ZLIB\_INTERNAL@{ZLIB\_INTERNAL}}
+\index{ZLIB\_INTERNAL@{ZLIB\_INTERNAL}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{ZLIB\_INTERNAL}{ZLIB\_INTERNAL}}
+{\footnotesize\ttfamily \#define ZLIB\+\_\+\+INTERNAL}
+
+
+
+Definition at line 19 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_aac7705d985486c2ec7f09c96b349f311}\label{zutil_8h_aac7705d985486c2ec7f09c96b349f311}} 
+\index{zutil.h@{zutil.h}!ZSWAP32@{ZSWAP32}}
+\index{ZSWAP32@{ZSWAP32}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{ZSWAP32}{ZSWAP32}}
+{\footnotesize\ttfamily \#define ZSWAP32(\begin{DoxyParamCaption}\item[{}]{q }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                    ((((q) >> 24) \& 0xff) + (((q) >> 8) \& 0xff00) + \(\backslash\)}
+\DoxyCodeLine{                    (((q) \& 0xff00) << 8) + (((q) \& 0xff) << 24))}
+
+\end{DoxyCode}
+
+
+Definition at line 249 of file zutil.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{zutil_8h_af3307af5922c72924a837559c801a8a4}\label{zutil_8h_af3307af5922c72924a837559c801a8a4}} 
+\index{zutil.h@{zutil.h}!uch@{uch}}
+\index{uch@{uch}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{uch}{uch}}
+{\footnotesize\ttfamily typedef unsigned char \mbox{\hyperlink{zutil_8h_af3307af5922c72924a837559c801a8a4}{uch}}}
+
+
+
+Definition at line 41 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_aaa6fdf02a2fdaf3731f17a19920ddb0b}\label{zutil_8h_aaa6fdf02a2fdaf3731f17a19920ddb0b}} 
+\index{zutil.h@{zutil.h}!uchf@{uchf}}
+\index{uchf@{uchf}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{uchf}{uchf}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{zutil_8h_af3307af5922c72924a837559c801a8a4}{uch}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} \mbox{\hyperlink{zutil_8h_aaa6fdf02a2fdaf3731f17a19920ddb0b}{uchf}}}
+
+
+
+Definition at line 42 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_abd6f60bf9450af2ecb94097a32c19a64}\label{zutil_8h_abd6f60bf9450af2ecb94097a32c19a64}} 
+\index{zutil.h@{zutil.h}!ulg@{ulg}}
+\index{ulg@{ulg}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{ulg}{ulg}}
+{\footnotesize\ttfamily typedef unsigned long \mbox{\hyperlink{zutil_8h_abd6f60bf9450af2ecb94097a32c19a64}{ulg}}}
+
+
+
+Definition at line 45 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_a3754180d606d4ed15468d15d9665aa2e}\label{zutil_8h_a3754180d606d4ed15468d15d9665aa2e}} 
+\index{zutil.h@{zutil.h}!ush@{ush}}
+\index{ush@{ush}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{ush}{ush}}
+{\footnotesize\ttfamily typedef unsigned short \mbox{\hyperlink{zutil_8h_a3754180d606d4ed15468d15d9665aa2e}{ush}}}
+
+
+
+Definition at line 43 of file zutil.\+h.
+
+\mbox{\Hypertarget{zutil_8h_ab854e4722acf30ada8a7a71b58d1b238}\label{zutil_8h_ab854e4722acf30ada8a7a71b58d1b238}} 
+\index{zutil.h@{zutil.h}!ushf@{ushf}}
+\index{ushf@{ushf}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{ushf}{ushf}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{zutil_8h_a3754180d606d4ed15468d15d9665aa2e}{ush}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} \mbox{\hyperlink{zutil_8h_ab854e4722acf30ada8a7a71b58d1b238}{ushf}}}
+
+
+
+Definition at line 44 of file zutil.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{zutil_8h_a7dfda152913a0f49d451d4ccf9505010}\label{zutil_8h_a7dfda152913a0f49d451d4ccf9505010}} 
+\index{zutil.h@{zutil.h}!OF@{OF}}
+\index{OF@{OF}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_aac7aa2bbd8584b96c89e311b6c3409a5}{zmemcpy}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dest, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$source, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zutil_8h_a06f4a75197c392dddbdae31128c49958}\label{zutil_8h_a06f4a75197c392dddbdae31128c49958}} 
+\index{zutil.h@{zutil.h}!OF@{OF}}
+\index{OF@{OF}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_a9d1ad31f82b89b791ce9c70c24d3947c}{zmemzero}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dest, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zutil_8h_a1955fd2c6541c1efd6655ae1f13f2d6b}\label{zutil_8h_a1955fd2c6541c1efd6655ae1f13f2d6b}} 
+\index{zutil.h@{zutil.h}!OF@{OF}}
+\index{OF@{OF}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_afa24e136b162a10f0ad3b2ed3000b413}{zmemcmp}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$\mbox{\hyperlink{unix_2_sha256_8c_ac1e4ed4e56436a432900cad5a1225731}{s1}}, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$s2, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zutil_8h_af4c7589f992eb4a3749eb5346a388481}\label{zutil_8h_af4c7589f992eb4a3749eb5346a388481}} 
+\index{zutil.h@{zutil.h}!OF@{OF}}
+\index{OF@{OF}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a49b7f5eccfcc99e53178581632bc9589}{ZEXTERN}} \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}} \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{adler32_8c_a02d5e6475de540c47e56fe0c37178c22}{adler32\+\_\+combine64}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}}, \mbox{\hyperlink{zconf_8h_acd2a5701a3aecf6700d2c66c606ecb40}{u\+Long}}, \mbox{\hyperlink{zconf_8h_a8cf4661a88ec12823d7cbdd3fa629eb0}{z\+\_\+off\+\_\+t}})}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zutil_8h_a085a6a51699c29d2fbbb5e04ed624563}\label{zutil_8h_a085a6a51699c29d2fbbb5e04ed624563}} 
+\index{zutil.h@{zutil.h}!OF@{OF}}
+\index{OF@{OF}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_a41dc53193e9af4588e7bcbe459f4f834}{zcalloc}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} opaque, unsigned items, unsigned size)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{zutil_8h_afd7c8a4ea1366968a93bf375c2b9b942}\label{zutil_8h_afd7c8a4ea1366968a93bf375c2b9b942}} 
+\index{zutil.h@{zutil.h}!OF@{OF}}
+\index{OF@{OF}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{zutil_8c_a03a8230ad4ec43e8916fa91aad05bfd3}{zcfree}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} opaque, \mbox{\hyperlink{zconf_8h_a04c731495379021454c8e61439dc88ec}{voidpf}} ptr)}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{zutil_8h_ace9cfadbe3490be7fea6728608c4428d}\label{zutil_8h_ace9cfadbe3490be7fea6728608c4428d}} 
+\index{zutil.h@{zutil.h}!z\_errmsg@{z\_errmsg}}
+\index{z\_errmsg@{z\_errmsg}!zutil.h@{zutil.h}}
+\doxysubsubsection{\texorpdfstring{z\_errmsg}{z\_errmsg}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char$\ast$ \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} z\+\_\+errmsg\mbox{[}10\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 17 of file zutil.\+c.
+

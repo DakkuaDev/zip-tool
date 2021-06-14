@@ -1,0 +1,182 @@
+\hypertarget{serialization_8h}{}\doxysection{source/\+Zip\+Lib/streams/serialization.h File Reference}
+\label{serialization_8h}\index{source/ZipLib/streams/serialization.h@{source/ZipLib/streams/serialization.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Include dependency graph for serialization.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename RETURN\+\_\+\+TYPE , typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ }\\std\+::ios\+::pos\+\_\+type \mbox{\hyperlink{serialization_8h_a4fd447fbc76f7fa9f129c99f8243f1eb}{deserialize}} (std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, RETURN\+\_\+\+TYPE \&out)
+\begin{DoxyCompactList}\small\item\em Deserializes the basic input type. Deserializes floating number from its binary representation. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE , typename ALLOCATOR\+\_\+\+TYPE , template$<$ typename, typename, typename $>$ class STRING\+\_\+\+TYPE$>$ }\\std\+::ios\+::pos\+\_\+type \mbox{\hyperlink{serialization_8h_afea91c7bdf5240ab56e3ae667f0d46a8}{deserialize}} (std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, STRING\+\_\+\+TYPE$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE, ALLOCATOR\+\_\+\+TYPE $>$ \&out, size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Deserializes the string from the stream. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE , typename VECTOR\+\_\+\+ELEM\+\_\+\+TYPE , typename ALLOCATOR\+\_\+\+TYPE , template$<$ typename, typename $>$ class VECTOR\+\_\+\+TYPE$>$ }\\std\+::ios\+::pos\+\_\+type \mbox{\hyperlink{serialization_8h_a25b0e46e5d8802bad43251e846fbc5cf}{deserialize}} (std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, VECTOR\+\_\+\+TYPE$<$ VECTOR\+\_\+\+ELEM\+\_\+\+TYPE, ALLOCATOR\+\_\+\+TYPE $>$ \&out, size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Deserializes the vector from the stream. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename TYPE , typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ }\\void \mbox{\hyperlink{serialization_8h_a7dbb3eefdba4c4a83174316990a48e4e}{serialize}} (std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{inflate_8h_a164ea0159d5f0b5f12a646f25f99eceaab47ea8bb955afd0adc0ef98517dd6084}{TYPE}} \&value)
+\begin{DoxyCompactList}\small\item\em Serializes the basic input type. Serializes floating number into its binary representation. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE , typename ALLOCATOR\+\_\+\+TYPE , template$<$ typename, typename, typename $>$ class STRING\+\_\+\+TYPE$>$ }\\void \mbox{\hyperlink{serialization_8h_a19b602472ab8f2ad811a92294e72f070}{serialize}} (std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} STRING\+\_\+\+TYPE$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE, ALLOCATOR\+\_\+\+TYPE $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Serializes the string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE , typename VECTOR\+\_\+\+ELEM\+\_\+\+TYPE , typename ALLOCATOR\+\_\+\+TYPE , template$<$ typename, typename $>$ class VECTOR\+\_\+\+TYPE$>$ }\\void \mbox{\hyperlink{serialization_8h_a1cc05d6827ce71362e90ae300c9ae80b}{serialize}} (std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} VECTOR\+\_\+\+TYPE$<$ VECTOR\+\_\+\+ELEM\+\_\+\+TYPE, ALLOCATOR\+\_\+\+TYPE $>$ \&value)
+\begin{DoxyCompactList}\small\item\em Serializes the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{serialization_8h_a4fd447fbc76f7fa9f129c99f8243f1eb}\label{serialization_8h_a4fd447fbc76f7fa9f129c99f8243f1eb}} 
+\index{serialization.h@{serialization.h}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename RETURN\+\_\+\+TYPE , typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+std\+::ios\+::pos\+\_\+type deserialize (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{RETURN\+\_\+\+TYPE \&}]{out }\end{DoxyParamCaption})}
+
+
+
+Deserializes the basic input type. Deserializes floating number from its binary representation. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em RETURN\+\_\+\+TYPE} & Type of the value to be deserialized. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em stream} & The stream to be deserialized from. \\
+\hline
+\mbox{\texttt{ out}}  & {\em out} & The deserialized value.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Count of read elements. 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file serialization.\+h.
+
+\mbox{\Hypertarget{serialization_8h_afea91c7bdf5240ab56e3ae667f0d46a8}\label{serialization_8h_afea91c7bdf5240ab56e3ae667f0d46a8}} 
+\index{serialization.h@{serialization.h}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE , typename ALLOCATOR\+\_\+\+TYPE , template$<$ typename, typename, typename $>$ class STRING\+\_\+\+TYPE$>$ \\
+std\+::ios\+::pos\+\_\+type deserialize (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{STRING\+\_\+\+TYPE$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE, ALLOCATOR\+\_\+\+TYPE $>$ \&}]{out,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+Deserializes the string from the stream. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em stream} & The stream to be deserialized from. \\
+\hline
+\mbox{\texttt{ out}}  & {\em out} & The deserialized string. \\
+\hline
+ & {\em length} & The expected length of the string. The value represents the amount of ELEM\+\_\+\+TYPE to be read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Count of read elements. 
+\end{DoxyReturn}
+
+
+Definition at line 31 of file serialization.\+h.
+
+\mbox{\Hypertarget{serialization_8h_a25b0e46e5d8802bad43251e846fbc5cf}\label{serialization_8h_a25b0e46e5d8802bad43251e846fbc5cf}} 
+\index{serialization.h@{serialization.h}!deserialize@{deserialize}}
+\index{deserialize@{deserialize}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{deserialize()}{deserialize()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE , typename VECTOR\+\_\+\+ELEM\+\_\+\+TYPE , typename ALLOCATOR\+\_\+\+TYPE , template$<$ typename, typename $>$ class VECTOR\+\_\+\+TYPE$>$ \\
+std\+::ios\+::pos\+\_\+type deserialize (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{VECTOR\+\_\+\+TYPE$<$ VECTOR\+\_\+\+ELEM\+\_\+\+TYPE, ALLOCATOR\+\_\+\+TYPE $>$ \&}]{out,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+Deserializes the vector from the stream. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+ & {\em stream} & The stream to be deserialized from. \\
+\hline
+\mbox{\texttt{ out}}  & {\em out} & The deserialized string. \\
+\hline
+ & {\em length} & The expected amount of elements in the serialized vector.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Count of read elements. 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file serialization.\+h.
+
+\mbox{\Hypertarget{serialization_8h_a19b602472ab8f2ad811a92294e72f070}\label{serialization_8h_a19b602472ab8f2ad811a92294e72f070}} 
+\index{serialization.h@{serialization.h}!serialize@{serialize}}
+\index{serialize@{serialize}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE , typename ALLOCATOR\+\_\+\+TYPE , template$<$ typename, typename, typename $>$ class STRING\+\_\+\+TYPE$>$ \\
+void serialize (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} STRING\+\_\+\+TYPE$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE, ALLOCATOR\+\_\+\+TYPE $>$ \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Serializes the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The stream to be serialized into. \\
+\hline
+{\em value} & The string to be serialized. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 85 of file serialization.\+h.
+
+\mbox{\Hypertarget{serialization_8h_a7dbb3eefdba4c4a83174316990a48e4e}\label{serialization_8h_a7dbb3eefdba4c4a83174316990a48e4e}} 
+\index{serialization.h@{serialization.h}!serialize@{serialize}}
+\index{serialize@{serialize}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename TYPE , typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+void serialize (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{inflate_8h_a164ea0159d5f0b5f12a646f25f99eceaab47ea8bb955afd0adc0ef98517dd6084}{TYPE}} \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Serializes the basic input type. Serializes floating number into its binary representation. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em TYPE} & Type of the value to be serialized. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The stream to be serialized into. \\
+\hline
+{\em value} & The value to be serialized. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 74 of file serialization.\+h.
+
+\mbox{\Hypertarget{serialization_8h_a1cc05d6827ce71362e90ae300c9ae80b}\label{serialization_8h_a1cc05d6827ce71362e90ae300c9ae80b}} 
+\index{serialization.h@{serialization.h}!serialize@{serialize}}
+\index{serialize@{serialize}!serialization.h@{serialization.h}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE , typename VECTOR\+\_\+\+ELEM\+\_\+\+TYPE , typename ALLOCATOR\+\_\+\+TYPE , template$<$ typename, typename $>$ class VECTOR\+\_\+\+TYPE$>$ \\
+void serialize (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} VECTOR\+\_\+\+TYPE$<$ VECTOR\+\_\+\+ELEM\+\_\+\+TYPE, ALLOCATOR\+\_\+\+TYPE $>$ \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Serializes the vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The stream to be serialized into. \\
+\hline
+{\em value} & The vector to be serialized. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 97 of file serialization.\+h.
+

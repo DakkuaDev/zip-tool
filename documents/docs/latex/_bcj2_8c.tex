@@ -1,0 +1,215 @@
+\hypertarget{_bcj2_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/\+Bcj2.c File Reference}
+\label{_bcj2_8c}\index{source/ZipLib/extlibs/lzma/Bcj2.c@{source/ZipLib/extlibs/lzma/Bcj2.c}}
+{\ttfamily \#include \char`\"{}Bcj2.\+h\char`\"{}}\newline
+Include dependency graph for Bcj2.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_a7ba6a3784be247ebcd81a51353047ac1}{CProb}}~\mbox{\hyperlink{bzlib__private_8h_accc14a7c843716dfed734f3a03e8d2b6}{UInt16}}
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_aa0952ffc5eec55194761cc93a96299c4}{Is\+Jcc}}(b0,  b1)~((b0) == 0x0F \&\& ((b1) \& 0x\+F0) == 0x80)
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_aea77231f66ac75747917baa739c2de5e}{IsJ}}(b0,  b1)~((b1 \& 0x\+FE) == 0x\+E8 $\vert$$\vert$ \mbox{\hyperlink{_bcj2_8c_aa0952ffc5eec55194761cc93a96299c4}{Is\+Jcc}}(b0, b1))
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_a32f13b5730b1236f259facf642d060ea}{k\+Num\+Top\+Bits}}~24
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_ae668f35d44d0e8b31daf6479d19a5e3f}{k\+Top\+Value}}~((\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a32f13b5730b1236f259facf642d060ea}{k\+Num\+Top\+Bits}})
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}}~11
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_a42683bb56128d7ca273fcfe69e7c6c37}{k\+Bit\+Model\+Total}}~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}})
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}}~5
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_aeae50a62392a156f422cf94bce3cc6ab}{RC\+\_\+\+READ\+\_\+\+BYTE}}~($\ast$buffer++)
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_af4a1ffbf851ed94aa4b0a1d1d4bffb90}{RC\+\_\+\+TEST}}~\{ if (buffer == buffer\+Lim) return \mbox{\hyperlink{unix_2_types_8h_ae446b215b4a2ddc2af6ee80eab867e9a}{SZ\+\_\+\+ERROR\+\_\+\+DATA}}; \}
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_a1795c83f590240546b32cc2ef64f06a4}{RC\+\_\+\+INIT2}}
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_a29cf2d41341c861a02125541ee1c9368}{NORMALIZE}}~if (range $<$ \mbox{\hyperlink{unix_2_ppmd7_enc_8c_ae668f35d44d0e8b31daf6479d19a5e3f}{k\+Top\+Value}}) \{ \mbox{\hyperlink{_bcj2_8c_af4a1ffbf851ed94aa4b0a1d1d4bffb90}{RC\+\_\+\+TEST}}; range $<$$<$= 8; \mbox{\hyperlink{structcode}{code}} = (\mbox{\hyperlink{structcode}{code}} $<$$<$ 8) $\vert$ \mbox{\hyperlink{_bcj2_8c_aeae50a62392a156f422cf94bce3cc6ab}{RC\+\_\+\+READ\+\_\+\+BYTE}}; \}
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_a278d4019e9e853ca45abefd019bb29b9}{IF\+\_\+\+BIT\+\_\+0}}(p)~ttt = $\ast$(p); bound = (range $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}}) $\ast$ ttt; if (\mbox{\hyperlink{structcode}{code}} $<$ bound)
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_ae78e66f0b2b3bc3f1783e7b2a9adf358}{UPDATE\+\_\+0}}(p)~range = bound; $\ast$(p) = (\mbox{\hyperlink{_bcj2_8c_a7ba6a3784be247ebcd81a51353047ac1}{CProb}})(ttt + ((\mbox{\hyperlink{unix_2_lzma_enc_8c_a42683bb56128d7ca273fcfe69e7c6c37}{k\+Bit\+Model\+Total}} -\/ ttt) $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}})); \mbox{\hyperlink{unix_2_lzma_dec_8c_a29cf2d41341c861a02125541ee1c9368}{NORMALIZE}};
+\item 
+\#define \mbox{\hyperlink{_bcj2_8c_ad6c7a3bfbf541cebcaf376cbc14e97d6}{UPDATE\+\_\+1}}(p)~range -\/= bound; \mbox{\hyperlink{structcode}{code}} -\/= bound; $\ast$(p) = (\mbox{\hyperlink{_bcj2_8c_a7ba6a3784be247ebcd81a51353047ac1}{CProb}})(ttt -\/ (ttt $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}})); \mbox{\hyperlink{unix_2_lzma_dec_8c_a29cf2d41341c861a02125541ee1c9368}{NORMALIZE}};
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_bcj2_8c_a85b264ac2f72a9da8b9d862e223cb198}{Bcj2\+\_\+\+Decode}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$buf0, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} size0, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$buf1, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} size1, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$buf2, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} size2, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$buf3, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} size3, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$out\+Buf, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} out\+Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_bcj2_8c_a7ba6a3784be247ebcd81a51353047ac1}\label{_bcj2_8c_a7ba6a3784be247ebcd81a51353047ac1}} 
+\index{Bcj2.c@{Bcj2.c}!CProb@{CProb}}
+\index{CProb@{CProb}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{CProb}{CProb}}
+{\footnotesize\ttfamily \#define CProb~\mbox{\hyperlink{bzlib__private_8h_accc14a7c843716dfed734f3a03e8d2b6}{UInt16}}}
+
+
+
+Definition at line 9 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_a278d4019e9e853ca45abefd019bb29b9}\label{_bcj2_8c_a278d4019e9e853ca45abefd019bb29b9}} 
+\index{Bcj2.c@{Bcj2.c}!IF\_BIT\_0@{IF\_BIT\_0}}
+\index{IF\_BIT\_0@{IF\_BIT\_0}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{IF\_BIT\_0}{IF\_BIT\_0}}
+{\footnotesize\ttfamily \#define IF\+\_\+\+BIT\+\_\+0(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~ttt = $\ast$(p); bound = (range $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}}) $\ast$ ttt; if (\mbox{\hyperlink{structcode}{code}} $<$ bound)}
+
+
+
+Definition at line 29 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_aea77231f66ac75747917baa739c2de5e}\label{_bcj2_8c_aea77231f66ac75747917baa739c2de5e}} 
+\index{Bcj2.c@{Bcj2.c}!IsJ@{IsJ}}
+\index{IsJ@{IsJ}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{IsJ}{IsJ}}
+{\footnotesize\ttfamily \#define IsJ(\begin{DoxyParamCaption}\item[{}]{b0,  }\item[{}]{b1 }\end{DoxyParamCaption})~((b1 \& 0x\+FE) == 0x\+E8 $\vert$$\vert$ \mbox{\hyperlink{_bcj2_8c_aa0952ffc5eec55194761cc93a96299c4}{Is\+Jcc}}(b0, b1))}
+
+
+
+Definition at line 13 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_aa0952ffc5eec55194761cc93a96299c4}\label{_bcj2_8c_aa0952ffc5eec55194761cc93a96299c4}} 
+\index{Bcj2.c@{Bcj2.c}!IsJcc@{IsJcc}}
+\index{IsJcc@{IsJcc}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{IsJcc}{IsJcc}}
+{\footnotesize\ttfamily \#define Is\+Jcc(\begin{DoxyParamCaption}\item[{}]{b0,  }\item[{}]{b1 }\end{DoxyParamCaption})~((b0) == 0x0F \&\& ((b1) \& 0x\+F0) == 0x80)}
+
+
+
+Definition at line 12 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_a42683bb56128d7ca273fcfe69e7c6c37}\label{_bcj2_8c_a42683bb56128d7ca273fcfe69e7c6c37}} 
+\index{Bcj2.c@{Bcj2.c}!kBitModelTotal@{kBitModelTotal}}
+\index{kBitModelTotal@{kBitModelTotal}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{kBitModelTotal}{kBitModelTotal}}
+{\footnotesize\ttfamily \#define k\+Bit\+Model\+Total~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}})}
+
+
+
+Definition at line 19 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_aae21d71d8ce4740688e556642225b8bc}\label{_bcj2_8c_aae21d71d8ce4740688e556642225b8bc}} 
+\index{Bcj2.c@{Bcj2.c}!kNumBitModelTotalBits@{kNumBitModelTotalBits}}
+\index{kNumBitModelTotalBits@{kNumBitModelTotalBits}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{kNumBitModelTotalBits}{kNumBitModelTotalBits}}
+{\footnotesize\ttfamily \#define k\+Num\+Bit\+Model\+Total\+Bits~11}
+
+
+
+Definition at line 18 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_a55103390b17634adcf9551ba1f5103b4}\label{_bcj2_8c_a55103390b17634adcf9551ba1f5103b4}} 
+\index{Bcj2.c@{Bcj2.c}!kNumMoveBits@{kNumMoveBits}}
+\index{kNumMoveBits@{kNumMoveBits}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{kNumMoveBits}{kNumMoveBits}}
+{\footnotesize\ttfamily \#define k\+Num\+Move\+Bits~5}
+
+
+
+Definition at line 20 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_a32f13b5730b1236f259facf642d060ea}\label{_bcj2_8c_a32f13b5730b1236f259facf642d060ea}} 
+\index{Bcj2.c@{Bcj2.c}!kNumTopBits@{kNumTopBits}}
+\index{kNumTopBits@{kNumTopBits}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{kNumTopBits}{kNumTopBits}}
+{\footnotesize\ttfamily \#define k\+Num\+Top\+Bits~24}
+
+
+
+Definition at line 15 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_ae668f35d44d0e8b31daf6479d19a5e3f}\label{_bcj2_8c_ae668f35d44d0e8b31daf6479d19a5e3f}} 
+\index{Bcj2.c@{Bcj2.c}!kTopValue@{kTopValue}}
+\index{kTopValue@{kTopValue}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{kTopValue}{kTopValue}}
+{\footnotesize\ttfamily \#define k\+Top\+Value~((\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a32f13b5730b1236f259facf642d060ea}{k\+Num\+Top\+Bits}})}
+
+
+
+Definition at line 16 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_a29cf2d41341c861a02125541ee1c9368}\label{_bcj2_8c_a29cf2d41341c861a02125541ee1c9368}} 
+\index{Bcj2.c@{Bcj2.c}!NORMALIZE@{NORMALIZE}}
+\index{NORMALIZE@{NORMALIZE}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{NORMALIZE}{NORMALIZE}}
+{\footnotesize\ttfamily \#define NORMALIZE~if (range $<$ \mbox{\hyperlink{unix_2_ppmd7_enc_8c_ae668f35d44d0e8b31daf6479d19a5e3f}{k\+Top\+Value}}) \{ \mbox{\hyperlink{_bcj2_8c_af4a1ffbf851ed94aa4b0a1d1d4bffb90}{RC\+\_\+\+TEST}}; range $<$$<$= 8; \mbox{\hyperlink{structcode}{code}} = (\mbox{\hyperlink{structcode}{code}} $<$$<$ 8) $\vert$ \mbox{\hyperlink{_bcj2_8c_aeae50a62392a156f422cf94bce3cc6ab}{RC\+\_\+\+READ\+\_\+\+BYTE}}; \}}
+
+
+
+Definition at line 27 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_a1795c83f590240546b32cc2ef64f06a4}\label{_bcj2_8c_a1795c83f590240546b32cc2ef64f06a4}} 
+\index{Bcj2.c@{Bcj2.c}!RC\_INIT2@{RC\_INIT2}}
+\index{RC\_INIT2@{RC\_INIT2}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{RC\_INIT2}{RC\_INIT2}}
+{\footnotesize\ttfamily \#define RC\+\_\+\+INIT2}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \mbox{\hyperlink{structcode}{code}} = 0; range = 0xFFFFFFFF; \(\backslash\)}
+\DoxyCodeLine{  \{ \textcolor{keywordtype}{int} i; \textcolor{keywordflow}{for} (i = 0; i < 5; i++) \{ \mbox{\hyperlink{_bcj2_8c_af4a1ffbf851ed94aa4b0a1d1d4bffb90}{RC\_TEST}}; \mbox{\hyperlink{structcode}{code}} = (\mbox{\hyperlink{structcode}{code}} << 8) | \mbox{\hyperlink{_bcj2_8c_aeae50a62392a156f422cf94bce3cc6ab}{RC\_READ\_BYTE}}; \}\}}
+
+\end{DoxyCode}
+
+
+Definition at line 24 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_aeae50a62392a156f422cf94bce3cc6ab}\label{_bcj2_8c_aeae50a62392a156f422cf94bce3cc6ab}} 
+\index{Bcj2.c@{Bcj2.c}!RC\_READ\_BYTE@{RC\_READ\_BYTE}}
+\index{RC\_READ\_BYTE@{RC\_READ\_BYTE}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{RC\_READ\_BYTE}{RC\_READ\_BYTE}}
+{\footnotesize\ttfamily \#define RC\+\_\+\+READ\+\_\+\+BYTE~($\ast$buffer++)}
+
+
+
+Definition at line 22 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_af4a1ffbf851ed94aa4b0a1d1d4bffb90}\label{_bcj2_8c_af4a1ffbf851ed94aa4b0a1d1d4bffb90}} 
+\index{Bcj2.c@{Bcj2.c}!RC\_TEST@{RC\_TEST}}
+\index{RC\_TEST@{RC\_TEST}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{RC\_TEST}{RC\_TEST}}
+{\footnotesize\ttfamily \#define RC\+\_\+\+TEST~\{ if (buffer == buffer\+Lim) return \mbox{\hyperlink{unix_2_types_8h_ae446b215b4a2ddc2af6ee80eab867e9a}{SZ\+\_\+\+ERROR\+\_\+\+DATA}}; \}}
+
+
+
+Definition at line 23 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_ae78e66f0b2b3bc3f1783e7b2a9adf358}\label{_bcj2_8c_ae78e66f0b2b3bc3f1783e7b2a9adf358}} 
+\index{Bcj2.c@{Bcj2.c}!UPDATE\_0@{UPDATE\_0}}
+\index{UPDATE\_0@{UPDATE\_0}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{UPDATE\_0}{UPDATE\_0}}
+{\footnotesize\ttfamily \#define UPDATE\+\_\+0(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~range = bound; $\ast$(p) = (\mbox{\hyperlink{_bcj2_8c_a7ba6a3784be247ebcd81a51353047ac1}{CProb}})(ttt + ((\mbox{\hyperlink{unix_2_lzma_enc_8c_a42683bb56128d7ca273fcfe69e7c6c37}{k\+Bit\+Model\+Total}} -\/ ttt) $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}})); \mbox{\hyperlink{unix_2_lzma_dec_8c_a29cf2d41341c861a02125541ee1c9368}{NORMALIZE}};}
+
+
+
+Definition at line 30 of file Bcj2.\+c.
+
+\mbox{\Hypertarget{_bcj2_8c_ad6c7a3bfbf541cebcaf376cbc14e97d6}\label{_bcj2_8c_ad6c7a3bfbf541cebcaf376cbc14e97d6}} 
+\index{Bcj2.c@{Bcj2.c}!UPDATE\_1@{UPDATE\_1}}
+\index{UPDATE\_1@{UPDATE\_1}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{UPDATE\_1}{UPDATE\_1}}
+{\footnotesize\ttfamily \#define UPDATE\+\_\+1(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~range -\/= bound; \mbox{\hyperlink{structcode}{code}} -\/= bound; $\ast$(p) = (\mbox{\hyperlink{_bcj2_8c_a7ba6a3784be247ebcd81a51353047ac1}{CProb}})(ttt -\/ (ttt $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}})); \mbox{\hyperlink{unix_2_lzma_dec_8c_a29cf2d41341c861a02125541ee1c9368}{NORMALIZE}};}
+
+
+
+Definition at line 31 of file Bcj2.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_bcj2_8c_a85b264ac2f72a9da8b9d862e223cb198}\label{_bcj2_8c_a85b264ac2f72a9da8b9d862e223cb198}} 
+\index{Bcj2.c@{Bcj2.c}!Bcj2\_Decode@{Bcj2\_Decode}}
+\index{Bcj2\_Decode@{Bcj2\_Decode}!Bcj2.c@{Bcj2.c}}
+\doxysubsubsection{\texorpdfstring{Bcj2\_Decode()}{Bcj2\_Decode()}}
+{\footnotesize\ttfamily int Bcj2\+\_\+\+Decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{buf0,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{size0,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{buf1,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{size1,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{buf2,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{size2,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{buf3,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{size3,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{out\+Buf,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{out\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 33 of file Bcj2.\+c.
+

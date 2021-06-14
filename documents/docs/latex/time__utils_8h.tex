@@ -1,0 +1,40 @@
+\hypertarget{time__utils_8h}{}\doxysection{source/\+Zip\+Lib/utils/time\+\_\+utils.h File Reference}
+\label{time__utils_8h}\index{source/ZipLib/utils/time\_utils.h@{source/ZipLib/utils/time\_utils.h}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+Include dependency graph for time\+\_\+utils.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceutils}{utils}}
+\item 
+ \mbox{\hyperlink{namespaceutils_1_1time}{utils\+::time}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{time__utils_8h_aa0d02c18711a48505c2120144417f02f}{\+\_\+utils\+\_\+stream\+\_\+localtime}}(dt,  ts)~do \{ tm$\ast$ \+\_\+tmp = localtime(dt); memcpy((ts), \+\_\+tmp, sizeof(tm)); \} while (0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespaceutils_1_1time_ac0d7b0c4730f5a9aa4ebbdad75064eac}{utils\+::time\+::timestamp\+\_\+to\+\_\+datetime}} (time\+\_\+t date\+Time, uint16\+\_\+t \&date, uint16\+\_\+t \&time)
+\item 
+time\+\_\+t \mbox{\hyperlink{namespaceutils_1_1time_a85c1e7d3a5d9b952fb5bbf15b330b1d7}{utils\+::time\+::datetime\+\_\+to\+\_\+timestamp}} (uint16\+\_\+t date, uint16\+\_\+t time)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{time__utils_8h_aa0d02c18711a48505c2120144417f02f}\label{time__utils_8h_aa0d02c18711a48505c2120144417f02f}} 
+\index{time\_utils.h@{time\_utils.h}!\_utils\_stream\_localtime@{\_utils\_stream\_localtime}}
+\index{\_utils\_stream\_localtime@{\_utils\_stream\_localtime}!time\_utils.h@{time\_utils.h}}
+\doxysubsubsection{\texorpdfstring{\_utils\_stream\_localtime}{\_utils\_stream\_localtime}}
+{\footnotesize\ttfamily \#define \+\_\+utils\+\_\+stream\+\_\+localtime(\begin{DoxyParamCaption}\item[{}]{dt,  }\item[{}]{ts }\end{DoxyParamCaption})~do \{ tm$\ast$ \+\_\+tmp = localtime(dt); memcpy((ts), \+\_\+tmp, sizeof(tm)); \} while (0)}
+
+
+
+Definition at line 10 of file time\+\_\+utils.\+h.
+

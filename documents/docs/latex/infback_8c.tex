@@ -1,0 +1,292 @@
+\hypertarget{infback_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/zlib/infback.c File Reference}
+\label{infback_8c}\index{source/ZipLib/extlibs/zlib/infback.c@{source/ZipLib/extlibs/zlib/infback.c}}
+{\ttfamily \#include \char`\"{}zutil.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inftrees.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inflate.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inffast.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inffixed.\+h\char`\"{}}\newline
+Include dependency graph for infback.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{infback_8c_a03dae42536f97b08183620a910f9b204}{LOAD}}()
+\item 
+\#define \mbox{\hyperlink{infback_8c_af3b6db2fe8b54bb9edf88c2002e4bf34}{RESTORE}}()
+\item 
+\#define \mbox{\hyperlink{infback_8c_a3ffcbdd4824c339e07ea67dd412636fd}{INITBITS}}()
+\item 
+\#define \mbox{\hyperlink{infback_8c_a37e17e8237dadaefecf8b92ad2370561}{PULL}}()
+\item 
+\#define \mbox{\hyperlink{infback_8c_add54302c739466e0e4a204fa1015694b}{PULLBYTE}}()
+\item 
+\#define \mbox{\hyperlink{infback_8c_ab3731a4aa4bb04481dc95069bbfb7156}{NEEDBITS}}(n)
+\item 
+\#define \mbox{\hyperlink{infback_8c_a5967693540f086cfa357f68978bf0be7}{BITS}}(n)~    ((unsigned)hold \& ((1U $<$$<$ (n)) -\/ 1))
+\item 
+\#define \mbox{\hyperlink{infback_8c_a65312e68bdf918e606b0deaf69793523}{DROPBITS}}(n)
+\item 
+\#define \mbox{\hyperlink{infback_8c_aa1e478b107abaccc428d6266ea5ca595}{BYTEBITS}}()
+\item 
+\#define \mbox{\hyperlink{infback_8c_aa86fac2e845f337d5369513dea1759b0}{ROOM}}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{inflate_8c_a0ae5d8d0e34dc13d0106c23e633daed5}{fixedtables}} \mbox{\hyperlink{infback_8c_a81647fb7bce7042b0d69f3d60e6527ac}{OF}} ((struct \mbox{\hyperlink{structinflate__state}{inflate\+\_\+state}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$state))
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{infback_8c_a00558519755e3bab13ee6f8378973913}{inflate\+Back\+Init\+\_\+}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int window\+Bits, unsigned char \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$window, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size)
+\item 
+void \mbox{\hyperlink{infback_8c_a0ae5d8d0e34dc13d0106c23e633daed5}{fixedtables}} (struct \mbox{\hyperlink{structinflate__state}{inflate\+\_\+state}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$state)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{infback_8c_a6568b72b098ada9bd162fc0365943f5c}{inflate\+Back}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, in\+\_\+func in, void \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$in\+\_\+desc, out\+\_\+func out, void \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$out\+\_\+desc)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{infback_8c_a6fe1a0debff7933ce382bfd5348f2b2b}{inflate\+Back\+End}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{infback_8c_a5967693540f086cfa357f68978bf0be7}\label{infback_8c_a5967693540f086cfa357f68978bf0be7}} 
+\index{infback.c@{infback.c}!BITS@{BITS}}
+\index{BITS@{BITS}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{BITS}{BITS}}
+{\footnotesize\ttfamily \#define BITS(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~    ((unsigned)hold \& ((1U $<$$<$ (n)) -\/ 1))}
+
+
+
+Definition at line 190 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_aa1e478b107abaccc428d6266ea5ca595}\label{infback_8c_aa1e478b107abaccc428d6266ea5ca595}} 
+\index{infback.c@{infback.c}!BYTEBITS@{BYTEBITS}}
+\index{BYTEBITS@{BYTEBITS}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{BYTEBITS}{BYTEBITS}}
+{\footnotesize\ttfamily \#define BYTEBITS(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        hold >>= bits \& 7; \(\backslash\)}
+\DoxyCodeLine{        bits -\/= bits \& 7; \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 201 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_a65312e68bdf918e606b0deaf69793523}\label{infback_8c_a65312e68bdf918e606b0deaf69793523}} 
+\index{infback.c@{infback.c}!DROPBITS@{DROPBITS}}
+\index{DROPBITS@{DROPBITS}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{DROPBITS}{DROPBITS}}
+{\footnotesize\ttfamily \#define DROPBITS(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        hold >>= (n); \(\backslash\)}
+\DoxyCodeLine{        bits -\/= (unsigned)(n); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 194 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_a3ffcbdd4824c339e07ea67dd412636fd}\label{infback_8c_a3ffcbdd4824c339e07ea67dd412636fd}} 
+\index{infback.c@{infback.c}!INITBITS@{INITBITS}}
+\index{INITBITS@{INITBITS}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{INITBITS}{INITBITS}}
+{\footnotesize\ttfamily \#define INITBITS(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        hold = 0; \(\backslash\)}
+\DoxyCodeLine{        bits = 0; \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 150 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_a03dae42536f97b08183620a910f9b204}\label{infback_8c_a03dae42536f97b08183620a910f9b204}} 
+\index{infback.c@{infback.c}!LOAD@{LOAD}}
+\index{LOAD@{LOAD}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{LOAD}{LOAD}}
+{\footnotesize\ttfamily \#define LOAD(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        put = strm-\/>next\_out; \(\backslash\)}
+\DoxyCodeLine{        left = strm-\/>avail\_out; \(\backslash\)}
+\DoxyCodeLine{        next = strm-\/>next\_in; \(\backslash\)}
+\DoxyCodeLine{        have = strm-\/>avail\_in; \(\backslash\)}
+\DoxyCodeLine{        hold = state-\/>hold; \(\backslash\)}
+\DoxyCodeLine{        bits = state-\/>bits; \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 128 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_ab3731a4aa4bb04481dc95069bbfb7156}\label{infback_8c_ab3731a4aa4bb04481dc95069bbfb7156}} 
+\index{infback.c@{infback.c}!NEEDBITS@{NEEDBITS}}
+\index{NEEDBITS@{NEEDBITS}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{NEEDBITS}{NEEDBITS}}
+{\footnotesize\ttfamily \#define NEEDBITS(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        while (bits < (\textcolor{keywordtype}{unsigned})(n)) \(\backslash\)}
+\DoxyCodeLine{            PULLBYTE(); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 183 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_a37e17e8237dadaefecf8b92ad2370561}\label{infback_8c_a37e17e8237dadaefecf8b92ad2370561}} 
+\index{infback.c@{infback.c}!PULL@{PULL}}
+\index{PULL@{PULL}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{PULL}{PULL}}
+{\footnotesize\ttfamily \#define PULL(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        if (have == 0) \{ \(\backslash\)}
+\DoxyCodeLine{            have = in(in\_desc, \&next); \(\backslash\)}
+\DoxyCodeLine{            if (have == 0) \{ \(\backslash\)}
+\DoxyCodeLine{                next = \mbox{\hyperlink{zlib_8h_ad15afa2776b41b2f4d8582dd152bd736}{Z\_NULL}}; \(\backslash\)}
+\DoxyCodeLine{                ret = \mbox{\hyperlink{zlib_8h_a425e2f0664e1b1f75bf2bffab88d353d}{Z\_BUF\_ERROR}}; \(\backslash\)}
+\DoxyCodeLine{                goto inf\_leave; \(\backslash\)}
+\DoxyCodeLine{            \} \(\backslash\)}
+\DoxyCodeLine{        \} \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 158 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_add54302c739466e0e4a204fa1015694b}\label{infback_8c_add54302c739466e0e4a204fa1015694b}} 
+\index{infback.c@{infback.c}!PULLBYTE@{PULLBYTE}}
+\index{PULLBYTE@{PULLBYTE}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{PULLBYTE}{PULLBYTE}}
+{\footnotesize\ttfamily \#define PULLBYTE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        PULL(); \(\backslash\)}
+\DoxyCodeLine{        have-\/-\/; \(\backslash\)}
+\DoxyCodeLine{        hold += (\textcolor{keywordtype}{unsigned} long)(*next++) << bits; \(\backslash\)}
+\DoxyCodeLine{        bits += 8; \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 172 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_af3b6db2fe8b54bb9edf88c2002e4bf34}\label{infback_8c_af3b6db2fe8b54bb9edf88c2002e4bf34}} 
+\index{infback.c@{infback.c}!RESTORE@{RESTORE}}
+\index{RESTORE@{RESTORE}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{RESTORE}{RESTORE}}
+{\footnotesize\ttfamily \#define RESTORE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        strm-\/>next\_out = put; \(\backslash\)}
+\DoxyCodeLine{        strm-\/>avail\_out = left; \(\backslash\)}
+\DoxyCodeLine{        strm-\/>next\_in = next; \(\backslash\)}
+\DoxyCodeLine{        strm-\/>avail\_in = have; \(\backslash\)}
+\DoxyCodeLine{        state-\/>hold = hold; \(\backslash\)}
+\DoxyCodeLine{        state-\/>bits = bits; \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 139 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_aa86fac2e845f337d5369513dea1759b0}\label{infback_8c_aa86fac2e845f337d5369513dea1759b0}} 
+\index{infback.c@{infback.c}!ROOM@{ROOM}}
+\index{ROOM@{ROOM}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{ROOM}{ROOM}}
+{\footnotesize\ttfamily \#define ROOM(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        if (left == 0) \{ \(\backslash\)}
+\DoxyCodeLine{            put = state-\/>window; \(\backslash\)}
+\DoxyCodeLine{            left = state-\/>wsize; \(\backslash\)}
+\DoxyCodeLine{            state-\/>whave = left; \(\backslash\)}
+\DoxyCodeLine{            if (out(out\_desc, put, left)) \{ \(\backslash\)}
+\DoxyCodeLine{                ret = \mbox{\hyperlink{zlib_8h_a425e2f0664e1b1f75bf2bffab88d353d}{Z\_BUF\_ERROR}}; \(\backslash\)}
+\DoxyCodeLine{                goto inf\_leave; \(\backslash\)}
+\DoxyCodeLine{            \} \(\backslash\)}
+\DoxyCodeLine{        \} \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 210 of file infback.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{infback_8c_a0ae5d8d0e34dc13d0106c23e633daed5}\label{infback_8c_a0ae5d8d0e34dc13d0106c23e633daed5}} 
+\index{infback.c@{infback.c}!fixedtables@{fixedtables}}
+\index{fixedtables@{fixedtables}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{fixedtables()}{fixedtables()}}
+{\footnotesize\ttfamily void fixedtables (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinflate__state}{inflate\+\_\+state}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{state }\end{DoxyParamCaption})}
+
+
+
+Definition at line 82 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_a6568b72b098ada9bd162fc0365943f5c}\label{infback_8c_a6568b72b098ada9bd162fc0365943f5c}} 
+\index{infback.c@{infback.c}!inflateBack@{inflateBack}}
+\index{inflateBack@{inflateBack}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{inflateBack()}{inflateBack()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Back (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{in\+\_\+func}]{in,  }\item[{void \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{in\+\_\+desc,  }\item[{out\+\_\+func}]{out,  }\item[{void \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{out\+\_\+desc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 250 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_a6fe1a0debff7933ce382bfd5348f2b2b}\label{infback_8c_a6fe1a0debff7933ce382bfd5348f2b2b}} 
+\index{infback.c@{infback.c}!inflateBackEnd@{inflateBackEnd}}
+\index{inflateBackEnd@{inflateBackEnd}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{inflateBackEnd()}{inflateBackEnd()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Back\+End (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 631 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_a00558519755e3bab13ee6f8378973913}\label{infback_8c_a00558519755e3bab13ee6f8378973913}} 
+\index{infback.c@{infback.c}!inflateBackInit\_@{inflateBackInit\_}}
+\index{inflateBackInit\_@{inflateBackInit\_}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{inflateBackInit\_()}{inflateBackInit\_()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Back\+Init\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{int}]{window\+Bits,  }\item[{unsigned char \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{window,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$}]{version,  }\item[{int}]{stream\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file infback.\+c.
+
+\mbox{\Hypertarget{infback_8c_a81647fb7bce7042b0d69f3d60e6527ac}\label{infback_8c_a81647fb7bce7042b0d69f3d60e6527ac}} 
+\index{infback.c@{infback.c}!OF@{OF}}
+\index{OF@{OF}!infback.c@{infback.c}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{inflate_8c_a0ae5d8d0e34dc13d0106c23e633daed5}{fixedtables}} OF (\begin{DoxyParamCaption}\item[{(struct \mbox{\hyperlink{structinflate__state}{inflate\+\_\+state}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$state)}]{ }\end{DoxyParamCaption})}
+

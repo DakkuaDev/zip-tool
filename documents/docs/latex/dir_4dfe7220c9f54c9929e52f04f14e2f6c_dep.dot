@@ -1,0 +1,11 @@
+digraph "source/ZipLib/methods" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_e1dba513ee2df986e3034746d268cf36 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="ZipLib" fontname="Helvetica", fontsize="10", URL="dir_e1dba513ee2df986e3034746d268cf36.html"]
+  dir_88ba5bba62e789d30998ea1f89fddce3 [shape=box label="compression" fillcolor="white" style="filled" color="red" URL="dir_88ba5bba62e789d30998ea1f89fddce3.html"];
+  dir_4dfe7220c9f54c9929e52f04f14e2f6c [shape=box, label="methods", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_4dfe7220c9f54c9929e52f04f14e2f6c.html"];
+  }
+  dir_4dfe7220c9f54c9929e52f04f14e2f6c->dir_88ba5bba62e789d30998ea1f89fddce3 [headlabel="11", labeldistance=1.5 headhref="dir_000019_000006.html"];
+}

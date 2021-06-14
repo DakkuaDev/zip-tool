@@ -1,0 +1,55 @@
+\hypertarget{substream_8h}{}\doxysection{source/\+Zip\+Lib/streams/substream.h File Reference}
+\label{substream_8h}\index{source/ZipLib/streams/substream.h@{source/ZipLib/streams/substream.h}}
+{\ttfamily \#include $<$istream$>$}\newline
+{\ttfamily \#include \char`\"{}streambuffs/sub\+\_\+streambuf.\+h\char`\"{}}\newline
+Include dependency graph for substream.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classbasic__isubstream}{basic\+\_\+isubstream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}
+\begin{DoxyCompactList}\small\item\em Basic input substream. Creates a virtual stream over an existing input stream. The substream starts at the position 0 and continues until EOF or the specified length. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classbasic__isubstream}{basic\+\_\+isubstream}}$<$ uint8\+\_\+t, std\+::char\+\_\+traits$<$ uint8\+\_\+t $>$ $>$ \mbox{\hyperlink{substream_8h_afb341adc4416ccb9f5f1a5d46bbedc44}{byte\+\_\+isubstream}}
+\item 
+typedef \mbox{\hyperlink{classbasic__isubstream}{basic\+\_\+isubstream}}$<$ char, std\+::char\+\_\+traits$<$ char $>$ $>$ \mbox{\hyperlink{substream_8h_adb31b712f7badc5e5b4e3281708597d1}{isubstream}}
+\item 
+typedef \mbox{\hyperlink{classbasic__isubstream}{basic\+\_\+isubstream}}$<$ wchar\+\_\+t, std\+::char\+\_\+traits$<$ wchar\+\_\+t $>$ $>$ \mbox{\hyperlink{substream_8h_a2f104eef455223d3cb354caf09dc14b2}{wisubstream}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{substream_8h_afb341adc4416ccb9f5f1a5d46bbedc44}\label{substream_8h_afb341adc4416ccb9f5f1a5d46bbedc44}} 
+\index{substream.h@{substream.h}!byte\_isubstream@{byte\_isubstream}}
+\index{byte\_isubstream@{byte\_isubstream}!substream.h@{substream.h}}
+\doxysubsubsection{\texorpdfstring{byte\_isubstream}{byte\_isubstream}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classbasic__isubstream}{basic\+\_\+isubstream}}$<$uint8\+\_\+t, std\+::char\+\_\+traits$<$uint8\+\_\+t$>$ $>$ \mbox{\hyperlink{substream_8h_afb341adc4416ccb9f5f1a5d46bbedc44}{byte\+\_\+isubstream}}}
+
+
+
+Definition at line 57 of file substream.\+h.
+
+\mbox{\Hypertarget{substream_8h_adb31b712f7badc5e5b4e3281708597d1}\label{substream_8h_adb31b712f7badc5e5b4e3281708597d1}} 
+\index{substream.h@{substream.h}!isubstream@{isubstream}}
+\index{isubstream@{isubstream}!substream.h@{substream.h}}
+\doxysubsubsection{\texorpdfstring{isubstream}{isubstream}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classbasic__isubstream}{basic\+\_\+isubstream}}$<$char, std\+::char\+\_\+traits$<$char$>$ $>$ \mbox{\hyperlink{substream_8h_adb31b712f7badc5e5b4e3281708597d1}{isubstream}}}
+
+
+
+Definition at line 58 of file substream.\+h.
+
+\mbox{\Hypertarget{substream_8h_a2f104eef455223d3cb354caf09dc14b2}\label{substream_8h_a2f104eef455223d3cb354caf09dc14b2}} 
+\index{substream.h@{substream.h}!wisubstream@{wisubstream}}
+\index{wisubstream@{wisubstream}!substream.h@{substream.h}}
+\doxysubsubsection{\texorpdfstring{wisubstream}{wisubstream}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classbasic__isubstream}{basic\+\_\+isubstream}}$<$wchar\+\_\+t, std\+::char\+\_\+traits$<$wchar\+\_\+t$>$ $>$ \mbox{\hyperlink{substream_8h_a2f104eef455223d3cb354caf09dc14b2}{wisubstream}}}
+
+
+
+Definition at line 59 of file substream.\+h.
+

@@ -1,0 +1,178 @@
+\hypertarget{unix_2_mt_coder_8h}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Mt\+Coder.h File Reference}
+\label{unix_2_mt_coder_8h}\index{source/ZipLib/extlibs/lzma/unix/MtCoder.h@{source/ZipLib/extlibs/lzma/unix/MtCoder.h}}
+{\ttfamily \#include \char`\"{}Threads.\+h\char`\"{}}\newline
+Include dependency graph for Mt\+Coder.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}}
+\item 
+struct \mbox{\hyperlink{struct_c_mt_progress}{CMt\+Progress}}
+\item 
+struct \mbox{\hyperlink{struct_c_mt_thread}{CMt\+Thread}}
+\item 
+struct \mbox{\hyperlink{struct_i_mt_coder_callback}{IMt\+Coder\+Callback}}
+\item 
+struct \mbox{\hyperlink{struct___c_mt_coder}{\+\_\+\+CMt\+Coder}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{unix_2_mt_coder_8h_a5d5fcc0a119e812efc47b2f8d0282ca9}{NUM\+\_\+\+MT\+\_\+\+CODER\+\_\+\+THREADS\+\_\+\+MAX}}~32
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct___c_mt_coder}{\+\_\+\+CMt\+Coder}} \mbox{\hyperlink{unix_2_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}{CMt\+Coder}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{unix_2_mt_coder_8h_a07e3ffd2ec9621aacb62f303fcc986e7}{Loop\+Thread\+\_\+\+Construct}} (\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_mt_coder_8h_a448f14e439bc7a1122cd7995d73997f1}{Loop\+Thread\+\_\+\+Close}} (\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_mt_coder_8h_a80096eca2a4d88869c282186bb2a5f67}{Loop\+Thread\+\_\+\+Create}} (\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_mt_coder_8h_a75e4fcc3de53302ead7dfffbfbcc148e}{Loop\+Thread\+\_\+\+Stop\+And\+Wait}} (\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_mt_coder_8h_a53f8eb84a45349d3894702957b82828f}{Loop\+Thread\+\_\+\+Start\+Sub\+Thread}} (\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_mt_coder_8h_a1318acf37ec2100d3f74cbbe0d6578d1}{Loop\+Thread\+\_\+\+Wait\+Sub\+Thread}} (\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_mt_coder_8h_afe1eb74716082fab2034a1a4500f9406}{Mt\+Progress\+\_\+\+Set}} (\mbox{\hyperlink{struct_c_mt_progress}{CMt\+Progress}} $\ast$p, unsigned index, \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} in\+Size, \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} out\+Size)
+\item 
+void \mbox{\hyperlink{unix_2_mt_coder_8h_a1e89f7bf714c735494dff4d09aa1f03c}{Mt\+Coder\+\_\+\+Construct}} (\mbox{\hyperlink{_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}{CMt\+Coder}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_mt_coder_8h_a4dbad8a7f909fc115273273e0ae75e58}{Mt\+Coder\+\_\+\+Destruct}} (\mbox{\hyperlink{_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}{CMt\+Coder}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_mt_coder_8h_ab6269284c987f81134422397ea101492}{Mt\+Coder\+\_\+\+Code}} (\mbox{\hyperlink{_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}{CMt\+Coder}} $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a5d5fcc0a119e812efc47b2f8d0282ca9}\label{unix_2_mt_coder_8h_a5d5fcc0a119e812efc47b2f8d0282ca9}} 
+\index{MtCoder.h@{MtCoder.h}!NUM\_MT\_CODER\_THREADS\_MAX@{NUM\_MT\_CODER\_THREADS\_MAX}}
+\index{NUM\_MT\_CODER\_THREADS\_MAX@{NUM\_MT\_CODER\_THREADS\_MAX}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_MT\_CODER\_THREADS\_MAX}{NUM\_MT\_CODER\_THREADS\_MAX}}
+{\footnotesize\ttfamily \#define NUM\+\_\+\+MT\+\_\+\+CODER\+\_\+\+THREADS\+\_\+\+MAX~32}
+
+
+
+Definition at line 31 of file Mt\+Coder.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}\label{unix_2_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}} 
+\index{MtCoder.h@{MtCoder.h}!CMtCoder@{CMtCoder}}
+\index{CMtCoder@{CMtCoder}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{CMtCoder}{CMtCoder}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___c_mt_coder}{\+\_\+\+CMt\+Coder}} \mbox{\hyperlink{_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}{CMt\+Coder}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a448f14e439bc7a1122cd7995d73997f1}\label{unix_2_mt_coder_8h_a448f14e439bc7a1122cd7995d73997f1}} 
+\index{MtCoder.h@{MtCoder.h}!LoopThread\_Close@{LoopThread\_Close}}
+\index{LoopThread\_Close@{LoopThread\_Close}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{LoopThread\_Close()}{LoopThread\_Close()}}
+{\footnotesize\ttfamily void Loop\+Thread\+\_\+\+Close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file Mt\+Coder.\+c.
+
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a07e3ffd2ec9621aacb62f303fcc986e7}\label{unix_2_mt_coder_8h_a07e3ffd2ec9621aacb62f303fcc986e7}} 
+\index{MtCoder.h@{MtCoder.h}!LoopThread\_Construct@{LoopThread\_Construct}}
+\index{LoopThread\_Construct@{LoopThread\_Construct}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{LoopThread\_Construct()}{LoopThread\_Construct()}}
+{\footnotesize\ttfamily void Loop\+Thread\+\_\+\+Construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 8 of file Mt\+Coder.\+c.
+
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a80096eca2a4d88869c282186bb2a5f67}\label{unix_2_mt_coder_8h_a80096eca2a4d88869c282186bb2a5f67}} 
+\index{MtCoder.h@{MtCoder.h}!LoopThread\_Create@{LoopThread\_Create}}
+\index{LoopThread\_Create@{LoopThread\_Create}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{LoopThread\_Create()}{LoopThread\_Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Loop\+Thread\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file Mt\+Coder.\+c.
+
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a53f8eb84a45349d3894702957b82828f}\label{unix_2_mt_coder_8h_a53f8eb84a45349d3894702957b82828f}} 
+\index{MtCoder.h@{MtCoder.h}!LoopThread\_StartSubThread@{LoopThread\_StartSubThread}}
+\index{LoopThread\_StartSubThread@{LoopThread\_StartSubThread}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{LoopThread\_StartSubThread()}{LoopThread\_StartSubThread()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Loop\+Thread\+\_\+\+Start\+Sub\+Thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 53 of file Mt\+Coder.\+c.
+
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a75e4fcc3de53302ead7dfffbfbcc148e}\label{unix_2_mt_coder_8h_a75e4fcc3de53302ead7dfffbfbcc148e}} 
+\index{MtCoder.h@{MtCoder.h}!LoopThread\_StopAndWait@{LoopThread\_StopAndWait}}
+\index{LoopThread\_StopAndWait@{LoopThread\_StopAndWait}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{LoopThread\_StopAndWait()}{LoopThread\_StopAndWait()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Loop\+Thread\+\_\+\+Stop\+And\+Wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file Mt\+Coder.\+c.
+
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a1318acf37ec2100d3f74cbbe0d6578d1}\label{unix_2_mt_coder_8h_a1318acf37ec2100d3f74cbbe0d6578d1}} 
+\index{MtCoder.h@{MtCoder.h}!LoopThread\_WaitSubThread@{LoopThread\_WaitSubThread}}
+\index{LoopThread\_WaitSubThread@{LoopThread\_WaitSubThread}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{LoopThread\_WaitSubThread()}{LoopThread\_WaitSubThread()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Loop\+Thread\+\_\+\+Wait\+Sub\+Thread (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_loop_thread}{CLoop\+Thread}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file Mt\+Coder.\+c.
+
+\mbox{\Hypertarget{unix_2_mt_coder_8h_ab6269284c987f81134422397ea101492}\label{unix_2_mt_coder_8h_ab6269284c987f81134422397ea101492}} 
+\index{MtCoder.h@{MtCoder.h}!MtCoder\_Code@{MtCoder\_Code}}
+\index{MtCoder\_Code@{MtCoder\_Code}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{MtCoder\_Code()}{MtCoder\_Code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Mt\+Coder\+\_\+\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}{CMt\+Coder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 272 of file Mt\+Coder.\+c.
+
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a1e89f7bf714c735494dff4d09aa1f03c}\label{unix_2_mt_coder_8h_a1e89f7bf714c735494dff4d09aa1f03c}} 
+\index{MtCoder.h@{MtCoder.h}!MtCoder\_Construct@{MtCoder\_Construct}}
+\index{MtCoder\_Construct@{MtCoder\_Construct}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{MtCoder\_Construct()}{MtCoder\_Construct()}}
+{\footnotesize\ttfamily void Mt\+Coder\+\_\+\+Construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}{CMt\+Coder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 249 of file Mt\+Coder.\+c.
+
+\mbox{\Hypertarget{unix_2_mt_coder_8h_a4dbad8a7f909fc115273273e0ae75e58}\label{unix_2_mt_coder_8h_a4dbad8a7f909fc115273273e0ae75e58}} 
+\index{MtCoder.h@{MtCoder.h}!MtCoder\_Destruct@{MtCoder\_Destruct}}
+\index{MtCoder\_Destruct@{MtCoder\_Destruct}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{MtCoder\_Destruct()}{MtCoder\_Destruct()}}
+{\footnotesize\ttfamily void Mt\+Coder\+\_\+\+Destruct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_mt_coder_8h_a577e33ab6b13fd454c0256accccd4488}{CMt\+Coder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 263 of file Mt\+Coder.\+c.
+
+\mbox{\Hypertarget{unix_2_mt_coder_8h_afe1eb74716082fab2034a1a4500f9406}\label{unix_2_mt_coder_8h_afe1eb74716082fab2034a1a4500f9406}} 
+\index{MtCoder.h@{MtCoder.h}!MtProgress\_Set@{MtProgress\_Set}}
+\index{MtProgress\_Set@{MtProgress\_Set}!MtCoder.h@{MtCoder.h}}
+\doxysubsubsection{\texorpdfstring{MtProgress\_Set()}{MtProgress\_Set()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Mt\+Progress\+\_\+\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_mt_progress}{CMt\+Progress}} $\ast$}]{p,  }\item[{unsigned}]{index,  }\item[{\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}}}]{in\+Size,  }\item[{\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}}}]{out\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 80 of file Mt\+Coder.\+c.
+

@@ -1,0 +1,109 @@
+\hypertarget{7z_crc_8h}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/7z\+Crc.h File Reference}
+\label{7z_crc_8h}\index{source/ZipLib/extlibs/lzma/7zCrc.h@{source/ZipLib/extlibs/lzma/7zCrc.h}}
+{\ttfamily \#include \char`\"{}Types.\+h\char`\"{}}\newline
+Include dependency graph for 7z\+Crc.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{7z_crc_8h_aae997a40509fdc5ea4404882d4bd29e8}{CRC\+\_\+\+INIT\+\_\+\+VAL}}~0x\+FFFFFFFF
+\item 
+\#define \mbox{\hyperlink{7z_crc_8h_a0bcafa5f7f51d3c58a67bcc1d0373633}{CRC\+\_\+\+GET\+\_\+\+DIGEST}}(crc)~((crc) $^\wedge$ \mbox{\hyperlink{unix_27z_crc_8h_aae997a40509fdc5ea4404882d4bd29e8}{CRC\+\_\+\+INIT\+\_\+\+VAL}})
+\item 
+\#define \mbox{\hyperlink{7z_crc_8h_af3a29efaa682d5d748d0b9516d06b7ef}{CRC\+\_\+\+UPDATE\+\_\+\+BYTE}}(crc,  \mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})~(\mbox{\hyperlink{unix_27z_crc_8h_a6dab6bf45811e2b58712a455b1867b1f}{g\+\_\+\+Crc\+Table}}\mbox{[}((crc) $^\wedge$ (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})) \& 0x\+FF\mbox{]} $^\wedge$ ((crc) $>$$>$ 8))
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{unix_2_types_8h_a110c47f40f3e25a133e3e7254be002d2}{MY\+\_\+\+FAST\+\_\+\+CALL}} \mbox{\hyperlink{7z_crc_8h_a9cad573e4b3e1e84e54e9341db4ab897}{Crc\+Generate\+Table}} (void)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{unix_2_types_8h_a110c47f40f3e25a133e3e7254be002d2}{MY\+\_\+\+FAST\+\_\+\+CALL}} \mbox{\hyperlink{7z_crc_8h_a276ed5cda9725571a24baf8f06eacdaf}{Crc\+Update}} (\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} crc, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} void $\ast$data, size\+\_\+t size)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{unix_2_types_8h_a110c47f40f3e25a133e3e7254be002d2}{MY\+\_\+\+FAST\+\_\+\+CALL}} \mbox{\hyperlink{7z_crc_8h_a7937d0196a39406449faf857f33baca1}{Crc\+Calc}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} void $\ast$data, size\+\_\+t size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{unix_2_types_8h_a6774b472721b30450b3334dc4f718a72}{EXTERN\+\_\+\+C\+\_\+\+BEGIN}} \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{7z_crc_8h_a6dab6bf45811e2b58712a455b1867b1f}{g\+\_\+\+Crc\+Table}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{7z_crc_8h_a0bcafa5f7f51d3c58a67bcc1d0373633}\label{7z_crc_8h_a0bcafa5f7f51d3c58a67bcc1d0373633}} 
+\index{7zCrc.h@{7zCrc.h}!CRC\_GET\_DIGEST@{CRC\_GET\_DIGEST}}
+\index{CRC\_GET\_DIGEST@{CRC\_GET\_DIGEST}!7zCrc.h@{7zCrc.h}}
+\doxysubsubsection{\texorpdfstring{CRC\_GET\_DIGEST}{CRC\_GET\_DIGEST}}
+{\footnotesize\ttfamily \#define CRC\+\_\+\+GET\+\_\+\+DIGEST(\begin{DoxyParamCaption}\item[{}]{crc }\end{DoxyParamCaption})~((crc) $^\wedge$ \mbox{\hyperlink{unix_27z_crc_8h_aae997a40509fdc5ea4404882d4bd29e8}{CRC\+\_\+\+INIT\+\_\+\+VAL}})}
+
+
+
+Definition at line 17 of file 7z\+Crc.\+h.
+
+\mbox{\Hypertarget{7z_crc_8h_aae997a40509fdc5ea4404882d4bd29e8}\label{7z_crc_8h_aae997a40509fdc5ea4404882d4bd29e8}} 
+\index{7zCrc.h@{7zCrc.h}!CRC\_INIT\_VAL@{CRC\_INIT\_VAL}}
+\index{CRC\_INIT\_VAL@{CRC\_INIT\_VAL}!7zCrc.h@{7zCrc.h}}
+\doxysubsubsection{\texorpdfstring{CRC\_INIT\_VAL}{CRC\_INIT\_VAL}}
+{\footnotesize\ttfamily \#define CRC\+\_\+\+INIT\+\_\+\+VAL~0x\+FFFFFFFF}
+
+
+
+Definition at line 16 of file 7z\+Crc.\+h.
+
+\mbox{\Hypertarget{7z_crc_8h_af3a29efaa682d5d748d0b9516d06b7ef}\label{7z_crc_8h_af3a29efaa682d5d748d0b9516d06b7ef}} 
+\index{7zCrc.h@{7zCrc.h}!CRC\_UPDATE\_BYTE@{CRC\_UPDATE\_BYTE}}
+\index{CRC\_UPDATE\_BYTE@{CRC\_UPDATE\_BYTE}!7zCrc.h@{7zCrc.h}}
+\doxysubsubsection{\texorpdfstring{CRC\_UPDATE\_BYTE}{CRC\_UPDATE\_BYTE}}
+{\footnotesize\ttfamily \#define CRC\+\_\+\+UPDATE\+\_\+\+BYTE(\begin{DoxyParamCaption}\item[{}]{crc,  }\item[{}]{\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}} }\end{DoxyParamCaption})~(\mbox{\hyperlink{unix_27z_crc_8h_a6dab6bf45811e2b58712a455b1867b1f}{g\+\_\+\+Crc\+Table}}\mbox{[}((crc) $^\wedge$ (\mbox{\hyperlink{unix_2_sha256_8c_a337ad8a7e52da2d584c2018f2ec2c81e}{b}})) \& 0x\+FF\mbox{]} $^\wedge$ ((crc) $>$$>$ 8))}
+
+
+
+Definition at line 18 of file 7z\+Crc.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{7z_crc_8h_a7937d0196a39406449faf857f33baca1}\label{7z_crc_8h_a7937d0196a39406449faf857f33baca1}} 
+\index{7zCrc.h@{7zCrc.h}!CrcCalc@{CrcCalc}}
+\index{CrcCalc@{CrcCalc}!7zCrc.h@{7zCrc.h}}
+\doxysubsubsection{\texorpdfstring{CrcCalc()}{CrcCalc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{unix_2_types_8h_a110c47f40f3e25a133e3e7254be002d2}{MY\+\_\+\+FAST\+\_\+\+CALL}} Crc\+Calc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} void $\ast$}]{data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 34 of file 7z\+Crc.\+c.
+
+\mbox{\Hypertarget{7z_crc_8h_a9cad573e4b3e1e84e54e9341db4ab897}\label{7z_crc_8h_a9cad573e4b3e1e84e54e9341db4ab897}} 
+\index{7zCrc.h@{7zCrc.h}!CrcGenerateTable@{CrcGenerateTable}}
+\index{CrcGenerateTable@{CrcGenerateTable}!7zCrc.h@{7zCrc.h}}
+\doxysubsubsection{\texorpdfstring{CrcGenerateTable()}{CrcGenerateTable()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{unix_2_types_8h_a110c47f40f3e25a133e3e7254be002d2}{MY\+\_\+\+FAST\+\_\+\+CALL}} Crc\+Generate\+Table (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 39 of file 7z\+Crc.\+c.
+
+\mbox{\Hypertarget{7z_crc_8h_a276ed5cda9725571a24baf8f06eacdaf}\label{7z_crc_8h_a276ed5cda9725571a24baf8f06eacdaf}} 
+\index{7zCrc.h@{7zCrc.h}!CrcUpdate@{CrcUpdate}}
+\index{CrcUpdate@{CrcUpdate}!7zCrc.h@{7zCrc.h}}
+\doxysubsubsection{\texorpdfstring{CrcUpdate()}{CrcUpdate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{unix_2_types_8h_a110c47f40f3e25a133e3e7254be002d2}{MY\+\_\+\+FAST\+\_\+\+CALL}} Crc\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{crc,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} void $\ast$}]{data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file 7z\+Crc.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{7z_crc_8h_a6dab6bf45811e2b58712a455b1867b1f}\label{7z_crc_8h_a6dab6bf45811e2b58712a455b1867b1f}} 
+\index{7zCrc.h@{7zCrc.h}!g\_CrcTable@{g\_CrcTable}}
+\index{g\_CrcTable@{g\_CrcTable}!7zCrc.h@{7zCrc.h}}
+\doxysubsubsection{\texorpdfstring{g\_CrcTable}{g\_CrcTable}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_types_8h_a6774b472721b30450b3334dc4f718a72}{EXTERN\+\_\+\+C\+\_\+\+BEGIN}} \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} g\+\_\+\+Crc\+Table\mbox{[}$\,$\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line 27 of file 7z\+Crc.\+c.
+

@@ -1,0 +1,203 @@
+\hypertarget{classmem__streambuf}{}\doxysection{mem\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ Class Template Reference}
+\label{classmem__streambuf}\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+
+
+{\ttfamily \#include $<$mem\+\_\+streambuf.\+h$>$}
+
+
+
+Inheritance diagram for mem\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 0
+
+
+Collaboration diagram for mem\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::basic\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \mbox{\hyperlink{classmem__streambuf_a22bdc5907a680657bba4bf9d24e4f6df}{base\+\_\+type}}
+\item 
+typedef std\+::basic\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classmem__streambuf_aa2ba7753842148259a93e3674aea562b}{traits\+\_\+type}} \mbox{\hyperlink{classmem__streambuf_aa2ba7753842148259a93e3674aea562b}{traits\+\_\+type}}
+\item 
+typedef base\+\_\+type\+::char\+\_\+type \mbox{\hyperlink{classmem__streambuf_a2b6f83d03316ae69c5fbdb960755e6b2}{char\+\_\+type}}
+\item 
+typedef base\+\_\+type\+::int\+\_\+type \mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}}
+\item 
+typedef base\+\_\+type\+::pos\+\_\+type \mbox{\hyperlink{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}{pos\+\_\+type}}
+\item 
+typedef base\+\_\+type\+::off\+\_\+type \mbox{\hyperlink{classmem__streambuf_a0c3674c2498025c6b4790ca925f650b2}{off\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmem__streambuf_a9d02c5e58587359edf4b5befd67a5659}{mem\+\_\+streambuf}} (ELEM\+\_\+\+TYPE $\ast$buffer, size\+\_\+t length)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}} \mbox{\hyperlink{classmem__streambuf_af89ee81407d79d5d7250c8e87ed425fe}{underflow}} () override
+\item 
+\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}} \mbox{\hyperlink{classmem__streambuf_a0b9c0cf25c0b98ff91225a3f7023822b}{overflow}} (\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}} \mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}}=traits\+\_\+type\+::eof()) override
+\item 
+\mbox{\hyperlink{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}{pos\+\_\+type}} \mbox{\hyperlink{classmem__streambuf_adfe0510bfc3cd8852ae0351a5d5c8a3d}{seekpos}} (\mbox{\hyperlink{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}{pos\+\_\+type}} pos, std\+::ios\+::openmode which=std\+::ios\+::in$\vert$std\+::ios\+::out) override
+\item 
+\mbox{\hyperlink{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}{pos\+\_\+type}} \mbox{\hyperlink{classmem__streambuf_a3ebbcaf3d70200bc9db5bf0a62928c2f}{seekoff}} (\mbox{\hyperlink{classmem__streambuf_a0c3674c2498025c6b4790ca925f650b2}{off\+\_\+type}} off, std\+::ios\+::seekdir dir, std\+::ios\+::openmode which=std\+::ios\+::in$\vert$std\+::ios\+::out) override
+\item 
+\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}} \mbox{\hyperlink{classmem__streambuf_a24ef934e2846690ec7bfa2c55320501c}{pbackfail}} (\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}} \mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}}=traits\+\_\+type\+::eof()) override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ELEM\+\_\+\+TYPE, typename TRAITS\+\_\+\+TYPE$>$\newline
+class mem\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}
+
+
+
+Definition at line 7 of file mem\+\_\+streambuf.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classmem__streambuf_a22bdc5907a680657bba4bf9d24e4f6df}\label{classmem__streambuf_a22bdc5907a680657bba4bf9d24e4f6df}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!base\_type@{base\_type}}
+\index{base\_type@{base\_type}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{base\_type}{base\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef std\+::basic\+\_\+streambuf$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$ \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classmem__streambuf_a22bdc5907a680657bba4bf9d24e4f6df}{base\+\_\+type}}}
+
+
+
+Definition at line 11 of file mem\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classmem__streambuf_a2b6f83d03316ae69c5fbdb960755e6b2}\label{classmem__streambuf_a2b6f83d03316ae69c5fbdb960755e6b2}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!char\_type@{char\_type}}
+\index{char\_type@{char\_type}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{char\_type}{char\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef base\+\_\+type\+::char\+\_\+type \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classmem__streambuf_a2b6f83d03316ae69c5fbdb960755e6b2}{char\+\_\+type}}}
+
+
+
+Definition at line 14 of file mem\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}\label{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!int\_type@{int\_type}}
+\index{int\_type@{int\_type}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{int\_type}{int\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef base\+\_\+type\+::int\+\_\+type \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}}}
+
+
+
+Definition at line 15 of file mem\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classmem__streambuf_a0c3674c2498025c6b4790ca925f650b2}\label{classmem__streambuf_a0c3674c2498025c6b4790ca925f650b2}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!off\_type@{off\_type}}
+\index{off\_type@{off\_type}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{off\_type}{off\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef base\+\_\+type\+::off\+\_\+type \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classmem__streambuf_a0c3674c2498025c6b4790ca925f650b2}{off\+\_\+type}}}
+
+
+
+Definition at line 17 of file mem\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}\label{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!pos\_type@{pos\_type}}
+\index{pos\_type@{pos\_type}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{pos\_type}{pos\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef base\+\_\+type\+::pos\+\_\+type \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}{pos\+\_\+type}}}
+
+
+
+Definition at line 16 of file mem\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classmem__streambuf_aa2ba7753842148259a93e3674aea562b}\label{classmem__streambuf_aa2ba7753842148259a93e3674aea562b}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!traits\_type@{traits\_type}}
+\index{traits\_type@{traits\_type}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{traits\_type}{traits\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef std\+::basic\+\_\+streambuf$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$\+::\mbox{\hyperlink{classmem__streambuf_aa2ba7753842148259a93e3674aea562b}{traits\+\_\+type}} \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classmem__streambuf_aa2ba7753842148259a93e3674aea562b}{traits\+\_\+type}}}
+
+
+
+Definition at line 12 of file mem\+\_\+streambuf.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmem__streambuf_a9d02c5e58587359edf4b5befd67a5659}\label{classmem__streambuf_a9d02c5e58587359edf4b5befd67a5659}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!mem\_streambuf@{mem\_streambuf}}
+\index{mem\_streambuf@{mem\_streambuf}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{mem\_streambuf()}{mem\_streambuf()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}} (\begin{DoxyParamCaption}\item[{ELEM\+\_\+\+TYPE $\ast$}]{buffer,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 19 of file mem\+\_\+streambuf.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classmem__streambuf_a0b9c0cf25c0b98ff91225a3f7023822b}\label{classmem__streambuf_a0b9c0cf25c0b98ff91225a3f7023822b}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!overflow@{overflow}}
+\index{overflow@{overflow}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{overflow()}{overflow()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}} \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::overflow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}}}]{c = {\ttfamily traits\+\_\+type\+:\+:eof()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 39 of file mem\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classmem__streambuf_a24ef934e2846690ec7bfa2c55320501c}\label{classmem__streambuf_a24ef934e2846690ec7bfa2c55320501c}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!pbackfail@{pbackfail}}
+\index{pbackfail@{pbackfail}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{pbackfail()}{pbackfail()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}} \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::pbackfail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}}}]{c = {\ttfamily traits\+\_\+type\+:\+:eof()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 169 of file mem\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classmem__streambuf_a3ebbcaf3d70200bc9db5bf0a62928c2f}\label{classmem__streambuf_a3ebbcaf3d70200bc9db5bf0a62928c2f}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!seekoff@{seekoff}}
+\index{seekoff@{seekoff}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{seekoff()}{seekoff()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}{pos\+\_\+type}} \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::seekoff (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmem__streambuf_a0c3674c2498025c6b4790ca925f650b2}{off\+\_\+type}}}]{off,  }\item[{std\+::ios\+::seekdir}]{dir,  }\item[{std\+::ios\+::openmode}]{which = {\ttfamily std\+:\+:ios\+:\+:in~$\vert$~std\+:\+:ios\+:\+:out} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 94 of file mem\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classmem__streambuf_adfe0510bfc3cd8852ae0351a5d5c8a3d}\label{classmem__streambuf_adfe0510bfc3cd8852ae0351a5d5c8a3d}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!seekpos@{seekpos}}
+\index{seekpos@{seekpos}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{seekpos()}{seekpos()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}{pos\+\_\+type}} \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::seekpos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classmem__streambuf_ab9a48479fbff53458a921f26f4901d9e}{pos\+\_\+type}}}]{pos,  }\item[{std\+::ios\+::openmode}]{which = {\ttfamily std\+:\+:ios\+:\+:in~$\vert$~std\+:\+:ios\+:\+:out} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 56 of file mem\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classmem__streambuf_af89ee81407d79d5d7250c8e87ed425fe}\label{classmem__streambuf_af89ee81407d79d5d7250c8e87ed425fe}} 
+\index{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!underflow@{underflow}}
+\index{underflow@{underflow}!mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{mem\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{underflow()}{underflow()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classmem__streambuf_a629866a7e576b0124d73f7900138bf4f}{int\+\_\+type}} \mbox{\hyperlink{classmem__streambuf}{mem\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::underflow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 28 of file mem\+\_\+streambuf.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/streams/streambuffs/\mbox{\hyperlink{mem__streambuf_8h}{mem\+\_\+streambuf.\+h}}\end{DoxyCompactItemize}

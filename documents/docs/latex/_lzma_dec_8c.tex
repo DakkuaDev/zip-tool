@@ -1,0 +1,982 @@
+\hypertarget{_lzma_dec_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/\+Lzma\+Dec.c File Reference}
+\label{_lzma_dec_8c}\index{source/ZipLib/extlibs/lzma/LzmaDec.c@{source/ZipLib/extlibs/lzma/LzmaDec.c}}
+{\ttfamily \#include \char`\"{}Lzma\+Dec.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for Lzma\+Dec.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a32f13b5730b1236f259facf642d060ea}{k\+Num\+Top\+Bits}}~24
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ae668f35d44d0e8b31daf6479d19a5e3f}{k\+Top\+Value}}~((\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a32f13b5730b1236f259facf642d060ea}{k\+Num\+Top\+Bits}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}}~11
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a42683bb56128d7ca273fcfe69e7c6c37}{k\+Bit\+Model\+Total}}~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}}~5
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_aa9483989d9b2132aad0490c49a19bfdf}{RC\+\_\+\+INIT\+\_\+\+SIZE}}~5
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a29cf2d41341c861a02125541ee1c9368}{NORMALIZE}}~if (range $<$ \mbox{\hyperlink{unix_2_ppmd7_enc_8c_ae668f35d44d0e8b31daf6479d19a5e3f}{k\+Top\+Value}}) \{ range $<$$<$= 8; \mbox{\hyperlink{structcode}{code}} = (\mbox{\hyperlink{structcode}{code}} $<$$<$ 8) $\vert$ ($\ast$buf++); \}
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a278d4019e9e853ca45abefd019bb29b9}{IF\+\_\+\+BIT\+\_\+0}}(p)~ttt = $\ast$(p); \mbox{\hyperlink{unix_2_lzma_dec_8c_a29cf2d41341c861a02125541ee1c9368}{NORMALIZE}}; bound = (range $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}}) $\ast$ ttt; if (\mbox{\hyperlink{structcode}{code}} $<$ bound)
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ae78e66f0b2b3bc3f1783e7b2a9adf358}{UPDATE\+\_\+0}}(p)~range = bound; $\ast$(p) = (\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}})(ttt + ((\mbox{\hyperlink{unix_2_lzma_enc_8c_a42683bb56128d7ca273fcfe69e7c6c37}{k\+Bit\+Model\+Total}} -\/ ttt) $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}}));
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ad6c7a3bfbf541cebcaf376cbc14e97d6}{UPDATE\+\_\+1}}(p)~range -\/= bound; \mbox{\hyperlink{structcode}{code}} -\/= bound; $\ast$(p) = (\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}})(ttt -\/ (ttt $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}}));
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a455b6fdc5b5fe8e76e1afef674567b5b}{GET\+\_\+\+BIT2}}(p,  i,  A0,  A1)
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a9f5598c52a40c630108ae6b9c64b39d2}{GET\+\_\+\+BIT}}(p,  i)~\mbox{\hyperlink{unix_2_lzma_dec_8c_a455b6fdc5b5fe8e76e1afef674567b5b}{GET\+\_\+\+BIT2}}(p, i, ; , ;)
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a95fbb0a6749b469d872530cc5d94caca}{TREE\+\_\+\+GET\+\_\+\+BIT}}(probs,  i)~\{ \mbox{\hyperlink{unix_2_lzma_dec_8c_a9f5598c52a40c630108ae6b9c64b39d2}{GET\+\_\+\+BIT}}((probs + i), i); \}
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a56d3c1d43d03dadbe7dfab19126ef6e8}{TREE\+\_\+\+DECODE}}(probs,  limit,  i)~  \{ i = 1; do \{ \mbox{\hyperlink{unix_2_lzma_dec_8c_a95fbb0a6749b469d872530cc5d94caca}{TREE\+\_\+\+GET\+\_\+\+BIT}}(probs, i); \} while (i $<$ limit); i -\/= limit; \}
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ae19a723239b21e6779aed6f56c143a31}{TREE\+\_\+6\+\_\+\+DECODE}}(probs,  i)
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a5b7f970f9c6ad7ac0e04c7704630c59e}{NORMALIZE\+\_\+\+CHECK}}~if (range $<$ \mbox{\hyperlink{unix_2_ppmd7_enc_8c_ae668f35d44d0e8b31daf6479d19a5e3f}{k\+Top\+Value}}) \{ if (buf $>$= buf\+Limit) return \mbox{\hyperlink{unix_2_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a8f0d33c937fb7e99d3762067210d9ceb}{DUMMY\+\_\+\+ERROR}}; range $<$$<$= 8; \mbox{\hyperlink{structcode}{code}} = (\mbox{\hyperlink{structcode}{code}} $<$$<$ 8) $\vert$ ($\ast$buf++); \}
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a1b6626985c0ec9a335f4edb98684f934}{IF\+\_\+\+BIT\+\_\+0\+\_\+\+CHECK}}(p)~ttt = $\ast$(p); \mbox{\hyperlink{unix_2_lzma_dec_8c_a5b7f970f9c6ad7ac0e04c7704630c59e}{NORMALIZE\+\_\+\+CHECK}}; bound = (range $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}}) $\ast$ ttt; if (\mbox{\hyperlink{structcode}{code}} $<$ bound)
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ad050ada56fd51d9b371b788f81085cb4}{UPDATE\+\_\+0\+\_\+\+CHECK}}~range = bound;
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ae27eead0798b243321403a05b7af18d5}{UPDATE\+\_\+1\+\_\+\+CHECK}}~range -\/= bound; \mbox{\hyperlink{structcode}{code}} -\/= bound;
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a846efd68ace715f9a1a1d0f460922ad8}{GET\+\_\+\+BIT2\+\_\+\+CHECK}}(p,  i,  A0,  A1)
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a5bb01077944d35e7e25326104b03c5aa}{GET\+\_\+\+BIT\+\_\+\+CHECK}}(p,  i)~\mbox{\hyperlink{unix_2_lzma_dec_8c_a846efd68ace715f9a1a1d0f460922ad8}{GET\+\_\+\+BIT2\+\_\+\+CHECK}}(p, i, ; , ;)
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ae00d43f0bae0ba076133d13def903f22}{TREE\+\_\+\+DECODE\+\_\+\+CHECK}}(probs,  limit,  i)~  \{ i = 1; do \{ \mbox{\hyperlink{unix_2_lzma_dec_8c_a5bb01077944d35e7e25326104b03c5aa}{GET\+\_\+\+BIT\+\_\+\+CHECK}}(probs + i, i) \} while (i $<$ limit); i -\/= limit; \}
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ade76e04fa68e8dc9f855fd15a4145928}{k\+Num\+Pos\+Bits\+Max}}~4
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ae16cf3117d3d6b795ee7dcf13f7f8e07}{k\+Num\+Pos\+States\+Max}}~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_dec_8c_ade76e04fa68e8dc9f855fd15a4145928}{k\+Num\+Pos\+Bits\+Max}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a57f29034a964b6b1c171bd152eb18941}{k\+Len\+Num\+Low\+Bits}}~3
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a7085f3c8cbd5ac79071e590e54d260d2}{k\+Len\+Num\+Low\+Symbols}}~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a57f29034a964b6b1c171bd152eb18941}{k\+Len\+Num\+Low\+Bits}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_af47701c5d84de0e3de1341b23e46ae88}{k\+Len\+Num\+Mid\+Bits}}~3
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a27196e3928ee7fcd8cb5a32cce10dc32}{k\+Len\+Num\+Mid\+Symbols}}~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_af47701c5d84de0e3de1341b23e46ae88}{k\+Len\+Num\+Mid\+Bits}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a4b88ea31aca548400275c16cdd0fcd0f}{k\+Len\+Num\+High\+Bits}}~8
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a2268fbc408f8260dd55903e3c86c5f21}{k\+Len\+Num\+High\+Symbols}}~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a4b88ea31aca548400275c16cdd0fcd0f}{k\+Len\+Num\+High\+Bits}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_aa0ea9e1ee8915a0ed2aa3fea5bb32bbc}{Len\+Choice}}~0
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a03fa842a871f42af80b8d66853fef4ea}{Len\+Choice2}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_aa0ea9e1ee8915a0ed2aa3fea5bb32bbc}{Len\+Choice}} + 1)
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_aa19ffebc9292de791b14363efcd07032}{Len\+Low}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a03fa842a871f42af80b8d66853fef4ea}{Len\+Choice2}} + 1)
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a4f0ff710318637f90826045e222db89f}{Len\+Mid}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_aa19ffebc9292de791b14363efcd07032}{Len\+Low}} + (\mbox{\hyperlink{unix_2_lzma_dec_8c_ae16cf3117d3d6b795ee7dcf13f7f8e07}{k\+Num\+Pos\+States\+Max}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a57f29034a964b6b1c171bd152eb18941}{k\+Len\+Num\+Low\+Bits}}))
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a5c57107878155b0cc582e7248e481de6}{Len\+High}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a4f0ff710318637f90826045e222db89f}{Len\+Mid}} + (\mbox{\hyperlink{unix_2_lzma_dec_8c_ae16cf3117d3d6b795ee7dcf13f7f8e07}{k\+Num\+Pos\+States\+Max}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_af47701c5d84de0e3de1341b23e46ae88}{k\+Len\+Num\+Mid\+Bits}}))
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a8d607ce6e5487eb46fa840be9c7e7e7d}{k\+Num\+Len\+Probs}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a5c57107878155b0cc582e7248e481de6}{Len\+High}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a2268fbc408f8260dd55903e3c86c5f21}{k\+Len\+Num\+High\+Symbols}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}}~12
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_aebcb77051d156c85904586acdd39d769}{k\+Num\+Lit\+States}}~7
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a547192da83ec82c29741856c83e95179}{k\+Start\+Pos\+Model\+Index}}~4
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a50ec8b41912e25cc8214cdac468d591b}{k\+End\+Pos\+Model\+Index}}~14
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a60114415f236bc7743acaad88c1f9aa6}{k\+Num\+Full\+Distances}}~(1 $<$$<$ (\mbox{\hyperlink{unix_2_lzma_enc_8c_a50ec8b41912e25cc8214cdac468d591b}{k\+End\+Pos\+Model\+Index}} $>$$>$ 1))
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_acbc78e14ce1fd1dd4eba07c2efdf9335}{k\+Num\+Pos\+Slot\+Bits}}~6
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ac0526e68851c1cfad9993bbefcf58b55}{k\+Num\+Len\+To\+Pos\+States}}~4
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a8fef4f653f586e73b693ba9f0cb2561d}{k\+Num\+Align\+Bits}}~4
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a00c376a4176050181b189631741832d5}{k\+Align\+Table\+Size}}~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a8fef4f653f586e73b693ba9f0cb2561d}{k\+Num\+Align\+Bits}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a20fe5a29ccc5051431bb3fd0699ce66b}{k\+Match\+Min\+Len}}~2
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_aac9cc22bb0699d9d394b182a5c0c3530}{k\+Match\+Spec\+Len\+Start}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a20fe5a29ccc5051431bb3fd0699ce66b}{k\+Match\+Min\+Len}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a7085f3c8cbd5ac79071e590e54d260d2}{k\+Len\+Num\+Low\+Symbols}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a27196e3928ee7fcd8cb5a32cce10dc32}{k\+Len\+Num\+Mid\+Symbols}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a2268fbc408f8260dd55903e3c86c5f21}{k\+Len\+Num\+High\+Symbols}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ad88a03019a439d829986a3dc86b27052}{Is\+Match}}~0
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a2f8a0fb3c2214d2021988ec38b2001b1}{Is\+Rep}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_ad88a03019a439d829986a3dc86b27052}{Is\+Match}} + (\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_dec_8c_ade76e04fa68e8dc9f855fd15a4145928}{k\+Num\+Pos\+Bits\+Max}}))
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ad5c8a2639a38d9953d5f23ea2a2696b6}{Is\+Rep\+G0}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a2f8a0fb3c2214d2021988ec38b2001b1}{Is\+Rep}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_aef394a830be2bfaca55d110f997490ea}{Is\+Rep\+G1}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_ad5c8a2639a38d9953d5f23ea2a2696b6}{Is\+Rep\+G0}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ac9e6e7b789c6f972b85ad64a48fe75c5}{Is\+Rep\+G2}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_aef394a830be2bfaca55d110f997490ea}{Is\+Rep\+G1}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a57708c943f099c2716fdf1a873174d3e}{Is\+Rep0\+Long}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_ac9e6e7b789c6f972b85ad64a48fe75c5}{Is\+Rep\+G2}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a95e155252324fd1c5fd2177c2a6e174e}{Pos\+Slot}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a57708c943f099c2716fdf1a873174d3e}{Is\+Rep0\+Long}} + (\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_dec_8c_ade76e04fa68e8dc9f855fd15a4145928}{k\+Num\+Pos\+Bits\+Max}}))
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a652a5e70190bf6d3bc40009e54072dc5}{Spec\+Pos}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a95e155252324fd1c5fd2177c2a6e174e}{Pos\+Slot}} + (\mbox{\hyperlink{unix_2_lzma_enc_8c_ac0526e68851c1cfad9993bbefcf58b55}{k\+Num\+Len\+To\+Pos\+States}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_acbc78e14ce1fd1dd4eba07c2efdf9335}{k\+Num\+Pos\+Slot\+Bits}}))
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a6a388c6c80405dae7fa5329eb38ae3f6}{Align}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a652a5e70190bf6d3bc40009e54072dc5}{Spec\+Pos}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a60114415f236bc7743acaad88c1f9aa6}{k\+Num\+Full\+Distances}} -\/ \mbox{\hyperlink{unix_2_lzma_enc_8c_a50ec8b41912e25cc8214cdac468d591b}{k\+End\+Pos\+Model\+Index}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ab11f9593f4973d0c7782b3497bcfd161}{Len\+Coder}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a6a388c6c80405dae7fa5329eb38ae3f6}{Align}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a00c376a4176050181b189631741832d5}{k\+Align\+Table\+Size}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_aa86fa02dea18df0f2641af2c4a0bc8b2}{Rep\+Len\+Coder}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_ab11f9593f4973d0c7782b3497bcfd161}{Len\+Coder}} + \mbox{\hyperlink{unix_2_lzma_dec_8c_a8d607ce6e5487eb46fa840be9c7e7e7d}{k\+Num\+Len\+Probs}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a29377c7edd57f915051c46873de7c720}{Literal}}~(\mbox{\hyperlink{unix_2_lzma_dec_8c_aa86fa02dea18df0f2641af2c4a0bc8b2}{Rep\+Len\+Coder}} + \mbox{\hyperlink{unix_2_lzma_dec_8c_a8d607ce6e5487eb46fa840be9c7e7e7d}{k\+Num\+Len\+Probs}})
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_a45f86846e3e4915f1cf4b6e419acf073}{LZMA\+\_\+\+BASE\+\_\+\+SIZE}}~1846
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ac86e64f8d805afad26b4d8a203a529a4}{LZMA\+\_\+\+LIT\+\_\+\+SIZE}}~768
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_ac6524cdc3ec6cefb9a2dff627768233d}{Lzma\+Props\+\_\+\+Get\+Num\+Probs}}(p)~((\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})\mbox{\hyperlink{unix_2_lzma_dec_8c_a45f86846e3e4915f1cf4b6e419acf073}{LZMA\+\_\+\+BASE\+\_\+\+SIZE}} + (\mbox{\hyperlink{unix_2_lzma_dec_8c_ac86e64f8d805afad26b4d8a203a529a4}{LZMA\+\_\+\+LIT\+\_\+\+SIZE}} $<$$<$ ((p)-\/$>$lc + (p)-\/$>$lp)))
+\item 
+\#define \mbox{\hyperlink{_lzma_dec_8c_add311a4cdf146da16d780e9cc0be184d}{LZMA\+\_\+\+DIC\+\_\+\+MIN}}~(1 $<$$<$ 12)
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0}{ELzma\+Dummy}} \{ \newline
+\mbox{\hyperlink{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a8f0d33c937fb7e99d3762067210d9ceb}{DUMMY\+\_\+\+ERROR}}
+, \mbox{\hyperlink{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a56c50ad3ef01f0b47834324ebe25e50c}{DUMMY\+\_\+\+LIT}}
+, \mbox{\hyperlink{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a029faa49639bb7a291bca64d1c59b077}{DUMMY\+\_\+\+MATCH}}
+, \mbox{\hyperlink{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a0ed2243622923c051220853bc0610ccb}{DUMMY\+\_\+\+REP}}
+, \newline
+\mbox{\hyperlink{unix_2_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a8f0d33c937fb7e99d3762067210d9ceb}{DUMMY\+\_\+\+ERROR}}
+, \mbox{\hyperlink{unix_2_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a56c50ad3ef01f0b47834324ebe25e50c}{DUMMY\+\_\+\+LIT}}
+, \mbox{\hyperlink{unix_2_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a029faa49639bb7a291bca64d1c59b077}{DUMMY\+\_\+\+MATCH}}
+, \mbox{\hyperlink{unix_2_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a0ed2243622923c051220853bc0610ccb}{DUMMY\+\_\+\+REP}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_lzma_dec_8c_a9973d4d5eca28d1b20e60a5808c17f62}{Lzma\+Dec\+\_\+\+Init\+Dic\+And\+State}} (\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} init\+Dic, \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} init\+State)
+\item 
+void \mbox{\hyperlink{_lzma_dec_8c_af78fa82d5ea8c08fdfbc5d8d7a73a127}{Lzma\+Dec\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma_dec_8c_ab3474d4a12b60cff20299518f94677c7}{Lzma\+Dec\+\_\+\+Decode\+To\+Dic}} (\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$p, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} dic\+Limit, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$src\+Len, \mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}} finish\+Mode, \mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$status)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma_dec_8c_a87067055dce3491aca982d1b98ff4db4}{Lzma\+Dec\+\_\+\+Decode\+To\+Buf}} (\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$p, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$src\+Len, \mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}} finish\+Mode, \mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$status)
+\item 
+void \mbox{\hyperlink{_lzma_dec_8c_a1b158d14a209d1a349d9198f39a926b5}{Lzma\+Dec\+\_\+\+Free\+Probs}} (\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{_lzma_dec_8c_aa0ce10ab32514931c1018d4d86edd274}{Lzma\+Dec\+\_\+\+Free}} (\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma_dec_8c_ae49727972cd1f8d5384dc4c29f42d97d}{Lzma\+Props\+\_\+\+Decode}} (\mbox{\hyperlink{_lzma_dec_8h_a73932089e2c643b0c44c95784cfa5bd3}{CLzma\+Props}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$data, unsigned size)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma_dec_8c_a204698f079b0f30489b410641490aa31}{Lzma\+Dec\+\_\+\+Allocate\+Probs}} (\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$props, unsigned props\+Size, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma_dec_8c_ab9d1039d90dad26d7c4851d157a3e72f}{Lzma\+Dec\+\_\+\+Allocate}} (\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$props, unsigned props\+Size, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma_dec_8c_ab8c63d6972edb0325afc6326936afab1}{Lzma\+Decode}} (\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$src\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$prop\+Data, unsigned prop\+Size, \mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}} finish\+Mode, \mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$status, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_lzma_dec_8c_a6a388c6c80405dae7fa5329eb38ae3f6}\label{_lzma_dec_8c_a6a388c6c80405dae7fa5329eb38ae3f6}} 
+\index{LzmaDec.c@{LzmaDec.c}!Align@{Align}}
+\index{Align@{Align}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{Align}{Align}}
+{\footnotesize\ttfamily \#define Align~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a652a5e70190bf6d3bc40009e54072dc5}{Spec\+Pos}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a60114415f236bc7743acaad88c1f9aa6}{k\+Num\+Full\+Distances}} -\/ \mbox{\hyperlink{unix_2_lzma_enc_8c_a50ec8b41912e25cc8214cdac468d591b}{k\+End\+Pos\+Model\+Index}})}
+
+
+
+Definition at line 102 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a9f5598c52a40c630108ae6b9c64b39d2}\label{_lzma_dec_8c_a9f5598c52a40c630108ae6b9c64b39d2}} 
+\index{LzmaDec.c@{LzmaDec.c}!GET\_BIT@{GET\_BIT}}
+\index{GET\_BIT@{GET\_BIT}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{GET\_BIT}{GET\_BIT}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{i }\end{DoxyParamCaption})~\mbox{\hyperlink{unix_2_lzma_dec_8c_a455b6fdc5b5fe8e76e1afef674567b5b}{GET\+\_\+\+BIT2}}(p, i, ; , ;)}
+
+
+
+Definition at line 25 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a455b6fdc5b5fe8e76e1afef674567b5b}\label{_lzma_dec_8c_a455b6fdc5b5fe8e76e1afef674567b5b}} 
+\index{LzmaDec.c@{LzmaDec.c}!GET\_BIT2@{GET\_BIT2}}
+\index{GET\_BIT2@{GET\_BIT2}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{GET\_BIT2}{GET\_BIT2}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+BIT2(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{i,  }\item[{}]{A0,  }\item[{}]{A1 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \mbox{\hyperlink{_lzma_dec_8c_a278d4019e9e853ca45abefd019bb29b9}{IF\_BIT\_0}}(p) \(\backslash\)}
+\DoxyCodeLine{  \{ \mbox{\hyperlink{_lzma_dec_8c_ae78e66f0b2b3bc3f1783e7b2a9adf358}{UPDATE\_0}}(p); i = (i + i); A0; \} \textcolor{keywordflow}{else} \(\backslash\)}
+\DoxyCodeLine{  \{ \mbox{\hyperlink{_lzma_dec_8c_ad6c7a3bfbf541cebcaf376cbc14e97d6}{UPDATE\_1}}(p); i = (i + i) + 1; A1; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 22 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a846efd68ace715f9a1a1d0f460922ad8}\label{_lzma_dec_8c_a846efd68ace715f9a1a1d0f460922ad8}} 
+\index{LzmaDec.c@{LzmaDec.c}!GET\_BIT2\_CHECK@{GET\_BIT2\_CHECK}}
+\index{GET\_BIT2\_CHECK@{GET\_BIT2\_CHECK}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{GET\_BIT2\_CHECK}{GET\_BIT2\_CHECK}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+BIT2\+\_\+\+CHECK(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{i,  }\item[{}]{A0,  }\item[{}]{A1 }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \mbox{\hyperlink{_lzma_dec_8c_a1b6626985c0ec9a335f4edb98684f934}{IF\_BIT\_0\_CHECK}}(p) \(\backslash\)}
+\DoxyCodeLine{  \{ \mbox{\hyperlink{_lzma_dec_8c_ad050ada56fd51d9b371b788f81085cb4}{UPDATE\_0\_CHECK}}; i = (i + i); A0; \} \textcolor{keywordflow}{else} \(\backslash\)}
+\DoxyCodeLine{  \{ \mbox{\hyperlink{_lzma_dec_8c_ae27eead0798b243321403a05b7af18d5}{UPDATE\_1\_CHECK}}; i = (i + i) + 1; A1; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 52 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a5bb01077944d35e7e25326104b03c5aa}\label{_lzma_dec_8c_a5bb01077944d35e7e25326104b03c5aa}} 
+\index{LzmaDec.c@{LzmaDec.c}!GET\_BIT\_CHECK@{GET\_BIT\_CHECK}}
+\index{GET\_BIT\_CHECK@{GET\_BIT\_CHECK}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{GET\_BIT\_CHECK}{GET\_BIT\_CHECK}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+BIT\+\_\+\+CHECK(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{i }\end{DoxyParamCaption})~\mbox{\hyperlink{unix_2_lzma_dec_8c_a846efd68ace715f9a1a1d0f460922ad8}{GET\+\_\+\+BIT2\+\_\+\+CHECK}}(p, i, ; , ;)}
+
+
+
+Definition at line 55 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a278d4019e9e853ca45abefd019bb29b9}\label{_lzma_dec_8c_a278d4019e9e853ca45abefd019bb29b9}} 
+\index{LzmaDec.c@{LzmaDec.c}!IF\_BIT\_0@{IF\_BIT\_0}}
+\index{IF\_BIT\_0@{IF\_BIT\_0}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{IF\_BIT\_0}{IF\_BIT\_0}}
+{\footnotesize\ttfamily \#define IF\+\_\+\+BIT\+\_\+0(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~ttt = $\ast$(p); \mbox{\hyperlink{unix_2_lzma_dec_8c_a29cf2d41341c861a02125541ee1c9368}{NORMALIZE}}; bound = (range $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}}) $\ast$ ttt; if (\mbox{\hyperlink{structcode}{code}} $<$ bound)}
+
+
+
+Definition at line 19 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a1b6626985c0ec9a335f4edb98684f934}\label{_lzma_dec_8c_a1b6626985c0ec9a335f4edb98684f934}} 
+\index{LzmaDec.c@{LzmaDec.c}!IF\_BIT\_0\_CHECK@{IF\_BIT\_0\_CHECK}}
+\index{IF\_BIT\_0\_CHECK@{IF\_BIT\_0\_CHECK}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{IF\_BIT\_0\_CHECK}{IF\_BIT\_0\_CHECK}}
+{\footnotesize\ttfamily \#define IF\+\_\+\+BIT\+\_\+0\+\_\+\+CHECK(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~ttt = $\ast$(p); \mbox{\hyperlink{unix_2_lzma_dec_8c_a5b7f970f9c6ad7ac0e04c7704630c59e}{NORMALIZE\+\_\+\+CHECK}}; bound = (range $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}}) $\ast$ ttt; if (\mbox{\hyperlink{structcode}{code}} $<$ bound)}
+
+
+
+Definition at line 49 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ad88a03019a439d829986a3dc86b27052}\label{_lzma_dec_8c_ad88a03019a439d829986a3dc86b27052}} 
+\index{LzmaDec.c@{LzmaDec.c}!IsMatch@{IsMatch}}
+\index{IsMatch@{IsMatch}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{IsMatch}{IsMatch}}
+{\footnotesize\ttfamily \#define Is\+Match~0}
+
+
+
+Definition at line 94 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a2f8a0fb3c2214d2021988ec38b2001b1}\label{_lzma_dec_8c_a2f8a0fb3c2214d2021988ec38b2001b1}} 
+\index{LzmaDec.c@{LzmaDec.c}!IsRep@{IsRep}}
+\index{IsRep@{IsRep}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{IsRep}{IsRep}}
+{\footnotesize\ttfamily \#define Is\+Rep~(\mbox{\hyperlink{unix_2_lzma_dec_8c_ad88a03019a439d829986a3dc86b27052}{Is\+Match}} + (\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_dec_8c_ade76e04fa68e8dc9f855fd15a4145928}{k\+Num\+Pos\+Bits\+Max}}))}
+
+
+
+Definition at line 95 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a57708c943f099c2716fdf1a873174d3e}\label{_lzma_dec_8c_a57708c943f099c2716fdf1a873174d3e}} 
+\index{LzmaDec.c@{LzmaDec.c}!IsRep0Long@{IsRep0Long}}
+\index{IsRep0Long@{IsRep0Long}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{IsRep0Long}{IsRep0Long}}
+{\footnotesize\ttfamily \#define Is\+Rep0\+Long~(\mbox{\hyperlink{unix_2_lzma_dec_8c_ac9e6e7b789c6f972b85ad64a48fe75c5}{Is\+Rep\+G2}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}})}
+
+
+
+Definition at line 99 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ad5c8a2639a38d9953d5f23ea2a2696b6}\label{_lzma_dec_8c_ad5c8a2639a38d9953d5f23ea2a2696b6}} 
+\index{LzmaDec.c@{LzmaDec.c}!IsRepG0@{IsRepG0}}
+\index{IsRepG0@{IsRepG0}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{IsRepG0}{IsRepG0}}
+{\footnotesize\ttfamily \#define Is\+Rep\+G0~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a2f8a0fb3c2214d2021988ec38b2001b1}{Is\+Rep}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}})}
+
+
+
+Definition at line 96 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_aef394a830be2bfaca55d110f997490ea}\label{_lzma_dec_8c_aef394a830be2bfaca55d110f997490ea}} 
+\index{LzmaDec.c@{LzmaDec.c}!IsRepG1@{IsRepG1}}
+\index{IsRepG1@{IsRepG1}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{IsRepG1}{IsRepG1}}
+{\footnotesize\ttfamily \#define Is\+Rep\+G1~(\mbox{\hyperlink{unix_2_lzma_dec_8c_ad5c8a2639a38d9953d5f23ea2a2696b6}{Is\+Rep\+G0}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}})}
+
+
+
+Definition at line 97 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ac9e6e7b789c6f972b85ad64a48fe75c5}\label{_lzma_dec_8c_ac9e6e7b789c6f972b85ad64a48fe75c5}} 
+\index{LzmaDec.c@{LzmaDec.c}!IsRepG2@{IsRepG2}}
+\index{IsRepG2@{IsRepG2}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{IsRepG2}{IsRepG2}}
+{\footnotesize\ttfamily \#define Is\+Rep\+G2~(\mbox{\hyperlink{unix_2_lzma_dec_8c_aef394a830be2bfaca55d110f997490ea}{Is\+Rep\+G1}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}})}
+
+
+
+Definition at line 98 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a00c376a4176050181b189631741832d5}\label{_lzma_dec_8c_a00c376a4176050181b189631741832d5}} 
+\index{LzmaDec.c@{LzmaDec.c}!kAlignTableSize@{kAlignTableSize}}
+\index{kAlignTableSize@{kAlignTableSize}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kAlignTableSize}{kAlignTableSize}}
+{\footnotesize\ttfamily \#define k\+Align\+Table\+Size~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a8fef4f653f586e73b693ba9f0cb2561d}{k\+Num\+Align\+Bits}})}
+
+
+
+Definition at line 89 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a42683bb56128d7ca273fcfe69e7c6c37}\label{_lzma_dec_8c_a42683bb56128d7ca273fcfe69e7c6c37}} 
+\index{LzmaDec.c@{LzmaDec.c}!kBitModelTotal@{kBitModelTotal}}
+\index{kBitModelTotal@{kBitModelTotal}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kBitModelTotal}{kBitModelTotal}}
+{\footnotesize\ttfamily \#define k\+Bit\+Model\+Total~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_aae21d71d8ce4740688e556642225b8bc}{k\+Num\+Bit\+Model\+Total\+Bits}})}
+
+
+
+Definition at line 12 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a50ec8b41912e25cc8214cdac468d591b}\label{_lzma_dec_8c_a50ec8b41912e25cc8214cdac468d591b}} 
+\index{LzmaDec.c@{LzmaDec.c}!kEndPosModelIndex@{kEndPosModelIndex}}
+\index{kEndPosModelIndex@{kEndPosModelIndex}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kEndPosModelIndex}{kEndPosModelIndex}}
+{\footnotesize\ttfamily \#define k\+End\+Pos\+Model\+Index~14}
+
+
+
+Definition at line 82 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a4b88ea31aca548400275c16cdd0fcd0f}\label{_lzma_dec_8c_a4b88ea31aca548400275c16cdd0fcd0f}} 
+\index{LzmaDec.c@{LzmaDec.c}!kLenNumHighBits@{kLenNumHighBits}}
+\index{kLenNumHighBits@{kLenNumHighBits}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kLenNumHighBits}{kLenNumHighBits}}
+{\footnotesize\ttfamily \#define k\+Len\+Num\+High\+Bits~8}
+
+
+
+Definition at line 67 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a2268fbc408f8260dd55903e3c86c5f21}\label{_lzma_dec_8c_a2268fbc408f8260dd55903e3c86c5f21}} 
+\index{LzmaDec.c@{LzmaDec.c}!kLenNumHighSymbols@{kLenNumHighSymbols}}
+\index{kLenNumHighSymbols@{kLenNumHighSymbols}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kLenNumHighSymbols}{kLenNumHighSymbols}}
+{\footnotesize\ttfamily \#define k\+Len\+Num\+High\+Symbols~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a4b88ea31aca548400275c16cdd0fcd0f}{k\+Len\+Num\+High\+Bits}})}
+
+
+
+Definition at line 68 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a57f29034a964b6b1c171bd152eb18941}\label{_lzma_dec_8c_a57f29034a964b6b1c171bd152eb18941}} 
+\index{LzmaDec.c@{LzmaDec.c}!kLenNumLowBits@{kLenNumLowBits}}
+\index{kLenNumLowBits@{kLenNumLowBits}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kLenNumLowBits}{kLenNumLowBits}}
+{\footnotesize\ttfamily \#define k\+Len\+Num\+Low\+Bits~3}
+
+
+
+Definition at line 63 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a7085f3c8cbd5ac79071e590e54d260d2}\label{_lzma_dec_8c_a7085f3c8cbd5ac79071e590e54d260d2}} 
+\index{LzmaDec.c@{LzmaDec.c}!kLenNumLowSymbols@{kLenNumLowSymbols}}
+\index{kLenNumLowSymbols@{kLenNumLowSymbols}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kLenNumLowSymbols}{kLenNumLowSymbols}}
+{\footnotesize\ttfamily \#define k\+Len\+Num\+Low\+Symbols~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a57f29034a964b6b1c171bd152eb18941}{k\+Len\+Num\+Low\+Bits}})}
+
+
+
+Definition at line 64 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_af47701c5d84de0e3de1341b23e46ae88}\label{_lzma_dec_8c_af47701c5d84de0e3de1341b23e46ae88}} 
+\index{LzmaDec.c@{LzmaDec.c}!kLenNumMidBits@{kLenNumMidBits}}
+\index{kLenNumMidBits@{kLenNumMidBits}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kLenNumMidBits}{kLenNumMidBits}}
+{\footnotesize\ttfamily \#define k\+Len\+Num\+Mid\+Bits~3}
+
+
+
+Definition at line 65 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a27196e3928ee7fcd8cb5a32cce10dc32}\label{_lzma_dec_8c_a27196e3928ee7fcd8cb5a32cce10dc32}} 
+\index{LzmaDec.c@{LzmaDec.c}!kLenNumMidSymbols@{kLenNumMidSymbols}}
+\index{kLenNumMidSymbols@{kLenNumMidSymbols}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kLenNumMidSymbols}{kLenNumMidSymbols}}
+{\footnotesize\ttfamily \#define k\+Len\+Num\+Mid\+Symbols~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_af47701c5d84de0e3de1341b23e46ae88}{k\+Len\+Num\+Mid\+Bits}})}
+
+
+
+Definition at line 66 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a20fe5a29ccc5051431bb3fd0699ce66b}\label{_lzma_dec_8c_a20fe5a29ccc5051431bb3fd0699ce66b}} 
+\index{LzmaDec.c@{LzmaDec.c}!kMatchMinLen@{kMatchMinLen}}
+\index{kMatchMinLen@{kMatchMinLen}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kMatchMinLen}{kMatchMinLen}}
+{\footnotesize\ttfamily \#define k\+Match\+Min\+Len~2}
+
+
+
+Definition at line 91 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_aac9cc22bb0699d9d394b182a5c0c3530}\label{_lzma_dec_8c_aac9cc22bb0699d9d394b182a5c0c3530}} 
+\index{LzmaDec.c@{LzmaDec.c}!kMatchSpecLenStart@{kMatchSpecLenStart}}
+\index{kMatchSpecLenStart@{kMatchSpecLenStart}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kMatchSpecLenStart}{kMatchSpecLenStart}}
+{\footnotesize\ttfamily \#define k\+Match\+Spec\+Len\+Start~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a20fe5a29ccc5051431bb3fd0699ce66b}{k\+Match\+Min\+Len}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a7085f3c8cbd5ac79071e590e54d260d2}{k\+Len\+Num\+Low\+Symbols}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a27196e3928ee7fcd8cb5a32cce10dc32}{k\+Len\+Num\+Mid\+Symbols}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a2268fbc408f8260dd55903e3c86c5f21}{k\+Len\+Num\+High\+Symbols}})}
+
+
+
+Definition at line 92 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a8fef4f653f586e73b693ba9f0cb2561d}\label{_lzma_dec_8c_a8fef4f653f586e73b693ba9f0cb2561d}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumAlignBits@{kNumAlignBits}}
+\index{kNumAlignBits@{kNumAlignBits}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumAlignBits}{kNumAlignBits}}
+{\footnotesize\ttfamily \#define k\+Num\+Align\+Bits~4}
+
+
+
+Definition at line 88 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_aae21d71d8ce4740688e556642225b8bc}\label{_lzma_dec_8c_aae21d71d8ce4740688e556642225b8bc}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumBitModelTotalBits@{kNumBitModelTotalBits}}
+\index{kNumBitModelTotalBits@{kNumBitModelTotalBits}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumBitModelTotalBits}{kNumBitModelTotalBits}}
+{\footnotesize\ttfamily \#define k\+Num\+Bit\+Model\+Total\+Bits~11}
+
+
+
+Definition at line 11 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a60114415f236bc7743acaad88c1f9aa6}\label{_lzma_dec_8c_a60114415f236bc7743acaad88c1f9aa6}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumFullDistances@{kNumFullDistances}}
+\index{kNumFullDistances@{kNumFullDistances}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumFullDistances}{kNumFullDistances}}
+{\footnotesize\ttfamily \#define k\+Num\+Full\+Distances~(1 $<$$<$ (\mbox{\hyperlink{unix_2_lzma_enc_8c_a50ec8b41912e25cc8214cdac468d591b}{k\+End\+Pos\+Model\+Index}} $>$$>$ 1))}
+
+
+
+Definition at line 83 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a8d607ce6e5487eb46fa840be9c7e7e7d}\label{_lzma_dec_8c_a8d607ce6e5487eb46fa840be9c7e7e7d}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumLenProbs@{kNumLenProbs}}
+\index{kNumLenProbs@{kNumLenProbs}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumLenProbs}{kNumLenProbs}}
+{\footnotesize\ttfamily \#define k\+Num\+Len\+Probs~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a5c57107878155b0cc582e7248e481de6}{Len\+High}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a2268fbc408f8260dd55903e3c86c5f21}{k\+Len\+Num\+High\+Symbols}})}
+
+
+
+Definition at line 75 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ac0526e68851c1cfad9993bbefcf58b55}\label{_lzma_dec_8c_ac0526e68851c1cfad9993bbefcf58b55}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumLenToPosStates@{kNumLenToPosStates}}
+\index{kNumLenToPosStates@{kNumLenToPosStates}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumLenToPosStates}{kNumLenToPosStates}}
+{\footnotesize\ttfamily \#define k\+Num\+Len\+To\+Pos\+States~4}
+
+
+
+Definition at line 86 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_aebcb77051d156c85904586acdd39d769}\label{_lzma_dec_8c_aebcb77051d156c85904586acdd39d769}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumLitStates@{kNumLitStates}}
+\index{kNumLitStates@{kNumLitStates}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumLitStates}{kNumLitStates}}
+{\footnotesize\ttfamily \#define k\+Num\+Lit\+States~7}
+
+
+
+Definition at line 79 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a55103390b17634adcf9551ba1f5103b4}\label{_lzma_dec_8c_a55103390b17634adcf9551ba1f5103b4}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumMoveBits@{kNumMoveBits}}
+\index{kNumMoveBits@{kNumMoveBits}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumMoveBits}{kNumMoveBits}}
+{\footnotesize\ttfamily \#define k\+Num\+Move\+Bits~5}
+
+
+
+Definition at line 13 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ade76e04fa68e8dc9f855fd15a4145928}\label{_lzma_dec_8c_ade76e04fa68e8dc9f855fd15a4145928}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumPosBitsMax@{kNumPosBitsMax}}
+\index{kNumPosBitsMax@{kNumPosBitsMax}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumPosBitsMax}{kNumPosBitsMax}}
+{\footnotesize\ttfamily \#define k\+Num\+Pos\+Bits\+Max~4}
+
+
+
+Definition at line 60 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_acbc78e14ce1fd1dd4eba07c2efdf9335}\label{_lzma_dec_8c_acbc78e14ce1fd1dd4eba07c2efdf9335}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumPosSlotBits@{kNumPosSlotBits}}
+\index{kNumPosSlotBits@{kNumPosSlotBits}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumPosSlotBits}{kNumPosSlotBits}}
+{\footnotesize\ttfamily \#define k\+Num\+Pos\+Slot\+Bits~6}
+
+
+
+Definition at line 85 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ae16cf3117d3d6b795ee7dcf13f7f8e07}\label{_lzma_dec_8c_ae16cf3117d3d6b795ee7dcf13f7f8e07}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumPosStatesMax@{kNumPosStatesMax}}
+\index{kNumPosStatesMax@{kNumPosStatesMax}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumPosStatesMax}{kNumPosStatesMax}}
+{\footnotesize\ttfamily \#define k\+Num\+Pos\+States\+Max~(1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_dec_8c_ade76e04fa68e8dc9f855fd15a4145928}{k\+Num\+Pos\+Bits\+Max}})}
+
+
+
+Definition at line 61 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_adc6b4e5ae0ddf7ba672919edc06504b5}\label{_lzma_dec_8c_adc6b4e5ae0ddf7ba672919edc06504b5}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumStates@{kNumStates}}
+\index{kNumStates@{kNumStates}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumStates}{kNumStates}}
+{\footnotesize\ttfamily \#define k\+Num\+States~12}
+
+
+
+Definition at line 78 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a32f13b5730b1236f259facf642d060ea}\label{_lzma_dec_8c_a32f13b5730b1236f259facf642d060ea}} 
+\index{LzmaDec.c@{LzmaDec.c}!kNumTopBits@{kNumTopBits}}
+\index{kNumTopBits@{kNumTopBits}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kNumTopBits}{kNumTopBits}}
+{\footnotesize\ttfamily \#define k\+Num\+Top\+Bits~24}
+
+
+
+Definition at line 8 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a547192da83ec82c29741856c83e95179}\label{_lzma_dec_8c_a547192da83ec82c29741856c83e95179}} 
+\index{LzmaDec.c@{LzmaDec.c}!kStartPosModelIndex@{kStartPosModelIndex}}
+\index{kStartPosModelIndex@{kStartPosModelIndex}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kStartPosModelIndex}{kStartPosModelIndex}}
+{\footnotesize\ttfamily \#define k\+Start\+Pos\+Model\+Index~4}
+
+
+
+Definition at line 81 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ae668f35d44d0e8b31daf6479d19a5e3f}\label{_lzma_dec_8c_ae668f35d44d0e8b31daf6479d19a5e3f}} 
+\index{LzmaDec.c@{LzmaDec.c}!kTopValue@{kTopValue}}
+\index{kTopValue@{kTopValue}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{kTopValue}{kTopValue}}
+{\footnotesize\ttfamily \#define k\+Top\+Value~((\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})1 $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a32f13b5730b1236f259facf642d060ea}{k\+Num\+Top\+Bits}})}
+
+
+
+Definition at line 9 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_aa0ea9e1ee8915a0ed2aa3fea5bb32bbc}\label{_lzma_dec_8c_aa0ea9e1ee8915a0ed2aa3fea5bb32bbc}} 
+\index{LzmaDec.c@{LzmaDec.c}!LenChoice@{LenChoice}}
+\index{LenChoice@{LenChoice}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LenChoice}{LenChoice}}
+{\footnotesize\ttfamily \#define Len\+Choice~0}
+
+
+
+Definition at line 70 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a03fa842a871f42af80b8d66853fef4ea}\label{_lzma_dec_8c_a03fa842a871f42af80b8d66853fef4ea}} 
+\index{LzmaDec.c@{LzmaDec.c}!LenChoice2@{LenChoice2}}
+\index{LenChoice2@{LenChoice2}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LenChoice2}{LenChoice2}}
+{\footnotesize\ttfamily \#define Len\+Choice2~(\mbox{\hyperlink{unix_2_lzma_dec_8c_aa0ea9e1ee8915a0ed2aa3fea5bb32bbc}{Len\+Choice}} + 1)}
+
+
+
+Definition at line 71 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ab11f9593f4973d0c7782b3497bcfd161}\label{_lzma_dec_8c_ab11f9593f4973d0c7782b3497bcfd161}} 
+\index{LzmaDec.c@{LzmaDec.c}!LenCoder@{LenCoder}}
+\index{LenCoder@{LenCoder}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LenCoder}{LenCoder}}
+{\footnotesize\ttfamily \#define Len\+Coder~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a6a388c6c80405dae7fa5329eb38ae3f6}{Align}} + \mbox{\hyperlink{unix_2_lzma_enc_8c_a00c376a4176050181b189631741832d5}{k\+Align\+Table\+Size}})}
+
+
+
+Definition at line 103 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a5c57107878155b0cc582e7248e481de6}\label{_lzma_dec_8c_a5c57107878155b0cc582e7248e481de6}} 
+\index{LzmaDec.c@{LzmaDec.c}!LenHigh@{LenHigh}}
+\index{LenHigh@{LenHigh}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LenHigh}{LenHigh}}
+{\footnotesize\ttfamily \#define Len\+High~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a4f0ff710318637f90826045e222db89f}{Len\+Mid}} + (\mbox{\hyperlink{unix_2_lzma_dec_8c_ae16cf3117d3d6b795ee7dcf13f7f8e07}{k\+Num\+Pos\+States\+Max}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_af47701c5d84de0e3de1341b23e46ae88}{k\+Len\+Num\+Mid\+Bits}}))}
+
+
+
+Definition at line 74 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_aa19ffebc9292de791b14363efcd07032}\label{_lzma_dec_8c_aa19ffebc9292de791b14363efcd07032}} 
+\index{LzmaDec.c@{LzmaDec.c}!LenLow@{LenLow}}
+\index{LenLow@{LenLow}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LenLow}{LenLow}}
+{\footnotesize\ttfamily \#define Len\+Low~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a03fa842a871f42af80b8d66853fef4ea}{Len\+Choice2}} + 1)}
+
+
+
+Definition at line 72 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a4f0ff710318637f90826045e222db89f}\label{_lzma_dec_8c_a4f0ff710318637f90826045e222db89f}} 
+\index{LzmaDec.c@{LzmaDec.c}!LenMid@{LenMid}}
+\index{LenMid@{LenMid}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LenMid}{LenMid}}
+{\footnotesize\ttfamily \#define Len\+Mid~(\mbox{\hyperlink{unix_2_lzma_dec_8c_aa19ffebc9292de791b14363efcd07032}{Len\+Low}} + (\mbox{\hyperlink{unix_2_lzma_dec_8c_ae16cf3117d3d6b795ee7dcf13f7f8e07}{k\+Num\+Pos\+States\+Max}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a57f29034a964b6b1c171bd152eb18941}{k\+Len\+Num\+Low\+Bits}}))}
+
+
+
+Definition at line 73 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a29377c7edd57f915051c46873de7c720}\label{_lzma_dec_8c_a29377c7edd57f915051c46873de7c720}} 
+\index{LzmaDec.c@{LzmaDec.c}!Literal@{Literal}}
+\index{Literal@{Literal}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{Literal}{Literal}}
+{\footnotesize\ttfamily \#define Literal~(\mbox{\hyperlink{unix_2_lzma_dec_8c_aa86fa02dea18df0f2641af2c4a0bc8b2}{Rep\+Len\+Coder}} + \mbox{\hyperlink{unix_2_lzma_dec_8c_a8d607ce6e5487eb46fa840be9c7e7e7d}{k\+Num\+Len\+Probs}})}
+
+
+
+Definition at line 105 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a45f86846e3e4915f1cf4b6e419acf073}\label{_lzma_dec_8c_a45f86846e3e4915f1cf4b6e419acf073}} 
+\index{LzmaDec.c@{LzmaDec.c}!LZMA\_BASE\_SIZE@{LZMA\_BASE\_SIZE}}
+\index{LZMA\_BASE\_SIZE@{LZMA\_BASE\_SIZE}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA\_BASE\_SIZE}{LZMA\_BASE\_SIZE}}
+{\footnotesize\ttfamily \#define LZMA\+\_\+\+BASE\+\_\+\+SIZE~1846}
+
+
+
+Definition at line 107 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_add311a4cdf146da16d780e9cc0be184d}\label{_lzma_dec_8c_add311a4cdf146da16d780e9cc0be184d}} 
+\index{LzmaDec.c@{LzmaDec.c}!LZMA\_DIC\_MIN@{LZMA\_DIC\_MIN}}
+\index{LZMA\_DIC\_MIN@{LZMA\_DIC\_MIN}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA\_DIC\_MIN}{LZMA\_DIC\_MIN}}
+{\footnotesize\ttfamily \#define LZMA\+\_\+\+DIC\+\_\+\+MIN~(1 $<$$<$ 12)}
+
+
+
+Definition at line 116 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ac86e64f8d805afad26b4d8a203a529a4}\label{_lzma_dec_8c_ac86e64f8d805afad26b4d8a203a529a4}} 
+\index{LzmaDec.c@{LzmaDec.c}!LZMA\_LIT\_SIZE@{LZMA\_LIT\_SIZE}}
+\index{LZMA\_LIT\_SIZE@{LZMA\_LIT\_SIZE}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LZMA\_LIT\_SIZE}{LZMA\_LIT\_SIZE}}
+{\footnotesize\ttfamily \#define LZMA\+\_\+\+LIT\+\_\+\+SIZE~768}
+
+
+
+Definition at line 108 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ac6524cdc3ec6cefb9a2dff627768233d}\label{_lzma_dec_8c_ac6524cdc3ec6cefb9a2dff627768233d}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaProps\_GetNumProbs@{LzmaProps\_GetNumProbs}}
+\index{LzmaProps\_GetNumProbs@{LzmaProps\_GetNumProbs}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaProps\_GetNumProbs}{LzmaProps\_GetNumProbs}}
+{\footnotesize\ttfamily \#define Lzma\+Props\+\_\+\+Get\+Num\+Probs(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~((\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})\mbox{\hyperlink{unix_2_lzma_dec_8c_a45f86846e3e4915f1cf4b6e419acf073}{LZMA\+\_\+\+BASE\+\_\+\+SIZE}} + (\mbox{\hyperlink{unix_2_lzma_dec_8c_ac86e64f8d805afad26b4d8a203a529a4}{LZMA\+\_\+\+LIT\+\_\+\+SIZE}} $<$$<$ ((p)-\/$>$lc + (p)-\/$>$lp)))}
+
+
+
+Definition at line 110 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a29cf2d41341c861a02125541ee1c9368}\label{_lzma_dec_8c_a29cf2d41341c861a02125541ee1c9368}} 
+\index{LzmaDec.c@{LzmaDec.c}!NORMALIZE@{NORMALIZE}}
+\index{NORMALIZE@{NORMALIZE}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{NORMALIZE}{NORMALIZE}}
+{\footnotesize\ttfamily \#define NORMALIZE~if (range $<$ \mbox{\hyperlink{unix_2_ppmd7_enc_8c_ae668f35d44d0e8b31daf6479d19a5e3f}{k\+Top\+Value}}) \{ range $<$$<$= 8; \mbox{\hyperlink{structcode}{code}} = (\mbox{\hyperlink{structcode}{code}} $<$$<$ 8) $\vert$ ($\ast$buf++); \}}
+
+
+
+Definition at line 17 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a5b7f970f9c6ad7ac0e04c7704630c59e}\label{_lzma_dec_8c_a5b7f970f9c6ad7ac0e04c7704630c59e}} 
+\index{LzmaDec.c@{LzmaDec.c}!NORMALIZE\_CHECK@{NORMALIZE\_CHECK}}
+\index{NORMALIZE\_CHECK@{NORMALIZE\_CHECK}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{NORMALIZE\_CHECK}{NORMALIZE\_CHECK}}
+{\footnotesize\ttfamily \#define NORMALIZE\+\_\+\+CHECK~if (range $<$ \mbox{\hyperlink{unix_2_ppmd7_enc_8c_ae668f35d44d0e8b31daf6479d19a5e3f}{k\+Top\+Value}}) \{ if (buf $>$= buf\+Limit) return \mbox{\hyperlink{unix_2_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a8f0d33c937fb7e99d3762067210d9ceb}{DUMMY\+\_\+\+ERROR}}; range $<$$<$= 8; \mbox{\hyperlink{structcode}{code}} = (\mbox{\hyperlink{structcode}{code}} $<$$<$ 8) $\vert$ ($\ast$buf++); \}}
+
+
+
+Definition at line 47 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a95e155252324fd1c5fd2177c2a6e174e}\label{_lzma_dec_8c_a95e155252324fd1c5fd2177c2a6e174e}} 
+\index{LzmaDec.c@{LzmaDec.c}!PosSlot@{PosSlot}}
+\index{PosSlot@{PosSlot}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{PosSlot}{PosSlot}}
+{\footnotesize\ttfamily \#define Pos\+Slot~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a57708c943f099c2716fdf1a873174d3e}{Is\+Rep0\+Long}} + (\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_dec_8c_ade76e04fa68e8dc9f855fd15a4145928}{k\+Num\+Pos\+Bits\+Max}}))}
+
+
+
+Definition at line 100 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_aa9483989d9b2132aad0490c49a19bfdf}\label{_lzma_dec_8c_aa9483989d9b2132aad0490c49a19bfdf}} 
+\index{LzmaDec.c@{LzmaDec.c}!RC\_INIT\_SIZE@{RC\_INIT\_SIZE}}
+\index{RC\_INIT\_SIZE@{RC\_INIT\_SIZE}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{RC\_INIT\_SIZE}{RC\_INIT\_SIZE}}
+{\footnotesize\ttfamily \#define RC\+\_\+\+INIT\+\_\+\+SIZE~5}
+
+
+
+Definition at line 15 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_aa86fa02dea18df0f2641af2c4a0bc8b2}\label{_lzma_dec_8c_aa86fa02dea18df0f2641af2c4a0bc8b2}} 
+\index{LzmaDec.c@{LzmaDec.c}!RepLenCoder@{RepLenCoder}}
+\index{RepLenCoder@{RepLenCoder}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{RepLenCoder}{RepLenCoder}}
+{\footnotesize\ttfamily \#define Rep\+Len\+Coder~(\mbox{\hyperlink{unix_2_lzma_dec_8c_ab11f9593f4973d0c7782b3497bcfd161}{Len\+Coder}} + \mbox{\hyperlink{unix_2_lzma_dec_8c_a8d607ce6e5487eb46fa840be9c7e7e7d}{k\+Num\+Len\+Probs}})}
+
+
+
+Definition at line 104 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a652a5e70190bf6d3bc40009e54072dc5}\label{_lzma_dec_8c_a652a5e70190bf6d3bc40009e54072dc5}} 
+\index{LzmaDec.c@{LzmaDec.c}!SpecPos@{SpecPos}}
+\index{SpecPos@{SpecPos}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{SpecPos}{SpecPos}}
+{\footnotesize\ttfamily \#define Spec\+Pos~(\mbox{\hyperlink{unix_2_lzma_dec_8c_a95e155252324fd1c5fd2177c2a6e174e}{Pos\+Slot}} + (\mbox{\hyperlink{unix_2_lzma_enc_8c_ac0526e68851c1cfad9993bbefcf58b55}{k\+Num\+Len\+To\+Pos\+States}} $<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_acbc78e14ce1fd1dd4eba07c2efdf9335}{k\+Num\+Pos\+Slot\+Bits}}))}
+
+
+
+Definition at line 101 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ae19a723239b21e6779aed6f56c143a31}\label{_lzma_dec_8c_ae19a723239b21e6779aed6f56c143a31}} 
+\index{LzmaDec.c@{LzmaDec.c}!TREE\_6\_DECODE@{TREE\_6\_DECODE}}
+\index{TREE\_6\_DECODE@{TREE\_6\_DECODE}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{TREE\_6\_DECODE}{TREE\_6\_DECODE}}
+{\footnotesize\ttfamily \#define TREE\+\_\+6\+\_\+\+DECODE(\begin{DoxyParamCaption}\item[{}]{probs,  }\item[{}]{i }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \{ i = 1; \(\backslash\)}
+\DoxyCodeLine{  TREE\_GET\_BIT(probs, i); \(\backslash\)}
+\DoxyCodeLine{  TREE\_GET\_BIT(probs, i); \(\backslash\)}
+\DoxyCodeLine{  TREE\_GET\_BIT(probs, i); \(\backslash\)}
+\DoxyCodeLine{  TREE\_GET\_BIT(probs, i); \(\backslash\)}
+\DoxyCodeLine{  TREE\_GET\_BIT(probs, i); \(\backslash\)}
+\DoxyCodeLine{  TREE\_GET\_BIT(probs, i); \(\backslash\)}
+\DoxyCodeLine{  i -\/= 0x40; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 36 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a56d3c1d43d03dadbe7dfab19126ef6e8}\label{_lzma_dec_8c_a56d3c1d43d03dadbe7dfab19126ef6e8}} 
+\index{LzmaDec.c@{LzmaDec.c}!TREE\_DECODE@{TREE\_DECODE}}
+\index{TREE\_DECODE@{TREE\_DECODE}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{TREE\_DECODE}{TREE\_DECODE}}
+{\footnotesize\ttfamily \#define TREE\+\_\+\+DECODE(\begin{DoxyParamCaption}\item[{}]{probs,  }\item[{}]{limit,  }\item[{}]{i }\end{DoxyParamCaption})~  \{ i = 1; do \{ \mbox{\hyperlink{unix_2_lzma_dec_8c_a95fbb0a6749b469d872530cc5d94caca}{TREE\+\_\+\+GET\+\_\+\+BIT}}(probs, i); \} while (i $<$ limit); i -\/= limit; \}}
+
+
+
+Definition at line 28 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ae00d43f0bae0ba076133d13def903f22}\label{_lzma_dec_8c_ae00d43f0bae0ba076133d13def903f22}} 
+\index{LzmaDec.c@{LzmaDec.c}!TREE\_DECODE\_CHECK@{TREE\_DECODE\_CHECK}}
+\index{TREE\_DECODE\_CHECK@{TREE\_DECODE\_CHECK}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{TREE\_DECODE\_CHECK}{TREE\_DECODE\_CHECK}}
+{\footnotesize\ttfamily \#define TREE\+\_\+\+DECODE\+\_\+\+CHECK(\begin{DoxyParamCaption}\item[{}]{probs,  }\item[{}]{limit,  }\item[{}]{i }\end{DoxyParamCaption})~  \{ i = 1; do \{ \mbox{\hyperlink{unix_2_lzma_dec_8c_a5bb01077944d35e7e25326104b03c5aa}{GET\+\_\+\+BIT\+\_\+\+CHECK}}(probs + i, i) \} while (i $<$ limit); i -\/= limit; \}}
+
+
+
+Definition at line 56 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a95fbb0a6749b469d872530cc5d94caca}\label{_lzma_dec_8c_a95fbb0a6749b469d872530cc5d94caca}} 
+\index{LzmaDec.c@{LzmaDec.c}!TREE\_GET\_BIT@{TREE\_GET\_BIT}}
+\index{TREE\_GET\_BIT@{TREE\_GET\_BIT}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{TREE\_GET\_BIT}{TREE\_GET\_BIT}}
+{\footnotesize\ttfamily \#define TREE\+\_\+\+GET\+\_\+\+BIT(\begin{DoxyParamCaption}\item[{}]{probs,  }\item[{}]{i }\end{DoxyParamCaption})~\{ \mbox{\hyperlink{unix_2_lzma_dec_8c_a9f5598c52a40c630108ae6b9c64b39d2}{GET\+\_\+\+BIT}}((probs + i), i); \}}
+
+
+
+Definition at line 27 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ae78e66f0b2b3bc3f1783e7b2a9adf358}\label{_lzma_dec_8c_ae78e66f0b2b3bc3f1783e7b2a9adf358}} 
+\index{LzmaDec.c@{LzmaDec.c}!UPDATE\_0@{UPDATE\_0}}
+\index{UPDATE\_0@{UPDATE\_0}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{UPDATE\_0}{UPDATE\_0}}
+{\footnotesize\ttfamily \#define UPDATE\+\_\+0(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~range = bound; $\ast$(p) = (\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}})(ttt + ((\mbox{\hyperlink{unix_2_lzma_enc_8c_a42683bb56128d7ca273fcfe69e7c6c37}{k\+Bit\+Model\+Total}} -\/ ttt) $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}}));}
+
+
+
+Definition at line 20 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ad050ada56fd51d9b371b788f81085cb4}\label{_lzma_dec_8c_ad050ada56fd51d9b371b788f81085cb4}} 
+\index{LzmaDec.c@{LzmaDec.c}!UPDATE\_0\_CHECK@{UPDATE\_0\_CHECK}}
+\index{UPDATE\_0\_CHECK@{UPDATE\_0\_CHECK}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{UPDATE\_0\_CHECK}{UPDATE\_0\_CHECK}}
+{\footnotesize\ttfamily \#define UPDATE\+\_\+0\+\_\+\+CHECK~range = bound;}
+
+
+
+Definition at line 50 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ad6c7a3bfbf541cebcaf376cbc14e97d6}\label{_lzma_dec_8c_ad6c7a3bfbf541cebcaf376cbc14e97d6}} 
+\index{LzmaDec.c@{LzmaDec.c}!UPDATE\_1@{UPDATE\_1}}
+\index{UPDATE\_1@{UPDATE\_1}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{UPDATE\_1}{UPDATE\_1}}
+{\footnotesize\ttfamily \#define UPDATE\+\_\+1(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~range -\/= bound; \mbox{\hyperlink{structcode}{code}} -\/= bound; $\ast$(p) = (\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}})(ttt -\/ (ttt $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a55103390b17634adcf9551ba1f5103b4}{k\+Num\+Move\+Bits}}));}
+
+
+
+Definition at line 21 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ae27eead0798b243321403a05b7af18d5}\label{_lzma_dec_8c_ae27eead0798b243321403a05b7af18d5}} 
+\index{LzmaDec.c@{LzmaDec.c}!UPDATE\_1\_CHECK@{UPDATE\_1\_CHECK}}
+\index{UPDATE\_1\_CHECK@{UPDATE\_1\_CHECK}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{UPDATE\_1\_CHECK}{UPDATE\_1\_CHECK}}
+{\footnotesize\ttfamily \#define UPDATE\+\_\+1\+\_\+\+CHECK~range -\/= bound; \mbox{\hyperlink{structcode}{code}} -\/= bound;}
+
+
+
+Definition at line 51 of file Lzma\+Dec.\+c.
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0}\label{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0}} 
+\index{LzmaDec.c@{LzmaDec.c}!ELzmaDummy@{ELzmaDummy}}
+\index{ELzmaDummy@{ELzmaDummy}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{ELzmaDummy}{ELzmaDummy}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0}{ELzma\+Dummy}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUMMY\_ERROR@{DUMMY\_ERROR}!LzmaDec.c@{LzmaDec.c}}\index{LzmaDec.c@{LzmaDec.c}!DUMMY\_ERROR@{DUMMY\_ERROR}}}\mbox{\Hypertarget{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a8f0d33c937fb7e99d3762067210d9ceb}\label{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a8f0d33c937fb7e99d3762067210d9ceb}} 
+DUMMY\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUMMY\_LIT@{DUMMY\_LIT}!LzmaDec.c@{LzmaDec.c}}\index{LzmaDec.c@{LzmaDec.c}!DUMMY\_LIT@{DUMMY\_LIT}}}\mbox{\Hypertarget{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a56c50ad3ef01f0b47834324ebe25e50c}\label{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a56c50ad3ef01f0b47834324ebe25e50c}} 
+DUMMY\+\_\+\+LIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUMMY\_MATCH@{DUMMY\_MATCH}!LzmaDec.c@{LzmaDec.c}}\index{LzmaDec.c@{LzmaDec.c}!DUMMY\_MATCH@{DUMMY\_MATCH}}}\mbox{\Hypertarget{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a029faa49639bb7a291bca64d1c59b077}\label{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a029faa49639bb7a291bca64d1c59b077}} 
+DUMMY\+\_\+\+MATCH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUMMY\_REP@{DUMMY\_REP}!LzmaDec.c@{LzmaDec.c}}\index{LzmaDec.c@{LzmaDec.c}!DUMMY\_REP@{DUMMY\_REP}}}\mbox{\Hypertarget{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a0ed2243622923c051220853bc0610ccb}\label{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a0ed2243622923c051220853bc0610ccb}} 
+DUMMY\+\_\+\+REP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUMMY\_ERROR@{DUMMY\_ERROR}!LzmaDec.c@{LzmaDec.c}}\index{LzmaDec.c@{LzmaDec.c}!DUMMY\_ERROR@{DUMMY\_ERROR}}}\mbox{\Hypertarget{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a8f0d33c937fb7e99d3762067210d9ceb}\label{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a8f0d33c937fb7e99d3762067210d9ceb}} 
+DUMMY\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUMMY\_LIT@{DUMMY\_LIT}!LzmaDec.c@{LzmaDec.c}}\index{LzmaDec.c@{LzmaDec.c}!DUMMY\_LIT@{DUMMY\_LIT}}}\mbox{\Hypertarget{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a56c50ad3ef01f0b47834324ebe25e50c}\label{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a56c50ad3ef01f0b47834324ebe25e50c}} 
+DUMMY\+\_\+\+LIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUMMY\_MATCH@{DUMMY\_MATCH}!LzmaDec.c@{LzmaDec.c}}\index{LzmaDec.c@{LzmaDec.c}!DUMMY\_MATCH@{DUMMY\_MATCH}}}\mbox{\Hypertarget{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a029faa49639bb7a291bca64d1c59b077}\label{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a029faa49639bb7a291bca64d1c59b077}} 
+DUMMY\+\_\+\+MATCH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DUMMY\_REP@{DUMMY\_REP}!LzmaDec.c@{LzmaDec.c}}\index{LzmaDec.c@{LzmaDec.c}!DUMMY\_REP@{DUMMY\_REP}}}\mbox{\Hypertarget{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a0ed2243622923c051220853bc0610ccb}\label{_lzma_dec_8c_ad1eccabdcb384e1f414519aad38b95e0a0ed2243622923c051220853bc0610ccb}} 
+DUMMY\+\_\+\+REP&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 480 of file Lzma\+Dec.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_lzma_dec_8c_ab9d1039d90dad26d7c4851d157a3e72f}\label{_lzma_dec_8c_ab9d1039d90dad26d7c4851d157a3e72f}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaDec\_Allocate@{LzmaDec\_Allocate}}
+\index{LzmaDec\_Allocate@{LzmaDec\_Allocate}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDec\_Allocate()}{LzmaDec\_Allocate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Dec\+\_\+\+Allocate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{props,  }\item[{unsigned}]{props\+Size,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 948 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a204698f079b0f30489b410641490aa31}\label{_lzma_dec_8c_a204698f079b0f30489b410641490aa31}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaDec\_AllocateProbs@{LzmaDec\_AllocateProbs}}
+\index{LzmaDec\_AllocateProbs@{LzmaDec\_AllocateProbs}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDec\_AllocateProbs()}{LzmaDec\_AllocateProbs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Dec\+\_\+\+Allocate\+Probs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{props,  }\item[{unsigned}]{props\+Size,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 939 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a87067055dce3491aca982d1b98ff4db4}\label{_lzma_dec_8c_a87067055dce3491aca982d1b98ff4db4}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaDec\_DecodeToBuf@{LzmaDec\_DecodeToBuf}}
+\index{LzmaDec\_DecodeToBuf@{LzmaDec\_DecodeToBuf}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDec\_DecodeToBuf()}{LzmaDec\_DecodeToBuf()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Dec\+\_\+\+Decode\+To\+Buf (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{src\+Len,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}}}]{finish\+Mode,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 841 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ab3474d4a12b60cff20299518f94677c7}\label{_lzma_dec_8c_ab3474d4a12b60cff20299518f94677c7}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaDec\_DecodeToDic@{LzmaDec\_DecodeToDic}}
+\index{LzmaDec\_DecodeToDic@{LzmaDec\_DecodeToDic}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDec\_DecodeToDic()}{LzmaDec\_DecodeToDic()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Dec\+\_\+\+Decode\+To\+Dic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{dic\+Limit,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{src\+Len,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}}}]{finish\+Mode,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 720 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_aa0ce10ab32514931c1018d4d86edd274}\label{_lzma_dec_8c_aa0ce10ab32514931c1018d4d86edd274}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaDec\_Free@{LzmaDec\_Free}}
+\index{LzmaDec\_Free@{LzmaDec\_Free}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDec\_Free()}{LzmaDec\_Free()}}
+{\footnotesize\ttfamily void Lzma\+Dec\+\_\+\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 893 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a1b158d14a209d1a349d9198f39a926b5}\label{_lzma_dec_8c_a1b158d14a209d1a349d9198f39a926b5}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaDec\_FreeProbs@{LzmaDec\_FreeProbs}}
+\index{LzmaDec\_FreeProbs@{LzmaDec\_FreeProbs}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDec\_FreeProbs()}{LzmaDec\_FreeProbs()}}
+{\footnotesize\ttfamily void Lzma\+Dec\+\_\+\+Free\+Probs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 881 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_af78fa82d5ea8c08fdfbc5d8d7a73a127}\label{_lzma_dec_8c_af78fa82d5ea8c08fdfbc5d8d7a73a127}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaDec\_Init@{LzmaDec\_Init}}
+\index{LzmaDec\_Init@{LzmaDec\_Init}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDec\_Init()}{LzmaDec\_Init()}}
+{\footnotesize\ttfamily void Lzma\+Dec\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 702 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_a9973d4d5eca28d1b20e60a5808c17f62}\label{_lzma_dec_8c_a9973d4d5eca28d1b20e60a5808c17f62}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaDec\_InitDicAndState@{LzmaDec\_InitDicAndState}}
+\index{LzmaDec\_InitDicAndState@{LzmaDec\_InitDicAndState}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDec\_InitDicAndState()}{LzmaDec\_InitDicAndState()}}
+{\footnotesize\ttfamily void Lzma\+Dec\+\_\+\+Init\+Dic\+And\+State (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_lzma_dec}{CLzma\+Dec}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}}}]{init\+Dic,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}}}]{init\+State }\end{DoxyParamCaption})}
+
+
+
+Definition at line 686 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ab8c63d6972edb0325afc6326936afab1}\label{_lzma_dec_8c_ab8c63d6972edb0325afc6326936afab1}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaDecode@{LzmaDecode}}
+\index{LzmaDecode@{LzmaDecode}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaDecode()}{LzmaDecode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{src\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{prop\+Data,  }\item[{unsigned}]{prop\+Size,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_a61326609cb619c55df7de7377082b79a}{ELzma\+Finish\+Mode}}}]{finish\+Mode,  }\item[{\mbox{\hyperlink{_lzma_dec_8h_aec5f6be8053dbbef6f7117ffb81aea6a}{ELzma\+Status}} $\ast$}]{status,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 970 of file Lzma\+Dec.\+c.
+
+\mbox{\Hypertarget{_lzma_dec_8c_ae49727972cd1f8d5384dc4c29f42d97d}\label{_lzma_dec_8c_ae49727972cd1f8d5384dc4c29f42d97d}} 
+\index{LzmaDec.c@{LzmaDec.c}!LzmaProps\_Decode@{LzmaProps\_Decode}}
+\index{LzmaProps\_Decode@{LzmaProps\_Decode}!LzmaDec.c@{LzmaDec.c}}
+\doxysubsubsection{\texorpdfstring{LzmaProps\_Decode()}{LzmaProps\_Decode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Props\+\_\+\+Decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lzma_dec_8h_a73932089e2c643b0c44c95784cfa5bd3}{CLzma\+Props}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{data,  }\item[{unsigned}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 899 of file Lzma\+Dec.\+c.
+

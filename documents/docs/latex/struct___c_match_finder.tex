@@ -1,0 +1,376 @@
+\hypertarget{struct___c_match_finder}{}\doxysection{\+\_\+\+CMatch\+Finder Struct Reference}
+\label{struct___c_match_finder}\index{\_CMatchFinder@{\_CMatchFinder}}
+
+
+{\ttfamily \#include $<$Lz\+Find.\+h$>$}
+
+
+
+Collaboration diagram for \+\_\+\+CMatch\+Finder\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ \mbox{\hyperlink{struct___c_match_finder_abc916900e7bda3017babfa481d8851af}{buffer}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a95b09c7480f5820d8bddda13a97e045a}{pos}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a062617b9b12ee9b515115851a2e522f1}{pos\+Limit}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_ac189de27dcaa96eac5447a272f338b60}{stream\+Pos}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a2741a4fc09e21ed6e2e5b9dcacfb4063}{len\+Limit}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_adf3380804d89b839a4292606f7bf80a4}{cyclic\+Buffer\+Pos}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a0a390f166a0aceea7bb27e44d6120c84}{cyclic\+Buffer\+Size}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a00e6702f545e91ab59c7d1cf80091984}{match\+Max\+Len}}
+\item 
+\mbox{\hyperlink{_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}} $\ast$ \mbox{\hyperlink{struct___c_match_finder_a3cf2cc111191bb96ebcd46117679652a}{hash}}
+\item 
+\mbox{\hyperlink{_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}} $\ast$ \mbox{\hyperlink{struct___c_match_finder_a078bab0255ed36f40cd6d4791e0e301d}{son}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a764d9303664506b8a355cf3741b7c3e5}{hash\+Mask}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_ae0ecf418cfcca96822e0b0165cea4273}{cut\+Value}}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ \mbox{\hyperlink{struct___c_match_finder_aa6e1cea7dbada9ad7fb393e3c0971c69}{buffer\+Base}}
+\item 
+\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$ \mbox{\hyperlink{struct___c_match_finder_acaa0619b5293d80230d7c28bfd854729}{stream}}
+\item 
+int \mbox{\hyperlink{struct___c_match_finder_af0f1c0199f01b77735bfc159c27f8dd2}{stream\+End\+Was\+Reached}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a09ebf4926d27da4a3a32c3cc4de54828}{block\+Size}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a5afde67ccbc5f6c85472feb36d6524e2}{keep\+Size\+Before}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a8c63ed6673da81954c4047ad9a0adc2d}{keep\+Size\+After}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a3e7af8685f973da44899f9377b27873b}{num\+Hash\+Bytes}}
+\item 
+int \mbox{\hyperlink{struct___c_match_finder_ac453b7c202054f3b82800251d87d61f8}{direct\+Input}}
+\item 
+size\+\_\+t \mbox{\hyperlink{struct___c_match_finder_aeb8522f19059329549db84aee1bdd052}{direct\+Input\+Rem}}
+\item 
+int \mbox{\hyperlink{struct___c_match_finder_ade8f46f27064f4f9b4234daabb8d6db4}{bt\+Mode}}
+\item 
+int \mbox{\hyperlink{struct___c_match_finder_a55c701f1ed3833593b01b93c3a6aac26}{big\+Hash}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_afb7234d696442cd48fc4f3d905d59351}{history\+Size}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a8290605c532e154bc2fae382d6fc290b}{fixed\+Hash\+Size}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a195df4bec9fb7cca418d8c8aa021f251}{hash\+Size\+Sum}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a488912395a4afbf7227673e4b65ecd2d}{num\+Sons}}
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{struct___c_match_finder_aa4ed148a7fd9516453828cda11bd0e31}{result}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct___c_match_finder_a377adb6ab700d4707712bb5f82654db8}{crc}} \mbox{[}256\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 15 of file Lz\+Find.\+h.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct___c_match_finder_a55c701f1ed3833593b01b93c3a6aac26}\label{struct___c_match_finder_a55c701f1ed3833593b01b93c3a6aac26}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!bigHash@{bigHash}}
+\index{bigHash@{bigHash}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{bigHash}{bigHash}}
+{\footnotesize\ttfamily int \+\_\+\+CMatch\+Finder\+::big\+Hash}
+
+
+
+Definition at line 44 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a09ebf4926d27da4a3a32c3cc4de54828}\label{struct___c_match_finder_a09ebf4926d27da4a3a32c3cc4de54828}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!blockSize@{blockSize}}
+\index{blockSize@{blockSize}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{blockSize}{blockSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::block\+Size}
+
+
+
+Definition at line 36 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_ade8f46f27064f4f9b4234daabb8d6db4}\label{struct___c_match_finder_ade8f46f27064f4f9b4234daabb8d6db4}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!btMode@{btMode}}
+\index{btMode@{btMode}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{btMode}{btMode}}
+{\footnotesize\ttfamily int \+\_\+\+CMatch\+Finder\+::bt\+Mode}
+
+
+
+Definition at line 43 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_abc916900e7bda3017babfa481d8851af}\label{struct___c_match_finder_abc916900e7bda3017babfa481d8851af}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!buffer@{buffer}}
+\index{buffer@{buffer}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ \+\_\+\+CMatch\+Finder\+::buffer}
+
+
+
+Definition at line 17 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_aa6e1cea7dbada9ad7fb393e3c0971c69}\label{struct___c_match_finder_aa6e1cea7dbada9ad7fb393e3c0971c69}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!bufferBase@{bufferBase}}
+\index{bufferBase@{bufferBase}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{bufferBase}{bufferBase}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ \+\_\+\+CMatch\+Finder\+::buffer\+Base}
+
+
+
+Definition at line 32 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a377adb6ab700d4707712bb5f82654db8}\label{struct___c_match_finder_a377adb6ab700d4707712bb5f82654db8}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!crc@{crc}}
+\index{crc@{crc}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{crc}{crc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::crc}
+
+
+
+Definition at line 50 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_ae0ecf418cfcca96822e0b0165cea4273}\label{struct___c_match_finder_ae0ecf418cfcca96822e0b0165cea4273}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!cutValue@{cutValue}}
+\index{cutValue@{cutValue}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{cutValue}{cutValue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::cut\+Value}
+
+
+
+Definition at line 30 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_adf3380804d89b839a4292606f7bf80a4}\label{struct___c_match_finder_adf3380804d89b839a4292606f7bf80a4}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!cyclicBufferPos@{cyclicBufferPos}}
+\index{cyclicBufferPos@{cyclicBufferPos}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{cyclicBufferPos}{cyclicBufferPos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::cyclic\+Buffer\+Pos}
+
+
+
+Definition at line 23 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a0a390f166a0aceea7bb27e44d6120c84}\label{struct___c_match_finder_a0a390f166a0aceea7bb27e44d6120c84}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!cyclicBufferSize@{cyclicBufferSize}}
+\index{cyclicBufferSize@{cyclicBufferSize}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{cyclicBufferSize}{cyclicBufferSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::cyclic\+Buffer\+Size}
+
+
+
+Definition at line 24 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_ac453b7c202054f3b82800251d87d61f8}\label{struct___c_match_finder_ac453b7c202054f3b82800251d87d61f8}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!directInput@{directInput}}
+\index{directInput@{directInput}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{directInput}{directInput}}
+{\footnotesize\ttfamily int \+\_\+\+CMatch\+Finder\+::direct\+Input}
+
+
+
+Definition at line 41 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_aeb8522f19059329549db84aee1bdd052}\label{struct___c_match_finder_aeb8522f19059329549db84aee1bdd052}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!directInputRem@{directInputRem}}
+\index{directInputRem@{directInputRem}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{directInputRem}{directInputRem}}
+{\footnotesize\ttfamily size\+\_\+t \+\_\+\+CMatch\+Finder\+::direct\+Input\+Rem}
+
+
+
+Definition at line 42 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a8290605c532e154bc2fae382d6fc290b}\label{struct___c_match_finder_a8290605c532e154bc2fae382d6fc290b}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!fixedHashSize@{fixedHashSize}}
+\index{fixedHashSize@{fixedHashSize}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{fixedHashSize}{fixedHashSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::fixed\+Hash\+Size}
+
+
+
+Definition at line 46 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a3cf2cc111191bb96ebcd46117679652a}\label{struct___c_match_finder_a3cf2cc111191bb96ebcd46117679652a}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!hash@{hash}}
+\index{hash@{hash}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{hash}{hash}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}} $\ast$ \+\_\+\+CMatch\+Finder\+::hash}
+
+
+
+Definition at line 27 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a764d9303664506b8a355cf3741b7c3e5}\label{struct___c_match_finder_a764d9303664506b8a355cf3741b7c3e5}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!hashMask@{hashMask}}
+\index{hashMask@{hashMask}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{hashMask}{hashMask}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::hash\+Mask}
+
+
+
+Definition at line 29 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a195df4bec9fb7cca418d8c8aa021f251}\label{struct___c_match_finder_a195df4bec9fb7cca418d8c8aa021f251}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!hashSizeSum@{hashSizeSum}}
+\index{hashSizeSum@{hashSizeSum}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{hashSizeSum}{hashSizeSum}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::hash\+Size\+Sum}
+
+
+
+Definition at line 47 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_afb7234d696442cd48fc4f3d905d59351}\label{struct___c_match_finder_afb7234d696442cd48fc4f3d905d59351}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!historySize@{historySize}}
+\index{historySize@{historySize}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{historySize}{historySize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::history\+Size}
+
+
+
+Definition at line 45 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a8c63ed6673da81954c4047ad9a0adc2d}\label{struct___c_match_finder_a8c63ed6673da81954c4047ad9a0adc2d}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!keepSizeAfter@{keepSizeAfter}}
+\index{keepSizeAfter@{keepSizeAfter}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{keepSizeAfter}{keepSizeAfter}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::keep\+Size\+After}
+
+
+
+Definition at line 38 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a5afde67ccbc5f6c85472feb36d6524e2}\label{struct___c_match_finder_a5afde67ccbc5f6c85472feb36d6524e2}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!keepSizeBefore@{keepSizeBefore}}
+\index{keepSizeBefore@{keepSizeBefore}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{keepSizeBefore}{keepSizeBefore}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::keep\+Size\+Before}
+
+
+
+Definition at line 37 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a2741a4fc09e21ed6e2e5b9dcacfb4063}\label{struct___c_match_finder_a2741a4fc09e21ed6e2e5b9dcacfb4063}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!lenLimit@{lenLimit}}
+\index{lenLimit@{lenLimit}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{lenLimit}{lenLimit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::len\+Limit}
+
+
+
+Definition at line 21 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a00e6702f545e91ab59c7d1cf80091984}\label{struct___c_match_finder_a00e6702f545e91ab59c7d1cf80091984}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!matchMaxLen@{matchMaxLen}}
+\index{matchMaxLen@{matchMaxLen}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{matchMaxLen}{matchMaxLen}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::match\+Max\+Len}
+
+
+
+Definition at line 26 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a3e7af8685f973da44899f9377b27873b}\label{struct___c_match_finder_a3e7af8685f973da44899f9377b27873b}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!numHashBytes@{numHashBytes}}
+\index{numHashBytes@{numHashBytes}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{numHashBytes}{numHashBytes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::num\+Hash\+Bytes}
+
+
+
+Definition at line 40 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a488912395a4afbf7227673e4b65ecd2d}\label{struct___c_match_finder_a488912395a4afbf7227673e4b65ecd2d}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!numSons@{numSons}}
+\index{numSons@{numSons}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{numSons}{numSons}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::num\+Sons}
+
+
+
+Definition at line 48 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a95b09c7480f5820d8bddda13a97e045a}\label{struct___c_match_finder_a95b09c7480f5820d8bddda13a97e045a}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!pos@{pos}}
+\index{pos@{pos}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{pos}{pos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::pos}
+
+
+
+Definition at line 18 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a062617b9b12ee9b515115851a2e522f1}\label{struct___c_match_finder_a062617b9b12ee9b515115851a2e522f1}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!posLimit@{posLimit}}
+\index{posLimit@{posLimit}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{posLimit}{posLimit}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::pos\+Limit}
+
+
+
+Definition at line 19 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_aa4ed148a7fd9516453828cda11bd0e31}\label{struct___c_match_finder_aa4ed148a7fd9516453828cda11bd0e31}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!result@{result}}
+\index{result@{result}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{result}{result}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \+\_\+\+CMatch\+Finder\+::result}
+
+
+
+Definition at line 49 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_a078bab0255ed36f40cd6d4791e0e301d}\label{struct___c_match_finder_a078bab0255ed36f40cd6d4791e0e301d}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!son@{son}}
+\index{son@{son}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{son}{son}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}} $\ast$ \+\_\+\+CMatch\+Finder\+::son}
+
+
+
+Definition at line 28 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_acaa0619b5293d80230d7c28bfd854729}\label{struct___c_match_finder_acaa0619b5293d80230d7c28bfd854729}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!stream@{stream}}
+\index{stream@{stream}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{stream}{stream}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$ \+\_\+\+CMatch\+Finder\+::stream}
+
+
+
+Definition at line 33 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_af0f1c0199f01b77735bfc159c27f8dd2}\label{struct___c_match_finder_af0f1c0199f01b77735bfc159c27f8dd2}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!streamEndWasReached@{streamEndWasReached}}
+\index{streamEndWasReached@{streamEndWasReached}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{streamEndWasReached}{streamEndWasReached}}
+{\footnotesize\ttfamily int \+\_\+\+CMatch\+Finder\+::stream\+End\+Was\+Reached}
+
+
+
+Definition at line 34 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{struct___c_match_finder_ac189de27dcaa96eac5447a272f338b60}\label{struct___c_match_finder_ac189de27dcaa96eac5447a272f338b60}} 
+\index{\_CMatchFinder@{\_CMatchFinder}!streamPos@{streamPos}}
+\index{streamPos@{streamPos}!\_CMatchFinder@{\_CMatchFinder}}
+\doxysubsubsection{\texorpdfstring{streamPos}{streamPos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+\+CMatch\+Finder\+::stream\+Pos}
+
+
+
+Definition at line 20 of file Lz\+Find.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/extlibs/lzma/\mbox{\hyperlink{_lz_find_8h}{Lz\+Find.\+h}}\end{DoxyCompactItemize}

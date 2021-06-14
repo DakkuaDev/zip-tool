@@ -1,0 +1,155 @@
+\hypertarget{classbasic__zip__cryptostream}{}\doxysection{basic\+\_\+zip\+\_\+cryptostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ Class Template Reference}
+\label{classbasic__zip__cryptostream}\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+
+
+{\ttfamily \#include $<$zip\+\_\+cryptostream.\+h$>$}
+
+
+
+Inheritance diagram for basic\+\_\+zip\+\_\+cryptostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 0
+
+
+Collaboration diagram for basic\+\_\+zip\+\_\+cryptostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbasic__zip__cryptostream_a38327259e20ed842cea0d1abf3ebdd5f}{basic\+\_\+zip\+\_\+cryptostream}} ()
+\item 
+\mbox{\hyperlink{classbasic__zip__cryptostream_a4356d221e809cebb1ef96a55b29d6ed6}{basic\+\_\+zip\+\_\+cryptostream}} (std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} ELEM\+\_\+\+TYPE $\ast$password)
+\item 
+\mbox{\hyperlink{classbasic__zip__cryptostream_a348c97c99058f846ed6463229b79ef2d}{basic\+\_\+zip\+\_\+cryptostream}} (std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} ELEM\+\_\+\+TYPE $\ast$password)
+\item 
+void \mbox{\hyperlink{classbasic__zip__cryptostream_afd9f1cd46948da187b0a5e2b18462344}{init}} (std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} ELEM\+\_\+\+TYPE $\ast$password)
+\item 
+void \mbox{\hyperlink{classbasic__zip__cryptostream_a7dbc3172f89a69743880439a4e10216f}{init}} (std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&stream, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} ELEM\+\_\+\+TYPE $\ast$password)
+\item 
+bool \mbox{\hyperlink{classbasic__zip__cryptostream_af49fe34b857c54f19e52e7d5c71fc3ce}{is\+\_\+init}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+void \mbox{\hyperlink{classbasic__zip__cryptostream_a5659e2f1d6b4542a47eb993222e4c751}{set\+\_\+final\+\_\+byte}} (uint8\+\_\+t \mbox{\hyperlink{unix_2_sha256_8c_a63f410abde93141c9013b7d3f3971738}{c}})
+\item 
+bool \mbox{\hyperlink{classbasic__zip__cryptostream_ac5f089e2efc165ae86419b0b23681ccf}{has\+\_\+correct\+\_\+password}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+bool \mbox{\hyperlink{classbasic__zip__cryptostream_a0b573422c6fa4072e92a5bdc17923cde}{prepare\+\_\+for\+\_\+decryption}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ELEM\+\_\+\+TYPE, typename TRAITS\+\_\+\+TYPE$>$\newline
+class basic\+\_\+zip\+\_\+cryptostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}
+
+
+
+Definition at line 6 of file zip\+\_\+cryptostream.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbasic__zip__cryptostream_a38327259e20ed842cea0d1abf3ebdd5f}\label{classbasic__zip__cryptostream_a38327259e20ed842cea0d1abf3ebdd5f}} 
+\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!basic\_zip\_cryptostream@{basic\_zip\_cryptostream}}
+\index{basic\_zip\_cryptostream@{basic\_zip\_cryptostream}!basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_zip\_cryptostream()}{basic\_zip\_cryptostream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 10 of file zip\+\_\+cryptostream.\+h.
+
+\mbox{\Hypertarget{classbasic__zip__cryptostream_a4356d221e809cebb1ef96a55b29d6ed6}\label{classbasic__zip__cryptostream_a4356d221e809cebb1ef96a55b29d6ed6}} 
+\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!basic\_zip\_cryptostream@{basic\_zip\_cryptostream}}
+\index{basic\_zip\_cryptostream@{basic\_zip\_cryptostream}!basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_zip\_cryptostream()}{basic\_zip\_cryptostream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}} (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} ELEM\+\_\+\+TYPE $\ast$}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 16 of file zip\+\_\+cryptostream.\+h.
+
+\mbox{\Hypertarget{classbasic__zip__cryptostream_a348c97c99058f846ed6463229b79ef2d}\label{classbasic__zip__cryptostream_a348c97c99058f846ed6463229b79ef2d}} 
+\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!basic\_zip\_cryptostream@{basic\_zip\_cryptostream}}
+\index{basic\_zip\_cryptostream@{basic\_zip\_cryptostream}!basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_zip\_cryptostream()}{basic\_zip\_cryptostream()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}} (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} ELEM\+\_\+\+TYPE $\ast$}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 23 of file zip\+\_\+cryptostream.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbasic__zip__cryptostream_ac5f089e2efc165ae86419b0b23681ccf}\label{classbasic__zip__cryptostream_ac5f089e2efc165ae86419b0b23681ccf}} 
+\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!has\_correct\_password@{has\_correct\_password}}
+\index{has\_correct\_password@{has\_correct\_password}!basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{has\_correct\_password()}{has\_correct\_password()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+bool \mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::has\+\_\+correct\+\_\+password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 50 of file zip\+\_\+cryptostream.\+h.
+
+\mbox{\Hypertarget{classbasic__zip__cryptostream_a7dbc3172f89a69743880439a4e10216f}\label{classbasic__zip__cryptostream_a7dbc3172f89a69743880439a4e10216f}} 
+\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!init@{init}}
+\index{init@{init}!basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::init (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} ELEM\+\_\+\+TYPE $\ast$}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 35 of file zip\+\_\+cryptostream.\+h.
+
+\mbox{\Hypertarget{classbasic__zip__cryptostream_afd9f1cd46948da187b0a5e2b18462344}\label{classbasic__zip__cryptostream_afd9f1cd46948da187b0a5e2b18462344}} 
+\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!init@{init}}
+\index{init@{init}!basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::init (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+ostream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{stream,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} ELEM\+\_\+\+TYPE $\ast$}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 30 of file zip\+\_\+cryptostream.\+h.
+
+\mbox{\Hypertarget{classbasic__zip__cryptostream_af49fe34b857c54f19e52e7d5c71fc3ce}\label{classbasic__zip__cryptostream_af49fe34b857c54f19e52e7d5c71fc3ce}} 
+\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!is\_init@{is\_init}}
+\index{is\_init@{is\_init}!basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{is\_init()}{is\_init()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+bool \mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::is\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 40 of file zip\+\_\+cryptostream.\+h.
+
+\mbox{\Hypertarget{classbasic__zip__cryptostream_a0b573422c6fa4072e92a5bdc17923cde}\label{classbasic__zip__cryptostream_a0b573422c6fa4072e92a5bdc17923cde}} 
+\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!prepare\_for\_decryption@{prepare\_for\_decryption}}
+\index{prepare\_for\_decryption@{prepare\_for\_decryption}!basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{prepare\_for\_decryption()}{prepare\_for\_decryption()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+bool \mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::prepare\+\_\+for\+\_\+decryption (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 55 of file zip\+\_\+cryptostream.\+h.
+
+\mbox{\Hypertarget{classbasic__zip__cryptostream_a5659e2f1d6b4542a47eb993222e4c751}\label{classbasic__zip__cryptostream_a5659e2f1d6b4542a47eb993222e4c751}} 
+\index{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!set\_final\_byte@{set\_final\_byte}}
+\index{set\_final\_byte@{set\_final\_byte}!basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_zip\_cryptostream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{set\_final\_byte()}{set\_final\_byte()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classbasic__zip__cryptostream}{basic\+\_\+zip\+\_\+cryptostream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::set\+\_\+final\+\_\+byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{c }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 45 of file zip\+\_\+cryptostream.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/streams/\mbox{\hyperlink{zip__cryptostream_8h}{zip\+\_\+cryptostream.\+h}}\end{DoxyCompactItemize}

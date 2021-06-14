@@ -1,0 +1,62 @@
+\hypertarget{_zip_method_resolver_8h}{}\doxysection{source/\+Zip\+Lib/methods/\+Zip\+Method\+Resolver.h File Reference}
+\label{_zip_method_resolver_8h}\index{source/ZipLib/methods/ZipMethodResolver.h@{source/ZipLib/methods/ZipMethodResolver.h}}
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+{\ttfamily \#include \char`\"{}ICompression\+Method.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Store\+Method.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Deflate\+Method.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Bzip2\+Method.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lzma\+Method.\+h\char`\"{}}\newline
+Include dependency graph for Zip\+Method\+Resolver.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_zip_method_resolver}{Zip\+Method\+Resolver}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_zip_method_resolver_8h_a9d3fb15ba34b4bd7d3b3ab0a437654f0}{ZIP\+\_\+\+METHOD\+\_\+\+TABLE}}
+\item 
+\#define \mbox{\hyperlink{_zip_method_resolver_8h_aad694c5709dd57188531f55753cd9987}{ZIP\+\_\+\+METHOD\+\_\+\+ADD}}(method\+\_\+class)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_zip_method_resolver_8h_aad694c5709dd57188531f55753cd9987}\label{_zip_method_resolver_8h_aad694c5709dd57188531f55753cd9987}} 
+\index{ZipMethodResolver.h@{ZipMethodResolver.h}!ZIP\_METHOD\_ADD@{ZIP\_METHOD\_ADD}}
+\index{ZIP\_METHOD\_ADD@{ZIP\_METHOD\_ADD}!ZipMethodResolver.h@{ZipMethodResolver.h}}
+\doxysubsubsection{\texorpdfstring{ZIP\_METHOD\_ADD}{ZIP\_METHOD\_ADD}}
+{\footnotesize\ttfamily \#define ZIP\+\_\+\+METHOD\+\_\+\+ADD(\begin{DoxyParamCaption}\item[{}]{method\+\_\+class }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keywordflow}{if} (compressionMethod == method\_class::GetZipMethodDescriptorStatic().GetCompressionMethod()) \(\backslash\)}
+\DoxyCodeLine{    return method\_class::Create()}
+
+\end{DoxyCode}
+
+
+Definition at line 17 of file Zip\+Method\+Resolver.\+h.
+
+\mbox{\Hypertarget{_zip_method_resolver_8h_a9d3fb15ba34b4bd7d3b3ab0a437654f0}\label{_zip_method_resolver_8h_a9d3fb15ba34b4bd7d3b3ab0a437654f0}} 
+\index{ZipMethodResolver.h@{ZipMethodResolver.h}!ZIP\_METHOD\_TABLE@{ZIP\_METHOD\_TABLE}}
+\index{ZIP\_METHOD\_TABLE@{ZIP\_METHOD\_TABLE}!ZipMethodResolver.h@{ZipMethodResolver.h}}
+\doxysubsubsection{\texorpdfstring{ZIP\_METHOD\_TABLE}{ZIP\_METHOD\_TABLE}}
+{\footnotesize\ttfamily \#define ZIP\+\_\+\+METHOD\+\_\+\+TABLE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \mbox{\hyperlink{_zip_method_resolver_8h_aad694c5709dd57188531f55753cd9987}{ZIP\_METHOD\_ADD}}(\mbox{\hyperlink{class_store_method}{StoreMethod}});    \(\backslash\)}
+\DoxyCodeLine{  ZIP\_METHOD\_ADD(\mbox{\hyperlink{class_deflate_method}{DeflateMethod}});  \(\backslash\)}
+\DoxyCodeLine{  ZIP\_METHOD\_ADD(\mbox{\hyperlink{class_bzip2_method}{Bzip2Method}});    \(\backslash\)}
+\DoxyCodeLine{  ZIP\_METHOD\_ADD(\mbox{\hyperlink{class_lzma_method}{LzmaMethod}});}
+
+\end{DoxyCode}
+
+
+Definition at line 11 of file Zip\+Method\+Resolver.\+h.
+

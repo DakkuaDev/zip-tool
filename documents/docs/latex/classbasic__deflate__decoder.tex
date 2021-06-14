@@ -1,0 +1,232 @@
+\hypertarget{classbasic__deflate__decoder}{}\doxysection{basic\+\_\+deflate\+\_\+decoder$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ Class Template Reference}
+\label{classbasic__deflate__decoder}\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+
+
+{\ttfamily \#include $<$deflate\+\_\+decoder.\+h$>$}
+
+
+
+Inheritance diagram for basic\+\_\+deflate\+\_\+decoder$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 0
+
+
+Collaboration diagram for basic\+\_\+deflate\+\_\+decoder$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}{istream\+\_\+type}} \mbox{\hyperlink{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}{istream\+\_\+type}}
+\item 
+typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcompression__interface__basic_a5de0536b42d17096299a5afa205407f1}{ostream\+\_\+type}} \mbox{\hyperlink{classbasic__deflate__decoder_a0a76b190931eda1d84940e37c4fac686}{ostream\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbasic__deflate__decoder_af8063a52911d67a081bfd1c1cdd1960e}{basic\+\_\+deflate\+\_\+decoder}} ()
+\item 
+\mbox{\hyperlink{classbasic__deflate__decoder_a445656437cc7b434ec45bc2dda5800e8}{$\sim$basic\+\_\+deflate\+\_\+decoder}} ()
+\item 
+void \mbox{\hyperlink{classbasic__deflate__decoder_a367c57efff2b34e9b71001b928534977}{init}} (\mbox{\hyperlink{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}{istream\+\_\+type}} \&stream) override
+\item 
+void \mbox{\hyperlink{classbasic__deflate__decoder_a570e726d9276c513a6403c83f43a5ffb}{init}} (\mbox{\hyperlink{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}{istream\+\_\+type}} \&stream, \mbox{\hyperlink{structcompression__decoder__properties__interface}{compression\+\_\+decoder\+\_\+properties\+\_\+interface}} \&props) override
+\item 
+bool \mbox{\hyperlink{classbasic__deflate__decoder_a36f2cb21aba9fb347b60a02eb2c9920e}{is\+\_\+init}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} override
+\item 
+size\+\_\+t \mbox{\hyperlink{classbasic__deflate__decoder_af0748b6bbbe9540728b20a4276e98e79}{get\+\_\+bytes\+\_\+read}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} override
+\item 
+size\+\_\+t \mbox{\hyperlink{classbasic__deflate__decoder_ac48ab53a1eb57eb6310547f006c14ab2}{get\+\_\+bytes\+\_\+written}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} override
+\item 
+ELEM\+\_\+\+TYPE $\ast$ \mbox{\hyperlink{classbasic__deflate__decoder_a034f15adecfbbe3a0b9fd4895cbf4e41}{get\+\_\+buffer\+\_\+begin}} () override
+\item 
+ELEM\+\_\+\+TYPE $\ast$ \mbox{\hyperlink{classbasic__deflate__decoder_a2cd9fd48398d1ddf19c3c5c372d09340}{get\+\_\+buffer\+\_\+end}} () override
+\item 
+size\+\_\+t \mbox{\hyperlink{classbasic__deflate__decoder_a62a74016bf78917e0480d46dccdc79ae}{decode\+\_\+next}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ELEM\+\_\+\+TYPE, typename TRAITS\+\_\+\+TYPE$>$\newline
+class basic\+\_\+deflate\+\_\+decoder$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}
+
+
+
+Definition at line 11 of file deflate\+\_\+decoder.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}\label{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!istream\_type@{istream\_type}}
+\index{istream\_type@{istream\_type}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{istream\_type}{istream\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$\+::\mbox{\hyperlink{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}{istream\+\_\+type}} \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}{istream\+\_\+type}}}
+
+
+
+Definition at line 15 of file deflate\+\_\+decoder.\+h.
+
+\mbox{\Hypertarget{classbasic__deflate__decoder_a0a76b190931eda1d84940e37c4fac686}\label{classbasic__deflate__decoder_a0a76b190931eda1d84940e37c4fac686}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!ostream\_type@{ostream\_type}}
+\index{ostream\_type@{ostream\_type}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{ostream\_type}{ostream\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$\+::\mbox{\hyperlink{classcompression__interface__basic_a5de0536b42d17096299a5afa205407f1}{ostream\+\_\+type}} \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcompression__interface__basic_a5de0536b42d17096299a5afa205407f1}{ostream\+\_\+type}}}
+
+
+
+Definition at line 16 of file deflate\+\_\+decoder.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbasic__deflate__decoder_af8063a52911d67a081bfd1c1cdd1960e}\label{classbasic__deflate__decoder_af8063a52911d67a081bfd1c1cdd1960e}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!basic\_deflate\_decoder@{basic\_deflate\_decoder}}
+\index{basic\_deflate\_decoder@{basic\_deflate\_decoder}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_deflate\_decoder()}{basic\_deflate\_decoder()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 18 of file deflate\+\_\+decoder.\+h.
+
+\mbox{\Hypertarget{classbasic__deflate__decoder_a445656437cc7b434ec45bc2dda5800e8}\label{classbasic__deflate__decoder_a445656437cc7b434ec45bc2dda5800e8}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!````~basic\_deflate\_decoder@{$\sim$basic\_deflate\_decoder}}
+\index{````~basic\_deflate\_decoder@{$\sim$basic\_deflate\_decoder}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$basic\_deflate\_decoder()}{~basic\_deflate\_decoder()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::$\sim$\mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 33 of file deflate\+\_\+decoder.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbasic__deflate__decoder_a62a74016bf78917e0480d46dccdc79ae}\label{classbasic__deflate__decoder_a62a74016bf78917e0480d46dccdc79ae}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!decode\_next@{decode\_next}}
+\index{decode\_next@{decode\_next}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{decode\_next()}{decode\_next()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+size\+\_\+t \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::decode\+\_\+next (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classcompression__decoder__interface__basic_a84480ebd858739611496747373f105b3}{compression\+\_\+decoder\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}.
+
+
+
+Definition at line 104 of file deflate\+\_\+decoder.\+h.
+
+\mbox{\Hypertarget{classbasic__deflate__decoder_a034f15adecfbbe3a0b9fd4895cbf4e41}\label{classbasic__deflate__decoder_a034f15adecfbbe3a0b9fd4895cbf4e41}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!get\_buffer\_begin@{get\_buffer\_begin}}
+\index{get\_buffer\_begin@{get\_buffer\_begin}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get\_buffer\_begin()}{get\_buffer\_begin()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+ELEM\+\_\+\+TYPE$\ast$ \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::get\+\_\+buffer\+\_\+begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classcompression__interface__basic_a331f9e75518a6ae9ab3e2d9ef61cbeeb}{compression\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}.
+
+
+
+Definition at line 94 of file deflate\+\_\+decoder.\+h.
+
+\mbox{\Hypertarget{classbasic__deflate__decoder_a2cd9fd48398d1ddf19c3c5c372d09340}\label{classbasic__deflate__decoder_a2cd9fd48398d1ddf19c3c5c372d09340}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!get\_buffer\_end@{get\_buffer\_end}}
+\index{get\_buffer\_end@{get\_buffer\_end}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get\_buffer\_end()}{get\_buffer\_end()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+ELEM\+\_\+\+TYPE$\ast$ \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::get\+\_\+buffer\+\_\+end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classcompression__interface__basic_a0f9be90acfe058be0f643c0b842684c4}{compression\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}.
+
+
+
+Definition at line 99 of file deflate\+\_\+decoder.\+h.
+
+\mbox{\Hypertarget{classbasic__deflate__decoder_af0748b6bbbe9540728b20a4276e98e79}\label{classbasic__deflate__decoder_af0748b6bbbe9540728b20a4276e98e79}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!get\_bytes\_read@{get\_bytes\_read}}
+\index{get\_bytes\_read@{get\_bytes\_read}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get\_bytes\_read()}{get\_bytes\_read()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+size\+\_\+t \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::get\+\_\+bytes\+\_\+read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classcompression__interface__basic_a00706c96a3867151d1cc15bd6a1a7f25}{compression\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}.
+
+
+
+Definition at line 84 of file deflate\+\_\+decoder.\+h.
+
+\mbox{\Hypertarget{classbasic__deflate__decoder_ac48ab53a1eb57eb6310547f006c14ab2}\label{classbasic__deflate__decoder_ac48ab53a1eb57eb6310547f006c14ab2}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!get\_bytes\_written@{get\_bytes\_written}}
+\index{get\_bytes\_written@{get\_bytes\_written}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get\_bytes\_written()}{get\_bytes\_written()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+size\+\_\+t \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::get\+\_\+bytes\+\_\+written (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classcompression__interface__basic_adf05c765dc1690205ec6cec8e4882a07}{compression\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}.
+
+
+
+Definition at line 89 of file deflate\+\_\+decoder.\+h.
+
+\mbox{\Hypertarget{classbasic__deflate__decoder_a367c57efff2b34e9b71001b928534977}\label{classbasic__deflate__decoder_a367c57efff2b34e9b71001b928534977}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!init@{init}}
+\index{init@{init}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}{istream\+\_\+type}} \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classcompression__decoder__interface__basic_a388d864aed4122086e7e7a32536b5c81}{compression\+\_\+decoder\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}.
+
+
+
+Definition at line 42 of file deflate\+\_\+decoder.\+h.
+
+\mbox{\Hypertarget{classbasic__deflate__decoder_a570e726d9276c513a6403c83f43a5ffb}\label{classbasic__deflate__decoder_a570e726d9276c513a6403c83f43a5ffb}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!init@{init}}
+\index{init@{init}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__deflate__decoder_ace2e2c289bfbc005c489a43dc9d25664}{istream\+\_\+type}} \&}]{stream,  }\item[{\mbox{\hyperlink{structcompression__decoder__properties__interface}{compression\+\_\+decoder\+\_\+properties\+\_\+interface}} \&}]{props }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classcompression__decoder__interface__basic_a77afafd14c6667205306c3ae8ee00312}{compression\+\_\+decoder\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}.
+
+
+
+Definition at line 48 of file deflate\+\_\+decoder.\+h.
+
+\mbox{\Hypertarget{classbasic__deflate__decoder_a36f2cb21aba9fb347b60a02eb2c9920e}\label{classbasic__deflate__decoder_a36f2cb21aba9fb347b60a02eb2c9920e}} 
+\index{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!is\_init@{is\_init}}
+\index{is\_init@{is\_init}!basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_deflate\_decoder$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{is\_init()}{is\_init()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+bool \mbox{\hyperlink{classbasic__deflate__decoder}{basic\+\_\+deflate\+\_\+decoder}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::is\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classcompression__interface__basic_a26d85277bbf852bfea2836beb76a0de3}{compression\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}.
+
+
+
+Definition at line 79 of file deflate\+\_\+decoder.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/compression/deflate/\mbox{\hyperlink{deflate__decoder_8h}{deflate\+\_\+decoder.\+h}}\end{DoxyCompactItemize}

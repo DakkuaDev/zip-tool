@@ -1,0 +1,38 @@
+\hypertarget{_lzma_lib_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/\+Lzma\+Lib.c File Reference}
+\label{_lzma_lib_8c}\index{source/ZipLib/extlibs/lzma/LzmaLib.c@{source/ZipLib/extlibs/lzma/LzmaLib.c}}
+{\ttfamily \#include \char`\"{}Lzma\+Enc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lzma\+Dec.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Alloc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lzma\+Lib.\+h\char`\"{}}\newline
+Include dependency graph for Lzma\+Lib.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_lzma_lib_8h_a46c12d33217b8742a6bac641c4e8c079}{MY\+\_\+\+STDAPI}} \mbox{\hyperlink{_lzma_lib_8c_a027051933b28a85c4be9e78833daae99}{Lzma\+Compress}} (unsigned char $\ast$dest, size\+\_\+t $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} unsigned char $\ast$src, size\+\_\+t src\+Len, unsigned char $\ast$out\+Props, size\+\_\+t $\ast$out\+Props\+Size, int level, unsigned dict\+Size, int lc, int lp, int pb, int fb, int num\+Threads)
+\item 
+\mbox{\hyperlink{_lzma_lib_8h_a46c12d33217b8742a6bac641c4e8c079}{MY\+\_\+\+STDAPI}} \mbox{\hyperlink{_lzma_lib_8c_a74190a4a16d864ceb6f992b0ea9433b0}{Lzma\+Uncompress}} (unsigned char $\ast$dest, size\+\_\+t $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} unsigned char $\ast$src, size\+\_\+t $\ast$src\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} unsigned char $\ast$props, size\+\_\+t props\+Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_lzma_lib_8c_a027051933b28a85c4be9e78833daae99}\label{_lzma_lib_8c_a027051933b28a85c4be9e78833daae99}} 
+\index{LzmaLib.c@{LzmaLib.c}!LzmaCompress@{LzmaCompress}}
+\index{LzmaCompress@{LzmaCompress}!LzmaLib.c@{LzmaLib.c}}
+\doxysubsubsection{\texorpdfstring{LzmaCompress()}{LzmaCompress()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_lzma_lib_8h_a46c12d33217b8742a6bac641c4e8c079}{MY\+\_\+\+STDAPI}} Lzma\+Compress (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{dest,  }\item[{size\+\_\+t $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} unsigned char $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Len,  }\item[{unsigned char $\ast$}]{out\+Props,  }\item[{size\+\_\+t $\ast$}]{out\+Props\+Size,  }\item[{int}]{level,  }\item[{unsigned}]{dict\+Size,  }\item[{int}]{lc,  }\item[{int}]{lp,  }\item[{int}]{pb,  }\item[{int}]{fb,  }\item[{int}]{num\+Threads }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file Lzma\+Lib.\+c.
+
+\mbox{\Hypertarget{_lzma_lib_8c_a74190a4a16d864ceb6f992b0ea9433b0}\label{_lzma_lib_8c_a74190a4a16d864ceb6f992b0ea9433b0}} 
+\index{LzmaLib.c@{LzmaLib.c}!LzmaUncompress@{LzmaUncompress}}
+\index{LzmaUncompress@{LzmaUncompress}!LzmaLib.c@{LzmaLib.c}}
+\doxysubsubsection{\texorpdfstring{LzmaUncompress()}{LzmaUncompress()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_lzma_lib_8h_a46c12d33217b8742a6bac641c4e8c079}{MY\+\_\+\+STDAPI}} Lzma\+Uncompress (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{dest,  }\item[{size\+\_\+t $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} unsigned char $\ast$}]{src,  }\item[{size\+\_\+t $\ast$}]{src\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} unsigned char $\ast$}]{props,  }\item[{size\+\_\+t}]{props\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file Lzma\+Lib.\+c.
+

@@ -1,0 +1,69 @@
+\hypertarget{_xz_enc_8h}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/\+Xz\+Enc.h File Reference}
+\label{_xz_enc_8h}\index{source/ZipLib/extlibs/lzma/XzEnc.h@{source/ZipLib/extlibs/lzma/XzEnc.h}}
+{\ttfamily \#include \char`\"{}Lzma2\+Enc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Xz.\+h\char`\"{}}\newline
+Include dependency graph for Xz\+Enc.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_xz_filter_props}{CXz\+Filter\+Props}}
+\item 
+struct \mbox{\hyperlink{struct_c_xz_props}{CXz\+Props}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_xz_enc_8h_a345a274ce8fa9460c9ec2c47a0a1307a}{Xz\+Filter\+Props\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_xz_filter_props}{CXz\+Filter\+Props}} $\ast$p)
+\item 
+void \mbox{\hyperlink{_xz_enc_8h_a4778f218cda813240cdffcf6ea544f37}{Xz\+Props\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_xz_props}{CXz\+Props}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_xz_enc_8h_ab639fa4593d756ee8a240d96da59c2e2}{Xz\+\_\+\+Encode}} (\mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$out\+Stream, \mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$in\+Stream, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xz_props}{CXz\+Props}} $\ast$props, \mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$progress)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_xz_enc_8h_a0ec69c70eb399312feb88d5f23f39981}{Xz\+\_\+\+Encode\+Empty}} (\mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$out\+Stream)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_xz_enc_8h_ab639fa4593d756ee8a240d96da59c2e2}\label{_xz_enc_8h_ab639fa4593d756ee8a240d96da59c2e2}} 
+\index{XzEnc.h@{XzEnc.h}!Xz\_Encode@{Xz\_Encode}}
+\index{Xz\_Encode@{Xz\_Encode}!XzEnc.h@{XzEnc.h}}
+\doxysubsubsection{\texorpdfstring{Xz\_Encode()}{Xz\_Encode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xz\+\_\+\+Encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$}]{out\+Stream,  }\item[{\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$}]{in\+Stream,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xz_props}{CXz\+Props}} $\ast$}]{props,  }\item[{\mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$}]{progress }\end{DoxyParamCaption})}
+
+
+
+Definition at line 494 of file Xz\+Enc.\+c.
+
+\mbox{\Hypertarget{_xz_enc_8h_a0ec69c70eb399312feb88d5f23f39981}\label{_xz_enc_8h_a0ec69c70eb399312feb88d5f23f39981}} 
+\index{XzEnc.h@{XzEnc.h}!Xz\_EncodeEmpty@{Xz\_EncodeEmpty}}
+\index{Xz\_EncodeEmpty@{Xz\_EncodeEmpty}!XzEnc.h@{XzEnc.h}}
+\doxysubsubsection{\texorpdfstring{Xz\_EncodeEmpty()}{Xz\_EncodeEmpty()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xz\+\_\+\+Encode\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$}]{out\+Stream }\end{DoxyParamCaption})}
+
+
+
+Definition at line 487 of file Xz\+Enc.\+c.
+
+\mbox{\Hypertarget{_xz_enc_8h_a345a274ce8fa9460c9ec2c47a0a1307a}\label{_xz_enc_8h_a345a274ce8fa9460c9ec2c47a0a1307a}} 
+\index{XzEnc.h@{XzEnc.h}!XzFilterProps\_Init@{XzFilterProps\_Init}}
+\index{XzFilterProps\_Init@{XzFilterProps\_Init}!XzEnc.h@{XzEnc.h}}
+\doxysubsubsection{\texorpdfstring{XzFilterProps\_Init()}{XzFilterProps\_Init()}}
+{\footnotesize\ttfamily void Xz\+Filter\+Props\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_filter_props}{CXz\+Filter\+Props}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 388 of file Xz\+Enc.\+c.
+
+\mbox{\Hypertarget{_xz_enc_8h_a4778f218cda813240cdffcf6ea544f37}\label{_xz_enc_8h_a4778f218cda813240cdffcf6ea544f37}} 
+\index{XzEnc.h@{XzEnc.h}!XzProps\_Init@{XzProps\_Init}}
+\index{XzProps\_Init@{XzProps\_Init}!XzEnc.h@{XzEnc.h}}
+\doxysubsubsection{\texorpdfstring{XzProps\_Init()}{XzProps\_Init()}}
+{\footnotesize\ttfamily void Xz\+Props\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_props}{CXz\+Props}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 381 of file Xz\+Enc.\+c.
+

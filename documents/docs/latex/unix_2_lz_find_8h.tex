@@ -1,0 +1,360 @@
+\hypertarget{unix_2_lz_find_8h}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Lz\+Find.h File Reference}
+\label{unix_2_lz_find_8h}\index{source/ZipLib/extlibs/lzma/unix/LzFind.h@{source/ZipLib/extlibs/lzma/unix/LzFind.h}}
+{\ttfamily \#include \char`\"{}Types.\+h\char`\"{}}\newline
+Include dependency graph for Lz\+Find.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___c_match_finder}{\+\_\+\+CMatch\+Finder}}
+\item 
+struct \mbox{\hyperlink{struct___i_match_finder}{\+\_\+\+IMatch\+Finder}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{unix_2_lz_find_8h_a786c1d27ce6a50a4d3a0dd59df8c9bd3}{Inline\+\_\+\+Match\+Finder\+\_\+\+Get\+Pointer\+To\+Current\+Pos}}(p)~((p)-\/$>$buffer)
+\item 
+\#define \mbox{\hyperlink{unix_2_lz_find_8h_a97b91c42487b471027f5d075fabe29a3}{Inline\+\_\+\+Match\+Finder\+\_\+\+Get\+Index\+Byte}}(p,  index)~((p)-\/$>$buffer\mbox{[}(\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}})(index)\mbox{]})
+\item 
+\#define \mbox{\hyperlink{unix_2_lz_find_8h_addf9afa832b5a2ece968912043f955fd}{Inline\+\_\+\+Match\+Finder\+\_\+\+Get\+Num\+Available\+Bytes}}(p)~((p)-\/$>$stream\+Pos -\/ (p)-\/$>$pos)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{unix_2_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}}
+\item 
+typedef struct \mbox{\hyperlink{struct___c_match_finder}{\+\_\+\+CMatch\+Finder}} \mbox{\hyperlink{unix_2_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{unix_2_lz_find_8h_a4928b3dd98c7d5821e951297059225ab}{Mf\+\_\+\+Init\+\_\+\+Func}}) (void $\ast$object)
+\item 
+typedef \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}}($\ast$ \mbox{\hyperlink{unix_2_lz_find_8h_a6e3880dd6d547cc5033fc751b84e4bbd}{Mf\+\_\+\+Get\+Index\+Byte\+\_\+\+Func}}) (void $\ast$object, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} index)
+\item 
+typedef \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}($\ast$ \mbox{\hyperlink{unix_2_lz_find_8h_a4cb203ee257d7dd9620d81e47e06c7ba}{Mf\+\_\+\+Get\+Num\+Available\+Bytes\+\_\+\+Func}}) (void $\ast$object)
+\item 
+typedef \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$($\ast$ \mbox{\hyperlink{unix_2_lz_find_8h_a39a5a65f74a9c0754743079ec7a3709e}{Mf\+\_\+\+Get\+Pointer\+To\+Current\+Pos\+\_\+\+Func}}) (void $\ast$object)
+\item 
+typedef \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}($\ast$ \mbox{\hyperlink{unix_2_lz_find_8h_a7c5b3dedc8ff3441fd2a22f999a0ffc2}{Mf\+\_\+\+Get\+Matches\+\_\+\+Func}}) (void $\ast$object, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$distances)
+\item 
+typedef void($\ast$ \mbox{\hyperlink{unix_2_lz_find_8h_a5a3da36d294432b79f24af8c93e5108c}{Mf\+\_\+\+Skip\+\_\+\+Func}}) (void $\ast$object, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})
+\item 
+typedef struct \mbox{\hyperlink{struct___i_match_finder}{\+\_\+\+IMatch\+Finder}} \mbox{\hyperlink{unix_2_lz_find_8h_a1fdb5a3f7b54247786a70480d379c0ca}{IMatch\+Finder}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{unix_2_lz_find_8h_a73e1c37ad8c3c7825e18df404715717b}{Match\+Finder\+\_\+\+Need\+Move}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ \mbox{\hyperlink{unix_2_lz_find_8h_a5c1fa1397cda08989ae6c5762ab2ecfa}{Match\+Finder\+\_\+\+Get\+Pointer\+To\+Current\+Pos}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_a486cf924c1f3660f84871dfe21f22df5}{Match\+Finder\+\_\+\+Move\+Block}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_a2f38eecea3cc5a353ddf42bafcca7c08}{Match\+Finder\+\_\+\+Read\+If\+Required}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_a487aeb881073394dc1c0755d4790c5ea}{Match\+Finder\+\_\+\+Construct}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p)
+\item 
+int \mbox{\hyperlink{unix_2_lz_find_8h_a5de3367dfb322c1ed0d3ba032a852fcc}{Match\+Finder\+\_\+\+Create}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} history\+Size, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} keep\+Add\+Buffer\+Before, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} match\+Max\+Len, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} keep\+Add\+Buffer\+After, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_a7cd763a949f7a5f1bad61a9ebf0f7c30}{Match\+Finder\+\_\+\+Free}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_a76f1bca871fc8831a73b67b9e7a778e1}{Match\+Finder\+\_\+\+Normalize3}} (\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} sub\+Value, \mbox{\hyperlink{_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}} $\ast$items, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} num\+Items)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_af20649c50f586d14d31435d0611447cd}{Match\+Finder\+\_\+\+Reduce\+Offsets}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} sub\+Value)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$ \mbox{\hyperlink{unix_2_lz_find_8h_ac8fe199d7175b950335a5b29214c21da}{Get\+Matches\+Spec1}} (\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} len\+Limit, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} cur\+Match, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} pos, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$buffer, \mbox{\hyperlink{_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}} $\ast$son, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+cyclic\+Buffer\+Pos, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+cyclic\+Buffer\+Size, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \+\_\+cut\+Value, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$distances, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} max\+Len)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_a6f5f22fb5d40c695d917df8d89faa80f}{Match\+Finder\+\_\+\+Create\+VTable}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p, \mbox{\hyperlink{_lz_find_8h_a1fdb5a3f7b54247786a70480d379c0ca}{IMatch\+Finder}} $\ast$v\+Table)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_a1cd7e1df8b5871e0f6754458a4fbc055}{Match\+Finder\+\_\+\+Init}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{unix_2_lz_find_8h_a759d8f0f152dd883443177b0ea3fca05}{Bt3\+Zip\+\_\+\+Match\+Finder\+\_\+\+Get\+Matches}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$distances)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{unix_2_lz_find_8h_adaf58b7194a85571acdda03eee037c2b}{Hc3\+Zip\+\_\+\+Match\+Finder\+\_\+\+Get\+Matches}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$distances)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_a55f814378ff1a1ee4248b1383d5cde64}{Bt3\+Zip\+\_\+\+Match\+Finder\+\_\+\+Skip}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} num)
+\item 
+void \mbox{\hyperlink{unix_2_lz_find_8h_ac6c5818765d337d2c54f45421c4d1ba9}{Hc3\+Zip\+\_\+\+Match\+Finder\+\_\+\+Skip}} (\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} num)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{unix_2_lz_find_8h_a97b91c42487b471027f5d075fabe29a3}\label{unix_2_lz_find_8h_a97b91c42487b471027f5d075fabe29a3}} 
+\index{LzFind.h@{LzFind.h}!Inline\_MatchFinder\_GetIndexByte@{Inline\_MatchFinder\_GetIndexByte}}
+\index{Inline\_MatchFinder\_GetIndexByte@{Inline\_MatchFinder\_GetIndexByte}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Inline\_MatchFinder\_GetIndexByte}{Inline\_MatchFinder\_GetIndexByte}}
+{\footnotesize\ttfamily \#define Inline\+\_\+\+Match\+Finder\+\_\+\+Get\+Index\+Byte(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{index }\end{DoxyParamCaption})~((p)-\/$>$buffer\mbox{[}(\mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}})(index)\mbox{]})}
+
+
+
+Definition at line 54 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_addf9afa832b5a2ece968912043f955fd}\label{unix_2_lz_find_8h_addf9afa832b5a2ece968912043f955fd}} 
+\index{LzFind.h@{LzFind.h}!Inline\_MatchFinder\_GetNumAvailableBytes@{Inline\_MatchFinder\_GetNumAvailableBytes}}
+\index{Inline\_MatchFinder\_GetNumAvailableBytes@{Inline\_MatchFinder\_GetNumAvailableBytes}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Inline\_MatchFinder\_GetNumAvailableBytes}{Inline\_MatchFinder\_GetNumAvailableBytes}}
+{\footnotesize\ttfamily \#define Inline\+\_\+\+Match\+Finder\+\_\+\+Get\+Num\+Available\+Bytes(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~((p)-\/$>$stream\+Pos -\/ (p)-\/$>$pos)}
+
+
+
+Definition at line 56 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a786c1d27ce6a50a4d3a0dd59df8c9bd3}\label{unix_2_lz_find_8h_a786c1d27ce6a50a4d3a0dd59df8c9bd3}} 
+\index{LzFind.h@{LzFind.h}!Inline\_MatchFinder\_GetPointerToCurrentPos@{Inline\_MatchFinder\_GetPointerToCurrentPos}}
+\index{Inline\_MatchFinder\_GetPointerToCurrentPos@{Inline\_MatchFinder\_GetPointerToCurrentPos}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Inline\_MatchFinder\_GetPointerToCurrentPos}{Inline\_MatchFinder\_GetPointerToCurrentPos}}
+{\footnotesize\ttfamily \#define Inline\+\_\+\+Match\+Finder\+\_\+\+Get\+Pointer\+To\+Current\+Pos(\begin{DoxyParamCaption}\item[{}]{p }\end{DoxyParamCaption})~((p)-\/$>$buffer)}
+
+
+
+Definition at line 53 of file Lz\+Find.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{unix_2_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}\label{unix_2_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}} 
+\index{LzFind.h@{LzFind.h}!CLzRef@{CLzRef}}
+\index{CLzRef@{CLzRef}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{CLzRef}{CLzRef}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}}}
+
+
+
+Definition at line 13 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}\label{unix_2_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}} 
+\index{LzFind.h@{LzFind.h}!CMatchFinder@{CMatchFinder}}
+\index{CMatchFinder@{CMatchFinder}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{CMatchFinder}{CMatchFinder}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___c_match_finder}{\+\_\+\+CMatch\+Finder}} \mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}}}
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a1fdb5a3f7b54247786a70480d379c0ca}\label{unix_2_lz_find_8h_a1fdb5a3f7b54247786a70480d379c0ca}} 
+\index{LzFind.h@{LzFind.h}!IMatchFinder@{IMatchFinder}}
+\index{IMatchFinder@{IMatchFinder}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{IMatchFinder}{IMatchFinder}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___i_match_finder}{\+\_\+\+IMatch\+Finder}} \mbox{\hyperlink{_lz_find_8h_a1fdb5a3f7b54247786a70480d379c0ca}{IMatch\+Finder}}}
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a6e3880dd6d547cc5033fc751b84e4bbd}\label{unix_2_lz_find_8h_a6e3880dd6d547cc5033fc751b84e4bbd}} 
+\index{LzFind.h@{LzFind.h}!Mf\_GetIndexByte\_Func@{Mf\_GetIndexByte\_Func}}
+\index{Mf\_GetIndexByte\_Func@{Mf\_GetIndexByte\_Func}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Mf\_GetIndexByte\_Func}{Mf\_GetIndexByte\_Func}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}}($\ast$ Mf\+\_\+\+Get\+Index\+Byte\+\_\+\+Func) (void $\ast$object, \mbox{\hyperlink{bzlib__private_8h_adf1ef98b7070177c7c709b0b82276a07}{Int32}} index)}
+
+
+
+Definition at line 87 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a7c5b3dedc8ff3441fd2a22f999a0ffc2}\label{unix_2_lz_find_8h_a7c5b3dedc8ff3441fd2a22f999a0ffc2}} 
+\index{LzFind.h@{LzFind.h}!Mf\_GetMatches\_Func@{Mf\_GetMatches\_Func}}
+\index{Mf\_GetMatches\_Func@{Mf\_GetMatches\_Func}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Mf\_GetMatches\_Func}{Mf\_GetMatches\_Func}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}($\ast$ Mf\+\_\+\+Get\+Matches\+\_\+\+Func) (void $\ast$object, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$distances)}
+
+
+
+Definition at line 90 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a4cb203ee257d7dd9620d81e47e06c7ba}\label{unix_2_lz_find_8h_a4cb203ee257d7dd9620d81e47e06c7ba}} 
+\index{LzFind.h@{LzFind.h}!Mf\_GetNumAvailableBytes\_Func@{Mf\_GetNumAvailableBytes\_Func}}
+\index{Mf\_GetNumAvailableBytes\_Func@{Mf\_GetNumAvailableBytes\_Func}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Mf\_GetNumAvailableBytes\_Func}{Mf\_GetNumAvailableBytes\_Func}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}($\ast$ Mf\+\_\+\+Get\+Num\+Available\+Bytes\+\_\+\+Func) (void $\ast$object)}
+
+
+
+Definition at line 88 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a39a5a65f74a9c0754743079ec7a3709e}\label{unix_2_lz_find_8h_a39a5a65f74a9c0754743079ec7a3709e}} 
+\index{LzFind.h@{LzFind.h}!Mf\_GetPointerToCurrentPos\_Func@{Mf\_GetPointerToCurrentPos\_Func}}
+\index{Mf\_GetPointerToCurrentPos\_Func@{Mf\_GetPointerToCurrentPos\_Func}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Mf\_GetPointerToCurrentPos\_Func}{Mf\_GetPointerToCurrentPos\_Func}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}}$\ast$($\ast$ Mf\+\_\+\+Get\+Pointer\+To\+Current\+Pos\+\_\+\+Func) (void $\ast$object)}
+
+
+
+Definition at line 89 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a4928b3dd98c7d5821e951297059225ab}\label{unix_2_lz_find_8h_a4928b3dd98c7d5821e951297059225ab}} 
+\index{LzFind.h@{LzFind.h}!Mf\_Init\_Func@{Mf\_Init\_Func}}
+\index{Mf\_Init\_Func@{Mf\_Init\_Func}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Mf\_Init\_Func}{Mf\_Init\_Func}}
+{\footnotesize\ttfamily typedef void($\ast$ Mf\+\_\+\+Init\+\_\+\+Func) (void $\ast$object)}
+
+
+
+Definition at line 86 of file Lz\+Find.\+h.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a5a3da36d294432b79f24af8c93e5108c}\label{unix_2_lz_find_8h_a5a3da36d294432b79f24af8c93e5108c}} 
+\index{LzFind.h@{LzFind.h}!Mf\_Skip\_Func@{Mf\_Skip\_Func}}
+\index{Mf\_Skip\_Func@{Mf\_Skip\_Func}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Mf\_Skip\_Func}{Mf\_Skip\_Func}}
+{\footnotesize\ttfamily typedef void($\ast$ Mf\+\_\+\+Skip\+\_\+\+Func) (void $\ast$object, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}})}
+
+
+
+Definition at line 91 of file Lz\+Find.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_2_lz_find_8h_a759d8f0f152dd883443177b0ea3fca05}\label{unix_2_lz_find_8h_a759d8f0f152dd883443177b0ea3fca05}} 
+\index{LzFind.h@{LzFind.h}!Bt3Zip\_MatchFinder\_GetMatches@{Bt3Zip\_MatchFinder\_GetMatches}}
+\index{Bt3Zip\_MatchFinder\_GetMatches@{Bt3Zip\_MatchFinder\_GetMatches}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Bt3Zip\_MatchFinder\_GetMatches()}{Bt3Zip\_MatchFinder\_GetMatches()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} Bt3\+Zip\+\_\+\+Match\+Finder\+\_\+\+Get\+Matches (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$}]{distances }\end{DoxyParamCaption})}
+
+
+
+Definition at line 495 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a55f814378ff1a1ee4248b1383d5cde64}\label{unix_2_lz_find_8h_a55f814378ff1a1ee4248b1383d5cde64}} 
+\index{LzFind.h@{LzFind.h}!Bt3Zip\_MatchFinder\_Skip@{Bt3Zip\_MatchFinder\_Skip}}
+\index{Bt3Zip\_MatchFinder\_Skip@{Bt3Zip\_MatchFinder\_Skip}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Bt3Zip\_MatchFinder\_Skip()}{Bt3Zip\_MatchFinder\_Skip()}}
+{\footnotesize\ttfamily void Bt3\+Zip\+\_\+\+Match\+Finder\+\_\+\+Skip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{num }\end{DoxyParamCaption})}
+
+
+
+Definition at line 660 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_ac8fe199d7175b950335a5b29214c21da}\label{unix_2_lz_find_8h_ac8fe199d7175b950335a5b29214c21da}} 
+\index{LzFind.h@{LzFind.h}!GetMatchesSpec1@{GetMatchesSpec1}}
+\index{GetMatchesSpec1@{GetMatchesSpec1}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{GetMatchesSpec1()}{GetMatchesSpec1()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}$\ast$ Get\+Matches\+Spec1 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{len\+Limit,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{cur\+Match,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{pos,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{buffer,  }\item[{\mbox{\hyperlink{_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}} $\ast$}]{son,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{\+\_\+cyclic\+Buffer\+Pos,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{\+\_\+cyclic\+Buffer\+Size,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{\+\_\+cut\+Value,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$}]{distances,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{max\+Len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 353 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_adaf58b7194a85571acdda03eee037c2b}\label{unix_2_lz_find_8h_adaf58b7194a85571acdda03eee037c2b}} 
+\index{LzFind.h@{LzFind.h}!Hc3Zip\_MatchFinder\_GetMatches@{Hc3Zip\_MatchFinder\_GetMatches}}
+\index{Hc3Zip\_MatchFinder\_GetMatches@{Hc3Zip\_MatchFinder\_GetMatches}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Hc3Zip\_MatchFinder\_GetMatches()}{Hc3Zip\_MatchFinder\_GetMatches()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} Hc3\+Zip\+\_\+\+Match\+Finder\+\_\+\+Get\+Matches (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$}]{distances }\end{DoxyParamCaption})}
+
+
+
+Definition at line 635 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_ac6c5818765d337d2c54f45421c4d1ba9}\label{unix_2_lz_find_8h_ac6c5818765d337d2c54f45421c4d1ba9}} 
+\index{LzFind.h@{LzFind.h}!Hc3Zip\_MatchFinder\_Skip@{Hc3Zip\_MatchFinder\_Skip}}
+\index{Hc3Zip\_MatchFinder\_Skip@{Hc3Zip\_MatchFinder\_Skip}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{Hc3Zip\_MatchFinder\_Skip()}{Hc3Zip\_MatchFinder\_Skip()}}
+{\footnotesize\ttfamily void Hc3\+Zip\+\_\+\+Match\+Finder\+\_\+\+Skip (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{num }\end{DoxyParamCaption})}
+
+
+
+Definition at line 721 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a487aeb881073394dc1c0755d4790c5ea}\label{unix_2_lz_find_8h_a487aeb881073394dc1c0755d4790c5ea}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_Construct@{MatchFinder\_Construct}}
+\index{MatchFinder\_Construct@{MatchFinder\_Construct}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_Construct()}{MatchFinder\_Construct()}}
+{\footnotesize\ttfamily void Match\+Finder\+\_\+\+Construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 133 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a5de3367dfb322c1ed0d3ba032a852fcc}\label{unix_2_lz_find_8h_a5de3367dfb322c1ed0d3ba032a852fcc}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_Create@{MatchFinder\_Create}}
+\index{MatchFinder\_Create@{MatchFinder\_Create}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_Create()}{MatchFinder\_Create()}}
+{\footnotesize\ttfamily int Match\+Finder\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{history\+Size,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{keep\+Add\+Buffer\+Before,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{match\+Max\+Len,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{keep\+Add\+Buffer\+After,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 171 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a6f5f22fb5d40c695d917df8d89faa80f}\label{unix_2_lz_find_8h_a6f5f22fb5d40c695d917df8d89faa80f}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_CreateVTable@{MatchFinder\_CreateVTable}}
+\index{MatchFinder\_CreateVTable@{MatchFinder\_CreateVTable}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_CreateVTable()}{MatchFinder\_CreateVTable()}}
+{\footnotesize\ttfamily void Match\+Finder\+\_\+\+Create\+VTable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_lz_find_8h_a1fdb5a3f7b54247786a70480d379c0ca}{IMatch\+Finder}} $\ast$}]{v\+Table }\end{DoxyParamCaption})}
+
+
+
+Definition at line 735 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a7cd763a949f7a5f1bad61a9ebf0f7c30}\label{unix_2_lz_find_8h_a7cd763a949f7a5f1bad61a9ebf0f7c30}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_Free@{MatchFinder\_Free}}
+\index{MatchFinder\_Free@{MatchFinder\_Free}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_Free()}{MatchFinder\_Free()}}
+{\footnotesize\ttfamily void Match\+Finder\+\_\+\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 157 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a5c1fa1397cda08989ae6c5762ab2ecfa}\label{unix_2_lz_find_8h_a5c1fa1397cda08989ae6c5762ab2ecfa}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_GetPointerToCurrentPos@{MatchFinder\_GetPointerToCurrentPos}}
+\index{MatchFinder\_GetPointerToCurrentPos@{MatchFinder\_GetPointerToCurrentPos}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_GetPointerToCurrentPos()}{MatchFinder\_GetPointerToCurrentPos()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}}$\ast$ Match\+Finder\+\_\+\+Get\+Pointer\+To\+Current\+Pos (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a1cd7e1df8b5871e0f6754458a4fbc055}\label{unix_2_lz_find_8h_a1cd7e1df8b5871e0f6754458a4fbc055}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_Init@{MatchFinder\_Init}}
+\index{MatchFinder\_Init@{MatchFinder\_Init}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_Init()}{MatchFinder\_Init()}}
+{\footnotesize\ttfamily void Match\+Finder\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 271 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a486cf924c1f3660f84871dfe21f22df5}\label{unix_2_lz_find_8h_a486cf924c1f3660f84871dfe21f22df5}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_MoveBlock@{MatchFinder\_MoveBlock}}
+\index{MatchFinder\_MoveBlock@{MatchFinder\_MoveBlock}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_MoveBlock()}{MatchFinder\_MoveBlock()}}
+{\footnotesize\ttfamily void Match\+Finder\+\_\+\+Move\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 92 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a73e1c37ad8c3c7825e18df404715717b}\label{unix_2_lz_find_8h_a73e1c37ad8c3c7825e18df404715717b}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_NeedMove@{MatchFinder\_NeedMove}}
+\index{MatchFinder\_NeedMove@{MatchFinder\_NeedMove}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_NeedMove()}{MatchFinder\_NeedMove()}}
+{\footnotesize\ttfamily int Match\+Finder\+\_\+\+Need\+Move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 100 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a76f1bca871fc8831a73b67b9e7a778e1}\label{unix_2_lz_find_8h_a76f1bca871fc8831a73b67b9e7a778e1}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_Normalize3@{MatchFinder\_Normalize3}}
+\index{MatchFinder\_Normalize3@{MatchFinder\_Normalize3}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_Normalize3()}{MatchFinder\_Normalize3()}}
+{\footnotesize\ttfamily void Match\+Finder\+\_\+\+Normalize3 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{sub\+Value,  }\item[{\mbox{\hyperlink{_lz_find_8h_a28674301d47c2a817c77a2f5b8086cfc}{CLz\+Ref}} $\ast$}]{items,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{num\+Items }\end{DoxyParamCaption})}
+
+
+
+Definition at line 290 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_a2f38eecea3cc5a353ddf42bafcca7c08}\label{unix_2_lz_find_8h_a2f38eecea3cc5a353ddf42bafcca7c08}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_ReadIfRequired@{MatchFinder\_ReadIfRequired}}
+\index{MatchFinder\_ReadIfRequired@{MatchFinder\_ReadIfRequired}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_ReadIfRequired()}{MatchFinder\_ReadIfRequired()}}
+{\footnotesize\ttfamily void Match\+Finder\+\_\+\+Read\+If\+Required (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 108 of file Lz\+Find.\+c.
+
+\mbox{\Hypertarget{unix_2_lz_find_8h_af20649c50f586d14d31435d0611447cd}\label{unix_2_lz_find_8h_af20649c50f586d14d31435d0611447cd}} 
+\index{LzFind.h@{LzFind.h}!MatchFinder\_ReduceOffsets@{MatchFinder\_ReduceOffsets}}
+\index{MatchFinder\_ReduceOffsets@{MatchFinder\_ReduceOffsets}!LzFind.h@{LzFind.h}}
+\doxysubsubsection{\texorpdfstring{MatchFinder\_ReduceOffsets()}{MatchFinder\_ReduceOffsets()}}
+{\footnotesize\ttfamily void Match\+Finder\+\_\+\+Reduce\+Offsets (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{sub\+Value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file Lz\+Find.\+c.
+

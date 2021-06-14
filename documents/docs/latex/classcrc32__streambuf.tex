@@ -1,0 +1,216 @@
+\hypertarget{classcrc32__streambuf}{}\doxysection{crc32\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ Class Template Reference}
+\label{classcrc32__streambuf}\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+
+
+{\ttfamily \#include $<$crc32\+\_\+streambuf.\+h$>$}
+
+
+
+Inheritance diagram for crc32\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 0
+
+
+Collaboration diagram for crc32\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef std\+::basic\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \mbox{\hyperlink{classcrc32__streambuf_a5b44a7b16b2baff6be8d099827bda36a}{base\+\_\+type}}
+\item 
+typedef std\+::basic\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcrc32__streambuf_a3235419d8d9e0400ffd9478cc006944d}{traits\+\_\+type}} \mbox{\hyperlink{classcrc32__streambuf_a3235419d8d9e0400ffd9478cc006944d}{traits\+\_\+type}}
+\item 
+typedef base\+\_\+type\+::char\+\_\+type \mbox{\hyperlink{classcrc32__streambuf_a2cb122fd2310dcdddfbf988918c06f0a}{char\+\_\+type}}
+\item 
+typedef base\+\_\+type\+::int\+\_\+type \mbox{\hyperlink{classcrc32__streambuf_a94d72d92bc628f095a83fa0ffdff3f1b}{int\+\_\+type}}
+\item 
+typedef base\+\_\+type\+::pos\+\_\+type \mbox{\hyperlink{classcrc32__streambuf_a07c1d012eef14468f9bb5aab68f6e41a}{pos\+\_\+type}}
+\item 
+typedef base\+\_\+type\+::off\+\_\+type \mbox{\hyperlink{classcrc32__streambuf_a25c5277a3260d7f4664be48232cb3bde}{off\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrc32__streambuf_af8584c92c2f56f3fc714b21e8493d253}{crc32\+\_\+streambuf}} ()
+\item 
+\mbox{\hyperlink{classcrc32__streambuf_a1745b3463a9d39ebabf6e84bebe722d4}{crc32\+\_\+streambuf}} (std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&input)
+\item 
+void \mbox{\hyperlink{classcrc32__streambuf_a91cfb8778238e72a846c94616e3252a5}{init}} (std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&input)
+\item 
+bool \mbox{\hyperlink{classcrc32__streambuf_a438e994e70c57897fe24841633a4d108}{is\+\_\+init}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classcrc32__streambuf_a29233ab6e74b7973055f1e98a9833129}{get\+\_\+bytes\+\_\+read}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classcrc32__streambuf_ade29f23ff89f967f394053f3ef3f9e5a}{get\+\_\+crc32}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classcrc32__streambuf_a94d72d92bc628f095a83fa0ffdff3f1b}{int\+\_\+type}} \mbox{\hyperlink{classcrc32__streambuf_a409a823e1624bc44d42117b779434659}{underflow}} () override
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ELEM\+\_\+\+TYPE, typename TRAITS\+\_\+\+TYPE$>$\newline
+class crc32\+\_\+streambuf$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}
+
+
+
+Definition at line 9 of file crc32\+\_\+streambuf.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classcrc32__streambuf_a5b44a7b16b2baff6be8d099827bda36a}\label{classcrc32__streambuf_a5b44a7b16b2baff6be8d099827bda36a}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!base\_type@{base\_type}}
+\index{base\_type@{base\_type}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{base\_type}{base\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef std\+::basic\+\_\+streambuf$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$ \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcrc32__streambuf_a5b44a7b16b2baff6be8d099827bda36a}{base\+\_\+type}}}
+
+
+
+Definition at line 13 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_a2cb122fd2310dcdddfbf988918c06f0a}\label{classcrc32__streambuf_a2cb122fd2310dcdddfbf988918c06f0a}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!char\_type@{char\_type}}
+\index{char\_type@{char\_type}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{char\_type}{char\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef base\+\_\+type\+::char\+\_\+type \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcrc32__streambuf_a2cb122fd2310dcdddfbf988918c06f0a}{char\+\_\+type}}}
+
+
+
+Definition at line 16 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_a94d72d92bc628f095a83fa0ffdff3f1b}\label{classcrc32__streambuf_a94d72d92bc628f095a83fa0ffdff3f1b}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!int\_type@{int\_type}}
+\index{int\_type@{int\_type}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{int\_type}{int\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef base\+\_\+type\+::int\+\_\+type \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcrc32__streambuf_a94d72d92bc628f095a83fa0ffdff3f1b}{int\+\_\+type}}}
+
+
+
+Definition at line 17 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_a25c5277a3260d7f4664be48232cb3bde}\label{classcrc32__streambuf_a25c5277a3260d7f4664be48232cb3bde}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!off\_type@{off\_type}}
+\index{off\_type@{off\_type}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{off\_type}{off\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef base\+\_\+type\+::off\+\_\+type \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcrc32__streambuf_a25c5277a3260d7f4664be48232cb3bde}{off\+\_\+type}}}
+
+
+
+Definition at line 19 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_a07c1d012eef14468f9bb5aab68f6e41a}\label{classcrc32__streambuf_a07c1d012eef14468f9bb5aab68f6e41a}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!pos\_type@{pos\_type}}
+\index{pos\_type@{pos\_type}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{pos\_type}{pos\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef base\+\_\+type\+::pos\+\_\+type \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcrc32__streambuf_a07c1d012eef14468f9bb5aab68f6e41a}{pos\+\_\+type}}}
+
+
+
+Definition at line 18 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_a3235419d8d9e0400ffd9478cc006944d}\label{classcrc32__streambuf_a3235419d8d9e0400ffd9478cc006944d}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!traits\_type@{traits\_type}}
+\index{traits\_type@{traits\_type}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{traits\_type}{traits\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef std\+::basic\+\_\+streambuf$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$\+::\mbox{\hyperlink{classcrc32__streambuf_a3235419d8d9e0400ffd9478cc006944d}{traits\+\_\+type}} \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcrc32__streambuf_a3235419d8d9e0400ffd9478cc006944d}{traits\+\_\+type}}}
+
+
+
+Definition at line 14 of file crc32\+\_\+streambuf.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classcrc32__streambuf_af8584c92c2f56f3fc714b21e8493d253}\label{classcrc32__streambuf_af8584c92c2f56f3fc714b21e8493d253}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!crc32\_streambuf@{crc32\_streambuf}}
+\index{crc32\_streambuf@{crc32\_streambuf}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{crc32\_streambuf()}{crc32\_streambuf()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 21 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_a1745b3463a9d39ebabf6e84bebe722d4}\label{classcrc32__streambuf_a1745b3463a9d39ebabf6e84bebe722d4}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!crc32\_streambuf@{crc32\_streambuf}}
+\index{crc32\_streambuf@{crc32\_streambuf}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{crc32\_streambuf()}{crc32\_streambuf()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}} (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 31 of file crc32\+\_\+streambuf.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classcrc32__streambuf_a29233ab6e74b7973055f1e98a9833129}\label{classcrc32__streambuf_a29233ab6e74b7973055f1e98a9833129}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!get\_bytes\_read@{get\_bytes\_read}}
+\index{get\_bytes\_read@{get\_bytes\_read}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get\_bytes\_read()}{get\_bytes\_read()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+size\+\_\+t \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::get\+\_\+bytes\+\_\+read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 50 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_ade29f23ff89f967f394053f3ef3f9e5a}\label{classcrc32__streambuf_ade29f23ff89f967f394053f3ef3f9e5a}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!get\_crc32@{get\_crc32}}
+\index{get\_crc32@{get\_crc32}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get\_crc32()}{get\_crc32()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+uint32\+\_\+t \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::get\+\_\+crc32 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 55 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_a91cfb8778238e72a846c94616e3252a5}\label{classcrc32__streambuf_a91cfb8778238e72a846c94616e3252a5}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!init@{init}}
+\index{init@{init}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+void \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::init (\begin{DoxyParamCaption}\item[{std\+::basic\+\_\+istream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ \&}]{input }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 37 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_a438e994e70c57897fe24841633a4d108}\label{classcrc32__streambuf_a438e994e70c57897fe24841633a4d108}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!is\_init@{is\_init}}
+\index{is\_init@{is\_init}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{is\_init()}{is\_init()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+bool \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::is\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 45 of file crc32\+\_\+streambuf.\+h.
+
+\mbox{\Hypertarget{classcrc32__streambuf_a409a823e1624bc44d42117b779434659}\label{classcrc32__streambuf_a409a823e1624bc44d42117b779434659}} 
+\index{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!underflow@{underflow}}
+\index{underflow@{underflow}!crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{crc32\_streambuf$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{underflow()}{underflow()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classcrc32__streambuf_a94d72d92bc628f095a83fa0ffdff3f1b}{int\+\_\+type}} \mbox{\hyperlink{classcrc32__streambuf}{crc32\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::underflow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 61 of file crc32\+\_\+streambuf.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/streams/streambuffs/\mbox{\hyperlink{crc32__streambuf_8h}{crc32\+\_\+streambuf.\+h}}\end{DoxyCompactItemize}

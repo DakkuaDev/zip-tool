@@ -1,0 +1,479 @@
+\hypertarget{inflate_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/zlib/inflate.c File Reference}
+\label{inflate_8c}\index{source/ZipLib/extlibs/zlib/inflate.c@{source/ZipLib/extlibs/zlib/inflate.c}}
+{\ttfamily \#include \char`\"{}zutil.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inftrees.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inflate.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inffast.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inffixed.\+h\char`\"{}}\newline
+Include dependency graph for inflate.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{inflate_8c_a5eea7ffd1fff4fbea834bcb292d1bea2}{UPDATE}}(check,  buf,  len)~    (state-\/$>$flags ? \mbox{\hyperlink{crc32_8c_af5a1c7b05170540ef3bb084e6cf903c4}{crc32}}(check, buf, len) \+: \mbox{\hyperlink{adler32_8c_a86607743a4b76949b24cf5cc2f01a40d}{adler32}}(check, buf, len))
+\item 
+\#define \mbox{\hyperlink{inflate_8c_a2bdde00539008d4c1be6f9d29f0e4bd0}{CRC2}}(check,  word)
+\item 
+\#define \mbox{\hyperlink{inflate_8c_a57c65b3c2ffdfe37b805b749a2c5fdbe}{CRC4}}(check,  word)
+\item 
+\#define \mbox{\hyperlink{inflate_8c_a03dae42536f97b08183620a910f9b204}{LOAD}}()
+\item 
+\#define \mbox{\hyperlink{inflate_8c_af3b6db2fe8b54bb9edf88c2002e4bf34}{RESTORE}}()
+\item 
+\#define \mbox{\hyperlink{inflate_8c_a3ffcbdd4824c339e07ea67dd412636fd}{INITBITS}}()
+\item 
+\#define \mbox{\hyperlink{inflate_8c_add54302c739466e0e4a204fa1015694b}{PULLBYTE}}()
+\item 
+\#define \mbox{\hyperlink{inflate_8c_ab3731a4aa4bb04481dc95069bbfb7156}{NEEDBITS}}(n)
+\item 
+\#define \mbox{\hyperlink{inflate_8c_a5967693540f086cfa357f68978bf0be7}{BITS}}(n)~    ((unsigned)hold \& ((1U $<$$<$ (n)) -\/ 1))
+\item 
+\#define \mbox{\hyperlink{inflate_8c_a65312e68bdf918e606b0deaf69793523}{DROPBITS}}(n)
+\item 
+\#define \mbox{\hyperlink{inflate_8c_aa1e478b107abaccc428d6266ea5ca595}{BYTEBITS}}()
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{inflate_8c_a0ae5d8d0e34dc13d0106c23e633daed5}{fixedtables}} \mbox{\hyperlink{inflate_8c_a81647fb7bce7042b0d69f3d60e6527ac}{OF}} ((struct \mbox{\hyperlink{structinflate__state}{inflate\+\_\+state}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$state))
+\item 
+int \mbox{\hyperlink{inflate_8c_ad04ea5f2aa61e0b5afdee4545ad57b9b}{updatewindow}} \mbox{\hyperlink{inflate_8c_a35f4cb38086a3b175ac2eab1714ff041}{OF}} ((\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, unsigned out))
+\item 
+unsigned \mbox{\hyperlink{inflate_8c_ae24434e1c2b112f647b0adb17fb8d2f9}{syncsearch}} \mbox{\hyperlink{inflate_8c_aba9db58c9f2cfa24c936de32d99fab5a}{OF}} ((unsigned \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$have, unsigned char \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$buf, unsigned len))
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a999219816122f73a0e1af7191ad91146}{inflate\+Reset\+Keep}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_adb02c2100f9179f4075b220395b1553c}{inflate\+Reset}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_af5a145c15cfb580ef24ce3fc4d292a02}{inflate\+Reset2}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int window\+Bits)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_aa87e80daa481d931b2d4d414769d432a}{inflate\+Init2\+\_\+}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int window\+Bits, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_aed01e9084fe1ed4d8808bbcf525dfe63}{inflate\+Init\+\_\+}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$version, int stream\+\_\+size)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a67fe72a5001252fee87757fa6a215d61}{inflate\+Prime}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int bits, int value)
+\item 
+void \mbox{\hyperlink{inflate_8c_a0ae5d8d0e34dc13d0106c23e633daed5}{fixedtables}} (struct \mbox{\hyperlink{structinflate__state}{inflate\+\_\+state}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$state)
+\item 
+int \mbox{\hyperlink{inflate_8c_ad04ea5f2aa61e0b5afdee4545ad57b9b}{updatewindow}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, unsigned out)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a9a49cf8b6ce882dea33505b0ac84ecef}{inflate}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int flush)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_aed3136bc8afc3ef309b731b4ad724534}{inflate\+End}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a0e7de2db7d65e00a99bea217653b152e}{inflate\+Set\+Dictionary}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$dictionary, \mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}} dict\+Length)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a7a24a91914357dc95ee94bb30fe2ba57}{inflate\+Get\+Header}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, \mbox{\hyperlink{zlib_8h_a40e9dcc294796d99b25e98fb06477fc8}{gz\+\_\+headerp}} head)
+\item 
+unsigned \mbox{\hyperlink{inflate_8c_ae24434e1c2b112f647b0adb17fb8d2f9}{syncsearch}} (unsigned \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$have, unsigned char \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$buf, unsigned len)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a91828dbb3f427115719a892872b414a4}{inflate\+Sync}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a4499ff5c57a6da7b10a834e82c3e5ab8}{inflate\+Sync\+Point}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_aed5ce4086853dcd68479b936c516ac09}{inflate\+Copy}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} dest, \mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} source)
+\item 
+int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a8975366f04bd9e4adefd64f6ad6ce362}{inflate\+Undermine}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, int subvert)
+\item 
+long \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} \mbox{\hyperlink{inflate_8c_a2e07af688276b7ee6ace646d7ce8a4af}{inflate\+Mark}} (\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{inflate_8c_a5967693540f086cfa357f68978bf0be7}\label{inflate_8c_a5967693540f086cfa357f68978bf0be7}} 
+\index{inflate.c@{inflate.c}!BITS@{BITS}}
+\index{BITS@{BITS}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{BITS}{BITS}}
+{\footnotesize\ttfamily \#define BITS(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})~    ((unsigned)hold \& ((1U $<$$<$ (n)) -\/ 1))}
+
+
+
+Definition at line 505 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_aa1e478b107abaccc428d6266ea5ca595}\label{inflate_8c_aa1e478b107abaccc428d6266ea5ca595}} 
+\index{inflate.c@{inflate.c}!BYTEBITS@{BYTEBITS}}
+\index{BYTEBITS@{BYTEBITS}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{BYTEBITS}{BYTEBITS}}
+{\footnotesize\ttfamily \#define BYTEBITS(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        hold >>= bits \& 7; \(\backslash\)}
+\DoxyCodeLine{        bits -\/= bits \& 7; \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 516 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a2bdde00539008d4c1be6f9d29f0e4bd0}\label{inflate_8c_a2bdde00539008d4c1be6f9d29f0e4bd0}} 
+\index{inflate.c@{inflate.c}!CRC2@{CRC2}}
+\index{CRC2@{CRC2}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{CRC2}{CRC2}}
+{\footnotesize\ttfamily \#define CRC2(\begin{DoxyParamCaption}\item[{}]{check,  }\item[{}]{word }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        hbuf[0] = (\textcolor{keywordtype}{unsigned} char)(word); \(\backslash\)}
+\DoxyCodeLine{        hbuf[1] = (\textcolor{keywordtype}{unsigned} char)((word) >> 8); \(\backslash\)}
+\DoxyCodeLine{        check = \mbox{\hyperlink{crc32_8c_af5a1c7b05170540ef3bb084e6cf903c4}{crc32}}(check, hbuf, 2); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 440 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a57c65b3c2ffdfe37b805b749a2c5fdbe}\label{inflate_8c_a57c65b3c2ffdfe37b805b749a2c5fdbe}} 
+\index{inflate.c@{inflate.c}!CRC4@{CRC4}}
+\index{CRC4@{CRC4}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{CRC4}{CRC4}}
+{\footnotesize\ttfamily \#define CRC4(\begin{DoxyParamCaption}\item[{}]{check,  }\item[{}]{word }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        hbuf[0] = (\textcolor{keywordtype}{unsigned} char)(word); \(\backslash\)}
+\DoxyCodeLine{        hbuf[1] = (\textcolor{keywordtype}{unsigned} char)((word) >> 8); \(\backslash\)}
+\DoxyCodeLine{        hbuf[2] = (\textcolor{keywordtype}{unsigned} char)((word) >> 16); \(\backslash\)}
+\DoxyCodeLine{        hbuf[3] = (\textcolor{keywordtype}{unsigned} char)((word) >> 24); \(\backslash\)}
+\DoxyCodeLine{        check = \mbox{\hyperlink{crc32_8c_af5a1c7b05170540ef3bb084e6cf903c4}{crc32}}(check, hbuf, 4); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 447 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a65312e68bdf918e606b0deaf69793523}\label{inflate_8c_a65312e68bdf918e606b0deaf69793523}} 
+\index{inflate.c@{inflate.c}!DROPBITS@{DROPBITS}}
+\index{DROPBITS@{DROPBITS}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{DROPBITS}{DROPBITS}}
+{\footnotesize\ttfamily \#define DROPBITS(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        hold >>= (n); \(\backslash\)}
+\DoxyCodeLine{        bits -\/= (unsigned)(n); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 509 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a3ffcbdd4824c339e07ea67dd412636fd}\label{inflate_8c_a3ffcbdd4824c339e07ea67dd412636fd}} 
+\index{inflate.c@{inflate.c}!INITBITS@{INITBITS}}
+\index{INITBITS@{INITBITS}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{INITBITS}{INITBITS}}
+{\footnotesize\ttfamily \#define INITBITS(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        hold = 0; \(\backslash\)}
+\DoxyCodeLine{        bits = 0; \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 480 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a03dae42536f97b08183620a910f9b204}\label{inflate_8c_a03dae42536f97b08183620a910f9b204}} 
+\index{inflate.c@{inflate.c}!LOAD@{LOAD}}
+\index{LOAD@{LOAD}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{LOAD}{LOAD}}
+{\footnotesize\ttfamily \#define LOAD(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        put = strm-\/>next\_out; \(\backslash\)}
+\DoxyCodeLine{        left = strm-\/>avail\_out; \(\backslash\)}
+\DoxyCodeLine{        next = strm-\/>next\_in; \(\backslash\)}
+\DoxyCodeLine{        have = strm-\/>avail\_in; \(\backslash\)}
+\DoxyCodeLine{        hold = state-\/>hold; \(\backslash\)}
+\DoxyCodeLine{        bits = state-\/>bits; \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 458 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_ab3731a4aa4bb04481dc95069bbfb7156}\label{inflate_8c_ab3731a4aa4bb04481dc95069bbfb7156}} 
+\index{inflate.c@{inflate.c}!NEEDBITS@{NEEDBITS}}
+\index{NEEDBITS@{NEEDBITS}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{NEEDBITS}{NEEDBITS}}
+{\footnotesize\ttfamily \#define NEEDBITS(\begin{DoxyParamCaption}\item[{}]{n }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        while (bits < (\textcolor{keywordtype}{unsigned})(n)) \(\backslash\)}
+\DoxyCodeLine{            PULLBYTE(); \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 498 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_add54302c739466e0e4a204fa1015694b}\label{inflate_8c_add54302c739466e0e4a204fa1015694b}} 
+\index{inflate.c@{inflate.c}!PULLBYTE@{PULLBYTE}}
+\index{PULLBYTE@{PULLBYTE}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{PULLBYTE}{PULLBYTE}}
+{\footnotesize\ttfamily \#define PULLBYTE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        if (have == 0) goto inf\_leave; \(\backslash\)}
+\DoxyCodeLine{        have-\/-\/; \(\backslash\)}
+\DoxyCodeLine{        hold += (\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long})(*next++) << bits; \(\backslash\)}
+\DoxyCodeLine{        bits += 8; \(\backslash\)}
+\DoxyCodeLine{    \} while (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 488 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_af3b6db2fe8b54bb9edf88c2002e4bf34}\label{inflate_8c_af3b6db2fe8b54bb9edf88c2002e4bf34}} 
+\index{inflate.c@{inflate.c}!RESTORE@{RESTORE}}
+\index{RESTORE@{RESTORE}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{RESTORE}{RESTORE}}
+{\footnotesize\ttfamily \#define RESTORE(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    \textcolor{keywordflow}{do} \{ \(\backslash\)}
+\DoxyCodeLine{        strm-\/>next\_out = put; \(\backslash\)}
+\DoxyCodeLine{        strm-\/>avail\_out = left; \(\backslash\)}
+\DoxyCodeLine{        strm-\/>next\_in = next; \(\backslash\)}
+\DoxyCodeLine{        strm-\/>avail\_in = have; \(\backslash\)}
+\DoxyCodeLine{        state-\/>hold = hold; \(\backslash\)}
+\DoxyCodeLine{        state-\/>bits = bits; \(\backslash\)}
+\DoxyCodeLine{    \} \textcolor{keywordflow}{while} (0)}
+
+\end{DoxyCode}
+
+
+Definition at line 469 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a5eea7ffd1fff4fbea834bcb292d1bea2}\label{inflate_8c_a5eea7ffd1fff4fbea834bcb292d1bea2}} 
+\index{inflate.c@{inflate.c}!UPDATE@{UPDATE}}
+\index{UPDATE@{UPDATE}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{UPDATE}{UPDATE}}
+{\footnotesize\ttfamily \#define UPDATE(\begin{DoxyParamCaption}\item[{}]{check,  }\item[{}]{buf,  }\item[{}]{len }\end{DoxyParamCaption})~    (state-\/$>$flags ? \mbox{\hyperlink{crc32_8c_af5a1c7b05170540ef3bb084e6cf903c4}{crc32}}(check, buf, len) \+: \mbox{\hyperlink{adler32_8c_a86607743a4b76949b24cf5cc2f01a40d}{adler32}}(check, buf, len))}
+
+
+
+Definition at line 432 of file inflate.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{inflate_8c_a0ae5d8d0e34dc13d0106c23e633daed5}\label{inflate_8c_a0ae5d8d0e34dc13d0106c23e633daed5}} 
+\index{inflate.c@{inflate.c}!fixedtables@{fixedtables}}
+\index{fixedtables@{fixedtables}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{fixedtables()}{fixedtables()}}
+{\footnotesize\ttfamily void fixedtables (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinflate__state}{inflate\+\_\+state}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{state }\end{DoxyParamCaption})}
+
+
+
+Definition at line 260 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a9a49cf8b6ce882dea33505b0ac84ecef}\label{inflate_8c_a9a49cf8b6ce882dea33505b0ac84ecef}} 
+\index{inflate.c@{inflate.c}!inflate@{inflate}}
+\index{inflate@{inflate}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflate()}{inflate()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{int}]{flush }\end{DoxyParamCaption})}
+
+
+
+Definition at line 604 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_aed5ce4086853dcd68479b936c516ac09}\label{inflate_8c_aed5ce4086853dcd68479b936c516ac09}} 
+\index{inflate.c@{inflate.c}!inflateCopy@{inflateCopy}}
+\index{inflateCopy@{inflateCopy}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateCopy()}{inflateCopy()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Copy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{dest,  }\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{source }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1422 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_aed3136bc8afc3ef309b731b4ad724534}\label{inflate_8c_aed3136bc8afc3ef309b731b4ad724534}} 
+\index{inflate.c@{inflate.c}!inflateEnd@{inflateEnd}}
+\index{inflateEnd@{inflateEnd}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateEnd()}{inflateEnd()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+End (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1253 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a7a24a91914357dc95ee94bb30fe2ba57}\label{inflate_8c_a7a24a91914357dc95ee94bb30fe2ba57}} 
+\index{inflate.c@{inflate.c}!inflateGetHeader@{inflateGetHeader}}
+\index{inflateGetHeader@{inflateGetHeader}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateGetHeader()}{inflateGetHeader()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Get\+Header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{\mbox{\hyperlink{zlib_8h_a40e9dcc294796d99b25e98fb06477fc8}{gz\+\_\+headerp}}}]{head }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1310 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_aa87e80daa481d931b2d4d414769d432a}\label{inflate_8c_aa87e80daa481d931b2d4d414769d432a}} 
+\index{inflate.c@{inflate.c}!inflateInit2\_@{inflateInit2\_}}
+\index{inflateInit2\_@{inflateInit2\_}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateInit2\_()}{inflateInit2\_()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Init2\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{int}]{window\+Bits,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$}]{version,  }\item[{int}]{stream\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 179 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_aed01e9084fe1ed4d8808bbcf525dfe63}\label{inflate_8c_aed01e9084fe1ed4d8808bbcf525dfe63}} 
+\index{inflate.c@{inflate.c}!inflateInit\_@{inflateInit\_}}
+\index{inflateInit\_@{inflateInit\_}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateInit\_()}{inflateInit\_()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Init\+\_\+ (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char $\ast$}]{version,  }\item[{int}]{stream\+\_\+size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 221 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a2e07af688276b7ee6ace646d7ce8a4af}\label{inflate_8c_a2e07af688276b7ee6ace646d7ce8a4af}} 
+\index{inflate.c@{inflate.c}!inflateMark@{inflateMark}}
+\index{inflateMark@{inflateMark}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateMark()}{inflateMark()}}
+{\footnotesize\ttfamily long \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Mark (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1486 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a67fe72a5001252fee87757fa6a215d61}\label{inflate_8c_a67fe72a5001252fee87757fa6a215d61}} 
+\index{inflate.c@{inflate.c}!inflatePrime@{inflatePrime}}
+\index{inflatePrime@{inflatePrime}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflatePrime()}{inflatePrime()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Prime (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{int}]{bits,  }\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 229 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_adb02c2100f9179f4075b220395b1553c}\label{inflate_8c_adb02c2100f9179f4075b220395b1553c}} 
+\index{inflate.c@{inflate.c}!inflateReset@{inflateReset}}
+\index{inflateReset@{inflateReset}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateReset()}{inflateReset()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 128 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_af5a145c15cfb580ef24ce3fc4d292a02}\label{inflate_8c_af5a145c15cfb580ef24ce3fc4d292a02}} 
+\index{inflate.c@{inflate.c}!inflateReset2@{inflateReset2}}
+\index{inflateReset2@{inflateReset2}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateReset2()}{inflateReset2()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Reset2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{int}]{window\+Bits }\end{DoxyParamCaption})}
+
+
+
+Definition at line 141 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a999219816122f73a0e1af7191ad91146}\label{inflate_8c_a999219816122f73a0e1af7191ad91146}} 
+\index{inflate.c@{inflate.c}!inflateResetKeep@{inflateResetKeep}}
+\index{inflateResetKeep@{inflateResetKeep}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateResetKeep()}{inflateResetKeep()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Reset\+Keep (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 103 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a0e7de2db7d65e00a99bea217653b152e}\label{inflate_8c_a0e7de2db7d65e00a99bea217653b152e}} 
+\index{inflate.c@{inflate.c}!inflateSetDictionary@{inflateSetDictionary}}
+\index{inflateSetDictionary@{inflateSetDictionary}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateSetDictionary()}{inflateSetDictionary()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Set\+Dictionary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{zconf_8h_aeb722a888064be47e12d05f692e0f407}{Bytef}} $\ast$}]{dictionary,  }\item[{\mbox{\hyperlink{zconf_8h_a87d141052bcd5ec8a80812a565c70369}{u\+Int}}}]{dict\+Length }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1267 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a91828dbb3f427115719a892872b414a4}\label{inflate_8c_a91828dbb3f427115719a892872b414a4}} 
+\index{inflate.c@{inflate.c}!inflateSync@{inflateSync}}
+\index{inflateSync@{inflateSync}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateSync()}{inflateSync()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Sync (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1361 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a4499ff5c57a6da7b10a834e82c3e5ab8}\label{inflate_8c_a4499ff5c57a6da7b10a834e82c3e5ab8}} 
+\index{inflate.c@{inflate.c}!inflateSyncPoint@{inflateSyncPoint}}
+\index{inflateSyncPoint@{inflateSyncPoint}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateSyncPoint()}{inflateSyncPoint()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Sync\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1412 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a8975366f04bd9e4adefd64f6ad6ce362}\label{inflate_8c_a8975366f04bd9e4adefd64f6ad6ce362}} 
+\index{inflate.c@{inflate.c}!inflateUndermine@{inflateUndermine}}
+\index{inflateUndermine@{inflateUndermine}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{inflateUndermine()}{inflateUndermine()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zconf_8h_a181415878f03b95a7094309d824a14b6}{ZEXPORT}} inflate\+Undermine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{int}]{subvert }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1469 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_a81647fb7bce7042b0d69f3d60e6527ac}\label{inflate_8c_a81647fb7bce7042b0d69f3d60e6527ac}} 
+\index{inflate.c@{inflate.c}!OF@{OF}}
+\index{OF@{OF}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{inflate_8c_a0ae5d8d0e34dc13d0106c23e633daed5}{fixedtables}} OF (\begin{DoxyParamCaption}\item[{(struct \mbox{\hyperlink{structinflate__state}{inflate\+\_\+state}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$state)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{inflate_8c_aba9db58c9f2cfa24c936de32d99fab5a}\label{inflate_8c_aba9db58c9f2cfa24c936de32d99fab5a}} 
+\index{inflate.c@{inflate.c}!OF@{OF}}
+\index{OF@{OF}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily unsigned \mbox{\hyperlink{inflate_8c_ae24434e1c2b112f647b0adb17fb8d2f9}{syncsearch}} OF (\begin{DoxyParamCaption}\item[{(unsigned \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$have, unsigned char \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$buf, unsigned len)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{inflate_8c_a35f4cb38086a3b175ac2eab1714ff041}\label{inflate_8c_a35f4cb38086a3b175ac2eab1714ff041}} 
+\index{inflate.c@{inflate.c}!OF@{OF}}
+\index{OF@{OF}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{OF()}{OF()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{inflate_8c_ad04ea5f2aa61e0b5afdee4545ad57b9b}{updatewindow}} OF (\begin{DoxyParamCaption}\item[{(\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}} strm, unsigned out)}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{inflate_8c_ae24434e1c2b112f647b0adb17fb8d2f9}\label{inflate_8c_ae24434e1c2b112f647b0adb17fb8d2f9}} 
+\index{inflate.c@{inflate.c}!syncsearch@{syncsearch}}
+\index{syncsearch@{syncsearch}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{syncsearch()}{syncsearch()}}
+{\footnotesize\ttfamily unsigned syncsearch (\begin{DoxyParamCaption}\item[{unsigned \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{have,  }\item[{unsigned char \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{buf,  }\item[{unsigned}]{len }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1338 of file inflate.\+c.
+
+\mbox{\Hypertarget{inflate_8c_ad04ea5f2aa61e0b5afdee4545ad57b9b}\label{inflate_8c_ad04ea5f2aa61e0b5afdee4545ad57b9b}} 
+\index{inflate.c@{inflate.c}!updatewindow@{updatewindow}}
+\index{updatewindow@{updatewindow}!inflate.c@{inflate.c}}
+\doxysubsubsection{\texorpdfstring{updatewindow()}{updatewindow()}}
+{\footnotesize\ttfamily int updatewindow (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zlib_8h_a6ede25c84d3c9f8632305866acffb1d6}{z\+\_\+streamp}}}]{strm,  }\item[{unsigned}]{out }\end{DoxyParamCaption})}
+
+
+
+Definition at line 378 of file inflate.\+c.
+

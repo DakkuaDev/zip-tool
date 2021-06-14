@@ -1,0 +1,77 @@
+\hypertarget{_lzma86_enc_8h}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Lzma\+Util/\+Lzma86\+Enc.h File Reference}
+\label{_lzma86_enc_8h}\index{source/ZipLib/extlibs/lzma/unix/LzmaUtil/Lzma86Enc.h@{source/ZipLib/extlibs/lzma/unix/LzmaUtil/Lzma86Enc.h}}
+{\ttfamily \#include \char`\"{}../\+Types.\+h\char`\"{}}\newline
+Include dependency graph for Lzma86\+Enc.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654}{ESz\+Filter\+Mode}} \{ \newline
+\mbox{\hyperlink{_lzma86_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4f2a1a213c4d86ded6d024fe417f7294}{SZ\+\_\+\+FILTER\+\_\+\+NO}}
+, \mbox{\hyperlink{_lzma86_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4cc1cc8f0dc95b754ef1e6f3db65696e}{SZ\+\_\+\+FILTER\+\_\+\+YES}}
+, \mbox{\hyperlink{_lzma86_8h_a0cf4a4a5a702e1b65a788b6e6536c654a16d0ebfdbbfecb89c13defe5618101b2}{SZ\+\_\+\+FILTER\+\_\+\+AUTO}}
+, \mbox{\hyperlink{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4f2a1a213c4d86ded6d024fe417f7294}{SZ\+\_\+\+FILTER\+\_\+\+NO}}
+, \newline
+\mbox{\hyperlink{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4cc1cc8f0dc95b754ef1e6f3db65696e}{SZ\+\_\+\+FILTER\+\_\+\+YES}}
+, \mbox{\hyperlink{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a16d0ebfdbbfecb89c13defe5618101b2}{SZ\+\_\+\+FILTER\+\_\+\+AUTO}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{_lzma86_enc_8h_afff5ac9414142257c42c3fe484eb162a}{Lzma86\+\_\+\+Encode}} (\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, size\+\_\+t $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, size\+\_\+t src\+Len, int level, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} dict\+Size, int filter\+Mode)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654}\label{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654}} 
+\index{Lzma86Enc.h@{Lzma86Enc.h}!ESzFilterMode@{ESzFilterMode}}
+\index{ESzFilterMode@{ESzFilterMode}!Lzma86Enc.h@{Lzma86Enc.h}}
+\doxysubsubsection{\texorpdfstring{ESzFilterMode}{ESzFilterMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_lzma86_8h_a0cf4a4a5a702e1b65a788b6e6536c654}{ESz\+Filter\+Mode}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SZ\_FILTER\_NO@{SZ\_FILTER\_NO}!Lzma86Enc.h@{Lzma86Enc.h}}\index{Lzma86Enc.h@{Lzma86Enc.h}!SZ\_FILTER\_NO@{SZ\_FILTER\_NO}}}\mbox{\Hypertarget{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4f2a1a213c4d86ded6d024fe417f7294}\label{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4f2a1a213c4d86ded6d024fe417f7294}} 
+SZ\+\_\+\+FILTER\+\_\+\+NO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SZ\_FILTER\_YES@{SZ\_FILTER\_YES}!Lzma86Enc.h@{Lzma86Enc.h}}\index{Lzma86Enc.h@{Lzma86Enc.h}!SZ\_FILTER\_YES@{SZ\_FILTER\_YES}}}\mbox{\Hypertarget{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4cc1cc8f0dc95b754ef1e6f3db65696e}\label{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4cc1cc8f0dc95b754ef1e6f3db65696e}} 
+SZ\+\_\+\+FILTER\+\_\+\+YES&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SZ\_FILTER\_AUTO@{SZ\_FILTER\_AUTO}!Lzma86Enc.h@{Lzma86Enc.h}}\index{Lzma86Enc.h@{Lzma86Enc.h}!SZ\_FILTER\_AUTO@{SZ\_FILTER\_AUTO}}}\mbox{\Hypertarget{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a16d0ebfdbbfecb89c13defe5618101b2}\label{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a16d0ebfdbbfecb89c13defe5618101b2}} 
+SZ\+\_\+\+FILTER\+\_\+\+AUTO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SZ\_FILTER\_NO@{SZ\_FILTER\_NO}!Lzma86Enc.h@{Lzma86Enc.h}}\index{Lzma86Enc.h@{Lzma86Enc.h}!SZ\_FILTER\_NO@{SZ\_FILTER\_NO}}}\mbox{\Hypertarget{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4f2a1a213c4d86ded6d024fe417f7294}\label{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4f2a1a213c4d86ded6d024fe417f7294}} 
+SZ\+\_\+\+FILTER\+\_\+\+NO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SZ\_FILTER\_YES@{SZ\_FILTER\_YES}!Lzma86Enc.h@{Lzma86Enc.h}}\index{Lzma86Enc.h@{Lzma86Enc.h}!SZ\_FILTER\_YES@{SZ\_FILTER\_YES}}}\mbox{\Hypertarget{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4cc1cc8f0dc95b754ef1e6f3db65696e}\label{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a4cc1cc8f0dc95b754ef1e6f3db65696e}} 
+SZ\+\_\+\+FILTER\+\_\+\+YES&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SZ\_FILTER\_AUTO@{SZ\_FILTER\_AUTO}!Lzma86Enc.h@{Lzma86Enc.h}}\index{Lzma86Enc.h@{Lzma86Enc.h}!SZ\_FILTER\_AUTO@{SZ\_FILTER\_AUTO}}}\mbox{\Hypertarget{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a16d0ebfdbbfecb89c13defe5618101b2}\label{_lzma86_enc_8h_a0cf4a4a5a702e1b65a788b6e6536c654a16d0ebfdbbfecb89c13defe5618101b2}} 
+SZ\+\_\+\+FILTER\+\_\+\+AUTO&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 64 of file Lzma86\+Enc.\+h.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_lzma86_enc_8h_afff5ac9414142257c42c3fe484eb162a}\label{_lzma86_enc_8h_afff5ac9414142257c42c3fe484eb162a}} 
+\index{Lzma86Enc.h@{Lzma86Enc.h}!Lzma86\_Encode@{Lzma86\_Encode}}
+\index{Lzma86\_Encode@{Lzma86\_Encode}!Lzma86Enc.h@{Lzma86Enc.h}}
+\doxysubsubsection{\texorpdfstring{Lzma86\_Encode()}{Lzma86\_Encode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma86\+\_\+\+Encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{size\+\_\+t $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{size\+\_\+t}]{src\+Len,  }\item[{int}]{level,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{dict\+Size,  }\item[{int}]{filter\+Mode }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file Lzma86\+Enc.\+c.
+

@@ -1,0 +1,52 @@
+\hypertarget{_sort_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Sort.c File Reference}
+\label{_sort_8c}\index{source/ZipLib/extlibs/lzma/unix/Sort.c@{source/ZipLib/extlibs/lzma/unix/Sort.c}}
+{\ttfamily \#include \char`\"{}Sort.\+h\char`\"{}}\newline
+Include dependency graph for Sort.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_sort_8c_ab0b3a306754360aa2bd47e5033dadb05}{Heap\+Sort\+Down}}(p,  k,  size,  temp)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_sort_8c_ac3001e0bd6e942d6487a4591dda27d8c}{Heap\+Sort}} (\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_sort_8c_ab0b3a306754360aa2bd47e5033dadb05}\label{_sort_8c_ab0b3a306754360aa2bd47e5033dadb05}} 
+\index{Sort.c@{Sort.c}!HeapSortDown@{HeapSortDown}}
+\index{HeapSortDown@{HeapSortDown}!Sort.c@{Sort.c}}
+\doxysubsubsection{\texorpdfstring{HeapSortDown}{HeapSortDown}}
+{\footnotesize\ttfamily \#define Heap\+Sort\+Down(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{k,  }\item[{}]{size,  }\item[{}]{temp }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \{ \textcolor{keywordflow}{for} (;;) \{ \(\backslash\)}
+\DoxyCodeLine{    UInt32 s = (k << 1); \(\backslash\)}
+\DoxyCodeLine{    if (s > size) \textcolor{keywordflow}{break}; \(\backslash\)}
+\DoxyCodeLine{    if (s < size \&\& p[s + 1] > p[s]) s++; \(\backslash\)}
+\DoxyCodeLine{    if (temp >= p[s]) \textcolor{keywordflow}{break}; \(\backslash\)}
+\DoxyCodeLine{    p[k] = p[s]; k = s; \(\backslash\)}
+\DoxyCodeLine{  \} p[k] = temp; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 6 of file Sort.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_sort_8c_ac3001e0bd6e942d6487a4591dda27d8c}\label{_sort_8c_ac3001e0bd6e942d6487a4591dda27d8c}} 
+\index{Sort.c@{Sort.c}!HeapSort@{HeapSort}}
+\index{HeapSort@{HeapSort}!Sort.c@{Sort.c}}
+\doxysubsubsection{\texorpdfstring{HeapSort()}{HeapSort()}}
+{\footnotesize\ttfamily void Heap\+Sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 15 of file Sort.\+c.
+

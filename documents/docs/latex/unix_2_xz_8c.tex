@@ -1,0 +1,128 @@
+\hypertarget{unix_2_xz_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Xz.c File Reference}
+\label{unix_2_xz_8c}\index{source/ZipLib/extlibs/lzma/unix/Xz.c@{source/ZipLib/extlibs/lzma/unix/Xz.c}}
+{\ttfamily \#include \char`\"{}7z\+Crc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Cpu\+Arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Xz.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Xz\+Crc64.\+h\char`\"{}}\newline
+Include dependency graph for Xz.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{unix_2_xz_8c_a82bec69fc5317a21a2a821ca587de5e9}{Xz\+\_\+\+Write\+Var\+Int}} (\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$buf, \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} v)
+\item 
+void \mbox{\hyperlink{unix_2_xz_8c_a94bc15630a59db93623fcb7bff626c36}{Xz\+\_\+\+Construct}} (\mbox{\hyperlink{struct_c_xz_stream}{CXz\+Stream}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_xz_8c_a15c2a6257a3f063e17499157dc50f834}{Xz\+\_\+\+Free}} (\mbox{\hyperlink{struct_c_xz_stream}{CXz\+Stream}} $\ast$p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+unsigned \mbox{\hyperlink{unix_2_xz_8c_a1454874fa3c0e2eae39d59bb80ffc500}{Xz\+Flags\+\_\+\+Get\+Check\+Size}} (\mbox{\hyperlink{unix_2_xz_8h_a80f5d0cba1813b2cf72d2360dc42eb75}{CXz\+Stream\+Flags}} \mbox{\hyperlink{unix_2_sha256_8c_a357394e0f6f88c8a57bd893ab28dc8f8}{f}})
+\item 
+void \mbox{\hyperlink{unix_2_xz_8c_a8e80642c8ece967f9d1a905ec99b906a}{Xz\+Check\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_xz_check}{CXz\+Check}} $\ast$p, int mode)
+\item 
+void \mbox{\hyperlink{unix_2_xz_8c_aaeaaff420caa3321ed5f1ad2a29ed733}{Xz\+Check\+\_\+\+Update}} (\mbox{\hyperlink{struct_c_xz_check}{CXz\+Check}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} void $\ast$data, size\+\_\+t size)
+\item 
+int \mbox{\hyperlink{unix_2_xz_8c_a29a5c268920b966559071c6af05d22ba}{Xz\+Check\+\_\+\+Final}} (\mbox{\hyperlink{struct_c_xz_check}{CXz\+Check}} $\ast$p, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$digest)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} \mbox{\hyperlink{unix_2_xz_8c_ab2bfe8fcefbe27319a16a3ea4d34f361}{XZ\+\_\+\+SIG}} \mbox{[}\mbox{\hyperlink{_xz_8h_ab20d6dacd2a4c5a6b162c4abe5f0a3ae}{XZ\+\_\+\+SIG\+\_\+\+SIZE}}\mbox{]} = \{ 0x\+FD, \textquotesingle{}7\textquotesingle{}, \textquotesingle{}z\textquotesingle{}, \textquotesingle{}X\textquotesingle{}, \textquotesingle{}Z\textquotesingle{}, 0 \}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} \mbox{\hyperlink{unix_2_xz_8c_a694bbd7108d937c06e4d78ce6b27ad2b}{XZ\+\_\+\+FOOTER\+\_\+\+SIG}} \mbox{[}\mbox{\hyperlink{_xz_8h_a42fb8eeb508db9c5469404a64cbcdd6d}{XZ\+\_\+\+FOOTER\+\_\+\+SIG\+\_\+\+SIZE}}\mbox{]} = \{ \textquotesingle{}Y\textquotesingle{}, \textquotesingle{}Z\textquotesingle{} \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_2_xz_8c_a94bc15630a59db93623fcb7bff626c36}\label{unix_2_xz_8c_a94bc15630a59db93623fcb7bff626c36}} 
+\index{Xz.c@{Xz.c}!Xz\_Construct@{Xz\_Construct}}
+\index{Xz\_Construct@{Xz\_Construct}!Xz.c@{Xz.c}}
+\doxysubsubsection{\texorpdfstring{Xz\_Construct()}{Xz\_Construct()}}
+{\footnotesize\ttfamily void Xz\+\_\+\+Construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_stream}{CXz\+Stream}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 25 of file Xz.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_8c_a15c2a6257a3f063e17499157dc50f834}\label{unix_2_xz_8c_a15c2a6257a3f063e17499157dc50f834}} 
+\index{Xz.c@{Xz.c}!Xz\_Free@{Xz\_Free}}
+\index{Xz\_Free@{Xz\_Free}!Xz.c@{Xz.c}}
+\doxysubsubsection{\texorpdfstring{Xz\_Free()}{Xz\_Free()}}
+{\footnotesize\ttfamily void Xz\+\_\+\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_stream}{CXz\+Stream}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file Xz.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_8c_a82bec69fc5317a21a2a821ca587de5e9}\label{unix_2_xz_8c_a82bec69fc5317a21a2a821ca587de5e9}} 
+\index{Xz.c@{Xz.c}!Xz\_WriteVarInt@{Xz\_WriteVarInt}}
+\index{Xz\_WriteVarInt@{Xz\_WriteVarInt}!Xz.c@{Xz.c}}
+\doxysubsubsection{\texorpdfstring{Xz\_WriteVarInt()}{Xz\_WriteVarInt()}}
+{\footnotesize\ttfamily unsigned Xz\+\_\+\+Write\+Var\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{buf,  }\item[{\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}}}]{v }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file Xz.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_8c_a29a5c268920b966559071c6af05d22ba}\label{unix_2_xz_8c_a29a5c268920b966559071c6af05d22ba}} 
+\index{Xz.c@{Xz.c}!XzCheck\_Final@{XzCheck\_Final}}
+\index{XzCheck\_Final@{XzCheck\_Final}!Xz.c@{Xz.c}}
+\doxysubsubsection{\texorpdfstring{XzCheck\_Final()}{XzCheck\_Final()}}
+{\footnotesize\ttfamily int Xz\+Check\+\_\+\+Final (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_check}{CXz\+Check}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{digest }\end{DoxyParamCaption})}
+
+
+
+Definition at line 66 of file Xz.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_8c_a8e80642c8ece967f9d1a905ec99b906a}\label{unix_2_xz_8c_a8e80642c8ece967f9d1a905ec99b906a}} 
+\index{Xz.c@{Xz.c}!XzCheck\_Init@{XzCheck\_Init}}
+\index{XzCheck\_Init@{XzCheck\_Init}!Xz.c@{Xz.c}}
+\doxysubsubsection{\texorpdfstring{XzCheck\_Init()}{XzCheck\_Init()}}
+{\footnotesize\ttfamily void Xz\+Check\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_check}{CXz\+Check}} $\ast$}]{p,  }\item[{int}]{mode }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file Xz.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_8c_aaeaaff420caa3321ed5f1ad2a29ed733}\label{unix_2_xz_8c_aaeaaff420caa3321ed5f1ad2a29ed733}} 
+\index{Xz.c@{Xz.c}!XzCheck\_Update@{XzCheck\_Update}}
+\index{XzCheck\_Update@{XzCheck\_Update}!Xz.c@{Xz.c}}
+\doxysubsubsection{\texorpdfstring{XzCheck\_Update()}{XzCheck\_Update()}}
+{\footnotesize\ttfamily void Xz\+Check\+\_\+\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_check}{CXz\+Check}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} void $\ast$}]{data,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 56 of file Xz.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_8c_a1454874fa3c0e2eae39d59bb80ffc500}\label{unix_2_xz_8c_a1454874fa3c0e2eae39d59bb80ffc500}} 
+\index{Xz.c@{Xz.c}!XzFlags\_GetCheckSize@{XzFlags\_GetCheckSize}}
+\index{XzFlags\_GetCheckSize@{XzFlags\_GetCheckSize}!Xz.c@{Xz.c}}
+\doxysubsubsection{\texorpdfstring{XzFlags\_GetCheckSize()}{XzFlags\_GetCheckSize()}}
+{\footnotesize\ttfamily unsigned Xz\+Flags\+\_\+\+Get\+Check\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unix_2_xz_8h_a80f5d0cba1813b2cf72d2360dc42eb75}{CXz\+Stream\+Flags}}}]{f }\end{DoxyParamCaption})}
+
+
+
+Definition at line 39 of file Xz.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{unix_2_xz_8c_a694bbd7108d937c06e4d78ce6b27ad2b}\label{unix_2_xz_8c_a694bbd7108d937c06e4d78ce6b27ad2b}} 
+\index{Xz.c@{Xz.c}!XZ\_FOOTER\_SIG@{XZ\_FOOTER\_SIG}}
+\index{XZ\_FOOTER\_SIG@{XZ\_FOOTER\_SIG}!Xz.c@{Xz.c}}
+\doxysubsubsection{\texorpdfstring{XZ\_FOOTER\_SIG}{XZ\_FOOTER\_SIG}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} XZ\+\_\+\+FOOTER\+\_\+\+SIG\mbox{[}\mbox{\hyperlink{_xz_8h_a42fb8eeb508db9c5469404a64cbcdd6d}{XZ\+\_\+\+FOOTER\+\_\+\+SIG\+\_\+\+SIZE}}\mbox{]} = \{ \textquotesingle{}Y\textquotesingle{}, \textquotesingle{}Z\textquotesingle{} \}}
+
+
+
+Definition at line 10 of file Xz.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_8c_ab2bfe8fcefbe27319a16a3ea4d34f361}\label{unix_2_xz_8c_ab2bfe8fcefbe27319a16a3ea4d34f361}} 
+\index{Xz.c@{Xz.c}!XZ\_SIG@{XZ\_SIG}}
+\index{XZ\_SIG@{XZ\_SIG}!Xz.c@{Xz.c}}
+\doxysubsubsection{\texorpdfstring{XZ\_SIG}{XZ\_SIG}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} XZ\+\_\+\+SIG\mbox{[}\mbox{\hyperlink{_xz_8h_ab20d6dacd2a4c5a6b162c4abe5f0a3ae}{XZ\+\_\+\+SIG\+\_\+\+SIZE}}\mbox{]} = \{ 0x\+FD, \textquotesingle{}7\textquotesingle{}, \textquotesingle{}z\textquotesingle{}, \textquotesingle{}X\textquotesingle{}, \textquotesingle{}Z\textquotesingle{}, 0 \}}
+
+
+
+Definition at line 9 of file Xz.\+c.
+

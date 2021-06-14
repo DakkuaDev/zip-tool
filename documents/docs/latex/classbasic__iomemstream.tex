@@ -1,0 +1,67 @@
+\hypertarget{classbasic__iomemstream}{}\doxysection{basic\+\_\+iomemstream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ Class Template Reference}
+\label{classbasic__iomemstream}\index{basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+
+
+Basic input/output memory stream. Combines imemstream \& omemstream. Creates input/output stream around the memory buffer. Supports seeking. Returns EOF when stream seeks behind the size of buffer. Sets badbit if the stream wants to write behind the buffer size.  
+
+
+
+
+{\ttfamily \#include $<$memstream.\+h$>$}
+
+
+
+Inheritance diagram for basic\+\_\+iomemstream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 0
+
+
+Collaboration diagram for basic\+\_\+iomemstream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbasic__iomemstream_a1c50b4fcd47704d155d75d1d6397dba6}{basic\+\_\+iomemstream}} (ELEM\+\_\+\+TYPE $\ast$buffer, size\+\_\+t length)
+\item 
+{\footnotesize template$<$size\+\_\+t N$>$ }\\\mbox{\hyperlink{classbasic__iomemstream_a2fb749370778b071ac36b9b12189348a}{basic\+\_\+iomemstream}} (ELEM\+\_\+\+TYPE(\&buffer)\mbox{[}N\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ELEM\+\_\+\+TYPE, typename TRAITS\+\_\+\+TYPE$>$\newline
+class basic\+\_\+iomemstream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}
+
+Basic input/output memory stream. Combines imemstream \& omemstream. Creates input/output stream around the memory buffer. Supports seeking. Returns EOF when stream seeks behind the size of buffer. Sets badbit if the stream wants to write behind the buffer size. 
+
+Definition at line 74 of file memstream.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbasic__iomemstream_a1c50b4fcd47704d155d75d1d6397dba6}\label{classbasic__iomemstream_a1c50b4fcd47704d155d75d1d6397dba6}} 
+\index{basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!basic\_iomemstream@{basic\_iomemstream}}
+\index{basic\_iomemstream@{basic\_iomemstream}!basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_iomemstream()}{basic\_iomemstream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classbasic__iomemstream}{basic\+\_\+iomemstream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__iomemstream}{basic\+\_\+iomemstream}} (\begin{DoxyParamCaption}\item[{ELEM\+\_\+\+TYPE $\ast$}]{buffer,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 78 of file memstream.\+h.
+
+\mbox{\Hypertarget{classbasic__iomemstream_a2fb749370778b071ac36b9b12189348a}\label{classbasic__iomemstream_a2fb749370778b071ac36b9b12189348a}} 
+\index{basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!basic\_iomemstream@{basic\_iomemstream}}
+\index{basic\_iomemstream@{basic\_iomemstream}!basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_iomemstream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_iomemstream()}{basic\_iomemstream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+template$<$size\+\_\+t N$>$ \\
+\mbox{\hyperlink{classbasic__iomemstream}{basic\+\_\+iomemstream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__iomemstream}{basic\+\_\+iomemstream}} (\begin{DoxyParamCaption}\item[{ELEM\+\_\+\+TYPE(\&)}]{buffer\mbox{[}\+N\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 86 of file memstream.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/streams/\mbox{\hyperlink{memstream_8h}{memstream.\+h}}\end{DoxyCompactItemize}

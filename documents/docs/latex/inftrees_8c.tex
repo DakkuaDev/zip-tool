@@ -1,0 +1,66 @@
+\hypertarget{inftrees_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/zlib/inftrees.c File Reference}
+\label{inftrees_8c}\index{source/ZipLib/extlibs/zlib/inftrees.c@{source/ZipLib/extlibs/zlib/inftrees.c}}
+{\ttfamily \#include \char`\"{}zutil.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}inftrees.\+h\char`\"{}}\newline
+Include dependency graph for inftrees.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{inftrees_8c_a6fcad31e688110d9d61bdcc99b2a59d7}{MAXBITS}}~15
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} \mbox{\hyperlink{inftrees_8c_a773e6164ab27c6f3ea71144dfc487c7f}{inflate\+\_\+table}} (\mbox{\hyperlink{inftrees_8h_a0f33f5acf9079ff1f054fa235df2443b}{codetype}} type, unsigned short \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$lens, unsigned codes, \mbox{\hyperlink{structcode}{code}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$\mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$table, unsigned \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$bits, unsigned short \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$work)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char \mbox{\hyperlink{inftrees_8c_a01f427c9f5e8158ec52760a1c896e8be}{inflate\+\_\+copyright}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{inftrees_8c_a6fcad31e688110d9d61bdcc99b2a59d7}\label{inftrees_8c_a6fcad31e688110d9d61bdcc99b2a59d7}} 
+\index{inftrees.c@{inftrees.c}!MAXBITS@{MAXBITS}}
+\index{MAXBITS@{MAXBITS}!inftrees.c@{inftrees.c}}
+\doxysubsubsection{\texorpdfstring{MAXBITS}{MAXBITS}}
+{\footnotesize\ttfamily \#define MAXBITS~15}
+
+
+
+Definition at line 9 of file inftrees.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{inftrees_8c_a773e6164ab27c6f3ea71144dfc487c7f}\label{inftrees_8c_a773e6164ab27c6f3ea71144dfc487c7f}} 
+\index{inftrees.c@{inftrees.c}!inflate\_table@{inflate\_table}}
+\index{inflate\_table@{inflate\_table}!inftrees.c@{inftrees.c}}
+\doxysubsubsection{\texorpdfstring{inflate\_table()}{inflate\_table()}}
+{\footnotesize\ttfamily int \mbox{\hyperlink{zutil_8h_a59d4d7ef4d73655c759211ec33a5d44f}{ZLIB\+\_\+\+INTERNAL}} inflate\+\_\+table (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{inftrees_8h_a0f33f5acf9079ff1f054fa235df2443b}{codetype}}}]{type,  }\item[{unsigned short \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{lens,  }\item[{unsigned}]{codes,  }\item[{\mbox{\hyperlink{structcode}{code}} \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$ \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{table,  }\item[{unsigned \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{bits,  }\item[{unsigned short \mbox{\hyperlink{zconf_8h_aef060b3456fdcc093a7210a762d5f2ed}{FAR}} $\ast$}]{work }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file inftrees.\+c.
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{inftrees_8c_a01f427c9f5e8158ec52760a1c896e8be}\label{inftrees_8c_a01f427c9f5e8158ec52760a1c896e8be}} 
+\index{inftrees.c@{inftrees.c}!inflate\_copyright@{inflate\_copyright}}
+\index{inflate\_copyright@{inflate\_copyright}!inftrees.c@{inftrees.c}}
+\doxysubsubsection{\texorpdfstring{inflate\_copyright}{inflate\_copyright}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} char inflate\+\_\+copyright\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{   \textcolor{stringliteral}{"{} inflate 1.2.7 Copyright 1995-\/2012 Mark Adler "{}}}
+
+\end{DoxyCode}
+
+
+Definition at line 11 of file inftrees.\+c.
+

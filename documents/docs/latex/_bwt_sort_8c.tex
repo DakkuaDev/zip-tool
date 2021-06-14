@@ -1,0 +1,181 @@
+\hypertarget{_bwt_sort_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Bwt\+Sort.c File Reference}
+\label{_bwt_sort_8c}\index{source/ZipLib/extlibs/lzma/unix/BwtSort.c@{source/ZipLib/extlibs/lzma/unix/BwtSort.c}}
+{\ttfamily \#include \char`\"{}Bwt\+Sort.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Sort.\+h\char`\"{}}\newline
+Include dependency graph for Bwt\+Sort.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_ab5ce7bd7fe4169a9f709815f03f9870b}{NO\+\_\+\+INLINE}}~\mbox{\hyperlink{unix_2_types_8h_a110c47f40f3e25a133e3e7254be002d2}{MY\+\_\+\+FAST\+\_\+\+CALL}}
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_a40083da9b909a4eebc798b080402c0fd}{k\+Num\+Hash\+Bytes}}~2
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_ac935866e7f8a737716b670849b3f2d50}{k\+Num\+Hash\+Values}}~(1 $<$$<$ (\mbox{\hyperlink{_bwt_sort_8c_a40083da9b909a4eebc798b080402c0fd}{k\+Num\+Hash\+Bytes}} $\ast$ 8))
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_ae155651362172afa71c0d64128109cee}{k\+Num\+Ref\+Bits\+Max}}~12
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_ab89daf8eea3b9cbb6a0db848cb650acc}{BS\+\_\+\+TEMP\+\_\+\+SIZE}}~\mbox{\hyperlink{_bwt_sort_8c_ac935866e7f8a737716b670849b3f2d50}{k\+Num\+Hash\+Values}}
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_a1bdec62fc38e2bd90c96a41d31354efb}{k\+Num\+Bits\+Max}}~20
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_a6c6cbc01f0142284c13b945c17c5a32d}{k\+Index\+Mask}}~((1 $<$$<$ \mbox{\hyperlink{_bwt_sort_8c_a1bdec62fc38e2bd90c96a41d31354efb}{k\+Num\+Bits\+Max}}) -\/ 1)
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_aa7cc52754eafffea2720f1704526f0d2}{k\+Num\+Extra\+Bits}}~(32 -\/ \mbox{\hyperlink{_bwt_sort_8c_a1bdec62fc38e2bd90c96a41d31354efb}{k\+Num\+Bits\+Max}})
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_a465a03fa346ad567a81b2ce01ce0f2c6}{k\+Num\+Extra0\+Bits}}~(\mbox{\hyperlink{_bwt_sort_8c_aa7cc52754eafffea2720f1704526f0d2}{k\+Num\+Extra\+Bits}} -\/ 2)
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_ac50091fa810782ad43b6f1845f9bac08}{k\+Num\+Extra0\+Mask}}~((1 $<$$<$ \mbox{\hyperlink{_bwt_sort_8c_a465a03fa346ad567a81b2ce01ce0f2c6}{k\+Num\+Extra0\+Bits}}) -\/ 1)
+\item 
+\#define \mbox{\hyperlink{_bwt_sort_8c_a772636d80711aa42baac35cfa496d9f8}{Set\+Finished\+Group\+Size}}(p,  size)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{_bwt_sort_8c_ab5ce7bd7fe4169a9f709815f03f9870b}{NO\+\_\+\+INLINE}} \mbox{\hyperlink{_bwt_sort_8c_aed75e34e3f2dae4be67d5526f1bb9cd5}{Sort\+Group}} (\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} Block\+Size, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} Num\+Sorted\+Bytes, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} group\+Offset, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} group\+Size, int Num\+Ref\+Bits, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$Indices, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} left, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} range)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{_bwt_sort_8c_ac1e5249b7a0638d72541b5e8f0b937a3}{Block\+Sort}} (\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$Indices, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$data, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} block\+Size)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_bwt_sort_8c_ab89daf8eea3b9cbb6a0db848cb650acc}\label{_bwt_sort_8c_ab89daf8eea3b9cbb6a0db848cb650acc}} 
+\index{BwtSort.c@{BwtSort.c}!BS\_TEMP\_SIZE@{BS\_TEMP\_SIZE}}
+\index{BS\_TEMP\_SIZE@{BS\_TEMP\_SIZE}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{BS\_TEMP\_SIZE}{BS\_TEMP\_SIZE}}
+{\footnotesize\ttfamily \#define BS\+\_\+\+TEMP\+\_\+\+SIZE~\mbox{\hyperlink{_bwt_sort_8c_ac935866e7f8a737716b670849b3f2d50}{k\+Num\+Hash\+Values}}}
+
+
+
+Definition at line 20 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_a6c6cbc01f0142284c13b945c17c5a32d}\label{_bwt_sort_8c_a6c6cbc01f0142284c13b945c17c5a32d}} 
+\index{BwtSort.c@{BwtSort.c}!kIndexMask@{kIndexMask}}
+\index{kIndexMask@{kIndexMask}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{kIndexMask}{kIndexMask}}
+{\footnotesize\ttfamily \#define k\+Index\+Mask~((1 $<$$<$ \mbox{\hyperlink{_bwt_sort_8c_a1bdec62fc38e2bd90c96a41d31354efb}{k\+Num\+Bits\+Max}}) -\/ 1)}
+
+
+
+Definition at line 33 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_a1bdec62fc38e2bd90c96a41d31354efb}\label{_bwt_sort_8c_a1bdec62fc38e2bd90c96a41d31354efb}} 
+\index{BwtSort.c@{BwtSort.c}!kNumBitsMax@{kNumBitsMax}}
+\index{kNumBitsMax@{kNumBitsMax}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{kNumBitsMax}{kNumBitsMax}}
+{\footnotesize\ttfamily \#define k\+Num\+Bits\+Max~20}
+
+
+
+Definition at line 32 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_a465a03fa346ad567a81b2ce01ce0f2c6}\label{_bwt_sort_8c_a465a03fa346ad567a81b2ce01ce0f2c6}} 
+\index{BwtSort.c@{BwtSort.c}!kNumExtra0Bits@{kNumExtra0Bits}}
+\index{kNumExtra0Bits@{kNumExtra0Bits}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{kNumExtra0Bits}{kNumExtra0Bits}}
+{\footnotesize\ttfamily \#define k\+Num\+Extra0\+Bits~(\mbox{\hyperlink{_bwt_sort_8c_aa7cc52754eafffea2720f1704526f0d2}{k\+Num\+Extra\+Bits}} -\/ 2)}
+
+
+
+Definition at line 35 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_ac50091fa810782ad43b6f1845f9bac08}\label{_bwt_sort_8c_ac50091fa810782ad43b6f1845f9bac08}} 
+\index{BwtSort.c@{BwtSort.c}!kNumExtra0Mask@{kNumExtra0Mask}}
+\index{kNumExtra0Mask@{kNumExtra0Mask}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{kNumExtra0Mask}{kNumExtra0Mask}}
+{\footnotesize\ttfamily \#define k\+Num\+Extra0\+Mask~((1 $<$$<$ \mbox{\hyperlink{_bwt_sort_8c_a465a03fa346ad567a81b2ce01ce0f2c6}{k\+Num\+Extra0\+Bits}}) -\/ 1)}
+
+
+
+Definition at line 36 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_aa7cc52754eafffea2720f1704526f0d2}\label{_bwt_sort_8c_aa7cc52754eafffea2720f1704526f0d2}} 
+\index{BwtSort.c@{BwtSort.c}!kNumExtraBits@{kNumExtraBits}}
+\index{kNumExtraBits@{kNumExtraBits}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{kNumExtraBits}{kNumExtraBits}}
+{\footnotesize\ttfamily \#define k\+Num\+Extra\+Bits~(32 -\/ \mbox{\hyperlink{_bwt_sort_8c_a1bdec62fc38e2bd90c96a41d31354efb}{k\+Num\+Bits\+Max}})}
+
+
+
+Definition at line 34 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_a40083da9b909a4eebc798b080402c0fd}\label{_bwt_sort_8c_a40083da9b909a4eebc798b080402c0fd}} 
+\index{BwtSort.c@{BwtSort.c}!kNumHashBytes@{kNumHashBytes}}
+\index{kNumHashBytes@{kNumHashBytes}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{kNumHashBytes}{kNumHashBytes}}
+{\footnotesize\ttfamily \#define k\+Num\+Hash\+Bytes~2}
+
+
+
+Definition at line 14 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_ac935866e7f8a737716b670849b3f2d50}\label{_bwt_sort_8c_ac935866e7f8a737716b670849b3f2d50}} 
+\index{BwtSort.c@{BwtSort.c}!kNumHashValues@{kNumHashValues}}
+\index{kNumHashValues@{kNumHashValues}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{kNumHashValues}{kNumHashValues}}
+{\footnotesize\ttfamily \#define k\+Num\+Hash\+Values~(1 $<$$<$ (\mbox{\hyperlink{_bwt_sort_8c_a40083da9b909a4eebc798b080402c0fd}{k\+Num\+Hash\+Bytes}} $\ast$ 8))}
+
+
+
+Definition at line 15 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_ae155651362172afa71c0d64128109cee}\label{_bwt_sort_8c_ae155651362172afa71c0d64128109cee}} 
+\index{BwtSort.c@{BwtSort.c}!kNumRefBitsMax@{kNumRefBitsMax}}
+\index{kNumRefBitsMax@{kNumRefBitsMax}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{kNumRefBitsMax}{kNumRefBitsMax}}
+{\footnotesize\ttfamily \#define k\+Num\+Ref\+Bits\+Max~12}
+
+
+
+Definition at line 18 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_ab5ce7bd7fe4169a9f709815f03f9870b}\label{_bwt_sort_8c_ab5ce7bd7fe4169a9f709815f03f9870b}} 
+\index{BwtSort.c@{BwtSort.c}!NO\_INLINE@{NO\_INLINE}}
+\index{NO\_INLINE@{NO\_INLINE}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{NO\_INLINE}{NO\_INLINE}}
+{\footnotesize\ttfamily \#define NO\+\_\+\+INLINE~\mbox{\hyperlink{unix_2_types_8h_a110c47f40f3e25a133e3e7254be002d2}{MY\+\_\+\+FAST\+\_\+\+CALL}}}
+
+
+
+Definition at line 11 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_a772636d80711aa42baac35cfa496d9f8}\label{_bwt_sort_8c_a772636d80711aa42baac35cfa496d9f8}} 
+\index{BwtSort.c@{BwtSort.c}!SetFinishedGroupSize@{SetFinishedGroupSize}}
+\index{SetFinishedGroupSize@{SetFinishedGroupSize}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{SetFinishedGroupSize}{SetFinishedGroupSize}}
+{\footnotesize\ttfamily \#define Set\+Finished\+Group\+Size(\begin{DoxyParamCaption}\item[{}]{p,  }\item[{}]{size }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \{  *(p) |= ((((size) -\/ 1) \& \mbox{\hyperlink{_bwt_sort_8c_ac50091fa810782ad43b6f1845f9bac08}{kNumExtra0Mask}}) << \mbox{\hyperlink{_bwt_sort_8c_a1bdec62fc38e2bd90c96a41d31354efb}{kNumBitsMax}}); \(\backslash\)}
+\DoxyCodeLine{    if ((size) > (1 << \mbox{\hyperlink{_bwt_sort_8c_a465a03fa346ad567a81b2ce01ce0f2c6}{kNumExtra0Bits}})) \{ \(\backslash\)}
+\DoxyCodeLine{    *(p) |= 0x40000000;  *((p) + 1) |= ((((size) -\/ 1)>> \mbox{\hyperlink{_bwt_sort_8c_a465a03fa346ad567a81b2ce01ce0f2c6}{kNumExtra0Bits}}) << \mbox{\hyperlink{_bwt_sort_8c_a1bdec62fc38e2bd90c96a41d31354efb}{kNumBitsMax}}); \} \} \(\backslash\)}
+
+\end{DoxyCode}
+
+
+Definition at line 38 of file Bwt\+Sort.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_bwt_sort_8c_ac1e5249b7a0638d72541b5e8f0b937a3}\label{_bwt_sort_8c_ac1e5249b7a0638d72541b5e8f0b937a3}} 
+\index{BwtSort.c@{BwtSort.c}!BlockSort@{BlockSort}}
+\index{BlockSort@{BlockSort}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{BlockSort()}{BlockSort()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} Block\+Sort (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$}]{Indices,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{block\+Size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 352 of file Bwt\+Sort.\+c.
+
+\mbox{\Hypertarget{_bwt_sort_8c_aed75e34e3f2dae4be67d5526f1bb9cd5}\label{_bwt_sort_8c_aed75e34e3f2dae4be67d5526f1bb9cd5}} 
+\index{BwtSort.c@{BwtSort.c}!SortGroup@{SortGroup}}
+\index{SortGroup@{SortGroup}!BwtSort.c@{BwtSort.c}}
+\doxysubsubsection{\texorpdfstring{SortGroup()}{SortGroup()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{_bwt_sort_8c_ab5ce7bd7fe4169a9f709815f03f9870b}{NO\+\_\+\+INLINE}} Sort\+Group (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{Block\+Size,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{Num\+Sorted\+Bytes,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{group\+Offset,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{group\+Size,  }\item[{int}]{Num\+Ref\+Bits,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$}]{Indices,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{left,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{range }\end{DoxyParamCaption})}
+
+
+
+Definition at line 63 of file Bwt\+Sort.\+c.
+

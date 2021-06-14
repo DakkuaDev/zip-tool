@@ -1,0 +1,144 @@
+\hypertarget{unix_27z_stream_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/7z\+Stream.c File Reference}
+\label{unix_27z_stream_8c}\index{source/ZipLib/extlibs/lzma/unix/7zStream.c@{source/ZipLib/extlibs/lzma/unix/7zStream.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Types.\+h\char`\"{}}\newline
+Include dependency graph for 7z\+Stream.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_27z_stream_8c_acd8f096a8c4ba6c59f1f5357f5b446f7}{Seq\+In\+Stream\+\_\+\+Read2}} (\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$stream, void $\ast$buf, size\+\_\+t size, \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} error\+Type)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_27z_stream_8c_a35a015a7aef8a42df451730645548a84}{Seq\+In\+Stream\+\_\+\+Read}} (\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$stream, void $\ast$buf, size\+\_\+t size)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_27z_stream_8c_a186ee340b8bf96ed93d4a1cffd2cb04f}{Seq\+In\+Stream\+\_\+\+Read\+Byte}} (\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$stream, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$buf)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_27z_stream_8c_a3b9ec8cb823226019d30fbc20dc213b5}{Look\+In\+Stream\+\_\+\+Seek\+To}} (\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$stream, \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} offset)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_27z_stream_8c_a96d4c3edc62081cb761d645672ef2f4a}{Look\+In\+Stream\+\_\+\+Look\+Read}} (\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$stream, void $\ast$buf, size\+\_\+t $\ast$size)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_27z_stream_8c_a5cb3bf469120ce53001f058e081f31e4}{Look\+In\+Stream\+\_\+\+Read2}} (\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$stream, void $\ast$buf, size\+\_\+t size, \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} error\+Type)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_27z_stream_8c_af07c1792f6af5d752a24a25eaf220972}{Look\+In\+Stream\+\_\+\+Read}} (\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$stream, void $\ast$buf, size\+\_\+t size)
+\item 
+void \mbox{\hyperlink{unix_27z_stream_8c_abb2fee51aa9b3e4527fe3d24e7c08d11}{Look\+To\+Read\+\_\+\+Create\+VTable}} (\mbox{\hyperlink{struct_c_look_to_read}{CLook\+To\+Read}} $\ast$p, int lookahead)
+\item 
+void \mbox{\hyperlink{unix_27z_stream_8c_a33b56910d83f1cac576a15f8115f247a}{Look\+To\+Read\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_look_to_read}{CLook\+To\+Read}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_27z_stream_8c_aecc4b4a88d26e614ef152517e69a1f3e}{Sec\+To\+Look\+\_\+\+Create\+VTable}} (\mbox{\hyperlink{struct_c_sec_to_look}{CSec\+To\+Look}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_27z_stream_8c_a1cf478ad3d8ef0cd66d7132ee6e9bae8}{Sec\+To\+Read\+\_\+\+Create\+VTable}} (\mbox{\hyperlink{struct_c_sec_to_read}{CSec\+To\+Read}} $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_27z_stream_8c_a96d4c3edc62081cb761d645672ef2f4a}\label{unix_27z_stream_8c_a96d4c3edc62081cb761d645672ef2f4a}} 
+\index{7zStream.c@{7zStream.c}!LookInStream\_LookRead@{LookInStream\_LookRead}}
+\index{LookInStream\_LookRead@{LookInStream\_LookRead}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{LookInStream\_LookRead()}{LookInStream\_LookRead()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Look\+In\+Stream\+\_\+\+Look\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$}]{stream,  }\item[{void $\ast$}]{buf,  }\item[{size\+\_\+t $\ast$}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 40 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_af07c1792f6af5d752a24a25eaf220972}\label{unix_27z_stream_8c_af07c1792f6af5d752a24a25eaf220972}} 
+\index{7zStream.c@{7zStream.c}!LookInStream\_Read@{LookInStream\_Read}}
+\index{LookInStream\_Read@{LookInStream\_Read}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{LookInStream\_Read()}{LookInStream\_Read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Look\+In\+Stream\+\_\+\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$}]{stream,  }\item[{void $\ast$}]{buf,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 64 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_a5cb3bf469120ce53001f058e081f31e4}\label{unix_27z_stream_8c_a5cb3bf469120ce53001f058e081f31e4}} 
+\index{7zStream.c@{7zStream.c}!LookInStream\_Read2@{LookInStream\_Read2}}
+\index{LookInStream\_Read2@{LookInStream\_Read2}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{LookInStream\_Read2()}{LookInStream\_Read2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Look\+In\+Stream\+\_\+\+Read2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$}]{stream,  }\item[{void $\ast$}]{buf,  }\item[{size\+\_\+t}]{size,  }\item[{\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}}}]{error\+Type }\end{DoxyParamCaption})}
+
+
+
+Definition at line 50 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_a3b9ec8cb823226019d30fbc20dc213b5}\label{unix_27z_stream_8c_a3b9ec8cb823226019d30fbc20dc213b5}} 
+\index{7zStream.c@{7zStream.c}!LookInStream\_SeekTo@{LookInStream\_SeekTo}}
+\index{LookInStream\_SeekTo@{LookInStream\_SeekTo}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{LookInStream\_SeekTo()}{LookInStream\_SeekTo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Look\+In\+Stream\+\_\+\+Seek\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$}]{stream,  }\item[{\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}}}]{offset }\end{DoxyParamCaption})}
+
+
+
+Definition at line 34 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_abb2fee51aa9b3e4527fe3d24e7c08d11}\label{unix_27z_stream_8c_abb2fee51aa9b3e4527fe3d24e7c08d11}} 
+\index{7zStream.c@{7zStream.c}!LookToRead\_CreateVTable@{LookToRead\_CreateVTable}}
+\index{LookToRead\_CreateVTable@{LookToRead\_CreateVTable}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{LookToRead\_CreateVTable()}{LookToRead\_CreateVTable()}}
+{\footnotesize\ttfamily void Look\+To\+Read\+\_\+\+Create\+VTable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_look_to_read}{CLook\+To\+Read}} $\ast$}]{p,  }\item[{int}]{lookahead }\end{DoxyParamCaption})}
+
+
+
+Definition at line 134 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_a33b56910d83f1cac576a15f8115f247a}\label{unix_27z_stream_8c_a33b56910d83f1cac576a15f8115f247a}} 
+\index{7zStream.c@{7zStream.c}!LookToRead\_Init@{LookToRead\_Init}}
+\index{LookToRead\_Init@{LookToRead\_Init}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{LookToRead\_Init()}{LookToRead\_Init()}}
+{\footnotesize\ttfamily void Look\+To\+Read\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_look_to_read}{CLook\+To\+Read}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 144 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_aecc4b4a88d26e614ef152517e69a1f3e}\label{unix_27z_stream_8c_aecc4b4a88d26e614ef152517e69a1f3e}} 
+\index{7zStream.c@{7zStream.c}!SecToLook\_CreateVTable@{SecToLook\_CreateVTable}}
+\index{SecToLook\_CreateVTable@{SecToLook\_CreateVTable}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{SecToLook\_CreateVTable()}{SecToLook\_CreateVTable()}}
+{\footnotesize\ttfamily void Sec\+To\+Look\+\_\+\+Create\+VTable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sec_to_look}{CSec\+To\+Look}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 155 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_a1cf478ad3d8ef0cd66d7132ee6e9bae8}\label{unix_27z_stream_8c_a1cf478ad3d8ef0cd66d7132ee6e9bae8}} 
+\index{7zStream.c@{7zStream.c}!SecToRead\_CreateVTable@{SecToRead\_CreateVTable}}
+\index{SecToRead\_CreateVTable@{SecToRead\_CreateVTable}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{SecToRead\_CreateVTable()}{SecToRead\_CreateVTable()}}
+{\footnotesize\ttfamily void Sec\+To\+Read\+\_\+\+Create\+VTable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_sec_to_read}{CSec\+To\+Read}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 166 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_a35a015a7aef8a42df451730645548a84}\label{unix_27z_stream_8c_a35a015a7aef8a42df451730645548a84}} 
+\index{7zStream.c@{7zStream.c}!SeqInStream\_Read@{SeqInStream\_Read}}
+\index{SeqInStream\_Read@{SeqInStream\_Read}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{SeqInStream\_Read()}{SeqInStream\_Read()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Seq\+In\+Stream\+\_\+\+Read (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$}]{stream,  }\item[{void $\ast$}]{buf,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 22 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_acd8f096a8c4ba6c59f1f5357f5b446f7}\label{unix_27z_stream_8c_acd8f096a8c4ba6c59f1f5357f5b446f7}} 
+\index{7zStream.c@{7zStream.c}!SeqInStream\_Read2@{SeqInStream\_Read2}}
+\index{SeqInStream\_Read2@{SeqInStream\_Read2}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{SeqInStream\_Read2()}{SeqInStream\_Read2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Seq\+In\+Stream\+\_\+\+Read2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$}]{stream,  }\item[{void $\ast$}]{buf,  }\item[{size\+\_\+t}]{size,  }\item[{\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}}}]{error\+Type }\end{DoxyParamCaption})}
+
+
+
+Definition at line 8 of file 7z\+Stream.\+c.
+
+\mbox{\Hypertarget{unix_27z_stream_8c_a186ee340b8bf96ed93d4a1cffd2cb04f}\label{unix_27z_stream_8c_a186ee340b8bf96ed93d4a1cffd2cb04f}} 
+\index{7zStream.c@{7zStream.c}!SeqInStream\_ReadByte@{SeqInStream\_ReadByte}}
+\index{SeqInStream\_ReadByte@{SeqInStream\_ReadByte}!7zStream.c@{7zStream.c}}
+\doxysubsubsection{\texorpdfstring{SeqInStream\_ReadByte()}{SeqInStream\_ReadByte()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Seq\+In\+Stream\+\_\+\+Read\+Byte (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$}]{stream,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{buf }\end{DoxyParamCaption})}
+
+
+
+Definition at line 27 of file 7z\+Stream.\+c.
+

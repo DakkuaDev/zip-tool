@@ -1,0 +1,144 @@
+\hypertarget{struct_c_range_enc}{}\doxysection{CRange\+Enc Struct Reference}
+\label{struct_c_range_enc}\index{CRangeEnc@{CRangeEnc}}
+
+
+Collaboration diagram for CRange\+Enc\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_range_enc_a23a8fe7a0c35729f40327da568face5c}{range}}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} \mbox{\hyperlink{struct_c_range_enc_a1627e26e59e01247d1b09e558b9b0831}{cache}}
+\item 
+\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} \mbox{\hyperlink{struct_c_range_enc_a42ffeb48c56190ef0dd4d193d22fab9d}{low}}
+\item 
+\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} \mbox{\hyperlink{struct_c_range_enc_a67d4527fda3d4eac51517047ad558bc8}{cache\+Size}}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ \mbox{\hyperlink{struct_c_range_enc_ae1649d477cbbff7549070b801d8c06b1}{buf}}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ \mbox{\hyperlink{struct_c_range_enc_a263c961a704093e92d2515209ff981d1}{buf\+Lim}}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ \mbox{\hyperlink{struct_c_range_enc_a80fa7c61cdca827466076a94a316a1cf}{buf\+Base}}
+\item 
+\mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$ \mbox{\hyperlink{struct_c_range_enc_a5565af6462ed51aa07fdb1ed1f07164f}{out\+Stream}}
+\item 
+\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} \mbox{\hyperlink{struct_c_range_enc_a17caa5e4ac5fef7c5d98b0d2e8d72696}{processed}}
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{struct_c_range_enc_a90af89c178e0290724cea1fb450da39f}{res}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 231 of file Lzma\+Enc.\+c.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_range_enc_ae1649d477cbbff7549070b801d8c06b1}\label{struct_c_range_enc_ae1649d477cbbff7549070b801d8c06b1}} 
+\index{CRangeEnc@{CRangeEnc}!buf@{buf}}
+\index{buf@{buf}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{buf}{buf}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ CRange\+Enc\+::buf}
+
+
+
+Definition at line 237 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_range_enc_a80fa7c61cdca827466076a94a316a1cf}\label{struct_c_range_enc_a80fa7c61cdca827466076a94a316a1cf}} 
+\index{CRangeEnc@{CRangeEnc}!bufBase@{bufBase}}
+\index{bufBase@{bufBase}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{bufBase}{bufBase}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ CRange\+Enc\+::buf\+Base}
+
+
+
+Definition at line 239 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_range_enc_a263c961a704093e92d2515209ff981d1}\label{struct_c_range_enc_a263c961a704093e92d2515209ff981d1}} 
+\index{CRangeEnc@{CRangeEnc}!bufLim@{bufLim}}
+\index{bufLim@{bufLim}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{bufLim}{bufLim}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$ CRange\+Enc\+::buf\+Lim}
+
+
+
+Definition at line 238 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_range_enc_a1627e26e59e01247d1b09e558b9b0831}\label{struct_c_range_enc_a1627e26e59e01247d1b09e558b9b0831}} 
+\index{CRangeEnc@{CRangeEnc}!cache@{cache}}
+\index{cache@{cache}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{cache}{cache}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} CRange\+Enc\+::cache}
+
+
+
+Definition at line 234 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_range_enc_a67d4527fda3d4eac51517047ad558bc8}\label{struct_c_range_enc_a67d4527fda3d4eac51517047ad558bc8}} 
+\index{CRangeEnc@{CRangeEnc}!cacheSize@{cacheSize}}
+\index{cacheSize@{cacheSize}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{cacheSize}{cacheSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} CRange\+Enc\+::cache\+Size}
+
+
+
+Definition at line 236 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_range_enc_a42ffeb48c56190ef0dd4d193d22fab9d}\label{struct_c_range_enc_a42ffeb48c56190ef0dd4d193d22fab9d}} 
+\index{CRangeEnc@{CRangeEnc}!low@{low}}
+\index{low@{low}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{low}{low}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} CRange\+Enc\+::low}
+
+
+
+Definition at line 235 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_range_enc_a5565af6462ed51aa07fdb1ed1f07164f}\label{struct_c_range_enc_a5565af6462ed51aa07fdb1ed1f07164f}} 
+\index{CRangeEnc@{CRangeEnc}!outStream@{outStream}}
+\index{outStream@{outStream}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{outStream}{outStream}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$ CRange\+Enc\+::out\+Stream}
+
+
+
+Definition at line 240 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_range_enc_a17caa5e4ac5fef7c5d98b0d2e8d72696}\label{struct_c_range_enc_a17caa5e4ac5fef7c5d98b0d2e8d72696}} 
+\index{CRangeEnc@{CRangeEnc}!processed@{processed}}
+\index{processed@{processed}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{processed}{processed}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} CRange\+Enc\+::processed}
+
+
+
+Definition at line 241 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_range_enc_a23a8fe7a0c35729f40327da568face5c}\label{struct_c_range_enc_a23a8fe7a0c35729f40327da568face5c}} 
+\index{CRangeEnc@{CRangeEnc}!range@{range}}
+\index{range@{range}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{range}{range}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CRange\+Enc\+::range}
+
+
+
+Definition at line 233 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_range_enc_a90af89c178e0290724cea1fb450da39f}\label{struct_c_range_enc_a90af89c178e0290724cea1fb450da39f}} 
+\index{CRangeEnc@{CRangeEnc}!res@{res}}
+\index{res@{res}!CRangeEnc@{CRangeEnc}}
+\doxysubsubsection{\texorpdfstring{res}{res}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} CRange\+Enc\+::res}
+
+
+
+Definition at line 242 of file Lzma\+Enc.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/extlibs/lzma/\mbox{\hyperlink{_lzma_enc_8c}{Lzma\+Enc.\+c}}\end{DoxyCompactItemize}

@@ -1,0 +1,672 @@
+\hypertarget{struct_c_lzma_enc}{}\doxysection{CLzma\+Enc Struct Reference}
+\label{struct_c_lzma_enc}\index{CLzmaEnc@{CLzmaEnc}}
+
+
+Collaboration diagram for CLzma\+Enc\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_lz_find_8h_a1fdb5a3f7b54247786a70480d379c0ca}{IMatch\+Finder}} \mbox{\hyperlink{struct_c_lzma_enc_ac4c0ee746c219b24a3fb59f8dd2728e7}{match\+Finder}}
+\item 
+void $\ast$ \mbox{\hyperlink{struct_c_lzma_enc_a6de0db1fb9934234696bb6c23b229ba6}{match\+Finder\+Obj}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} \mbox{\hyperlink{struct_c_lzma_enc_afe30ae0745b7f52a75c139d2f374b73c}{mt\+Mode}}
+\item 
+\mbox{\hyperlink{_lz_find_mt_8h_a4d920f10b6b90047e74a864a095b6d5b}{CMatch\+Finder\+Mt}} \mbox{\hyperlink{struct_c_lzma_enc_a3b95704da66a15918391e9649fb7d4d9}{match\+Finder\+Mt}}
+\item 
+\mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} \mbox{\hyperlink{struct_c_lzma_enc_a6815b1b9331a7a8f8d106344eec6243c}{match\+Finder\+Base}}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} \mbox{\hyperlink{struct_c_lzma_enc_aeb624b107be5f066652b67faf47f7a80}{pad}} \mbox{[}128\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a37dfbf08f0eb7d4d0c3123f7787d3dd0}{optimum\+End\+Index}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a9acb8216bd183e0a945ee8da01ef988b}{optimum\+Current\+Index}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_ada2becc3de168893d380f6006b57b4b3}{longest\+Match\+Length}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_ac215b77ef51ebc06e6f9cb2bf05173e4}{num\+Pairs}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a98b2cda35a9e938ead15999f3e9302f0}{num\+Avail}}
+\item 
+\mbox{\hyperlink{struct_c_optimal}{COptimal}} \mbox{\hyperlink{struct_c_lzma_enc_a41d9a97d6e356d08306cc2bd9a480b6d}{opt}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_a6e39143272c699ee045e58e955dbb042}{k\+Num\+Opts}}\mbox{]}
+\item 
+\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} \mbox{\hyperlink{struct_c_lzma_enc_af970fbab2533d417307540f3f0ac5762}{g\+\_\+\+Fast\+Pos}} \mbox{[}1$<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a7955b2fa322f63b0612528c840b2b080}{k\+Num\+Log\+Bits}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a3e0128e98b44dfd83e7245af0e344de4}{Prob\+Prices}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_a42683bb56128d7ca273fcfe69e7c6c37}{k\+Bit\+Model\+Total}} $>$$>$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a59e185266f3aff537c834096f006ad27}{k\+Num\+Move\+Reducing\+Bits}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_ad796a37be0f6662b20c8fbe4093fb1b8}{matches}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_af0f00e438b742a91960bec1f0cf8c578}{LZMA\+\_\+\+MATCH\+\_\+\+LEN\+\_\+\+MAX}} $\ast$2+2+1\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a8533a441bf2005c2d523df1b4fb1fc59}{num\+Fast\+Bytes}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_aff46b806a793233789dc7d26858fdf86}{additional\+Offset}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_afed521355a8af40cb2ebdc7178c53721}{reps}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_a7a196620d36ae5166d2ba9dbed7c1100}{LZMA\+\_\+\+NUM\+\_\+\+REPS}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a52117eccab3c084bb58af2f159ffd06a}{state}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_ab547f8ce7f052712ab3281c180c2a365}{pos\+Slot\+Prices}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_ac0526e68851c1cfad9993bbefcf58b55}{k\+Num\+Len\+To\+Pos\+States}}\mbox{]}\mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_a970b467a456fbe0881c5cf0727c350c2}{k\+Dist\+Table\+Size\+Max}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_acc33052893b10026fb65ae9282222b62}{distances\+Prices}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_ac0526e68851c1cfad9993bbefcf58b55}{k\+Num\+Len\+To\+Pos\+States}}\mbox{]}\mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_a60114415f236bc7743acaad88c1f9aa6}{k\+Num\+Full\+Distances}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a67a080eac52b3be1666a982460ae6cbd}{align\+Prices}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_a00c376a4176050181b189631741832d5}{k\+Align\+Table\+Size}}\mbox{]}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a1cc70fd7bffff7c5bf08ba12199b9421}{align\+Price\+Count}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a3a21fdc3d8769d29d8d9ff170ca3e570}{dist\+Table\+Size}}
+\item 
+unsigned \mbox{\hyperlink{struct_c_lzma_enc_ae878276d2ab83d53302064eef378f07d}{lc}}
+\item 
+unsigned \mbox{\hyperlink{struct_c_lzma_enc_ad8f98c03931cfac332706f17abe391fa}{lp}}
+\item 
+unsigned \mbox{\hyperlink{struct_c_lzma_enc_ae077722357c39eb8559e9f53c0ed2c6d}{pb}}
+\item 
+unsigned \mbox{\hyperlink{struct_c_lzma_enc_af26dafd5b4c6bad74f6b4fcf2c1742fb}{lp\+Mask}}
+\item 
+unsigned \mbox{\hyperlink{struct_c_lzma_enc_a7b88644c808d01b54365c4e54d24ce33}{pb\+Mask}}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} $\ast$ \mbox{\hyperlink{struct_c_lzma_enc_a315b594e128a5ee0b3aeb76ee55aa532}{lit\+Probs}}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} \mbox{\hyperlink{struct_c_lzma_enc_a1f75076f56e618b4d28400c7642d3b77}{is\+Match}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}}\mbox{]}\mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_a08136e9424618940b7eaf9dd81425d1c}{LZMA\+\_\+\+NUM\+\_\+\+PB\+\_\+\+STATES\+\_\+\+MAX}}\mbox{]}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} \mbox{\hyperlink{struct_c_lzma_enc_a304bf141b0860335fd7de7e635a0b7bf}{is\+Rep}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}}\mbox{]}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} \mbox{\hyperlink{struct_c_lzma_enc_ab2a35a4824a50dbdfab2435482c8f81f}{is\+Rep\+G0}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}}\mbox{]}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} \mbox{\hyperlink{struct_c_lzma_enc_a0970887975c729de5f0e94e3399db085}{is\+Rep\+G1}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}}\mbox{]}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} \mbox{\hyperlink{struct_c_lzma_enc_a3fcb5ecafd9f2a4e010e51298eb2cf09}{is\+Rep\+G2}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}}\mbox{]}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} \mbox{\hyperlink{struct_c_lzma_enc_a8f79a497f6e8a74211b4931a2d2b1588}{is\+Rep0\+Long}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_adc6b4e5ae0ddf7ba672919edc06504b5}{k\+Num\+States}}\mbox{]}\mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_a08136e9424618940b7eaf9dd81425d1c}{LZMA\+\_\+\+NUM\+\_\+\+PB\+\_\+\+STATES\+\_\+\+MAX}}\mbox{]}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} \mbox{\hyperlink{struct_c_lzma_enc_ab7b8439d725862d9cc268285c88a8f3c}{pos\+Slot\+Encoder}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_ac0526e68851c1cfad9993bbefcf58b55}{k\+Num\+Len\+To\+Pos\+States}}\mbox{]}\mbox{[}1$<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_acbc78e14ce1fd1dd4eba07c2efdf9335}{k\+Num\+Pos\+Slot\+Bits}}\mbox{]}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} \mbox{\hyperlink{struct_c_lzma_enc_a703be07375554cc06db63d892f23acb5}{pos\+Encoders}} \mbox{[}\mbox{\hyperlink{unix_2_lzma_enc_8c_a60114415f236bc7743acaad88c1f9aa6}{k\+Num\+Full\+Distances}} -\/ \mbox{\hyperlink{unix_2_lzma_enc_8c_a50ec8b41912e25cc8214cdac468d591b}{k\+End\+Pos\+Model\+Index}}\mbox{]}
+\item 
+\mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} \mbox{\hyperlink{struct_c_lzma_enc_a654dbcfcd52d478adb01d068ffe3c248}{pos\+Align\+Encoder}} \mbox{[}1$<$$<$ \mbox{\hyperlink{unix_2_lzma_enc_8c_a8fef4f653f586e73b693ba9f0cb2561d}{k\+Num\+Align\+Bits}}\mbox{]}
+\item 
+\mbox{\hyperlink{struct_c_len_price_enc}{CLen\+Price\+Enc}} \mbox{\hyperlink{struct_c_lzma_enc_ab880061121f1b5e5be08944fb23876e4}{len\+Enc}}
+\item 
+\mbox{\hyperlink{struct_c_len_price_enc}{CLen\+Price\+Enc}} \mbox{\hyperlink{struct_c_lzma_enc_a99899745b6c6678310b34d06b8d8fca3}{rep\+Len\+Enc}}
+\item 
+unsigned \mbox{\hyperlink{struct_c_lzma_enc_ab347c83751b3a386ff9ec89ee59421c6}{lclp}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} \mbox{\hyperlink{struct_c_lzma_enc_a8ab4db6a4b34306b2400f40abfa6eda3}{fast\+Mode}}
+\item 
+\mbox{\hyperlink{struct_c_range_enc}{CRange\+Enc}} \mbox{\hyperlink{struct_c_lzma_enc_af1fe4ce2ac83a9532e568bd8f6d4d9ce}{rc}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} \mbox{\hyperlink{struct_c_lzma_enc_ac9758cec2d3d00c27fff6081b9cba235}{write\+End\+Mark}}
+\item 
+\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} \mbox{\hyperlink{struct_c_lzma_enc_a1bfd2ffcb5cdf06d597a210ef30496f3}{now\+Pos64}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a11186c2acb1587041dda9bbeaebd03cb}{match\+Price\+Count}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} \mbox{\hyperlink{struct_c_lzma_enc_a73d352ed9d6338d348cf0513e9b0af86}{finished}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} \mbox{\hyperlink{struct_c_lzma_enc_a7d6061e611e9a9eba0c21979ffcf5dcc}{multi\+Thread}}
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{struct_c_lzma_enc_a03235d1f075cb92be3ce26f25a3ced2c}{result}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_a6e154c546b1d9df6d9f9c5fdff4a8712}{dict\+Size}}
+\item 
+int \mbox{\hyperlink{struct_c_lzma_enc_a4e3e3a61307badc5c28d34a4a40ab6d3}{need\+Init}}
+\item 
+\mbox{\hyperlink{struct_c_save_state}{CSave\+State}} \mbox{\hyperlink{struct_c_lzma_enc_ab86817a8b48e3a6930766728cf1b8d59}{save\+State}}
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{struct_c_lzma_enc_aba0f594ef1f75f63e6979aa09e0cdbed}{match\+Finder\+Cycles}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 267 of file Lzma\+Enc.\+c.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_c_lzma_enc_aff46b806a793233789dc7d26858fdf86}\label{struct_c_lzma_enc_aff46b806a793233789dc7d26858fdf86}} 
+\index{CLzmaEnc@{CLzmaEnc}!additionalOffset@{additionalOffset}}
+\index{additionalOffset@{additionalOffset}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{additionalOffset}{additionalOffset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::additional\+Offset}
+
+
+
+Definition at line 298 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a1cc70fd7bffff7c5bf08ba12199b9421}\label{struct_c_lzma_enc_a1cc70fd7bffff7c5bf08ba12199b9421}} 
+\index{CLzmaEnc@{CLzmaEnc}!alignPriceCount@{alignPriceCount}}
+\index{alignPriceCount@{alignPriceCount}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{alignPriceCount}{alignPriceCount}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::align\+Price\+Count}
+
+
+
+Definition at line 305 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a67a080eac52b3be1666a982460ae6cbd}\label{struct_c_lzma_enc_a67a080eac52b3be1666a982460ae6cbd}} 
+\index{CLzmaEnc@{CLzmaEnc}!alignPrices@{alignPrices}}
+\index{alignPrices@{alignPrices}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{alignPrices}{alignPrices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::align\+Prices}
+
+
+
+Definition at line 304 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a6e154c546b1d9df6d9f9c5fdff4a8712}\label{struct_c_lzma_enc_a6e154c546b1d9df6d9f9c5fdff4a8712}} 
+\index{CLzmaEnc@{CLzmaEnc}!dictSize@{dictSize}}
+\index{dictSize@{dictSize}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{dictSize}{dictSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::dict\+Size}
+
+
+
+Definition at line 341 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_acc33052893b10026fb65ae9282222b62}\label{struct_c_lzma_enc_acc33052893b10026fb65ae9282222b62}} 
+\index{CLzmaEnc@{CLzmaEnc}!distancesPrices@{distancesPrices}}
+\index{distancesPrices@{distancesPrices}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{distancesPrices}{distancesPrices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::distances\+Prices}
+
+
+
+Definition at line 303 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a3a21fdc3d8769d29d8d9ff170ca3e570}\label{struct_c_lzma_enc_a3a21fdc3d8769d29d8d9ff170ca3e570}} 
+\index{CLzmaEnc@{CLzmaEnc}!distTableSize@{distTableSize}}
+\index{distTableSize@{distTableSize}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{distTableSize}{distTableSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::dist\+Table\+Size}
+
+
+
+Definition at line 307 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a8ab4db6a4b34306b2400f40abfa6eda3}\label{struct_c_lzma_enc_a8ab4db6a4b34306b2400f40abfa6eda3}} 
+\index{CLzmaEnc@{CLzmaEnc}!fastMode@{fastMode}}
+\index{fastMode@{fastMode}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{fastMode}{fastMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} CLzma\+Enc\+::fast\+Mode}
+
+
+
+Definition at line 330 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a73d352ed9d6338d348cf0513e9b0af86}\label{struct_c_lzma_enc_a73d352ed9d6338d348cf0513e9b0af86}} 
+\index{CLzmaEnc@{CLzmaEnc}!finished@{finished}}
+\index{finished@{finished}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{finished}{finished}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} CLzma\+Enc\+::finished}
+
+
+
+Definition at line 337 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_af970fbab2533d417307540f3f0ac5762}\label{struct_c_lzma_enc_af970fbab2533d417307540f3f0ac5762}} 
+\index{CLzmaEnc@{CLzmaEnc}!g\_FastPos@{g\_FastPos}}
+\index{g\_FastPos@{g\_FastPos}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{g\_FastPos}{g\_FastPos}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} CLzma\+Enc\+::g\+\_\+\+Fast\+Pos}
+
+
+
+Definition at line 292 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a1f75076f56e618b4d28400c7642d3b77}\label{struct_c_lzma_enc_a1f75076f56e618b4d28400c7642d3b77}} 
+\index{CLzmaEnc@{CLzmaEnc}!isMatch@{isMatch}}
+\index{isMatch@{isMatch}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{isMatch}{isMatch}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} CLzma\+Enc\+::is\+Match}
+
+
+
+Definition at line 314 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a304bf141b0860335fd7de7e635a0b7bf}\label{struct_c_lzma_enc_a304bf141b0860335fd7de7e635a0b7bf}} 
+\index{CLzmaEnc@{CLzmaEnc}!isRep@{isRep}}
+\index{isRep@{isRep}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{isRep}{isRep}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} CLzma\+Enc\+::is\+Rep}
+
+
+
+Definition at line 315 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a8f79a497f6e8a74211b4931a2d2b1588}\label{struct_c_lzma_enc_a8f79a497f6e8a74211b4931a2d2b1588}} 
+\index{CLzmaEnc@{CLzmaEnc}!isRep0Long@{isRep0Long}}
+\index{isRep0Long@{isRep0Long}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{isRep0Long}{isRep0Long}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} CLzma\+Enc\+::is\+Rep0\+Long}
+
+
+
+Definition at line 319 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ab2a35a4824a50dbdfab2435482c8f81f}\label{struct_c_lzma_enc_ab2a35a4824a50dbdfab2435482c8f81f}} 
+\index{CLzmaEnc@{CLzmaEnc}!isRepG0@{isRepG0}}
+\index{isRepG0@{isRepG0}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{isRepG0}{isRepG0}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} CLzma\+Enc\+::is\+Rep\+G0}
+
+
+
+Definition at line 316 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a0970887975c729de5f0e94e3399db085}\label{struct_c_lzma_enc_a0970887975c729de5f0e94e3399db085}} 
+\index{CLzmaEnc@{CLzmaEnc}!isRepG1@{isRepG1}}
+\index{isRepG1@{isRepG1}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{isRepG1}{isRepG1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} CLzma\+Enc\+::is\+Rep\+G1}
+
+
+
+Definition at line 317 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a3fcb5ecafd9f2a4e010e51298eb2cf09}\label{struct_c_lzma_enc_a3fcb5ecafd9f2a4e010e51298eb2cf09}} 
+\index{CLzmaEnc@{CLzmaEnc}!isRepG2@{isRepG2}}
+\index{isRepG2@{isRepG2}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{isRepG2}{isRepG2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} CLzma\+Enc\+::is\+Rep\+G2}
+
+
+
+Definition at line 318 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ae878276d2ab83d53302064eef378f07d}\label{struct_c_lzma_enc_ae878276d2ab83d53302064eef378f07d}} 
+\index{CLzmaEnc@{CLzmaEnc}!lc@{lc}}
+\index{lc@{lc}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{lc}{lc}}
+{\footnotesize\ttfamily unsigned CLzma\+Enc\+::lc}
+
+
+
+Definition at line 309 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ab347c83751b3a386ff9ec89ee59421c6}\label{struct_c_lzma_enc_ab347c83751b3a386ff9ec89ee59421c6}} 
+\index{CLzmaEnc@{CLzmaEnc}!lclp@{lclp}}
+\index{lclp@{lclp}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{lclp}{lclp}}
+{\footnotesize\ttfamily unsigned CLzma\+Enc\+::lclp}
+
+
+
+Definition at line 328 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ab880061121f1b5e5be08944fb23876e4}\label{struct_c_lzma_enc_ab880061121f1b5e5be08944fb23876e4}} 
+\index{CLzmaEnc@{CLzmaEnc}!lenEnc@{lenEnc}}
+\index{lenEnc@{lenEnc}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{lenEnc}{lenEnc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_len_price_enc}{CLen\+Price\+Enc}} CLzma\+Enc\+::len\+Enc}
+
+
+
+Definition at line 325 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a315b594e128a5ee0b3aeb76ee55aa532}\label{struct_c_lzma_enc_a315b594e128a5ee0b3aeb76ee55aa532}} 
+\index{CLzmaEnc@{CLzmaEnc}!litProbs@{litProbs}}
+\index{litProbs@{litProbs}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{litProbs}{litProbs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} $\ast$ CLzma\+Enc\+::lit\+Probs}
+
+
+
+Definition at line 312 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ada2becc3de168893d380f6006b57b4b3}\label{struct_c_lzma_enc_ada2becc3de168893d380f6006b57b4b3}} 
+\index{CLzmaEnc@{CLzmaEnc}!longestMatchLength@{longestMatchLength}}
+\index{longestMatchLength@{longestMatchLength}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{longestMatchLength}{longestMatchLength}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::longest\+Match\+Length}
+
+
+
+Definition at line 286 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ad8f98c03931cfac332706f17abe391fa}\label{struct_c_lzma_enc_ad8f98c03931cfac332706f17abe391fa}} 
+\index{CLzmaEnc@{CLzmaEnc}!lp@{lp}}
+\index{lp@{lp}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{lp}{lp}}
+{\footnotesize\ttfamily unsigned CLzma\+Enc\+::lp}
+
+
+
+Definition at line 309 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_af26dafd5b4c6bad74f6b4fcf2c1742fb}\label{struct_c_lzma_enc_af26dafd5b4c6bad74f6b4fcf2c1742fb}} 
+\index{CLzmaEnc@{CLzmaEnc}!lpMask@{lpMask}}
+\index{lpMask@{lpMask}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{lpMask}{lpMask}}
+{\footnotesize\ttfamily unsigned CLzma\+Enc\+::lp\+Mask}
+
+
+
+Definition at line 310 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ad796a37be0f6662b20c8fbe4093fb1b8}\label{struct_c_lzma_enc_ad796a37be0f6662b20c8fbe4093fb1b8}} 
+\index{CLzmaEnc@{CLzmaEnc}!matches@{matches}}
+\index{matches@{matches}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{matches}{matches}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::matches}
+
+
+
+Definition at line 296 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ac4c0ee746c219b24a3fb59f8dd2728e7}\label{struct_c_lzma_enc_ac4c0ee746c219b24a3fb59f8dd2728e7}} 
+\index{CLzmaEnc@{CLzmaEnc}!matchFinder@{matchFinder}}
+\index{matchFinder@{matchFinder}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{matchFinder}{matchFinder}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_lz_find_8h_a1fdb5a3f7b54247786a70480d379c0ca}{IMatch\+Finder}} CLzma\+Enc\+::match\+Finder}
+
+
+
+Definition at line 269 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a6815b1b9331a7a8f8d106344eec6243c}\label{struct_c_lzma_enc_a6815b1b9331a7a8f8d106344eec6243c}} 
+\index{CLzmaEnc@{CLzmaEnc}!matchFinderBase@{matchFinderBase}}
+\index{matchFinderBase@{matchFinderBase}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{matchFinderBase}{matchFinderBase}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_lz_find_8h_a742de5537e80fe5182cbf8075cc5f80f}{CMatch\+Finder}} CLzma\+Enc\+::match\+Finder\+Base}
+
+
+
+Definition at line 277 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_aba0f594ef1f75f63e6979aa09e0cdbed}\label{struct_c_lzma_enc_aba0f594ef1f75f63e6979aa09e0cdbed}} 
+\index{CLzmaEnc@{CLzmaEnc}!matchFinderCycles@{matchFinderCycles}}
+\index{matchFinderCycles@{matchFinderCycles}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{matchFinderCycles}{matchFinderCycles}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::match\+Finder\+Cycles}
+
+
+
+Definition at line 332 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a3b95704da66a15918391e9649fb7d4d9}\label{struct_c_lzma_enc_a3b95704da66a15918391e9649fb7d4d9}} 
+\index{CLzmaEnc@{CLzmaEnc}!matchFinderMt@{matchFinderMt}}
+\index{matchFinderMt@{matchFinderMt}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{matchFinderMt}{matchFinderMt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_lz_find_mt_8h_a4d920f10b6b90047e74a864a095b6d5b}{CMatch\+Finder\+Mt}} CLzma\+Enc\+::match\+Finder\+Mt}
+
+
+
+Definition at line 274 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a6de0db1fb9934234696bb6c23b229ba6}\label{struct_c_lzma_enc_a6de0db1fb9934234696bb6c23b229ba6}} 
+\index{CLzmaEnc@{CLzmaEnc}!matchFinderObj@{matchFinderObj}}
+\index{matchFinderObj@{matchFinderObj}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{matchFinderObj}{matchFinderObj}}
+{\footnotesize\ttfamily void $\ast$ CLzma\+Enc\+::match\+Finder\+Obj}
+
+
+
+Definition at line 270 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a11186c2acb1587041dda9bbeaebd03cb}\label{struct_c_lzma_enc_a11186c2acb1587041dda9bbeaebd03cb}} 
+\index{CLzmaEnc@{CLzmaEnc}!matchPriceCount@{matchPriceCount}}
+\index{matchPriceCount@{matchPriceCount}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{matchPriceCount}{matchPriceCount}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::match\+Price\+Count}
+
+
+
+Definition at line 336 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_afe30ae0745b7f52a75c139d2f374b73c}\label{struct_c_lzma_enc_afe30ae0745b7f52a75c139d2f374b73c}} 
+\index{CLzmaEnc@{CLzmaEnc}!mtMode@{mtMode}}
+\index{mtMode@{mtMode}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{mtMode}{mtMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} CLzma\+Enc\+::mt\+Mode}
+
+
+
+Definition at line 273 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a7d6061e611e9a9eba0c21979ffcf5dcc}\label{struct_c_lzma_enc_a7d6061e611e9a9eba0c21979ffcf5dcc}} 
+\index{CLzmaEnc@{CLzmaEnc}!multiThread@{multiThread}}
+\index{multiThread@{multiThread}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{multiThread}{multiThread}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} CLzma\+Enc\+::multi\+Thread}
+
+
+
+Definition at line 338 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a4e3e3a61307badc5c28d34a4a40ab6d3}\label{struct_c_lzma_enc_a4e3e3a61307badc5c28d34a4a40ab6d3}} 
+\index{CLzmaEnc@{CLzmaEnc}!needInit@{needInit}}
+\index{needInit@{needInit}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{needInit}{needInit}}
+{\footnotesize\ttfamily int CLzma\+Enc\+::need\+Init}
+
+
+
+Definition at line 343 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a1bfd2ffcb5cdf06d597a210ef30496f3}\label{struct_c_lzma_enc_a1bfd2ffcb5cdf06d597a210ef30496f3}} 
+\index{CLzmaEnc@{CLzmaEnc}!nowPos64@{nowPos64}}
+\index{nowPos64@{nowPos64}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{nowPos64}{nowPos64}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} CLzma\+Enc\+::now\+Pos64}
+
+
+
+Definition at line 335 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a98b2cda35a9e938ead15999f3e9302f0}\label{struct_c_lzma_enc_a98b2cda35a9e938ead15999f3e9302f0}} 
+\index{CLzmaEnc@{CLzmaEnc}!numAvail@{numAvail}}
+\index{numAvail@{numAvail}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{numAvail}{numAvail}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::num\+Avail}
+
+
+
+Definition at line 288 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a8533a441bf2005c2d523df1b4fb1fc59}\label{struct_c_lzma_enc_a8533a441bf2005c2d523df1b4fb1fc59}} 
+\index{CLzmaEnc@{CLzmaEnc}!numFastBytes@{numFastBytes}}
+\index{numFastBytes@{numFastBytes}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{numFastBytes}{numFastBytes}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::num\+Fast\+Bytes}
+
+
+
+Definition at line 297 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ac215b77ef51ebc06e6f9cb2bf05173e4}\label{struct_c_lzma_enc_ac215b77ef51ebc06e6f9cb2bf05173e4}} 
+\index{CLzmaEnc@{CLzmaEnc}!numPairs@{numPairs}}
+\index{numPairs@{numPairs}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{numPairs}{numPairs}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::num\+Pairs}
+
+
+
+Definition at line 287 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a41d9a97d6e356d08306cc2bd9a480b6d}\label{struct_c_lzma_enc_a41d9a97d6e356d08306cc2bd9a480b6d}} 
+\index{CLzmaEnc@{CLzmaEnc}!opt@{opt}}
+\index{opt@{opt}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{opt}{opt}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_optimal}{COptimal}} CLzma\+Enc\+::opt}
+
+
+
+Definition at line 289 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a9acb8216bd183e0a945ee8da01ef988b}\label{struct_c_lzma_enc_a9acb8216bd183e0a945ee8da01ef988b}} 
+\index{CLzmaEnc@{CLzmaEnc}!optimumCurrentIndex@{optimumCurrentIndex}}
+\index{optimumCurrentIndex@{optimumCurrentIndex}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{optimumCurrentIndex}{optimumCurrentIndex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::optimum\+Current\+Index}
+
+
+
+Definition at line 284 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a37dfbf08f0eb7d4d0c3123f7787d3dd0}\label{struct_c_lzma_enc_a37dfbf08f0eb7d4d0c3123f7787d3dd0}} 
+\index{CLzmaEnc@{CLzmaEnc}!optimumEndIndex@{optimumEndIndex}}
+\index{optimumEndIndex@{optimumEndIndex}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{optimumEndIndex}{optimumEndIndex}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::optimum\+End\+Index}
+
+
+
+Definition at line 283 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_aeb624b107be5f066652b67faf47f7a80}\label{struct_c_lzma_enc_aeb624b107be5f066652b67faf47f7a80}} 
+\index{CLzmaEnc@{CLzmaEnc}!pad@{pad}}
+\index{pad@{pad}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{pad}{pad}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} CLzma\+Enc\+::pad}
+
+
+
+Definition at line 280 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ae077722357c39eb8559e9f53c0ed2c6d}\label{struct_c_lzma_enc_ae077722357c39eb8559e9f53c0ed2c6d}} 
+\index{CLzmaEnc@{CLzmaEnc}!pb@{pb}}
+\index{pb@{pb}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{pb}{pb}}
+{\footnotesize\ttfamily unsigned CLzma\+Enc\+::pb}
+
+
+
+Definition at line 309 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a7b88644c808d01b54365c4e54d24ce33}\label{struct_c_lzma_enc_a7b88644c808d01b54365c4e54d24ce33}} 
+\index{CLzmaEnc@{CLzmaEnc}!pbMask@{pbMask}}
+\index{pbMask@{pbMask}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{pbMask}{pbMask}}
+{\footnotesize\ttfamily unsigned CLzma\+Enc\+::pb\+Mask}
+
+
+
+Definition at line 310 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a654dbcfcd52d478adb01d068ffe3c248}\label{struct_c_lzma_enc_a654dbcfcd52d478adb01d068ffe3c248}} 
+\index{CLzmaEnc@{CLzmaEnc}!posAlignEncoder@{posAlignEncoder}}
+\index{posAlignEncoder@{posAlignEncoder}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{posAlignEncoder}{posAlignEncoder}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} CLzma\+Enc\+::pos\+Align\+Encoder}
+
+
+
+Definition at line 323 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a703be07375554cc06db63d892f23acb5}\label{struct_c_lzma_enc_a703be07375554cc06db63d892f23acb5}} 
+\index{CLzmaEnc@{CLzmaEnc}!posEncoders@{posEncoders}}
+\index{posEncoders@{posEncoders}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{posEncoders}{posEncoders}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} CLzma\+Enc\+::pos\+Encoders}
+
+
+
+Definition at line 322 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ab7b8439d725862d9cc268285c88a8f3c}\label{struct_c_lzma_enc_ab7b8439d725862d9cc268285c88a8f3c}} 
+\index{CLzmaEnc@{CLzmaEnc}!posSlotEncoder@{posSlotEncoder}}
+\index{posSlotEncoder@{posSlotEncoder}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{posSlotEncoder}{posSlotEncoder}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unix_2_lzma_enc_8c_a2612c4784a36e88d20e08603206aa65d}{CLzma\+Prob}} CLzma\+Enc\+::pos\+Slot\+Encoder}
+
+
+
+Definition at line 321 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ab547f8ce7f052712ab3281c180c2a365}\label{struct_c_lzma_enc_ab547f8ce7f052712ab3281c180c2a365}} 
+\index{CLzmaEnc@{CLzmaEnc}!posSlotPrices@{posSlotPrices}}
+\index{posSlotPrices@{posSlotPrices}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{posSlotPrices}{posSlotPrices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::pos\+Slot\+Prices}
+
+
+
+Definition at line 302 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a3e0128e98b44dfd83e7245af0e344de4}\label{struct_c_lzma_enc_a3e0128e98b44dfd83e7245af0e344de4}} 
+\index{CLzmaEnc@{CLzmaEnc}!ProbPrices@{ProbPrices}}
+\index{ProbPrices@{ProbPrices}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{ProbPrices}{ProbPrices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::\+Prob\+Prices}
+
+
+
+Definition at line 295 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_af1fe4ce2ac83a9532e568bd8f6d4d9ce}\label{struct_c_lzma_enc_af1fe4ce2ac83a9532e568bd8f6d4d9ce}} 
+\index{CLzmaEnc@{CLzmaEnc}!rc@{rc}}
+\index{rc@{rc}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{rc}{rc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_range_enc}{CRange\+Enc}} CLzma\+Enc\+::rc}
+
+
+
+Definition at line 332 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a99899745b6c6678310b34d06b8d8fca3}\label{struct_c_lzma_enc_a99899745b6c6678310b34d06b8d8fca3}} 
+\index{CLzmaEnc@{CLzmaEnc}!repLenEnc@{repLenEnc}}
+\index{repLenEnc@{repLenEnc}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{repLenEnc}{repLenEnc}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_len_price_enc}{CLen\+Price\+Enc}} CLzma\+Enc\+::rep\+Len\+Enc}
+
+
+
+Definition at line 326 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_afed521355a8af40cb2ebdc7178c53721}\label{struct_c_lzma_enc_afed521355a8af40cb2ebdc7178c53721}} 
+\index{CLzmaEnc@{CLzmaEnc}!reps@{reps}}
+\index{reps@{reps}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{reps}{reps}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::reps}
+
+
+
+Definition at line 299 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a03235d1f075cb92be3ce26f25a3ced2c}\label{struct_c_lzma_enc_a03235d1f075cb92be3ce26f25a3ced2c}} 
+\index{CLzmaEnc@{CLzmaEnc}!result@{result}}
+\index{result@{result}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{result}{result}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} CLzma\+Enc\+::result}
+
+
+
+Definition at line 340 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ab86817a8b48e3a6930766728cf1b8d59}\label{struct_c_lzma_enc_ab86817a8b48e3a6930766728cf1b8d59}} 
+\index{CLzmaEnc@{CLzmaEnc}!saveState@{saveState}}
+\index{saveState@{saveState}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{saveState}{saveState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_c_save_state}{CSave\+State}} CLzma\+Enc\+::save\+State}
+
+
+
+Definition at line 345 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_a52117eccab3c084bb58af2f159ffd06a}\label{struct_c_lzma_enc_a52117eccab3c084bb58af2f159ffd06a}} 
+\index{CLzmaEnc@{CLzmaEnc}!state@{state}}
+\index{state@{state}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} CLzma\+Enc\+::state}
+
+
+
+Definition at line 300 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{struct_c_lzma_enc_ac9758cec2d3d00c27fff6081b9cba235}\label{struct_c_lzma_enc_ac9758cec2d3d00c27fff6081b9cba235}} 
+\index{CLzmaEnc@{CLzmaEnc}!writeEndMark@{writeEndMark}}
+\index{writeEndMark@{writeEndMark}!CLzmaEnc@{CLzmaEnc}}
+\doxysubsubsection{\texorpdfstring{writeEndMark}{writeEndMark}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} CLzma\+Enc\+::write\+End\+Mark}
+
+
+
+Definition at line 334 of file Lzma\+Enc.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/extlibs/lzma/\mbox{\hyperlink{_lzma_enc_8c}{Lzma\+Enc.\+c}}\end{DoxyCompactItemize}

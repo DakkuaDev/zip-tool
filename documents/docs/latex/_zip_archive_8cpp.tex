@@ -1,0 +1,32 @@
+\hypertarget{_zip_archive_8cpp}{}\doxysection{source/\+Zip\+Lib/\+Zip\+Archive.cpp File Reference}
+\label{_zip_archive_8cpp}\index{source/ZipLib/ZipArchive.cpp@{source/ZipLib/ZipArchive.cpp}}
+{\ttfamily \#include \char`\"{}Zip\+Archive.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}streams/serialization.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+Include dependency graph for Zip\+Archive.\+cpp\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_zip_archive_8cpp_a7db695a1efb36c2e08ef096c471fe6a0}{CALL\+\_\+\+CONST\+\_\+\+METHOD}}(expression)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_zip_archive_8cpp_a7db695a1efb36c2e08ef096c471fe6a0}\label{_zip_archive_8cpp_a7db695a1efb36c2e08ef096c471fe6a0}} 
+\index{ZipArchive.cpp@{ZipArchive.cpp}!CALL\_CONST\_METHOD@{CALL\_CONST\_METHOD}}
+\index{CALL\_CONST\_METHOD@{CALL\_CONST\_METHOD}!ZipArchive.cpp@{ZipArchive.cpp}}
+\doxysubsubsection{\texorpdfstring{CALL\_CONST\_METHOD}{CALL\_CONST\_METHOD}}
+{\footnotesize\ttfamily \#define CALL\+\_\+\+CONST\+\_\+\+METHOD(\begin{DoxyParamCaption}\item[{}]{expression }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \textcolor{keyword}{const\_cast<}      std::remove\_pointer<std::remove\_const<decltype(expression)\textcolor{keyword}{>}::type>::type*>( \(\backslash\)}
+\DoxyCodeLine{  const\_cast<\textcolor{keyword}{const} std::remove\_pointer<std::remove\_const<decltype(\textcolor{keyword}{this})      >::type>::type*>(\textcolor{keyword}{this})-\/>expression)}
+
+\end{DoxyCode}
+
+
+Definition at line 6 of file Zip\+Archive.\+cpp.
+

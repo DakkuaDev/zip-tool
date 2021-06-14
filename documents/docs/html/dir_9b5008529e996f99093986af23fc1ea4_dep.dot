@@ -1,0 +1,15 @@
+digraph "source/ZipLib/extlibs" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  subgraph clusterdir_e1dba513ee2df986e3034746d268cf36 {
+    graph [ bgcolor="#ddddee", pencolor="black", label="ZipLib" fontname="Helvetica", fontsize="10", URL="dir_e1dba513ee2df986e3034746d268cf36.html"]
+  subgraph clusterdir_9b5008529e996f99093986af23fc1ea4 {
+    graph [ bgcolor="#eeeeff", pencolor="black", label="" URL="dir_9b5008529e996f99093986af23fc1ea4.html"];
+    dir_9b5008529e996f99093986af23fc1ea4 [shape=plaintext label="extlibs"];
+  dir_d4007b66db72da2f50409443d937ffff [shape=box label="bzip2" fillcolor="white" style="filled" URL="dir_d4007b66db72da2f50409443d937ffff.html"];
+  dir_7cd32a9182f232de99ed3fc437558b30 [shape=box label="lzma" fillcolor="white" style="filled" color="red" URL="dir_7cd32a9182f232de99ed3fc437558b30.html"];
+  dir_df9a60afca99a849930cc864730d7df5 [shape=box label="zlib" fillcolor="white" style="filled" URL="dir_df9a60afca99a849930cc864730d7df5.html"];
+  }
+  }
+}

@@ -1,0 +1,300 @@
+\hypertarget{unix_2_xz_dec_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Xz\+Dec.c File Reference}
+\label{unix_2_xz_dec_8c}\index{source/ZipLib/extlibs/lzma/unix/XzDec.c@{source/ZipLib/extlibs/lzma/unix/XzDec.c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}7z\+Crc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Alloc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Bra.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Cpu\+Arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Delta.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lzma2\+Dec.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Xz.\+h\char`\"{}}\newline
+Include dependency graph for Xz\+Dec.\+c\+:
+% FIG 0
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_bra_state}{CBra\+State}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{unix_2_xz_dec_8c_a429e45e4231b8dbad892700e4ed2fe27}{XZ\+\_\+\+CHECK\+\_\+\+SIZE\+\_\+\+MAX}}~64
+\item 
+\#define \mbox{\hyperlink{unix_2_xz_dec_8c_a03e403b4092e8257281de05552729ef5}{CODER\+\_\+\+BUF\+\_\+\+SIZE}}~(1 $<$$<$ 17)
+\item 
+\#define \mbox{\hyperlink{unix_2_xz_dec_8c_ae77b6e48768a34ea25214adbdc634c3d}{BRA\+\_\+\+BUF\+\_\+\+SIZE}}~(1 $<$$<$ 14)
+\item 
+\#define \mbox{\hyperlink{unix_2_xz_dec_8c_ad2830df05b27161b6f6635d6f9bc4798}{CASE\+\_\+\+BRA\+\_\+\+CONV}}(isa)~case XZ\+\_\+\+ID\+\_\+ \#\# isa\+: p-\/$>$buf\+Conv = isa \#\# \+\_\+\+Convert(p-\/$>$buf, p-\/$>$buf\+Total, p-\/$>$ip, p-\/$>$encode\+Mode); break;
+\item 
+\#define \mbox{\hyperlink{unix_2_xz_dec_8c_abf7247b3e5a35bf47b454380efff7caf}{READ\+\_\+\+VARINT\+\_\+\+AND\+\_\+\+CHECK}}(buf,  pos,  size,  res)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{unix_2_xz_dec_8c_af26ff2f89e38efa22b65d9030b4cf23d}{Xz\+\_\+\+Read\+Var\+Int}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$p, size\+\_\+t max\+Size, \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} $\ast$value)
+\item 
+void \mbox{\hyperlink{unix_2_xz_dec_8c_ad68542ca15e893360aac381fd122d8c4}{Bra\+State\+\_\+\+Free}} (void $\ast$pp, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_dec_8c_a01d3bcef2d0349f246cedda4d8fba100}{Bra\+State\+\_\+\+Set\+Props}} (void $\ast$pp, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$props, size\+\_\+t prop\+Size, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{unix_2_xz_dec_8c_a2d86e86e2b75c70718668b36b1167737}{Bra\+State\+\_\+\+Init}} (void $\ast$pp)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_dec_8c_aeab9b5dd672e45d4ee5718a2df3423a3}{Bra\+State\+\_\+\+Set\+From\+Method}} (\mbox{\hyperlink{unix_2_xz_8h_abc3f69fd4ca8596147fa519eca833f16}{IState\+Coder}} $\ast$p, \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} id, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{unix_2_xz_dec_8c_ad9569886aa1f379da9eb5e46bcb7f129}{Mix\+Coder\+\_\+\+Construct}} (\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{unix_2_xz_dec_8c_acb3d9672e88f66f01becc5cdefb5a3df}{Mix\+Coder\+\_\+\+Free}} (\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_xz_dec_8c_a8c8fd1dc7c00f80e5ca353f6f14a56ae}{Mix\+Coder\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_dec_8c_a292a5e7e842c0172572d219334a06b86}{Mix\+Coder\+\_\+\+Set\+From\+Method}} (\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$p, int coder\+Index, \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} method\+Id)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_dec_8c_a401cf48cafd53fa489fed34d306d3044}{Mix\+Coder\+\_\+\+Code}} (\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$p, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$src\+Len, int src\+Was\+Finished, \mbox{\hyperlink{unix_2_xz_8h_ac449eaa46953542d10dbe2919e817e8e}{ECoder\+Finish\+Mode}} finish\+Mode, \mbox{\hyperlink{unix_2_xz_8h_a0cc45a16a4259ae8ce3108c6c4d2067c}{ECoder\+Status}} $\ast$status)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_dec_8c_a7f277905528aea0ab7849208d4ee4358}{Xz\+\_\+\+Parse\+Header}} (\mbox{\hyperlink{unix_2_xz_8h_a80f5d0cba1813b2cf72d2360dc42eb75}{CXz\+Stream\+Flags}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$buf)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_dec_8c_aa7099d8be2d59ffff841d046ee4bdaeb}{Xz\+Block\+\_\+\+Parse}} (\mbox{\hyperlink{struct_c_xz_block}{CXz\+Block}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$header)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_dec_8c_a3b3b8b3eaf3d2abb24b90ae4932cfc11}{Xz\+Dec\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xz_block}{CXz\+Block}} $\ast$block)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_dec_8c_a8e205fb22995941eb51908a82ea4d093}{Xz\+Unpacker\+\_\+\+Create}} (\mbox{\hyperlink{struct_c_xz_unpacker}{CXz\+Unpacker}} $\ast$p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{unix_2_xz_dec_8c_a002fba00a8b71f8c39bd1cb635d6e1b4}{Xz\+Unpacker\+\_\+\+Free}} (\mbox{\hyperlink{struct_c_xz_unpacker}{CXz\+Unpacker}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_dec_8c_af8b660bd50e45244cd490aaa7c45f827}{Xz\+Unpacker\+\_\+\+Code}} (\mbox{\hyperlink{struct_c_xz_unpacker}{CXz\+Unpacker}} $\ast$p, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$src\+Len, int finish\+Mode, \mbox{\hyperlink{unix_2_xz_8h_a0cc45a16a4259ae8ce3108c6c4d2067c}{ECoder\+Status}} $\ast$status)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} \mbox{\hyperlink{unix_2_xz_dec_8c_aba374059022329acdf923d83a651e8ab}{Xz\+Unpacker\+\_\+\+Is\+Stream\+Was\+Finished}} (\mbox{\hyperlink{struct_c_xz_unpacker}{CXz\+Unpacker}} $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{unix_2_xz_dec_8c_ae77b6e48768a34ea25214adbdc634c3d}\label{unix_2_xz_dec_8c_ae77b6e48768a34ea25214adbdc634c3d}} 
+\index{XzDec.c@{XzDec.c}!BRA\_BUF\_SIZE@{BRA\_BUF\_SIZE}}
+\index{BRA\_BUF\_SIZE@{BRA\_BUF\_SIZE}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{BRA\_BUF\_SIZE}{BRA\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define BRA\+\_\+\+BUF\+\_\+\+SIZE~(1 $<$$<$ 14)}
+
+
+
+Definition at line 48 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_ad2830df05b27161b6f6635d6f9bc4798}\label{unix_2_xz_dec_8c_ad2830df05b27161b6f6635d6f9bc4798}} 
+\index{XzDec.c@{XzDec.c}!CASE\_BRA\_CONV@{CASE\_BRA\_CONV}}
+\index{CASE\_BRA\_CONV@{CASE\_BRA\_CONV}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{CASE\_BRA\_CONV}{CASE\_BRA\_CONV}}
+{\footnotesize\ttfamily \#define CASE\+\_\+\+BRA\+\_\+\+CONV(\begin{DoxyParamCaption}\item[{}]{isa }\end{DoxyParamCaption})~case XZ\+\_\+\+ID\+\_\+ \#\# isa\+: p-\/$>$buf\+Conv = isa \#\# \+\_\+\+Convert(p-\/$>$buf, p-\/$>$buf\+Total, p-\/$>$ip, p-\/$>$encode\+Mode); break;}
+
+
+
+Definition at line 122 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a03e403b4092e8257281de05552729ef5}\label{unix_2_xz_dec_8c_a03e403b4092e8257281de05552729ef5}} 
+\index{XzDec.c@{XzDec.c}!CODER\_BUF\_SIZE@{CODER\_BUF\_SIZE}}
+\index{CODER\_BUF\_SIZE@{CODER\_BUF\_SIZE}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{CODER\_BUF\_SIZE}{CODER\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define CODER\+\_\+\+BUF\+\_\+\+SIZE~(1 $<$$<$ 17)}
+
+
+
+Definition at line 28 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_abf7247b3e5a35bf47b454380efff7caf}\label{unix_2_xz_dec_8c_abf7247b3e5a35bf47b454380efff7caf}} 
+\index{XzDec.c@{XzDec.c}!READ\_VARINT\_AND\_CHECK@{READ\_VARINT\_AND\_CHECK}}
+\index{READ\_VARINT\_AND\_CHECK@{READ\_VARINT\_AND\_CHECK}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{READ\_VARINT\_AND\_CHECK}{READ\_VARINT\_AND\_CHECK}}
+{\footnotesize\ttfamily \#define READ\+\_\+\+VARINT\+\_\+\+AND\+\_\+\+CHECK(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{pos,  }\item[{}]{size,  }\item[{}]{res }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \{ \textcolor{keywordtype}{unsigned} s = \mbox{\hyperlink{unix_2_xz_dec_8c_af26ff2f89e38efa22b65d9030b4cf23d}{Xz\_ReadVarInt}}(buf + pos, size -\/ pos, res); \(\backslash\)}
+\DoxyCodeLine{  if (s == 0) return \mbox{\hyperlink{_types_8h_aaff96c18a42a227e6d84d1a28bd301fa}{SZ\_ERROR\_ARCHIVE}}; pos += s; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 500 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a429e45e4231b8dbad892700e4ed2fe27}\label{unix_2_xz_dec_8c_a429e45e4231b8dbad892700e4ed2fe27}} 
+\index{XzDec.c@{XzDec.c}!XZ\_CHECK\_SIZE\_MAX@{XZ\_CHECK\_SIZE\_MAX}}
+\index{XZ\_CHECK\_SIZE\_MAX@{XZ\_CHECK\_SIZE\_MAX}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{XZ\_CHECK\_SIZE\_MAX}{XZ\_CHECK\_SIZE\_MAX}}
+{\footnotesize\ttfamily \#define XZ\+\_\+\+CHECK\+\_\+\+SIZE\+\_\+\+MAX~64}
+
+
+
+Definition at line 26 of file Xz\+Dec.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_2_xz_dec_8c_ad68542ca15e893360aac381fd122d8c4}\label{unix_2_xz_dec_8c_ad68542ca15e893360aac381fd122d8c4}} 
+\index{XzDec.c@{XzDec.c}!BraState\_Free@{BraState\_Free}}
+\index{BraState\_Free@{BraState\_Free}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{BraState\_Free()}{BraState\_Free()}}
+{\footnotesize\ttfamily void Bra\+State\+\_\+\+Free (\begin{DoxyParamCaption}\item[{void $\ast$}]{pp,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 66 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a2d86e86e2b75c70718668b36b1167737}\label{unix_2_xz_dec_8c_a2d86e86e2b75c70718668b36b1167737}} 
+\index{XzDec.c@{XzDec.c}!BraState\_Init@{BraState\_Init}}
+\index{BraState\_Init@{BraState\_Init}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{BraState\_Init()}{BraState\_Init()}}
+{\footnotesize\ttfamily void Bra\+State\+\_\+\+Init (\begin{DoxyParamCaption}\item[{void $\ast$}]{pp }\end{DoxyParamCaption})}
+
+
+
+Definition at line 113 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_aeab9b5dd672e45d4ee5718a2df3423a3}\label{unix_2_xz_dec_8c_aeab9b5dd672e45d4ee5718a2df3423a3}} 
+\index{XzDec.c@{XzDec.c}!BraState\_SetFromMethod@{BraState\_SetFromMethod}}
+\index{BraState\_SetFromMethod@{BraState\_SetFromMethod}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{BraState\_SetFromMethod()}{BraState\_SetFromMethod()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Bra\+State\+\_\+\+Set\+From\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unix_2_xz_8h_abc3f69fd4ca8596147fa519eca833f16}{IState\+Coder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}}}]{id,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 198 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a01d3bcef2d0349f246cedda4d8fba100}\label{unix_2_xz_dec_8c_a01d3bcef2d0349f246cedda4d8fba100}} 
+\index{XzDec.c@{XzDec.c}!BraState\_SetProps@{BraState\_SetProps}}
+\index{BraState\_SetProps@{BraState\_SetProps}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{BraState\_SetProps()}{BraState\_SetProps()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Bra\+State\+\_\+\+Set\+Props (\begin{DoxyParamCaption}\item[{void $\ast$}]{pp,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{props,  }\item[{size\+\_\+t}]{prop\+Size,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 71 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a401cf48cafd53fa489fed34d306d3044}\label{unix_2_xz_dec_8c_a401cf48cafd53fa489fed34d306d3044}} 
+\index{XzDec.c@{XzDec.c}!MixCoder\_Code@{MixCoder\_Code}}
+\index{MixCoder\_Code@{MixCoder\_Code}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{MixCoder\_Code()}{MixCoder\_Code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Mix\+Coder\+\_\+\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{src\+Len,  }\item[{int}]{src\+Was\+Finished,  }\item[{\mbox{\hyperlink{unix_2_xz_8h_ac449eaa46953542d10dbe2919e817e8e}{ECoder\+Finish\+Mode}}}]{finish\+Mode,  }\item[{\mbox{\hyperlink{unix_2_xz_8h_a0cc45a16a4259ae8ce3108c6c4d2067c}{ECoder\+Status}} $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 375 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_ad9569886aa1f379da9eb5e46bcb7f129}\label{unix_2_xz_dec_8c_ad9569886aa1f379da9eb5e46bcb7f129}} 
+\index{XzDec.c@{XzDec.c}!MixCoder\_Construct@{MixCoder\_Construct}}
+\index{MixCoder\_Construct@{MixCoder\_Construct}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{MixCoder\_Construct()}{MixCoder\_Construct()}}
+{\footnotesize\ttfamily void Mix\+Coder\+\_\+\+Construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 319 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_acb3d9672e88f66f01becc5cdefb5a3df}\label{unix_2_xz_dec_8c_acb3d9672e88f66f01becc5cdefb5a3df}} 
+\index{XzDec.c@{XzDec.c}!MixCoder\_Free@{MixCoder\_Free}}
+\index{MixCoder\_Free@{MixCoder\_Free}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{MixCoder\_Free()}{MixCoder\_Free()}}
+{\footnotesize\ttfamily void Mix\+Coder\+\_\+\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 329 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a8c8fd1dc7c00f80e5ca353f6f14a56ae}\label{unix_2_xz_dec_8c_a8c8fd1dc7c00f80e5ca353f6f14a56ae}} 
+\index{XzDec.c@{XzDec.c}!MixCoder\_Init@{MixCoder\_Init}}
+\index{MixCoder\_Init@{MixCoder\_Init}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{MixCoder\_Init()}{MixCoder\_Init()}}
+{\footnotesize\ttfamily void Mix\+Coder\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 343 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a292a5e7e842c0172572d219334a06b86}\label{unix_2_xz_dec_8c_a292a5e7e842c0172572d219334a06b86}} 
+\index{XzDec.c@{XzDec.c}!MixCoder\_SetFromMethod@{MixCoder\_SetFromMethod}}
+\index{MixCoder\_SetFromMethod@{MixCoder\_SetFromMethod}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{MixCoder\_SetFromMethod()}{MixCoder\_SetFromMethod()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Mix\+Coder\+\_\+\+Set\+From\+Method (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$}]{p,  }\item[{int}]{coder\+Index,  }\item[{\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}}}]{method\+Id }\end{DoxyParamCaption})}
+
+
+
+Definition at line 359 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a7f277905528aea0ab7849208d4ee4358}\label{unix_2_xz_dec_8c_a7f277905528aea0ab7849208d4ee4358}} 
+\index{XzDec.c@{XzDec.c}!Xz\_ParseHeader@{Xz\_ParseHeader}}
+\index{Xz\_ParseHeader@{Xz\_ParseHeader}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{Xz\_ParseHeader()}{Xz\_ParseHeader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xz\+\_\+\+Parse\+Header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unix_2_xz_8h_a80f5d0cba1813b2cf72d2360dc42eb75}{CXz\+Stream\+Flags}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{buf }\end{DoxyParamCaption})}
+
+
+
+Definition at line 482 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_af26ff2f89e38efa22b65d9030b4cf23d}\label{unix_2_xz_dec_8c_af26ff2f89e38efa22b65d9030b4cf23d}} 
+\index{XzDec.c@{XzDec.c}!Xz\_ReadVarInt@{Xz\_ReadVarInt}}
+\index{Xz\_ReadVarInt@{Xz\_ReadVarInt}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{Xz\_ReadVarInt()}{Xz\_ReadVarInt()}}
+{\footnotesize\ttfamily unsigned Xz\+\_\+\+Read\+Var\+Int (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{p,  }\item[{size\+\_\+t}]{max\+Size,  }\item[{\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} $\ast$}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_aa7099d8be2d59ffff841d046ee4bdaeb}\label{unix_2_xz_dec_8c_aa7099d8be2d59ffff841d046ee4bdaeb}} 
+\index{XzDec.c@{XzDec.c}!XzBlock\_Parse@{XzBlock\_Parse}}
+\index{XzBlock\_Parse@{XzBlock\_Parse}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{XzBlock\_Parse()}{XzBlock\_Parse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xz\+Block\+\_\+\+Parse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_block}{CXz\+Block}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{header }\end{DoxyParamCaption})}
+
+
+
+Definition at line 505 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a3b3b8b3eaf3d2abb24b90ae4932cfc11}\label{unix_2_xz_dec_8c_a3b3b8b3eaf3d2abb24b90ae4932cfc11}} 
+\index{XzDec.c@{XzDec.c}!XzDec\_Init@{XzDec\_Init}}
+\index{XzDec\_Init@{XzDec\_Init}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{XzDec\_Init()}{XzDec\_Init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xz\+Dec\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_mix_coder}{CMix\+Coder}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xz_block}{CXz\+Block}} $\ast$}]{block }\end{DoxyParamCaption})}
+
+
+
+Definition at line 558 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_af8b660bd50e45244cd490aaa7c45f827}\label{unix_2_xz_dec_8c_af8b660bd50e45244cd490aaa7c45f827}} 
+\index{XzDec.c@{XzDec.c}!XzUnpacker\_Code@{XzUnpacker\_Code}}
+\index{XzUnpacker\_Code@{XzUnpacker\_Code}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{XzUnpacker\_Code()}{XzUnpacker\_Code()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xz\+Unpacker\+\_\+\+Code (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_unpacker}{CXz\+Unpacker}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{src\+Len,  }\item[{int}]{finish\+Mode,  }\item[{\mbox{\hyperlink{unix_2_xz_8h_a0cc45a16a4259ae8ce3108c6c4d2067c}{ECoder\+Status}} $\ast$}]{status }\end{DoxyParamCaption})}
+
+
+
+Definition at line 604 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a8e205fb22995941eb51908a82ea4d093}\label{unix_2_xz_dec_8c_a8e205fb22995941eb51908a82ea4d093}} 
+\index{XzDec.c@{XzDec.c}!XzUnpacker\_Create@{XzUnpacker\_Create}}
+\index{XzUnpacker\_Create@{XzUnpacker\_Create}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{XzUnpacker\_Create()}{XzUnpacker\_Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xz\+Unpacker\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_unpacker}{CXz\+Unpacker}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 590 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_a002fba00a8b71f8c39bd1cb635d6e1b4}\label{unix_2_xz_dec_8c_a002fba00a8b71f8c39bd1cb635d6e1b4}} 
+\index{XzDec.c@{XzDec.c}!XzUnpacker\_Free@{XzUnpacker\_Free}}
+\index{XzUnpacker\_Free@{XzUnpacker\_Free}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{XzUnpacker\_Free()}{XzUnpacker\_Free()}}
+{\footnotesize\ttfamily void Xz\+Unpacker\+\_\+\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_unpacker}{CXz\+Unpacker}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 599 of file Xz\+Dec.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_dec_8c_aba374059022329acdf923d83a651e8ab}\label{unix_2_xz_dec_8c_aba374059022329acdf923d83a651e8ab}} 
+\index{XzDec.c@{XzDec.c}!XzUnpacker\_IsStreamWasFinished@{XzUnpacker\_IsStreamWasFinished}}
+\index{XzUnpacker\_IsStreamWasFinished@{XzUnpacker\_IsStreamWasFinished}!XzDec.c@{XzDec.c}}
+\doxysubsubsection{\texorpdfstring{XzUnpacker\_IsStreamWasFinished()}{XzUnpacker\_IsStreamWasFinished()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} Xz\+Unpacker\+\_\+\+Is\+Stream\+Was\+Finished (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_unpacker}{CXz\+Unpacker}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 872 of file Xz\+Dec.\+c.
+

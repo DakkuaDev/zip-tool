@@ -1,0 +1,205 @@
+\hypertarget{classbasic__compression__decoder__stream}{}\doxysection{basic\+\_\+compression\+\_\+decoder\+\_\+stream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$ Class Template Reference}
+\label{classbasic__compression__decoder__stream}\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+
+
+Basic generic compression decoder stream.  
+
+
+
+
+{\ttfamily \#include $<$compression\+\_\+decoder\+\_\+stream.\+h$>$}
+
+
+
+Inheritance diagram for basic\+\_\+compression\+\_\+decoder\+\_\+stream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 0
+
+
+Collaboration diagram for basic\+\_\+compression\+\_\+decoder\+\_\+stream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classcompression__decoder__streambuf}{compression\+\_\+decoder\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}}
+\item 
+typedef \mbox{\hyperlink{classcompression__decoder__streambuf}{compression\+\_\+decoder\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a243e7d1f02d630cb29fc93ea1de35845}{ostream\+\_\+type}} \mbox{\hyperlink{classbasic__compression__decoder__stream_a243e7d1f02d630cb29fc93ea1de35845}{ostream\+\_\+type}}
+\item 
+typedef \mbox{\hyperlink{classcompression__decoder__streambuf}{compression\+\_\+decoder\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a82c0805dfb98b341018f02042cb159b2}{icompression\+\_\+decoder\+\_\+type}} \mbox{\hyperlink{classbasic__compression__decoder__stream_a82c0805dfb98b341018f02042cb159b2}{icompression\+\_\+decoder\+\_\+type}}
+\item 
+typedef \mbox{\hyperlink{classcompression__decoder__streambuf}{compression\+\_\+decoder\+\_\+streambuf}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}} \mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classbasic__compression__decoder__stream_a20a6ea545f1a5a2746b667e85bbbd95c}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}} ()
+\item 
+\mbox{\hyperlink{classbasic__compression__decoder__stream_a6d5f94a215285dd42dba66dd35ac7ed9}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}} (\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}} compression\+Decoder, \mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \&stream)
+\item 
+\mbox{\hyperlink{classbasic__compression__decoder__stream_ade16e1a12fc817e9ad03faded37604e4}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}} (\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}} compression\+Decoder, \mbox{\hyperlink{structcompression__decoder__properties__interface}{compression\+\_\+decoder\+\_\+properties\+\_\+interface}} \&props, \mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \&stream)
+\item 
+bool \mbox{\hyperlink{classbasic__compression__decoder__stream_a38d50c3f2638ce46fda6e4aa9a0ed293}{init}} (\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}} compression\+Decoder, \mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \&stream)
+\item 
+bool \mbox{\hyperlink{classbasic__compression__decoder__stream_aebc11f467eda1a4b8b7d3b41486eaa07}{init}} (\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}} compression\+Decoder, \mbox{\hyperlink{structcompression__decoder__properties__interface}{compression\+\_\+decoder\+\_\+properties\+\_\+interface}} \&props, \mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \&stream)
+\item 
+bool \mbox{\hyperlink{classbasic__compression__decoder__stream_a800d5f45fcc124d4a5d51e95fafeb48a}{is\+\_\+init}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classbasic__compression__decoder__stream_aee969c2d358262624259a970fb06798d}{get\+\_\+bytes\+\_\+read}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classbasic__compression__decoder__stream_a61deb001701e0f9e3deeb7deabb62b4f}{get\+\_\+bytes\+\_\+written}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename ELEM\+\_\+\+TYPE, typename TRAITS\+\_\+\+TYPE$>$\newline
+class basic\+\_\+compression\+\_\+decoder\+\_\+stream$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}
+
+Basic generic compression decoder stream. 
+
+Definition at line 9 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}\label{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!icompression\_decoder\_ptr\_type@{icompression\_decoder\_ptr\_type}}
+\index{icompression\_decoder\_ptr\_type@{icompression\_decoder\_ptr\_type}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{icompression\_decoder\_ptr\_type}{icompression\_decoder\_ptr\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef \mbox{\hyperlink{classcompression__decoder__streambuf}{compression\+\_\+decoder\+\_\+streambuf}}$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}} \mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}}}
+
+
+
+Definition at line 17 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_a82c0805dfb98b341018f02042cb159b2}\label{classbasic__compression__decoder__stream_a82c0805dfb98b341018f02042cb159b2}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!icompression\_decoder\_type@{icompression\_decoder\_type}}
+\index{icompression\_decoder\_type@{icompression\_decoder\_type}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{icompression\_decoder\_type}{icompression\_decoder\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef \mbox{\hyperlink{classcompression__decoder__streambuf}{compression\+\_\+decoder\+\_\+streambuf}}$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a82c0805dfb98b341018f02042cb159b2}{icompression\+\_\+decoder\+\_\+type}} \mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a82c0805dfb98b341018f02042cb159b2}{icompression\+\_\+decoder\+\_\+type}}}
+
+
+
+Definition at line 16 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}\label{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!istream\_type@{istream\_type}}
+\index{istream\_type@{istream\_type}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{istream\_type}{istream\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef \mbox{\hyperlink{classcompression__decoder__streambuf}{compression\+\_\+decoder\+\_\+streambuf}}$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}}}
+
+
+
+Definition at line 13 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_a243e7d1f02d630cb29fc93ea1de35845}\label{classbasic__compression__decoder__stream_a243e7d1f02d630cb29fc93ea1de35845}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!ostream\_type@{ostream\_type}}
+\index{ostream\_type@{ostream\_type}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{ostream\_type}{ostream\_type}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+typedef \mbox{\hyperlink{classcompression__decoder__streambuf}{compression\+\_\+decoder\+\_\+streambuf}}$<$ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE$>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a243e7d1f02d630cb29fc93ea1de35845}{ostream\+\_\+type}} \mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream_a243e7d1f02d630cb29fc93ea1de35845}{ostream\+\_\+type}}}
+
+
+
+Definition at line 14 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_a20a6ea545f1a5a2746b667e85bbbd95c}\label{classbasic__compression__decoder__stream_a20a6ea545f1a5a2746b667e85bbbd95c}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!basic\_compression\_decoder\_stream@{basic\_compression\_decoder\_stream}}
+\index{basic\_compression\_decoder\_stream@{basic\_compression\_decoder\_stream}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_compression\_decoder\_stream()}{basic\_compression\_decoder\_stream()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 19 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_a6d5f94a215285dd42dba66dd35ac7ed9}\label{classbasic__compression__decoder__stream_a6d5f94a215285dd42dba66dd35ac7ed9}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!basic\_compression\_decoder\_stream@{basic\_compression\_decoder\_stream}}
+\index{basic\_compression\_decoder\_stream@{basic\_compression\_decoder\_stream}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_compression\_decoder\_stream()}{basic\_compression\_decoder\_stream()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}}}]{compression\+Decoder,  }\item[{\mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 25 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_ade16e1a12fc817e9ad03faded37604e4}\label{classbasic__compression__decoder__stream_ade16e1a12fc817e9ad03faded37604e4}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!basic\_compression\_decoder\_stream@{basic\_compression\_decoder\_stream}}
+\index{basic\_compression\_decoder\_stream@{basic\_compression\_decoder\_stream}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{basic\_compression\_decoder\_stream()}{basic\_compression\_decoder\_stream()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+\mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::\mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}}}]{compression\+Decoder,  }\item[{\mbox{\hyperlink{structcompression__decoder__properties__interface}{compression\+\_\+decoder\+\_\+properties\+\_\+interface}} \&}]{props,  }\item[{\mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 32 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_aee969c2d358262624259a970fb06798d}\label{classbasic__compression__decoder__stream_aee969c2d358262624259a970fb06798d}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!get\_bytes\_read@{get\_bytes\_read}}
+\index{get\_bytes\_read@{get\_bytes\_read}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get\_bytes\_read()}{get\_bytes\_read()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+size\+\_\+t \mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::get\+\_\+bytes\+\_\+read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 54 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_a61deb001701e0f9e3deeb7deabb62b4f}\label{classbasic__compression__decoder__stream_a61deb001701e0f9e3deeb7deabb62b4f}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!get\_bytes\_written@{get\_bytes\_written}}
+\index{get\_bytes\_written@{get\_bytes\_written}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{get\_bytes\_written()}{get\_bytes\_written()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+size\+\_\+t \mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::get\+\_\+bytes\+\_\+written (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 59 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_aebc11f467eda1a4b8b7d3b41486eaa07}\label{classbasic__compression__decoder__stream_aebc11f467eda1a4b8b7d3b41486eaa07}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!init@{init}}
+\index{init@{init}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+bool \mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}}}]{compression\+Decoder,  }\item[{\mbox{\hyperlink{structcompression__decoder__properties__interface}{compression\+\_\+decoder\+\_\+properties\+\_\+interface}} \&}]{props,  }\item[{\mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 44 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_a38d50c3f2638ce46fda6e4aa9a0ed293}\label{classbasic__compression__decoder__stream_a38d50c3f2638ce46fda6e4aa9a0ed293}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!init@{init}}
+\index{init@{init}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+bool \mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classbasic__compression__decoder__stream_a447dfaddefeab99f780c82c792611a48}{icompression\+\_\+decoder\+\_\+ptr\+\_\+type}}}]{compression\+Decoder,  }\item[{\mbox{\hyperlink{classbasic__compression__decoder__stream_a056699183794e7b81327a799254feed6}{istream\+\_\+type}} \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 39 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+\mbox{\Hypertarget{classbasic__compression__decoder__stream_a800d5f45fcc124d4a5d51e95fafeb48a}\label{classbasic__compression__decoder__stream_a800d5f45fcc124d4a5d51e95fafeb48a}} 
+\index{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}!is\_init@{is\_init}}
+\index{is\_init@{is\_init}!basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$@{basic\_compression\_decoder\_stream$<$ ELEM\_TYPE, TRAITS\_TYPE $>$}}
+\doxysubsubsection{\texorpdfstring{is\_init()}{is\_init()}}
+{\footnotesize\ttfamily template$<$typename ELEM\+\_\+\+TYPE , typename TRAITS\+\_\+\+TYPE $>$ \\
+bool \mbox{\hyperlink{classbasic__compression__decoder__stream}{basic\+\_\+compression\+\_\+decoder\+\_\+stream}}$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$\+::is\+\_\+init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 49 of file compression\+\_\+decoder\+\_\+stream.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/streams/\mbox{\hyperlink{compression__decoder__stream_8h}{compression\+\_\+decoder\+\_\+stream.\+h}}\end{DoxyCompactItemize}

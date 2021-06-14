@@ -1,0 +1,137 @@
+\hypertarget{compression__interface_8h}{}\doxysection{source/\+Zip\+Lib/compression/compression\+\_\+interface.h File Reference}
+\label{compression__interface_8h}\index{source/ZipLib/compression/compression\_interface.h@{source/ZipLib/compression/compression\_interface.h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+Include dependency graph for compression\+\_\+interface.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structcompression__properties__interface}{compression\+\_\+properties\+\_\+interface}}
+\item 
+struct \mbox{\hyperlink{structcompression__encoder__properties__interface}{compression\+\_\+encoder\+\_\+properties\+\_\+interface}}
+\item 
+struct \mbox{\hyperlink{structcompression__decoder__properties__interface}{compression\+\_\+decoder\+\_\+properties\+\_\+interface}}
+\item 
+class \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}
+\item 
+class \mbox{\hyperlink{classcompression__encoder__interface__basic}{compression\+\_\+encoder\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}
+\item 
+class \mbox{\hyperlink{classcompression__decoder__interface__basic}{compression\+\_\+decoder\+\_\+interface\+\_\+basic$<$ ELEM\+\_\+\+TYPE, TRAITS\+\_\+\+TYPE $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$ uint8\+\_\+t, std\+::char\+\_\+traits$<$ uint8\+\_\+t $>$ $>$ \mbox{\hyperlink{compression__interface_8h_a75402d931d61e394739cc58be9fd8164}{byte\+\_\+compression\+\_\+interface}}
+\item 
+typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$ char, std\+::char\+\_\+traits$<$ char $>$ $>$ \mbox{\hyperlink{compression__interface_8h_aa2d40305cc94858d0767a1172f514687}{compression\+\_\+interface}}
+\item 
+typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$ wchar\+\_\+t, std\+::char\+\_\+traits$<$ wchar\+\_\+t $>$ $>$ \mbox{\hyperlink{compression__interface_8h_a062aba2f41d0e0dd20f2c16a0ae36ccd}{wcompression\+\_\+interface}}
+\item 
+typedef \mbox{\hyperlink{classcompression__encoder__interface__basic}{compression\+\_\+encoder\+\_\+interface\+\_\+basic}}$<$ uint8\+\_\+t, std\+::char\+\_\+traits$<$ uint8\+\_\+t $>$ $>$ \mbox{\hyperlink{compression__interface_8h_a1d1a12d9d067c074885494017a896c57}{byte\+\_\+compression\+\_\+encoder\+\_\+interface}}
+\item 
+typedef \mbox{\hyperlink{classcompression__encoder__interface__basic}{compression\+\_\+encoder\+\_\+interface\+\_\+basic}}$<$ char, std\+::char\+\_\+traits$<$ char $>$ $>$ \mbox{\hyperlink{compression__interface_8h_a0fe01539a0b677763b0583e71e0b08a2}{compression\+\_\+encoder\+\_\+interface}}
+\item 
+typedef \mbox{\hyperlink{classcompression__encoder__interface__basic}{compression\+\_\+encoder\+\_\+interface\+\_\+basic}}$<$ wchar\+\_\+t, std\+::char\+\_\+traits$<$ wchar\+\_\+t $>$ $>$ \mbox{\hyperlink{compression__interface_8h_a71a5ac040fd23273f52348970e7339ac}{wcompression\+\_\+encoder\+\_\+interface}}
+\item 
+typedef \mbox{\hyperlink{classcompression__decoder__interface__basic}{compression\+\_\+decoder\+\_\+interface\+\_\+basic}}$<$ uint8\+\_\+t, std\+::char\+\_\+traits$<$ uint8\+\_\+t $>$ $>$ \mbox{\hyperlink{compression__interface_8h_a5aab4329cf529944658415518240e59d}{byte\+\_\+compression\+\_\+decoder\+\_\+interface}}
+\item 
+typedef \mbox{\hyperlink{classcompression__decoder__interface__basic}{compression\+\_\+decoder\+\_\+interface\+\_\+basic}}$<$ char, std\+::char\+\_\+traits$<$ char $>$ $>$ \mbox{\hyperlink{compression__interface_8h_ac4738fae6eb8e2e15e78224b8e1903ea}{compression\+\_\+decoder\+\_\+interface}}
+\item 
+typedef \mbox{\hyperlink{classcompression__decoder__interface__basic}{compression\+\_\+decoder\+\_\+interface\+\_\+basic}}$<$ wchar\+\_\+t, std\+::char\+\_\+traits$<$ wchar\+\_\+t $>$ $>$ \mbox{\hyperlink{compression__interface_8h_ad751301c960906e47c4d801891719a1e}{wcompression\+\_\+decoder\+\_\+interface}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{compression__interface_8h_a5aab4329cf529944658415518240e59d}\label{compression__interface_8h_a5aab4329cf529944658415518240e59d}} 
+\index{compression\_interface.h@{compression\_interface.h}!byte\_compression\_decoder\_interface@{byte\_compression\_decoder\_interface}}
+\index{byte\_compression\_decoder\_interface@{byte\_compression\_decoder\_interface}!compression\_interface.h@{compression\_interface.h}}
+\doxysubsubsection{\texorpdfstring{byte\_compression\_decoder\_interface}{byte\_compression\_decoder\_interface}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classcompression__decoder__interface__basic}{compression\+\_\+decoder\+\_\+interface\+\_\+basic}}$<$uint8\+\_\+t, std\+::char\+\_\+traits$<$uint8\+\_\+t$>$ $>$ \mbox{\hyperlink{compression__interface_8h_a5aab4329cf529944658415518240e59d}{byte\+\_\+compression\+\_\+decoder\+\_\+interface}}}
+
+
+
+Definition at line 79 of file compression\+\_\+interface.\+h.
+
+\mbox{\Hypertarget{compression__interface_8h_a1d1a12d9d067c074885494017a896c57}\label{compression__interface_8h_a1d1a12d9d067c074885494017a896c57}} 
+\index{compression\_interface.h@{compression\_interface.h}!byte\_compression\_encoder\_interface@{byte\_compression\_encoder\_interface}}
+\index{byte\_compression\_encoder\_interface@{byte\_compression\_encoder\_interface}!compression\_interface.h@{compression\_interface.h}}
+\doxysubsubsection{\texorpdfstring{byte\_compression\_encoder\_interface}{byte\_compression\_encoder\_interface}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classcompression__encoder__interface__basic}{compression\+\_\+encoder\+\_\+interface\+\_\+basic}}$<$uint8\+\_\+t, std\+::char\+\_\+traits$<$uint8\+\_\+t$>$ $>$ \mbox{\hyperlink{compression__interface_8h_a1d1a12d9d067c074885494017a896c57}{byte\+\_\+compression\+\_\+encoder\+\_\+interface}}}
+
+
+
+Definition at line 75 of file compression\+\_\+interface.\+h.
+
+\mbox{\Hypertarget{compression__interface_8h_a75402d931d61e394739cc58be9fd8164}\label{compression__interface_8h_a75402d931d61e394739cc58be9fd8164}} 
+\index{compression\_interface.h@{compression\_interface.h}!byte\_compression\_interface@{byte\_compression\_interface}}
+\index{byte\_compression\_interface@{byte\_compression\_interface}!compression\_interface.h@{compression\_interface.h}}
+\doxysubsubsection{\texorpdfstring{byte\_compression\_interface}{byte\_compression\_interface}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$uint8\+\_\+t, std\+::char\+\_\+traits$<$uint8\+\_\+t$>$ $>$ \mbox{\hyperlink{compression__interface_8h_a75402d931d61e394739cc58be9fd8164}{byte\+\_\+compression\+\_\+interface}}}
+
+
+
+Definition at line 71 of file compression\+\_\+interface.\+h.
+
+\mbox{\Hypertarget{compression__interface_8h_ac4738fae6eb8e2e15e78224b8e1903ea}\label{compression__interface_8h_ac4738fae6eb8e2e15e78224b8e1903ea}} 
+\index{compression\_interface.h@{compression\_interface.h}!compression\_decoder\_interface@{compression\_decoder\_interface}}
+\index{compression\_decoder\_interface@{compression\_decoder\_interface}!compression\_interface.h@{compression\_interface.h}}
+\doxysubsubsection{\texorpdfstring{compression\_decoder\_interface}{compression\_decoder\_interface}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classcompression__decoder__interface__basic}{compression\+\_\+decoder\+\_\+interface\+\_\+basic}}$<$char, std\+::char\+\_\+traits$<$char$>$ $>$ \mbox{\hyperlink{compression__interface_8h_ac4738fae6eb8e2e15e78224b8e1903ea}{compression\+\_\+decoder\+\_\+interface}}}
+
+
+
+Definition at line 80 of file compression\+\_\+interface.\+h.
+
+\mbox{\Hypertarget{compression__interface_8h_a0fe01539a0b677763b0583e71e0b08a2}\label{compression__interface_8h_a0fe01539a0b677763b0583e71e0b08a2}} 
+\index{compression\_interface.h@{compression\_interface.h}!compression\_encoder\_interface@{compression\_encoder\_interface}}
+\index{compression\_encoder\_interface@{compression\_encoder\_interface}!compression\_interface.h@{compression\_interface.h}}
+\doxysubsubsection{\texorpdfstring{compression\_encoder\_interface}{compression\_encoder\_interface}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classcompression__encoder__interface__basic}{compression\+\_\+encoder\+\_\+interface\+\_\+basic}}$<$char, std\+::char\+\_\+traits$<$char$>$ $>$ \mbox{\hyperlink{compression__interface_8h_a0fe01539a0b677763b0583e71e0b08a2}{compression\+\_\+encoder\+\_\+interface}}}
+
+
+
+Definition at line 76 of file compression\+\_\+interface.\+h.
+
+\mbox{\Hypertarget{compression__interface_8h_aa2d40305cc94858d0767a1172f514687}\label{compression__interface_8h_aa2d40305cc94858d0767a1172f514687}} 
+\index{compression\_interface.h@{compression\_interface.h}!compression\_interface@{compression\_interface}}
+\index{compression\_interface@{compression\_interface}!compression\_interface.h@{compression\_interface.h}}
+\doxysubsubsection{\texorpdfstring{compression\_interface}{compression\_interface}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$char, std\+::char\+\_\+traits$<$char$>$ $>$ \mbox{\hyperlink{compression__interface_8h_aa2d40305cc94858d0767a1172f514687}{compression\+\_\+interface}}}
+
+
+
+Definition at line 72 of file compression\+\_\+interface.\+h.
+
+\mbox{\Hypertarget{compression__interface_8h_ad751301c960906e47c4d801891719a1e}\label{compression__interface_8h_ad751301c960906e47c4d801891719a1e}} 
+\index{compression\_interface.h@{compression\_interface.h}!wcompression\_decoder\_interface@{wcompression\_decoder\_interface}}
+\index{wcompression\_decoder\_interface@{wcompression\_decoder\_interface}!compression\_interface.h@{compression\_interface.h}}
+\doxysubsubsection{\texorpdfstring{wcompression\_decoder\_interface}{wcompression\_decoder\_interface}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classcompression__decoder__interface__basic}{compression\+\_\+decoder\+\_\+interface\+\_\+basic}}$<$wchar\+\_\+t, std\+::char\+\_\+traits$<$wchar\+\_\+t$>$ $>$ \mbox{\hyperlink{compression__interface_8h_ad751301c960906e47c4d801891719a1e}{wcompression\+\_\+decoder\+\_\+interface}}}
+
+
+
+Definition at line 81 of file compression\+\_\+interface.\+h.
+
+\mbox{\Hypertarget{compression__interface_8h_a71a5ac040fd23273f52348970e7339ac}\label{compression__interface_8h_a71a5ac040fd23273f52348970e7339ac}} 
+\index{compression\_interface.h@{compression\_interface.h}!wcompression\_encoder\_interface@{wcompression\_encoder\_interface}}
+\index{wcompression\_encoder\_interface@{wcompression\_encoder\_interface}!compression\_interface.h@{compression\_interface.h}}
+\doxysubsubsection{\texorpdfstring{wcompression\_encoder\_interface}{wcompression\_encoder\_interface}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classcompression__encoder__interface__basic}{compression\+\_\+encoder\+\_\+interface\+\_\+basic}}$<$wchar\+\_\+t, std\+::char\+\_\+traits$<$wchar\+\_\+t$>$ $>$ \mbox{\hyperlink{compression__interface_8h_a71a5ac040fd23273f52348970e7339ac}{wcompression\+\_\+encoder\+\_\+interface}}}
+
+
+
+Definition at line 77 of file compression\+\_\+interface.\+h.
+
+\mbox{\Hypertarget{compression__interface_8h_a062aba2f41d0e0dd20f2c16a0ae36ccd}\label{compression__interface_8h_a062aba2f41d0e0dd20f2c16a0ae36ccd}} 
+\index{compression\_interface.h@{compression\_interface.h}!wcompression\_interface@{wcompression\_interface}}
+\index{wcompression\_interface@{wcompression\_interface}!compression\_interface.h@{compression\_interface.h}}
+\doxysubsubsection{\texorpdfstring{wcompression\_interface}{wcompression\_interface}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{classcompression__interface__basic}{compression\+\_\+interface\+\_\+basic}}$<$wchar\+\_\+t, std\+::char\+\_\+traits$<$wchar\+\_\+t$>$ $>$ \mbox{\hyperlink{compression__interface_8h_a062aba2f41d0e0dd20f2c16a0ae36ccd}{wcompression\+\_\+interface}}}
+
+
+
+Definition at line 73 of file compression\+\_\+interface.\+h.
+

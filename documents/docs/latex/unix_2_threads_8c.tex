@@ -1,0 +1,218 @@
+\hypertarget{unix_2_threads_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Threads.c File Reference}
+\label{unix_2_threads_8c}\index{source/ZipLib/extlibs/lzma/unix/Threads.c@{source/ZipLib/extlibs/lzma/unix/Threads.c}}
+{\ttfamily \#include \char`\"{}Threads.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+Include dependency graph for Threads.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a4f5e0379e14d875c6585551acbff6359}{Thread\+\_\+\+Create}} (\mbox{\hyperlink{_threads_8h_a068a5473befa776f23a97add9512d427}{CThread}} $\ast$thread, \mbox{\hyperlink{_threads_8h_af9264da4ca787c227d6cf5a66426032b}{THREAD\+\_\+\+FUNC\+\_\+\+RET\+\_\+\+TYPE}}(\mbox{\hyperlink{unix_2_threads_8h_a563e8964d90165aacba91d48c5660b6f}{THREAD\+\_\+\+FUNC\+\_\+\+CALL\+\_\+\+TYPE}} $\ast$start\+Address)(void $\ast$), \mbox{\hyperlink{unix_2_threads_8h_ab064840df4ab5a8cf90ddb963f94de34}{LPVOID}} parameter)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a57863b5d704d0dbada42922c6790a243}{Thread\+\_\+\+Wait}} (\mbox{\hyperlink{_threads_8h_a068a5473befa776f23a97add9512d427}{CThread}} $\ast$thread)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_af1574c5898528f05ff337e5b44e62128}{Thread\+\_\+\+Close}} (\mbox{\hyperlink{_threads_8h_a068a5473befa776f23a97add9512d427}{CThread}} $\ast$thread)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_ae37ae504134c63c84e4f1d2a5616c1f4}{Event\+\_\+\+Create}} (\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$p, \mbox{\hyperlink{unix_2_threads_8h_a67bb6a3d7ee6a2a5950ce437abbe31c8}{BOOL}} manual\+Reset, int initial\+Signaled)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a4c894884b1268b8d00d2a96489ba89e3}{Event\+\_\+\+Set}} (\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_adcebff2a2a5098940f037eb6ba9d6873}{Event\+\_\+\+Reset}} (\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a51bdf6600b4a6605a76a412ce74044f4}{Event\+\_\+\+Wait}} (\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a6caa30586b6694f50b80b86445cff21c}{Event\+\_\+\+Close}} (\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_ab1827be0bf5ce21f4c779565cfdf994a}{Semaphore\+\_\+\+Create}} (\mbox{\hyperlink{_threads_8h_a06778ea105c5f99d685edf99dd15db73}{CSemaphore}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} initially\+Count, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} max\+Count)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a2c12e3a9efa5abc3f27f4d6a7f005656}{Semaphore\+\_\+\+ReleaseN}} (\mbox{\hyperlink{_threads_8h_a06778ea105c5f99d685edf99dd15db73}{CSemaphore}} $\ast$p, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} release\+Count)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_abb19deb4d66bb16fee2741a9898228a2}{Semaphore\+\_\+\+Wait}} (\mbox{\hyperlink{_threads_8h_a06778ea105c5f99d685edf99dd15db73}{CSemaphore}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a7d67eb2bb42b6c2a1c79f98a2dbc7e04}{Semaphore\+\_\+\+Close}} (\mbox{\hyperlink{_threads_8h_a06778ea105c5f99d685edf99dd15db73}{CSemaphore}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a9c882dfae546c32b663b145f5df8066a}{Critical\+Section\+\_\+\+Init}} (\mbox{\hyperlink{struct_c_critical_section}{CCritical\+Section}} $\ast$lp\+Critical\+Section)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a1eec45c661c269cb23fae2fb69142774}{Manual\+Reset\+Event\+\_\+\+Create}} (\mbox{\hyperlink{_threads_8h_a577b1156766499bb9817e8304c529263}{CManual\+Reset\+Event}} $\ast$p, int initial\+Signaled)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_aea4abce1bd8c949beec4ec4b04a20dc9}{Manual\+Reset\+Event\+\_\+\+Create\+Not\+Signaled}} (\mbox{\hyperlink{_threads_8h_a577b1156766499bb9817e8304c529263}{CManual\+Reset\+Event}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a5f6d9fb2341050028e7f0402ba3694b6}{Auto\+Reset\+Event\+\_\+\+Create}} (\mbox{\hyperlink{_threads_8h_ab7aa6e63ea49ce5799992cfc4b1262cd}{CAuto\+Reset\+Event}} $\ast$p, int initial\+Signaled)
+\item 
+\mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} \mbox{\hyperlink{unix_2_threads_8c_a412a057fdddc508871f7c63812a96aff}{Auto\+Reset\+Event\+\_\+\+Create\+Not\+Signaled}} (\mbox{\hyperlink{_threads_8h_ab7aa6e63ea49ce5799992cfc4b1262cd}{CAuto\+Reset\+Event}} $\ast$p)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_2_threads_8c_a5f6d9fb2341050028e7f0402ba3694b6}\label{unix_2_threads_8c_a5f6d9fb2341050028e7f0402ba3694b6}} 
+\index{Threads.c@{Threads.c}!AutoResetEvent\_Create@{AutoResetEvent\_Create}}
+\index{AutoResetEvent\_Create@{AutoResetEvent\_Create}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{AutoResetEvent\_Create()}{AutoResetEvent\_Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Auto\+Reset\+Event\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_ab7aa6e63ea49ce5799992cfc4b1262cd}{CAuto\+Reset\+Event}} $\ast$}]{p,  }\item[{int}]{initial\+Signaled }\end{DoxyParamCaption})}
+
+
+
+Definition at line 578 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a412a057fdddc508871f7c63812a96aff}\label{unix_2_threads_8c_a412a057fdddc508871f7c63812a96aff}} 
+\index{Threads.c@{Threads.c}!AutoResetEvent\_CreateNotSignaled@{AutoResetEvent\_CreateNotSignaled}}
+\index{AutoResetEvent\_CreateNotSignaled@{AutoResetEvent\_CreateNotSignaled}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{AutoResetEvent\_CreateNotSignaled()}{AutoResetEvent\_CreateNotSignaled()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Auto\+Reset\+Event\+\_\+\+Create\+Not\+Signaled (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_ab7aa6e63ea49ce5799992cfc4b1262cd}{CAuto\+Reset\+Event}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 580 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a9c882dfae546c32b663b145f5df8066a}\label{unix_2_threads_8c_a9c882dfae546c32b663b145f5df8066a}} 
+\index{Threads.c@{Threads.c}!CriticalSection\_Init@{CriticalSection\_Init}}
+\index{CriticalSection\_Init@{CriticalSection\_Init}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{CriticalSection\_Init()}{CriticalSection\_Init()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Critical\+Section\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_critical_section}{CCritical\+Section}} $\ast$}]{lp\+Critical\+Section }\end{DoxyParamCaption})}
+
+
+
+Definition at line 563 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a6caa30586b6694f50b80b86445cff21c}\label{unix_2_threads_8c_a6caa30586b6694f50b80b86445cff21c}} 
+\index{Threads.c@{Threads.c}!Event\_Close@{Event\_Close}}
+\index{Event\_Close@{Event\_Close}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Event\_Close()}{Event\_Close()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Event\+\_\+\+Close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 502 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_ae37ae504134c63c84e4f1d2a5616c1f4}\label{unix_2_threads_8c_ae37ae504134c63c84e4f1d2a5616c1f4}} 
+\index{Threads.c@{Threads.c}!Event\_Create@{Event\_Create}}
+\index{Event\_Create@{Event\_Create}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Event\_Create()}{Event\_Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Event\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{unix_2_threads_8h_a67bb6a3d7ee6a2a5950ce437abbe31c8}{BOOL}}}]{manual\+Reset,  }\item[{int}]{initial\+Signaled }\end{DoxyParamCaption})}
+
+
+
+Definition at line 463 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_adcebff2a2a5098940f037eb6ba9d6873}\label{unix_2_threads_8c_adcebff2a2a5098940f037eb6ba9d6873}} 
+\index{Threads.c@{Threads.c}!Event\_Reset@{Event\_Reset}}
+\index{Event\_Reset@{Event\_Reset}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Event\_Reset()}{Event\_Reset()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Event\+\_\+\+Reset (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 481 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a4c894884b1268b8d00d2a96489ba89e3}\label{unix_2_threads_8c_a4c894884b1268b8d00d2a96489ba89e3}} 
+\index{Threads.c@{Threads.c}!Event\_Set@{Event\_Set}}
+\index{Event\_Set@{Event\_Set}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Event\_Set()}{Event\_Set()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Event\+\_\+\+Set (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 473 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a51bdf6600b4a6605a76a412ce74044f4}\label{unix_2_threads_8c_a51bdf6600b4a6605a76a412ce74044f4}} 
+\index{Threads.c@{Threads.c}!Event\_Wait@{Event\_Wait}}
+\index{Event\_Wait@{Event\_Wait}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Event\_Wait()}{Event\_Wait()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Event\+\_\+\+Wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_ad3b664012f3ed6e3e8f05d26cd9df807}{CEvent}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 488 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a1eec45c661c269cb23fae2fb69142774}\label{unix_2_threads_8c_a1eec45c661c269cb23fae2fb69142774}} 
+\index{Threads.c@{Threads.c}!ManualResetEvent\_Create@{ManualResetEvent\_Create}}
+\index{ManualResetEvent\_Create@{ManualResetEvent\_Create}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{ManualResetEvent\_Create()}{ManualResetEvent\_Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Manual\+Reset\+Event\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_a577b1156766499bb9817e8304c529263}{CManual\+Reset\+Event}} $\ast$}]{p,  }\item[{int}]{initial\+Signaled }\end{DoxyParamCaption})}
+
+
+
+Definition at line 572 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_aea4abce1bd8c949beec4ec4b04a20dc9}\label{unix_2_threads_8c_aea4abce1bd8c949beec4ec4b04a20dc9}} 
+\index{Threads.c@{Threads.c}!ManualResetEvent\_CreateNotSignaled@{ManualResetEvent\_CreateNotSignaled}}
+\index{ManualResetEvent\_CreateNotSignaled@{ManualResetEvent\_CreateNotSignaled}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{ManualResetEvent\_CreateNotSignaled()}{ManualResetEvent\_CreateNotSignaled()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Manual\+Reset\+Event\+\_\+\+Create\+Not\+Signaled (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_a577b1156766499bb9817e8304c529263}{CManual\+Reset\+Event}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 575 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a7d67eb2bb42b6c2a1c79f98a2dbc7e04}\label{unix_2_threads_8c_a7d67eb2bb42b6c2a1c79f98a2dbc7e04}} 
+\index{Threads.c@{Threads.c}!Semaphore\_Close@{Semaphore\_Close}}
+\index{Semaphore\_Close@{Semaphore\_Close}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Semaphore\_Close()}{Semaphore\_Close()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Semaphore\+\_\+\+Close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_a06778ea105c5f99d685edf99dd15db73}{CSemaphore}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 553 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_ab1827be0bf5ce21f4c779565cfdf994a}\label{unix_2_threads_8c_ab1827be0bf5ce21f4c779565cfdf994a}} 
+\index{Threads.c@{Threads.c}!Semaphore\_Create@{Semaphore\_Create}}
+\index{Semaphore\_Create@{Semaphore\_Create}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Semaphore\_Create()}{Semaphore\_Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Semaphore\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_a06778ea105c5f99d685edf99dd15db73}{CSemaphore}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{initially\+Count,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{max\+Count }\end{DoxyParamCaption})}
+
+
+
+Definition at line 512 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a2c12e3a9efa5abc3f27f4d6a7f005656}\label{unix_2_threads_8c_a2c12e3a9efa5abc3f27f4d6a7f005656}} 
+\index{Threads.c@{Threads.c}!Semaphore\_ReleaseN@{Semaphore\_ReleaseN}}
+\index{Semaphore\_ReleaseN@{Semaphore\_ReleaseN}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Semaphore\_ReleaseN()}{Semaphore\_ReleaseN()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Semaphore\+\_\+\+ReleaseN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_a06778ea105c5f99d685edf99dd15db73}{CSemaphore}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}}}]{release\+Count }\end{DoxyParamCaption})}
+
+
+
+Definition at line 522 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_abb19deb4d66bb16fee2741a9898228a2}\label{unix_2_threads_8c_abb19deb4d66bb16fee2741a9898228a2}} 
+\index{Threads.c@{Threads.c}!Semaphore\_Wait@{Semaphore\_Wait}}
+\index{Semaphore\_Wait@{Semaphore\_Wait}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Semaphore\_Wait()}{Semaphore\_Wait()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Semaphore\+\_\+\+Wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_a06778ea105c5f99d685edf99dd15db73}{CSemaphore}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 542 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_af1574c5898528f05ff337e5b44e62128}\label{unix_2_threads_8c_af1574c5898528f05ff337e5b44e62128}} 
+\index{Threads.c@{Threads.c}!Thread\_Close@{Thread\_Close}}
+\index{Thread\_Close@{Thread\_Close}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Thread\_Close()}{Thread\_Close()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Thread\+\_\+\+Close (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_a068a5473befa776f23a97add9512d427}{CThread}} $\ast$}]{thread }\end{DoxyParamCaption})}
+
+
+
+Definition at line 226 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a4f5e0379e14d875c6585551acbff6359}\label{unix_2_threads_8c_a4f5e0379e14d875c6585551acbff6359}} 
+\index{Threads.c@{Threads.c}!Thread\_Create@{Thread\_Create}}
+\index{Thread\_Create@{Thread\_Create}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Thread\_Create()}{Thread\_Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Thread\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_a068a5473befa776f23a97add9512d427}{CThread}} $\ast$}]{thread,  }\item[{\mbox{\hyperlink{_threads_8h_af9264da4ca787c227d6cf5a66426032b}{THREAD\+\_\+\+FUNC\+\_\+\+RET\+\_\+\+TYPE}}(\mbox{\hyperlink{unix_2_threads_8h_a563e8964d90165aacba91d48c5660b6f}{THREAD\+\_\+\+FUNC\+\_\+\+CALL\+\_\+\+TYPE}} $\ast$start\+Address)(void $\ast$)}]{,  }\item[{\mbox{\hyperlink{unix_2_threads_8h_ab064840df4ab5a8cf90ddb963f94de34}{LPVOID}}}]{parameter }\end{DoxyParamCaption})}
+
+
+
+Definition at line 188 of file Threads.\+c.
+
+\mbox{\Hypertarget{unix_2_threads_8c_a57863b5d704d0dbada42922c6790a243}\label{unix_2_threads_8c_a57863b5d704d0dbada42922c6790a243}} 
+\index{Threads.c@{Threads.c}!Thread\_Wait@{Thread\_Wait}}
+\index{Thread\_Wait@{Thread\_Wait}!Threads.c@{Threads.c}}
+\doxysubsubsection{\texorpdfstring{Thread\_Wait()}{Thread\_Wait()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_a5e39b5d1938d3304107325c7533d8d31}{WRes}} Thread\+\_\+\+Wait (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_threads_8h_a068a5473befa776f23a97add9512d427}{CThread}} $\ast$}]{thread }\end{DoxyParamCaption})}
+
+
+
+Definition at line 212 of file Threads.\+c.
+

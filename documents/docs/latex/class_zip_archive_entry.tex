@@ -1,0 +1,816 @@
+\hypertarget{class_zip_archive_entry}{}\doxysection{Zip\+Archive\+Entry Class Reference}
+\label{class_zip_archive_entry}\index{ZipArchiveEntry@{ZipArchiveEntry}}
+
+
+Represents a compressed file within a zip archive.  
+
+
+
+
+{\ttfamily \#include $<$Zip\+Archive\+Entry.\+h$>$}
+
+
+
+Inheritance diagram for Zip\+Archive\+Entry\+:
+% FIG 0
+
+
+Collaboration diagram for Zip\+Archive\+Entry\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbc}{Compression\+Mode}} \{ \mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbca43f6615bbb2c40a5306ff804094420b1}{Immediate}}
+, \mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbca4ed71db54748b36eeb398876b0c747ac}{Deferred}}
+ \}
+\begin{DoxyCompactList}\small\item\em Values that represent the way the zip entry will be compressed. \end{DoxyCompactList}\item 
+enum class \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}{Attributes}} \+: uint32\+\_\+t \{ \newline
+\mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a6adf97f83acf6453d4a6a4b1070f3754}{None}} = 0
+, \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a131fb182a881796e7606ed6da27f1197}{Read\+Only}} = 1
+, \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a7acdf85c69cc3c5305456a293524386e}{Hidden}} = 2
+, \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72aa45da96d0bf6575970f2d27af22be28a}{System}} = 4
+, \newline
+\mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72ae73cda510e8bb947f7e61089e5581494}{Directory}} = 16
+, \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72ae727b00944f81e1d0a95c12886ac4641}{Archive}} = 32
+, \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72ae0ac20adce6ffee48c7151b070aa5737}{Device}} = 64
+, \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a960b44c579bc2f6818d2daaf9e4c16f0}{Normal}} = 128
+, \newline
+\mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a10d85d7664a911bcaec89732098c269a}{Temporary}} = 256
+, \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a665edbfa4075b64522e0304e3b81dbeb}{Sparse\+File}} = 512
+, \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a2452ed8906b5677e159ec14af42d4464}{Reparse\+Point}} = 1024
+, \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a4d602abc0c0f2f7c1a5156d964517e4e}{Compressed}} = 2048
+ \}
+\begin{DoxyCompactList}\small\item\em Values that represent the MS-\/\+DOS file attributes. \end{DoxyCompactList}\item 
+typedef std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_zip_archive_entry}{Zip\+Archive\+Entry}} $>$ \mbox{\hyperlink{class_zip_archive_entry_a9b8ec99c171cb17e42b4b68b8d4df091}{Ptr}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_zip_archive_entry_a036476d776d4094b5a35bfe0a65e3f2f}{MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+FRIEND}} (\mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}{Attributes}})
+\item 
+\mbox{\hyperlink{class_zip_archive_entry_a0773deaf1fc0780b1fa15fe751abf643}{MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+FRIEND}} (\mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbc}{Compression\+Mode}})
+\item 
+\mbox{\hyperlink{class_zip_archive_entry_a1ac8887c2f327d5efaf429e893dbcba5}{$\sim$\+Zip\+Archive\+Entry}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \& \mbox{\hyperlink{class_zip_archive_entry_a9f08fc21ad9c4d6217ff351f59cf511b}{Get\+Full\+Name}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets full path of the entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_add448b5bd7811820173cc0882ee26617}{Set\+Full\+Name}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \&full\+Name)
+\begin{DoxyCompactList}\small\item\em Sets full name with the path of the entry. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \& \mbox{\hyperlink{class_zip_archive_entry_a92225f55e1a904db0963af5796b84151}{Get\+Name}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets only the file name of the entry (without path). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_ada3571d6f1cd4e507b67f067d022afc1}{Set\+Name}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Sets only a file name of the entry. If the file is located within some folder, the path is kept. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \& \mbox{\hyperlink{class_zip_archive_entry_a9b9a198ce13fa9f56914975119fe5056}{Get\+Comment}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the comment of this zip entry. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_a7a75f9e23343511396d20c23cd6cf9e9}{Set\+Comment}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \&comment)
+\begin{DoxyCompactList}\small\item\em Sets a comment of this zip entry. \end{DoxyCompactList}\item 
+time\+\_\+t \mbox{\hyperlink{class_zip_archive_entry_ad79a0854f15db272c8d0f61d6b0c7e6d}{Get\+Last\+Write\+Time}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the time the file was last modified. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_a5eabb0c7ff533703d0ef13a788c149af}{Set\+Last\+Write\+Time}} (time\+\_\+t mod\+Time)
+\begin{DoxyCompactList}\small\item\em Sets the time the file was last modified. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}{Attributes}} \mbox{\hyperlink{class_zip_archive_entry_ae1db9f3edba26dfd3328551e6bcf231c}{Get\+Attributes}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the file attributes of this zip entry. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{class_zip_archive_entry_a7199eb26dfc02040308ec092d442bdf6}{Get\+Compression\+Method}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the compression method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_a26a613c99902ee15cdd3233472323b18}{Set\+Attributes}} (\mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}{Attributes}} value)
+\begin{DoxyCompactList}\small\item\em Sets the file attributes of this zip entry. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_zip_archive_entry_a6520fa7d3afbcbf72bdd28cb02319994}{Is\+Password\+Protected}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Query if this entry is password protected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \& \mbox{\hyperlink{class_zip_archive_entry_ab6083ef476aba93cf31a7c718346b4a5}{Get\+Password}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the password of the zip entry. If the password is empty string, the password is not set. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_a69eb60caa105686aaa2a5f0699337bf3}{Set\+Password}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \&password)
+\begin{DoxyCompactList}\small\item\em Sets a password of the zip entry. If the password is empty string, the password is not set. Use before Get\+Decompression\+Stream or Set\+Compression\+Stream. \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{class_zip_archive_entry_a90f2f7652148961938dedb6b6aa5471a}{Get\+Crc32}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets CRC 32 of the file. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_zip_archive_entry_a005c83c9249b15a8e6dcbfed22e92313}{Get\+Size}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the size of the uncompressed data. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{class_zip_archive_entry_a9df7950e498bfde27043666d57fd4af7}{Get\+Compressed\+Size}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Gets the size of compressed data. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_zip_archive_entry_a62133c9b05152b652db4409e6ef845ac}{Can\+Extract}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Determine if we can extract the entry. It depends on which version was the zip archive created with. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_zip_archive_entry_a9b364de7e6982b9a575330b7eefa04e1}{Is\+Directory}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Query if this entry is a directory. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_zip_archive_entry_a99e6a554a090006a71994f6949231e57}{Is\+Using\+Data\+Descriptor}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Query if this object is using data descriptor. Data descriptor is small chunk of information written after the compressed data. It\textquotesingle{}s most useful when encrypting a zip entry. When it is not using, the CRC32 value is required before encryption of the file data begins. In this case there is no way around it\+: must read the stream in its entirety to compute the actual CRC32 before proceeding. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_a680eebad6f2518d5526cf56f95f7ce38}{Use\+Data\+Descriptor}} (bool use=true)
+\begin{DoxyCompactList}\small\item\em Use data descriptor. Data descriptor is small chunk of information written after the compressed data. It\textquotesingle{}s most useful when encrypting a zip entry. When it is not using, the CRC32 value is required before encryption of the file data begins. In this case there is no way around it\+: must read the stream in its entirety to compute the actual CRC32 before proceeding. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_zip_archive_entry_a3b77f84c656b472173cc04b69279a57e}{Set\+Compression\+Stream}} (std\+::istream \&stream, \mbox{\hyperlink{class_i_compression_method_acd3399e6e9105459b043b8f0401defbd}{ICompression\+Method\+::\+Ptr}} method=Deflate\+Method\+::\+Create(), \mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbc}{Compression\+Mode}} mode=\mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbca4ed71db54748b36eeb398876b0c747ac}{Compression\+Mode\+::\+Deferred}})
+\begin{DoxyCompactList}\small\item\em Sets the input stream to fetch the data to compress from. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_ac60509e9c26f9ae77dd69eaf6e0453ee}{Unset\+Compression\+Stream}} ()
+\begin{DoxyCompactList}\small\item\em Sets compression stream to be null and unsets the password. The entry would contain no data with zero size. \end{DoxyCompactList}\item 
+std\+::istream $\ast$ \mbox{\hyperlink{class_zip_archive_entry_a09267480be46a9218f2ae088578d7c14}{Get\+Raw\+Stream}} ()
+\begin{DoxyCompactList}\small\item\em Gets raw stream of the compressed data. \end{DoxyCompactList}\item 
+std\+::istream $\ast$ \mbox{\hyperlink{class_zip_archive_entry_adf87111419ed346eda808b3798fe88b1}{Get\+Decompression\+Stream}} ()
+\begin{DoxyCompactList}\small\item\em Gets decompression stream. If the file is encrypted and correct password is not provided, it returns nullptr. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_zip_archive_entry_a83864e544bd94ec784b45b279c1a95a3}{Is\+Raw\+Stream\+Opened}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Query if the Get\+Raw\+Stream method has been already called. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_zip_archive_entry_a6ed68bc9645c562a8ce9bf36e9b2354b}{Is\+Decompression\+Stream\+Opened}} () \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}}
+\begin{DoxyCompactList}\small\item\em Query if the Get\+Decompression\+Stream method has been already called. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_a79cdb1a5bdb3092d306355454834b9b2}{Close\+Raw\+Stream}} ()
+\begin{DoxyCompactList}\small\item\em Closes the raw stream, opened by Get\+Raw\+Stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_ac6ccc2fdef4338763de3a7ef88e2c1f0}{Close\+Decompression\+Stream}} ()
+\begin{DoxyCompactList}\small\item\em Closes the decompression stream, opened by Get\+Decompression\+Stream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zip_archive_entry_afa3c676d29d679bd018ffc266672ee0e}{Remove}} ()
+\begin{DoxyCompactList}\small\item\em Removes this entry from the \mbox{\hyperlink{class_zip_archive}{Zip\+Archive}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_zip_archive_entry_a9d1359aeea457b0d2faaf8d7c751bb5b}{Zip\+File}}
+\item 
+class \mbox{\hyperlink{class_zip_archive_entry_ab753f20188551f2384d38d68be6637e2}{Zip\+Archive}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a compressed file within a zip archive. 
+
+Definition at line 24 of file Zip\+Archive\+Entry.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_zip_archive_entry_a9b8ec99c171cb17e42b4b68b8d4df091}\label{class_zip_archive_entry_a9b8ec99c171cb17e42b4b68b8d4df091}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!Ptr@{Ptr}}
+\index{Ptr@{Ptr}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{Ptr}{Ptr}}
+{\footnotesize\ttfamily typedef std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_zip_archive_entry}{Zip\+Archive\+Entry}}$>$ \mbox{\hyperlink{class_zip_archive_entry_a9b8ec99c171cb17e42b4b68b8d4df091}{Zip\+Archive\+Entry\+::\+Ptr}}}
+
+
+
+Definition at line 31 of file Zip\+Archive\+Entry.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!Attributes@{Attributes}}
+\index{Attributes@{Attributes}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{Attributes}{Attributes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}{Zip\+Archive\+Entry\+::\+Attributes}} \+: uint32\+\_\+t\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Values that represent the MS-\/\+DOS file attributes. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!None@{None}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a6adf97f83acf6453d4a6a4b1070f3754}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a6adf97f83acf6453d4a6a4b1070f3754}} 
+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ReadOnly@{ReadOnly}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!ReadOnly@{ReadOnly}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a131fb182a881796e7606ed6da27f1197}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a131fb182a881796e7606ed6da27f1197}} 
+Read\+Only&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Hidden@{Hidden}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!Hidden@{Hidden}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a7acdf85c69cc3c5305456a293524386e}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a7acdf85c69cc3c5305456a293524386e}} 
+Hidden&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{System@{System}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!System@{System}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72aa45da96d0bf6575970f2d27af22be28a}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72aa45da96d0bf6575970f2d27af22be28a}} 
+System&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Directory@{Directory}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!Directory@{Directory}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72ae73cda510e8bb947f7e61089e5581494}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72ae73cda510e8bb947f7e61089e5581494}} 
+Directory&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Archive@{Archive}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!Archive@{Archive}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72ae727b00944f81e1d0a95c12886ac4641}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72ae727b00944f81e1d0a95c12886ac4641}} 
+Archive&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Device@{Device}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!Device@{Device}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72ae0ac20adce6ffee48c7151b070aa5737}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72ae0ac20adce6ffee48c7151b070aa5737}} 
+Device&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Normal@{Normal}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!Normal@{Normal}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a960b44c579bc2f6818d2daaf9e4c16f0}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a960b44c579bc2f6818d2daaf9e4c16f0}} 
+Normal&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Temporary@{Temporary}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!Temporary@{Temporary}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a10d85d7664a911bcaec89732098c269a}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a10d85d7664a911bcaec89732098c269a}} 
+Temporary&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SparseFile@{SparseFile}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!SparseFile@{SparseFile}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a665edbfa4075b64522e0304e3b81dbeb}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a665edbfa4075b64522e0304e3b81dbeb}} 
+Sparse\+File&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ReparsePoint@{ReparsePoint}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!ReparsePoint@{ReparsePoint}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a2452ed8906b5677e159ec14af42d4464}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a2452ed8906b5677e159ec14af42d4464}} 
+Reparse\+Point&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Compressed@{Compressed}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!Compressed@{Compressed}}}\mbox{\Hypertarget{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a4d602abc0c0f2f7c1a5156d964517e4e}\label{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72a4d602abc0c0f2f7c1a5156d964517e4e}} 
+Compressed&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 45 of file Zip\+Archive\+Entry.\+h.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbc}\label{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbc}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!CompressionMode@{CompressionMode}}
+\index{CompressionMode@{CompressionMode}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{CompressionMode}{CompressionMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbc}{Zip\+Archive\+Entry\+::\+Compression\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Values that represent the way the zip entry will be compressed. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Immediate@{Immediate}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!Immediate@{Immediate}}}\mbox{\Hypertarget{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbca43f6615bbb2c40a5306ff804094420b1}\label{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbca43f6615bbb2c40a5306ff804094420b1}} 
+Immediate&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Deferred@{Deferred}!ZipArchiveEntry@{ZipArchiveEntry}}\index{ZipArchiveEntry@{ZipArchiveEntry}!Deferred@{Deferred}}}\mbox{\Hypertarget{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbca4ed71db54748b36eeb398876b0c747ac}\label{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbca4ed71db54748b36eeb398876b0c747ac}} 
+Deferred&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 36 of file Zip\+Archive\+Entry.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_zip_archive_entry_a1ac8887c2f327d5efaf429e893dbcba5}\label{class_zip_archive_entry_a1ac8887c2f327d5efaf429e893dbcba5}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!````~ZipArchiveEntry@{$\sim$ZipArchiveEntry}}
+\index{````~ZipArchiveEntry@{$\sim$ZipArchiveEntry}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{$\sim$ZipArchiveEntry()}{~ZipArchiveEntry()}}
+{\footnotesize\ttfamily Zip\+Archive\+Entry\+::$\sim$\+Zip\+Archive\+Entry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+Definition at line 80 of file Zip\+Archive\+Entry.\+cpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_zip_archive_entry_a62133c9b05152b652db4409e6ef845ac}\label{class_zip_archive_entry_a62133c9b05152b652db4409e6ef845ac}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!CanExtract@{CanExtract}}
+\index{CanExtract@{CanExtract}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{CanExtract()}{CanExtract()}}
+{\footnotesize\ttfamily bool Zip\+Archive\+Entry\+::\+Can\+Extract (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Determine if we can extract the entry. It depends on which version was the zip archive created with. 
+
+\begin{DoxyReturn}{Returns}
+true if we can extract, false if not. 
+\end{DoxyReturn}
+
+
+Definition at line 317 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_ac6ccc2fdef4338763de3a7ef88e2c1f0}\label{class_zip_archive_entry_ac6ccc2fdef4338763de3a7ef88e2c1f0}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!CloseDecompressionStream@{CloseDecompressionStream}}
+\index{CloseDecompressionStream@{CloseDecompressionStream}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{CloseDecompressionStream()}{CloseDecompressionStream()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Close\+Decompression\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes the decompression stream, opened by Get\+Decompression\+Stream. 
+
+
+
+Definition at line 421 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a79cdb1a5bdb3092d306355454834b9b2}\label{class_zip_archive_entry_a79cdb1a5bdb3092d306355454834b9b2}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!CloseRawStream@{CloseRawStream}}
+\index{CloseRawStream@{CloseRawStream}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{CloseRawStream()}{CloseRawStream()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Close\+Raw\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes the raw stream, opened by Get\+Raw\+Stream. 
+
+
+
+Definition at line 416 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_ae1db9f3edba26dfd3328551e6bcf231c}\label{class_zip_archive_entry_ae1db9f3edba26dfd3328551e6bcf231c}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetAttributes@{GetAttributes}}
+\index{GetAttributes@{GetAttributes}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetAttributes()}{GetAttributes()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}{Zip\+Archive\+Entry\+::\+Attributes}} Zip\+Archive\+Entry\+::\+Get\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the file attributes of this zip entry. 
+
+\begin{DoxyReturn}{Returns}
+The file attributes. 
+\end{DoxyReturn}
+
+
+Definition at line 231 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a9b9a198ce13fa9f56914975119fe5056}\label{class_zip_archive_entry_a9b9a198ce13fa9f56914975119fe5056}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetComment@{GetComment}}
+\index{GetComment@{GetComment}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetComment()}{GetComment()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \& Zip\+Archive\+Entry\+::\+Get\+Comment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the comment of this zip entry. 
+
+\begin{DoxyReturn}{Returns}
+The comment. 
+\end{DoxyReturn}
+
+
+Definition at line 211 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a9df7950e498bfde27043666d57fd4af7}\label{class_zip_archive_entry_a9df7950e498bfde27043666d57fd4af7}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetCompressedSize@{GetCompressedSize}}
+\index{GetCompressedSize@{GetCompressedSize}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetCompressedSize()}{GetCompressedSize()}}
+{\footnotesize\ttfamily size\+\_\+t Zip\+Archive\+Entry\+::\+Get\+Compressed\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the size of compressed data. 
+
+\begin{DoxyReturn}{Returns}
+The compressed size. 
+\end{DoxyReturn}
+
+
+Definition at line 311 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a7199eb26dfc02040308ec092d442bdf6}\label{class_zip_archive_entry_a7199eb26dfc02040308ec092d442bdf6}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetCompressionMethod@{GetCompressionMethod}}
+\index{GetCompressionMethod@{GetCompressionMethod}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetCompressionMethod()}{GetCompressionMethod()}}
+{\footnotesize\ttfamily uint16\+\_\+t Zip\+Archive\+Entry\+::\+Get\+Compression\+Method (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the compression method. 
+
+\begin{DoxyReturn}{Returns}
+The compression method. 
+\end{DoxyReturn}
+
+
+Definition at line 236 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a90f2f7652148961938dedb6b6aa5471a}\label{class_zip_archive_entry_a90f2f7652148961938dedb6b6aa5471a}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetCrc32@{GetCrc32}}
+\index{GetCrc32@{GetCrc32}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetCrc32()}{GetCrc32()}}
+{\footnotesize\ttfamily uint32\+\_\+t Zip\+Archive\+Entry\+::\+Get\+Crc32 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets CRC 32 of the file. 
+
+\begin{DoxyReturn}{Returns}
+The CRC 32. 
+\end{DoxyReturn}
+
+
+Definition at line 301 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_adf87111419ed346eda808b3798fe88b1}\label{class_zip_archive_entry_adf87111419ed346eda808b3798fe88b1}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetDecompressionStream@{GetDecompressionStream}}
+\index{GetDecompressionStream@{GetDecompressionStream}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetDecompressionStream()}{GetDecompressionStream()}}
+{\footnotesize\ttfamily std\+::istream $\ast$ Zip\+Archive\+Entry\+::\+Get\+Decompression\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets decompression stream. If the file is encrypted and correct password is not provided, it returns nullptr. 
+
+\begin{DoxyReturn}{Returns}
+null if it fails, else the decompression stream. 
+\end{DoxyReturn}
+
+
+Definition at line 355 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a9f08fc21ad9c4d6217ff351f59cf511b}\label{class_zip_archive_entry_a9f08fc21ad9c4d6217ff351f59cf511b}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetFullName@{GetFullName}}
+\index{GetFullName@{GetFullName}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetFullName()}{GetFullName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \& Zip\+Archive\+Entry\+::\+Get\+Full\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets full path of the entry. 
+
+\begin{DoxyReturn}{Returns}
+The full name with the path. 
+\end{DoxyReturn}
+
+
+Definition at line 141 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_ad79a0854f15db272c8d0f61d6b0c7e6d}\label{class_zip_archive_entry_ad79a0854f15db272c8d0f61d6b0c7e6d}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetLastWriteTime@{GetLastWriteTime}}
+\index{GetLastWriteTime@{GetLastWriteTime}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetLastWriteTime()}{GetLastWriteTime()}}
+{\footnotesize\ttfamily time\+\_\+t Zip\+Archive\+Entry\+::\+Get\+Last\+Write\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the time the file was last modified. 
+
+\begin{DoxyReturn}{Returns}
+The last write time. 
+\end{DoxyReturn}
+
+
+Definition at line 221 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a92225f55e1a904db0963af5796b84151}\label{class_zip_archive_entry_a92225f55e1a904db0963af5796b84151}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetName@{GetName}}
+\index{GetName@{GetName}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \& Zip\+Archive\+Entry\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets only the file name of the entry (without path). 
+
+\begin{DoxyReturn}{Returns}
+The file name. 
+\end{DoxyReturn}
+
+
+Definition at line 178 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_ab6083ef476aba93cf31a7c718346b4a5}\label{class_zip_archive_entry_ab6083ef476aba93cf31a7c718346b4a5}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetPassword@{GetPassword}}
+\index{GetPassword@{GetPassword}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetPassword()}{GetPassword()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \& Zip\+Archive\+Entry\+::\+Get\+Password (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the password of the zip entry. If the password is empty string, the password is not set. 
+
+\begin{DoxyReturn}{Returns}
+The password. 
+\end{DoxyReturn}
+
+
+Definition at line 285 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a09267480be46a9218f2ae088578d7c14}\label{class_zip_archive_entry_a09267480be46a9218f2ae088578d7c14}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetRawStream@{GetRawStream}}
+\index{GetRawStream@{GetRawStream}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetRawStream()}{GetRawStream()}}
+{\footnotesize\ttfamily std\+::istream $\ast$ Zip\+Archive\+Entry\+::\+Get\+Raw\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets raw stream of the compressed data. 
+
+\begin{DoxyReturn}{Returns}
+null if it fails, else the stream of raw data. 
+\end{DoxyReturn}
+
+
+Definition at line 337 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a005c83c9249b15a8e6dcbfed22e92313}\label{class_zip_archive_entry_a005c83c9249b15a8e6dcbfed22e92313}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily size\+\_\+t Zip\+Archive\+Entry\+::\+Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the size of the uncompressed data. 
+
+\begin{DoxyReturn}{Returns}
+The size. 
+\end{DoxyReturn}
+
+
+Definition at line 306 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a6ed68bc9645c562a8ce9bf36e9b2354b}\label{class_zip_archive_entry_a6ed68bc9645c562a8ce9bf36e9b2354b}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!IsDecompressionStreamOpened@{IsDecompressionStreamOpened}}
+\index{IsDecompressionStreamOpened@{IsDecompressionStreamOpened}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{IsDecompressionStreamOpened()}{IsDecompressionStreamOpened()}}
+{\footnotesize\ttfamily bool Zip\+Archive\+Entry\+::\+Is\+Decompression\+Stream\+Opened (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Query if the Get\+Decompression\+Stream method has been already called. 
+
+\begin{DoxyReturn}{Returns}
+true if the decompression stream is opened, false if not. 
+\end{DoxyReturn}
+
+
+Definition at line 411 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a9b364de7e6982b9a575330b7eefa04e1}\label{class_zip_archive_entry_a9b364de7e6982b9a575330b7eefa04e1}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!IsDirectory@{IsDirectory}}
+\index{IsDirectory@{IsDirectory}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{IsDirectory()}{IsDirectory()}}
+{\footnotesize\ttfamily bool Zip\+Archive\+Entry\+::\+Is\+Directory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Query if this entry is a directory. 
+
+\begin{DoxyReturn}{Returns}
+true if directory, false if not. 
+\end{DoxyReturn}
+
+
+Definition at line 322 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a6520fa7d3afbcbf72bdd28cb02319994}\label{class_zip_archive_entry_a6520fa7d3afbcbf72bdd28cb02319994}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!IsPasswordProtected@{IsPasswordProtected}}
+\index{IsPasswordProtected@{IsPasswordProtected}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{IsPasswordProtected()}{IsPasswordProtected()}}
+{\footnotesize\ttfamily bool Zip\+Archive\+Entry\+::\+Is\+Password\+Protected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Query if this entry is password protected. 
+
+\begin{DoxyReturn}{Returns}
+true if password protected, false if not. 
+\end{DoxyReturn}
+
+
+Definition at line 280 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a83864e544bd94ec784b45b279c1a95a3}\label{class_zip_archive_entry_a83864e544bd94ec784b45b279c1a95a3}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!IsRawStreamOpened@{IsRawStreamOpened}}
+\index{IsRawStreamOpened@{IsRawStreamOpened}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{IsRawStreamOpened()}{IsRawStreamOpened()}}
+{\footnotesize\ttfamily bool Zip\+Archive\+Entry\+::\+Is\+Raw\+Stream\+Opened (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Query if the Get\+Raw\+Stream method has been already called. 
+
+\begin{DoxyReturn}{Returns}
+true if the raw stream is opened, false if not. 
+\end{DoxyReturn}
+
+
+Definition at line 406 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a99e6a554a090006a71994f6949231e57}\label{class_zip_archive_entry_a99e6a554a090006a71994f6949231e57}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!IsUsingDataDescriptor@{IsUsingDataDescriptor}}
+\index{IsUsingDataDescriptor@{IsUsingDataDescriptor}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{IsUsingDataDescriptor()}{IsUsingDataDescriptor()}}
+{\footnotesize\ttfamily bool Zip\+Archive\+Entry\+::\+Is\+Using\+Data\+Descriptor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Query if this object is using data descriptor. Data descriptor is small chunk of information written after the compressed data. It\textquotesingle{}s most useful when encrypting a zip entry. When it is not using, the CRC32 value is required before encryption of the file data begins. In this case there is no way around it\+: must read the stream in its entirety to compute the actual CRC32 before proceeding. 
+
+\begin{DoxyReturn}{Returns}
+true if using data descriptor, false if not. 
+\end{DoxyReturn}
+
+
+Definition at line 327 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a036476d776d4094b5a35bfe0a65e3f2f}\label{class_zip_archive_entry_a036476d776d4094b5a35bfe0a65e3f2f}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND@{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND}}
+\index{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND@{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND()}{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Zip\+Archive\+Entry\+::\+MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+FRIEND (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}{Attributes}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_zip_archive_entry_a0773deaf1fc0780b1fa15fe751abf643}\label{class_zip_archive_entry_a0773deaf1fc0780b1fa15fe751abf643}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND@{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND}}
+\index{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND@{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND()}{MARK\_AS\_TYPED\_ENUMFLAGS\_FRIEND()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Zip\+Archive\+Entry\+::\+MARK\+\_\+\+AS\+\_\+\+TYPED\+\_\+\+ENUMFLAGS\+\_\+\+FRIEND (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbc}{Compression\+Mode}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_zip_archive_entry_afa3c676d29d679bd018ffc266672ee0e}\label{class_zip_archive_entry_afa3c676d29d679bd018ffc266672ee0e}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!Remove@{Remove}}
+\index{Remove@{Remove}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Remove (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes this entry from the \mbox{\hyperlink{class_zip_archive}{Zip\+Archive}}. 
+
+
+
+Definition at line 469 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a26a613c99902ee15cdd3233472323b18}\label{class_zip_archive_entry_a26a613c99902ee15cdd3233472323b18}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!SetAttributes@{SetAttributes}}
+\index{SetAttributes@{SetAttributes}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{SetAttributes()}{SetAttributes()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Set\+Attributes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_zip_archive_entry_a75b871e657179068bff6a69d6e57af72}{Attributes}}}]{value }\end{DoxyParamCaption})}
+
+
+
+Sets the file attributes of this zip entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & The file attributes. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 241 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a7a75f9e23343511396d20c23cd6cf9e9}\label{class_zip_archive_entry_a7a75f9e23343511396d20c23cd6cf9e9}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!SetComment@{SetComment}}
+\index{SetComment@{SetComment}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{SetComment()}{SetComment()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Set\+Comment (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \&}]{comment }\end{DoxyParamCaption})}
+
+
+
+Sets a comment of this zip entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comment} & The comment. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 216 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a3b77f84c656b472173cc04b69279a57e}\label{class_zip_archive_entry_a3b77f84c656b472173cc04b69279a57e}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!SetCompressionStream@{SetCompressionStream}}
+\index{SetCompressionStream@{SetCompressionStream}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{SetCompressionStream()}{SetCompressionStream()}}
+{\footnotesize\ttfamily bool Zip\+Archive\+Entry\+::\+Set\+Compression\+Stream (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{stream,  }\item[{\mbox{\hyperlink{class_i_compression_method_acd3399e6e9105459b043b8f0401defbd}{ICompression\+Method\+::\+Ptr}}}]{method = {\ttfamily DeflateMethod\+:\+:Create()},  }\item[{\mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbc}{Compression\+Mode}}}]{mode = {\ttfamily \mbox{\hyperlink{class_zip_archive_entry_a327ea5de0e2f950b036d30f0d1e65bbca4ed71db54748b36eeb398876b0c747ac}{Compression\+Mode\+::\+Deferred}}} }\end{DoxyParamCaption})}
+
+
+
+Sets the input stream to fetch the data to compress from. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & The input stream to compress. \\
+\hline
+{\em method} & (Optional) The method of compression. \\
+\hline
+{\em mode} & (Optional) The mode of compression. If deferred mode is chosen, the data are compressed when the zip archive is about to be written. The stream instance must exist when the \mbox{\hyperlink{class_zip_archive_ab66d805b9d2c3acb608e94eba1fd211b}{Zip\+Archive\+::\+Write\+To\+Stream}} method is called. The advantage of deferred compression mode is the compressed data needs not to be loaded into the memory, because they are streamed into the final output stream.\\
+\hline
+\end{DoxyParams}
+If immediate mode is chosen, the data are compressed immediately into the memory buffer. It is not recommended to use this method for large files. The advantage of immediate mode is the input stream can be destroyed (i.\+e. by scope) even before the \mbox{\hyperlink{class_zip_archive_ab66d805b9d2c3acb608e94eba1fd211b}{Zip\+Archive\+::\+Write\+To\+Stream}} method is called.
+
+\begin{DoxyReturn}{Returns}
+true if it succeeds, false if it fails. 
+\end{DoxyReturn}
+
+
+Definition at line 429 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_add448b5bd7811820173cc0882ee26617}\label{class_zip_archive_entry_add448b5bd7811820173cc0882ee26617}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!SetFullName@{SetFullName}}
+\index{SetFullName@{SetFullName}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{SetFullName()}{SetFullName()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Set\+Full\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \&}]{full\+Name }\end{DoxyParamCaption})}
+
+
+
+Sets full name with the path of the entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em full\+Name} & The full name with the path. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 146 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a5eabb0c7ff533703d0ef13a788c149af}\label{class_zip_archive_entry_a5eabb0c7ff533703d0ef13a788c149af}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!SetLastWriteTime@{SetLastWriteTime}}
+\index{SetLastWriteTime@{SetLastWriteTime}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{SetLastWriteTime()}{SetLastWriteTime()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Set\+Last\+Write\+Time (\begin{DoxyParamCaption}\item[{time\+\_\+t}]{mod\+Time }\end{DoxyParamCaption})}
+
+
+
+Sets the time the file was last modified. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mod\+Time} & Time of the modifier. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 226 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_ada3571d6f1cd4e507b67f067d022afc1}\label{class_zip_archive_entry_ada3571d6f1cd4e507b67f067d022afc1}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!SetName@{SetName}}
+\index{SetName@{SetName}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Sets only a file name of the entry. If the file is located within some folder, the path is kept. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The file name. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 183 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a69eb60caa105686aaa2a5f0699337bf3}\label{class_zip_archive_entry_a69eb60caa105686aaa2a5f0699337bf3}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!SetPassword@{SetPassword}}
+\index{SetPassword@{SetPassword}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{SetPassword()}{SetPassword()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Set\+Password (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} std\+::string \&}]{password }\end{DoxyParamCaption})}
+
+
+
+Sets a password of the zip entry. If the password is empty string, the password is not set. Use before Get\+Decompression\+Stream or Set\+Compression\+Stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em password} & The password. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 290 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_ac60509e9c26f9ae77dd69eaf6e0453ee}\label{class_zip_archive_entry_ac60509e9c26f9ae77dd69eaf6e0453ee}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!UnsetCompressionStream@{UnsetCompressionStream}}
+\index{UnsetCompressionStream@{UnsetCompressionStream}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{UnsetCompressionStream()}{UnsetCompressionStream()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Unset\+Compression\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets compression stream to be null and unsets the password. The entry would contain no data with zero size. 
+
+
+
+Definition at line 458 of file Zip\+Archive\+Entry.\+cpp.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a680eebad6f2518d5526cf56f95f7ce38}\label{class_zip_archive_entry_a680eebad6f2518d5526cf56f95f7ce38}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!UseDataDescriptor@{UseDataDescriptor}}
+\index{UseDataDescriptor@{UseDataDescriptor}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{UseDataDescriptor()}{UseDataDescriptor()}}
+{\footnotesize\ttfamily void Zip\+Archive\+Entry\+::\+Use\+Data\+Descriptor (\begin{DoxyParamCaption}\item[{bool}]{use = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Use data descriptor. Data descriptor is small chunk of information written after the compressed data. It\textquotesingle{}s most useful when encrypting a zip entry. When it is not using, the CRC32 value is required before encryption of the file data begins. In this case there is no way around it\+: must read the stream in its entirety to compute the actual CRC32 before proceeding. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em use} & (Optional) If true, use the data descriptor, false to not use. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 332 of file Zip\+Archive\+Entry.\+cpp.
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{class_zip_archive_entry_ab753f20188551f2384d38d68be6637e2}\label{class_zip_archive_entry_ab753f20188551f2384d38d68be6637e2}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!ZipArchive@{ZipArchive}}
+\index{ZipArchive@{ZipArchive}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{ZipArchive}{ZipArchive}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_zip_archive}{Zip\+Archive}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line 28 of file Zip\+Archive\+Entry.\+h.
+
+\mbox{\Hypertarget{class_zip_archive_entry_a9d1359aeea457b0d2faaf8d7c751bb5b}\label{class_zip_archive_entry_a9d1359aeea457b0d2faaf8d7c751bb5b}} 
+\index{ZipArchiveEntry@{ZipArchiveEntry}!ZipFile@{ZipFile}}
+\index{ZipFile@{ZipFile}!ZipArchiveEntry@{ZipArchiveEntry}}
+\doxysubsubsection{\texorpdfstring{ZipFile}{ZipFile}}
+{\footnotesize\ttfamily friend class \mbox{\hyperlink{class_zip_file}{Zip\+File}}\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line 27 of file Zip\+Archive\+Entry.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/\+Zip\+Lib/\mbox{\hyperlink{_zip_archive_entry_8h}{Zip\+Archive\+Entry.\+h}}\item 
+source/\+Zip\+Lib/\mbox{\hyperlink{_zip_archive_entry_8cpp}{Zip\+Archive\+Entry.\+cpp}}\end{DoxyCompactItemize}

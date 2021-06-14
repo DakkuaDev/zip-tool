@@ -1,0 +1,166 @@
+\hypertarget{unix_2_xz_in_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Xz\+In.c File Reference}
+\label{unix_2_xz_in_8c}\index{source/ZipLib/extlibs/lzma/unix/XzIn.c@{source/ZipLib/extlibs/lzma/unix/XzIn.c}}
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}7z\+Crc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Cpu\+Arch.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Xz.\+h\char`\"{}}\newline
+Include dependency graph for Xz\+In.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{unix_2_xz_in_8c_abf7247b3e5a35bf47b454380efff7caf}{READ\+\_\+\+VARINT\+\_\+\+AND\+\_\+\+CHECK}}(buf,  pos,  size,  res)
+\item 
+\#define \mbox{\hyperlink{unix_2_xz_in_8c_aac02f5533d807d9b951daca1c1f77272}{ADD\+\_\+\+SIZE\+\_\+\+CHECH}}(size,  val)~  \{ \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} new\+Size = size + (val); if (new\+Size $<$ size) return \mbox{\hyperlink{_xz_8h_a52fc30c2503ef9e27a119c301e3db3c2}{XZ\+\_\+\+SIZE\+\_\+\+OVERFLOW}}; size = new\+Size; \}
+\item 
+\#define \mbox{\hyperlink{unix_2_xz_in_8c_ac597026bf0084ee98c9906541a4c202b}{TEMP\+\_\+\+BUF\+\_\+\+SIZE}}~(1 $<$$<$ 10)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_in_8c_afab6b310d7efa7247ceec2c36e4f3e17}{Xz\+\_\+\+Read\+Header}} (\mbox{\hyperlink{unix_2_xz_8h_a80f5d0cba1813b2cf72d2360dc42eb75}{CXz\+Stream\+Flags}} $\ast$p, \mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$in\+Stream)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_in_8c_a9bdf7cec4bb80198ac94c31581a456f0}{Xz\+Block\+\_\+\+Read\+Header}} (\mbox{\hyperlink{struct_c_xz_block}{CXz\+Block}} $\ast$p, \mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$in\+Stream, \mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} $\ast$is\+Index, \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$header\+Size\+Res)
+\item 
+\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} \mbox{\hyperlink{unix_2_xz_in_8c_a250052811da7e47f00d899ea7a885824}{Xz\+\_\+\+Get\+Unpack\+Size}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xz_stream}{CXz\+Stream}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} \mbox{\hyperlink{unix_2_xz_in_8c_ae26a434a64f086aa04b8bf5fa26fca37}{Xz\+\_\+\+Get\+Pack\+Size}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xz_stream}{CXz\+Stream}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_xz_in_8c_a84bfa49e18e4cd08f1e90f2a82bae3bb}{Xzs\+\_\+\+Construct}} (\mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_xz_in_8c_ae91972640c329401292933b0253e155f}{Xzs\+\_\+\+Free}} (\mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} \mbox{\hyperlink{unix_2_xz_in_8c_a8bb155ec49f2fd9bc33552cbcb67e36a}{Xzs\+\_\+\+Get\+Num\+Blocks}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} \mbox{\hyperlink{unix_2_xz_in_8c_a02c1ff3e160d7f33d7f2e9e2137b5252}{Xzs\+\_\+\+Get\+Unpack\+Size}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$p)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_xz_in_8c_a2c1273528fd7ffbd3c617295869d8b21}{Xzs\+\_\+\+Read\+Backward}} (\mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$p, \mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$stream, \mbox{\hyperlink{_types_8h_ade5ca5eec203b16d15253b7c422808bf}{Int64}} $\ast$start\+Offset, \mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$progress, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{unix_2_xz_in_8c_aac02f5533d807d9b951daca1c1f77272}\label{unix_2_xz_in_8c_aac02f5533d807d9b951daca1c1f77272}} 
+\index{XzIn.c@{XzIn.c}!ADD\_SIZE\_CHECH@{ADD\_SIZE\_CHECH}}
+\index{ADD\_SIZE\_CHECH@{ADD\_SIZE\_CHECH}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{ADD\_SIZE\_CHECH}{ADD\_SIZE\_CHECH}}
+{\footnotesize\ttfamily \#define ADD\+\_\+\+SIZE\+\_\+\+CHECH(\begin{DoxyParamCaption}\item[{}]{size,  }\item[{}]{val }\end{DoxyParamCaption})~  \{ \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} new\+Size = size + (val); if (new\+Size $<$ size) return \mbox{\hyperlink{_xz_8h_a52fc30c2503ef9e27a119c301e3db3c2}{XZ\+\_\+\+SIZE\+\_\+\+OVERFLOW}}; size = new\+Size; \}}
+
+
+
+Definition at line 43 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_abf7247b3e5a35bf47b454380efff7caf}\label{unix_2_xz_in_8c_abf7247b3e5a35bf47b454380efff7caf}} 
+\index{XzIn.c@{XzIn.c}!READ\_VARINT\_AND\_CHECK@{READ\_VARINT\_AND\_CHECK}}
+\index{READ\_VARINT\_AND\_CHECK@{READ\_VARINT\_AND\_CHECK}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{READ\_VARINT\_AND\_CHECK}{READ\_VARINT\_AND\_CHECK}}
+{\footnotesize\ttfamily \#define READ\+\_\+\+VARINT\+\_\+\+AND\+\_\+\+CHECK(\begin{DoxyParamCaption}\item[{}]{buf,  }\item[{}]{pos,  }\item[{}]{size,  }\item[{}]{res }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{  \{ \textcolor{keywordtype}{unsigned} s = \mbox{\hyperlink{unix_2_xz_8h_af26ff2f89e38efa22b65d9030b4cf23d}{Xz\_ReadVarInt}}(buf + pos, size -\/ pos, res); \(\backslash\)}
+\DoxyCodeLine{  if (s == 0) return \mbox{\hyperlink{_types_8h_aaff96c18a42a227e6d84d1a28bd301fa}{SZ\_ERROR\_ARCHIVE}}; pos += s; \}}
+
+\end{DoxyCode}
+
+
+Definition at line 19 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_ac597026bf0084ee98c9906541a4c202b}\label{unix_2_xz_in_8c_ac597026bf0084ee98c9906541a4c202b}} 
+\index{XzIn.c@{XzIn.c}!TEMP\_BUF\_SIZE@{TEMP\_BUF\_SIZE}}
+\index{TEMP\_BUF\_SIZE@{TEMP\_BUF\_SIZE}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{TEMP\_BUF\_SIZE}{TEMP\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define TEMP\+\_\+\+BUF\+\_\+\+SIZE~(1 $<$$<$ 10)}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_2_xz_in_8c_ae26a434a64f086aa04b8bf5fa26fca37}\label{unix_2_xz_in_8c_ae26a434a64f086aa04b8bf5fa26fca37}} 
+\index{XzIn.c@{XzIn.c}!Xz\_GetPackSize@{Xz\_GetPackSize}}
+\index{Xz\_GetPackSize@{Xz\_GetPackSize}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{Xz\_GetPackSize()}{Xz\_GetPackSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} Xz\+\_\+\+Get\+Pack\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xz_stream}{CXz\+Stream}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 55 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_a250052811da7e47f00d899ea7a885824}\label{unix_2_xz_in_8c_a250052811da7e47f00d899ea7a885824}} 
+\index{XzIn.c@{XzIn.c}!Xz\_GetUnpackSize@{Xz\_GetUnpackSize}}
+\index{Xz\_GetUnpackSize@{Xz\_GetUnpackSize}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{Xz\_GetUnpackSize()}{Xz\_GetUnpackSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} Xz\+\_\+\+Get\+Unpack\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xz_stream}{CXz\+Stream}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 46 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_afab6b310d7efa7247ceec2c36e4f3e17}\label{unix_2_xz_in_8c_afab6b310d7efa7247ceec2c36e4f3e17}} 
+\index{XzIn.c@{XzIn.c}!Xz\_ReadHeader@{Xz\_ReadHeader}}
+\index{Xz\_ReadHeader@{Xz\_ReadHeader}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{Xz\_ReadHeader()}{Xz\_ReadHeader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xz\+\_\+\+Read\+Header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unix_2_xz_8h_a80f5d0cba1813b2cf72d2360dc42eb75}{CXz\+Stream\+Flags}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$}]{in\+Stream }\end{DoxyParamCaption})}
+
+
+
+Definition at line 10 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_a9bdf7cec4bb80198ac94c31581a456f0}\label{unix_2_xz_in_8c_a9bdf7cec4bb80198ac94c31581a456f0}} 
+\index{XzIn.c@{XzIn.c}!XzBlock\_ReadHeader@{XzBlock\_ReadHeader}}
+\index{XzBlock\_ReadHeader@{XzBlock\_ReadHeader}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{XzBlock\_ReadHeader()}{XzBlock\_ReadHeader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xz\+Block\+\_\+\+Read\+Header (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xz_block}{CXz\+Block}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$}]{in\+Stream,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a253b248072cfc8bd812c69acd0046eed}{Bool}} $\ast$}]{is\+Index,  }\item[{\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} $\ast$}]{header\+Size\+Res }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_a84bfa49e18e4cd08f1e90f2a82bae3bb}\label{unix_2_xz_in_8c_a84bfa49e18e4cd08f1e90f2a82bae3bb}} 
+\index{XzIn.c@{XzIn.c}!Xzs\_Construct@{Xzs\_Construct}}
+\index{Xzs\_Construct@{Xzs\_Construct}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{Xzs\_Construct()}{Xzs\_Construct()}}
+{\footnotesize\ttfamily void Xzs\+\_\+\+Construct (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 229 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_ae91972640c329401292933b0253e155f}\label{unix_2_xz_in_8c_ae91972640c329401292933b0253e155f}} 
+\index{XzIn.c@{XzIn.c}!Xzs\_Free@{Xzs\_Free}}
+\index{Xzs\_Free@{Xzs\_Free}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{Xzs\_Free()}{Xzs\_Free()}}
+{\footnotesize\ttfamily void Xzs\+\_\+\+Free (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 235 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_a8bb155ec49f2fd9bc33552cbcb67e36a}\label{unix_2_xz_in_8c_a8bb155ec49f2fd9bc33552cbcb67e36a}} 
+\index{XzIn.c@{XzIn.c}!Xzs\_GetNumBlocks@{Xzs\_GetNumBlocks}}
+\index{Xzs\_GetNumBlocks@{Xzs\_GetNumBlocks}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{Xzs\_GetNumBlocks()}{Xzs\_GetNumBlocks()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} Xzs\+\_\+\+Get\+Num\+Blocks (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 245 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_a02c1ff3e160d7f33d7f2e9e2137b5252}\label{unix_2_xz_in_8c_a02c1ff3e160d7f33d7f2e9e2137b5252}} 
+\index{XzIn.c@{XzIn.c}!Xzs\_GetUnpackSize@{Xzs\_GetUnpackSize}}
+\index{Xzs\_GetUnpackSize@{Xzs\_GetUnpackSize}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{Xzs\_GetUnpackSize()}{Xzs\_GetUnpackSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_aabaf3d1eda66282f591e56707437c48e}{UInt64}} Xzs\+\_\+\+Get\+Unpack\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 254 of file Xz\+In.\+c.
+
+\mbox{\Hypertarget{unix_2_xz_in_8c_a2c1273528fd7ffbd3c617295869d8b21}\label{unix_2_xz_in_8c_a2c1273528fd7ffbd3c617295869d8b21}} 
+\index{XzIn.c@{XzIn.c}!Xzs\_ReadBackward@{Xzs\_ReadBackward}}
+\index{Xzs\_ReadBackward@{Xzs\_ReadBackward}!XzIn.c@{XzIn.c}}
+\doxysubsubsection{\texorpdfstring{Xzs\_ReadBackward()}{Xzs\_ReadBackward()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Xzs\+\_\+\+Read\+Backward (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_xzs}{CXzs}} $\ast$}]{p,  }\item[{\mbox{\hyperlink{struct_i_look_in_stream}{ILook\+In\+Stream}} $\ast$}]{stream,  }\item[{\mbox{\hyperlink{_types_8h_ade5ca5eec203b16d15253b7c422808bf}{Int64}} $\ast$}]{start\+Offset,  }\item[{\mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$}]{progress,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 274 of file Xz\+In.\+c.
+

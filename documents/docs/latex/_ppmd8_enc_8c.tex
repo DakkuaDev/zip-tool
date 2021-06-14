@@ -1,0 +1,77 @@
+\hypertarget{_ppmd8_enc_8c}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Ppmd8\+Enc.c File Reference}
+\label{_ppmd8_enc_8c}\index{source/ZipLib/extlibs/lzma/unix/Ppmd8Enc.c@{source/ZipLib/extlibs/lzma/unix/Ppmd8Enc.c}}
+{\ttfamily \#include \char`\"{}Ppmd8.\+h\char`\"{}}\newline
+Include dependency graph for Ppmd8\+Enc.\+c\+:
+% FIG 0
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_ppmd8_enc_8c_a5879390786a2f6f7a9aefd4001362be5}{k\+Top}}~(1 $<$$<$ 24)
+\item 
+\#define \mbox{\hyperlink{_ppmd8_enc_8c_a44837969a48f9d4fc92d766ff3dcfbb7}{k\+Bot}}~(1 $<$$<$ 15)
+\item 
+\#define \mbox{\hyperlink{_ppmd8_enc_8c_abef70980671ba4fd0d811f4076704189}{MASK}}(sym)~((signed char $\ast$)char\+Mask)\mbox{[}sym\mbox{]}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_ppmd8_enc_8c_a1585706780cb7451215a94d7ee6d31b0}{Ppmd8\+\_\+\+Range\+Enc\+\_\+\+Flush\+Data}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p)
+\item 
+void \mbox{\hyperlink{_ppmd8_enc_8c_a5d3647d7eefa194ee77db9c968676514}{Ppmd8\+\_\+\+Encode\+Symbol}} (\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$p, int symbol)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_ppmd8_enc_8c_a44837969a48f9d4fc92d766ff3dcfbb7}\label{_ppmd8_enc_8c_a44837969a48f9d4fc92d766ff3dcfbb7}} 
+\index{Ppmd8Enc.c@{Ppmd8Enc.c}!kBot@{kBot}}
+\index{kBot@{kBot}!Ppmd8Enc.c@{Ppmd8Enc.c}}
+\doxysubsubsection{\texorpdfstring{kBot}{kBot}}
+{\footnotesize\ttfamily \#define k\+Bot~(1 $<$$<$ 15)}
+
+
+
+Definition at line 10 of file Ppmd8\+Enc.\+c.
+
+\mbox{\Hypertarget{_ppmd8_enc_8c_a5879390786a2f6f7a9aefd4001362be5}\label{_ppmd8_enc_8c_a5879390786a2f6f7a9aefd4001362be5}} 
+\index{Ppmd8Enc.c@{Ppmd8Enc.c}!kTop@{kTop}}
+\index{kTop@{kTop}!Ppmd8Enc.c@{Ppmd8Enc.c}}
+\doxysubsubsection{\texorpdfstring{kTop}{kTop}}
+{\footnotesize\ttfamily \#define k\+Top~(1 $<$$<$ 24)}
+
+
+
+Definition at line 9 of file Ppmd8\+Enc.\+c.
+
+\mbox{\Hypertarget{_ppmd8_enc_8c_abef70980671ba4fd0d811f4076704189}\label{_ppmd8_enc_8c_abef70980671ba4fd0d811f4076704189}} 
+\index{Ppmd8Enc.c@{Ppmd8Enc.c}!MASK@{MASK}}
+\index{MASK@{MASK}!Ppmd8Enc.c@{Ppmd8Enc.c}}
+\doxysubsubsection{\texorpdfstring{MASK}{MASK}}
+{\footnotesize\ttfamily \#define MASK(\begin{DoxyParamCaption}\item[{}]{sym }\end{DoxyParamCaption})~((signed char $\ast$)char\+Mask)\mbox{[}sym\mbox{]}}
+
+
+
+Definition at line 52 of file Ppmd8\+Enc.\+c.
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_ppmd8_enc_8c_a5d3647d7eefa194ee77db9c968676514}\label{_ppmd8_enc_8c_a5d3647d7eefa194ee77db9c968676514}} 
+\index{Ppmd8Enc.c@{Ppmd8Enc.c}!Ppmd8\_EncodeSymbol@{Ppmd8\_EncodeSymbol}}
+\index{Ppmd8\_EncodeSymbol@{Ppmd8\_EncodeSymbol}!Ppmd8Enc.c@{Ppmd8Enc.c}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_EncodeSymbol()}{Ppmd8\_EncodeSymbol()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Encode\+Symbol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p,  }\item[{int}]{symbol }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file Ppmd8\+Enc.\+c.
+
+\mbox{\Hypertarget{_ppmd8_enc_8c_a1585706780cb7451215a94d7ee6d31b0}\label{_ppmd8_enc_8c_a1585706780cb7451215a94d7ee6d31b0}} 
+\index{Ppmd8Enc.c@{Ppmd8Enc.c}!Ppmd8\_RangeEnc\_FlushData@{Ppmd8\_RangeEnc\_FlushData}}
+\index{Ppmd8\_RangeEnc\_FlushData@{Ppmd8\_RangeEnc\_FlushData}!Ppmd8Enc.c@{Ppmd8Enc.c}}
+\doxysubsubsection{\texorpdfstring{Ppmd8\_RangeEnc\_FlushData()}{Ppmd8\_RangeEnc\_FlushData()}}
+{\footnotesize\ttfamily void Ppmd8\+\_\+\+Range\+Enc\+\_\+\+Flush\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_c_ppmd8}{CPpmd8}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file Ppmd8\+Enc.\+c.
+

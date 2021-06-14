@@ -1,0 +1,182 @@
+\hypertarget{unix_2_lzma_enc_8h}{}\doxysection{source/\+Zip\+Lib/extlibs/lzma/unix/\+Lzma\+Enc.h File Reference}
+\label{unix_2_lzma_enc_8h}\index{source/ZipLib/extlibs/lzma/unix/LzmaEnc.h@{source/ZipLib/extlibs/lzma/unix/LzmaEnc.h}}
+{\ttfamily \#include \char`\"{}Types.\+h\char`\"{}}\newline
+Include dependency graph for Lzma\+Enc.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct___c_lzma_enc_props}{\+\_\+\+CLzma\+Enc\+Props}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{unix_2_lzma_enc_8h_a4b339e98a6261f3b64a9c93394fe5bb2}{LZMA\+\_\+\+PROPS\+\_\+\+SIZE}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct___c_lzma_enc_props}{\+\_\+\+CLzma\+Enc\+Props}} \mbox{\hyperlink{unix_2_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}}
+\item 
+typedef void $\ast$ \mbox{\hyperlink{unix_2_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{unix_2_lzma_enc_8h_a336bf0e92adf6ff680547c58fd60baa6}{Lzma\+Enc\+Props\+\_\+\+Init}} (\mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$p)
+\item 
+void \mbox{\hyperlink{unix_2_lzma_enc_8h_acd23d29a44a6a248851b7e0ef8016d87}{Lzma\+Enc\+Props\+\_\+\+Normalize}} (\mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$p)
+\item 
+\mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} \mbox{\hyperlink{unix_2_lzma_enc_8h_a07825840b48dc66de5b55dd05b93c1a2}{Lzma\+Enc\+Props\+\_\+\+Get\+Dict\+Size}} (\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$props2)
+\item 
+\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}} \mbox{\hyperlink{unix_2_lzma_enc_8h_a1205a513b1d33c24a6cc5788c4ca8990}{Lzma\+Enc\+\_\+\+Create}} (\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc)
+\item 
+void \mbox{\hyperlink{unix_2_lzma_enc_8h_a065756196601bbeb1910df0f574205ac}{Lzma\+Enc\+\_\+\+Destroy}} (\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}} p, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc\+Big)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_lzma_enc_8h_a77b1a646fa5bce68b703922d745ceaec}{Lzma\+Enc\+\_\+\+Set\+Props}} (\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}} p, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$props)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_lzma_enc_8h_ab18bd44a926d0a9405bca886822c4a29}{Lzma\+Enc\+\_\+\+Write\+Properties}} (\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}} p, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$properties, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$size)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_lzma_enc_8h_a675e74dfa32165b779747c04b27cd29f}{Lzma\+Enc\+\_\+\+Encode}} (\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}} p, \mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$out\+Stream, \mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$in\+Stream, \mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$progress, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc\+Big)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_lzma_enc_8h_a5efb3a86ac674e7d97a5c14d759567a2}{Lzma\+Enc\+\_\+\+Mem\+Encode}} (\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}} p, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} src\+Len, int write\+End\+Mark, \mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$progress, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc\+Big)
+\item 
+\mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} \mbox{\hyperlink{unix_2_lzma_enc_8h_a5b557f56f2aba7069f192c2d51c187cc}{Lzma\+Encode}} (\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$dest, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$dest\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$src, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} src\+Len, \mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$props, \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$props\+Encoded, \mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$props\+Size, int write\+End\+Mark, \mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$progress, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc, \mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$alloc\+Big)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a4b339e98a6261f3b64a9c93394fe5bb2}\label{unix_2_lzma_enc_8h_a4b339e98a6261f3b64a9c93394fe5bb2}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LZMA\_PROPS\_SIZE@{LZMA\_PROPS\_SIZE}}
+\index{LZMA\_PROPS\_SIZE@{LZMA\_PROPS\_SIZE}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LZMA\_PROPS\_SIZE}{LZMA\_PROPS\_SIZE}}
+{\footnotesize\ttfamily \#define LZMA\+\_\+\+PROPS\+\_\+\+SIZE~5}
+
+
+
+Definition at line 13 of file Lzma\+Enc.\+h.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}\label{unix_2_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!CLzmaEncHandle@{CLzmaEncHandle}}
+\index{CLzmaEncHandle@{CLzmaEncHandle}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{CLzmaEncHandle}{CLzmaEncHandle}}
+{\footnotesize\ttfamily typedef void$\ast$ \mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}}}
+
+
+
+Definition at line 50 of file Lzma\+Enc.\+h.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}\label{unix_2_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!CLzmaEncProps@{CLzmaEncProps}}
+\index{CLzmaEncProps@{CLzmaEncProps}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{CLzmaEncProps}{CLzmaEncProps}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct___c_lzma_enc_props}{\+\_\+\+CLzma\+Enc\+Props}} \mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}}}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a1205a513b1d33c24a6cc5788c4ca8990}\label{unix_2_lzma_enc_8h_a1205a513b1d33c24a6cc5788c4ca8990}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEnc\_Create@{LzmaEnc\_Create}}
+\index{LzmaEnc\_Create@{LzmaEnc\_Create}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEnc\_Create()}{LzmaEnc\_Create()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}} Lzma\+Enc\+\_\+\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1708 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a065756196601bbeb1910df0f574205ac}\label{unix_2_lzma_enc_8h_a065756196601bbeb1910df0f574205ac}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEnc\_Destroy@{LzmaEnc\_Destroy}}
+\index{LzmaEnc\_Destroy@{LzmaEnc\_Destroy}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEnc\_Destroy()}{LzmaEnc\_Destroy()}}
+{\footnotesize\ttfamily void Lzma\+Enc\+\_\+\+Destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}}}]{p,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc\+Big }\end{DoxyParamCaption})}
+
+
+
+Definition at line 1735 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a675e74dfa32165b779747c04b27cd29f}\label{unix_2_lzma_enc_8h_a675e74dfa32165b779747c04b27cd29f}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEnc\_Encode@{LzmaEnc\_Encode}}
+\index{LzmaEnc\_Encode@{LzmaEnc\_Encode}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEnc\_Encode()}{LzmaEnc\_Encode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Enc\+\_\+\+Encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}}}]{p,  }\item[{\mbox{\hyperlink{struct_i_seq_out_stream}{ISeq\+Out\+Stream}} $\ast$}]{out\+Stream,  }\item[{\mbox{\hyperlink{struct_i_seq_in_stream}{ISeq\+In\+Stream}} $\ast$}]{in\+Stream,  }\item[{\mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$}]{progress,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc\+Big }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2192 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a5efb3a86ac674e7d97a5c14d759567a2}\label{unix_2_lzma_enc_8h_a5efb3a86ac674e7d97a5c14d759567a2}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEnc\_MemEncode@{LzmaEnc\_MemEncode}}
+\index{LzmaEnc\_MemEncode@{LzmaEnc\_MemEncode}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEnc\_MemEncode()}{LzmaEnc\_MemEncode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Enc\+\_\+\+Mem\+Encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}}}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{src\+Len,  }\item[{int}]{write\+End\+Mark,  }\item[{\mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$}]{progress,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc\+Big }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2228 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a77b1a646fa5bce68b703922d745ceaec}\label{unix_2_lzma_enc_8h_a77b1a646fa5bce68b703922d745ceaec}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEnc\_SetProps@{LzmaEnc\_SetProps}}
+\index{LzmaEnc\_SetProps@{LzmaEnc\_SetProps}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEnc\_SetProps()}{LzmaEnc\_SetProps()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Enc\+\_\+\+Set\+Props (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}}}]{p,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$}]{props }\end{DoxyParamCaption})}
+
+
+
+Definition at line 400 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_ab18bd44a926d0a9405bca886822c4a29}\label{unix_2_lzma_enc_8h_ab18bd44a926d0a9405bca886822c4a29}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEnc\_WriteProperties@{LzmaEnc\_WriteProperties}}
+\index{LzmaEnc\_WriteProperties@{LzmaEnc\_WriteProperties}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEnc\_WriteProperties()}{LzmaEnc\_WriteProperties()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Enc\+\_\+\+Write\+Properties (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lzma_enc_8h_a8918974dc58e65ece361825e560a91f3}{CLzma\+Enc\+Handle}}}]{p,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{properties,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{size }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2199 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a5b557f56f2aba7069f192c2d51c187cc}\label{unix_2_lzma_enc_8h_a5b557f56f2aba7069f192c2d51c187cc}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEncode@{LzmaEncode}}
+\index{LzmaEncode@{LzmaEncode}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEncode()}{LzmaEncode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_types_8h_acc0053eeb62726b68b22e8c7d9e91367}{SRes}} Lzma\+Encode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{dest,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{dest\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{src,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}}}]{src\+Len,  }\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$}]{props,  }\item[{\mbox{\hyperlink{_types_8h_ae3a497195d617519e5353ea7b417940f}{Byte}} $\ast$}]{props\+Encoded,  }\item[{\mbox{\hyperlink{_types_8h_a4f8e2163e01de507a0ac376e8ec2b796}{SizeT}} $\ast$}]{props\+Size,  }\item[{int}]{write\+End\+Mark,  }\item[{\mbox{\hyperlink{struct_i_compress_progress}{ICompress\+Progress}} $\ast$}]{progress,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc,  }\item[{\mbox{\hyperlink{struct_i_sz_alloc}{ISz\+Alloc}} $\ast$}]{alloc\+Big }\end{DoxyParamCaption})}
+
+
+
+Definition at line 2256 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a07825840b48dc66de5b55dd05b93c1a2}\label{unix_2_lzma_enc_8h_a07825840b48dc66de5b55dd05b93c1a2}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEncProps\_GetDictSize@{LzmaEncProps\_GetDictSize}}
+\index{LzmaEncProps\_GetDictSize@{LzmaEncProps\_GetDictSize}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEncProps\_GetDictSize()}{LzmaEncProps\_GetDictSize()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{bzlib__private_8h_a4cd0dc7d33ac7a69204e8429ecea0f86}{UInt32}} Lzma\+Enc\+Props\+\_\+\+Get\+Dict\+Size (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{zconf_8h_a2c212835823e3c54a8ab6d95c652660e}{const}} \mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$}]{props2 }\end{DoxyParamCaption})}
+
+
+
+Definition at line 86 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_a336bf0e92adf6ff680547c58fd60baa6}\label{unix_2_lzma_enc_8h_a336bf0e92adf6ff680547c58fd60baa6}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEncProps\_Init@{LzmaEncProps\_Init}}
+\index{LzmaEncProps\_Init@{LzmaEncProps\_Init}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEncProps\_Init()}{LzmaEncProps\_Init()}}
+{\footnotesize\ttfamily void Lzma\+Enc\+Props\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 45 of file Lzma\+Enc.\+c.
+
+\mbox{\Hypertarget{unix_2_lzma_enc_8h_acd23d29a44a6a248851b7e0ef8016d87}\label{unix_2_lzma_enc_8h_acd23d29a44a6a248851b7e0ef8016d87}} 
+\index{LzmaEnc.h@{LzmaEnc.h}!LzmaEncProps\_Normalize@{LzmaEncProps\_Normalize}}
+\index{LzmaEncProps\_Normalize@{LzmaEncProps\_Normalize}!LzmaEnc.h@{LzmaEnc.h}}
+\doxysubsubsection{\texorpdfstring{LzmaEncProps\_Normalize()}{LzmaEncProps\_Normalize()}}
+{\footnotesize\ttfamily void Lzma\+Enc\+Props\+\_\+\+Normalize (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_lzma_enc_8h_aa8d89dd524afb76f169c22b06fea1924}{CLzma\+Enc\+Props}} $\ast$}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 54 of file Lzma\+Enc.\+c.
+
