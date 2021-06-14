@@ -12,10 +12,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\code\headers\api.hpp" />
+    <ClInclude Include="..\..\code\headers\DataModel.h" />
     <ClInclude Include="..\..\code\headers\Test.hpp" />
     <ClInclude Include="..\..\code\headers\ZipManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\code\sources\DataModel.cpp" />
     <ClCompile Include="..\..\code\sources\Test.cpp" />
     <ClCompile Include="..\..\code\sources\ZipManager.cpp" />
   </ItemGroup>

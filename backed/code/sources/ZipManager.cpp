@@ -8,17 +8,24 @@
 
 #include "ZipLib/ZipFile.h"
 #include "ZipManager.h"
+#include "DataModel.h"
 
 #include <fstream>
 
+ZipManager::ZipManager(const string& _archive) {
+	archive = make_unique<Item>(_archive);
+	model = make_unique<DataModel>();
 
-ZipManager::ZipManager(const string& _path) : file_path(_path) {}
+	//model.get()->set_item(make_shared<Item>(archive));
+}
+
 
 const list<string> ZipManager::file_list() const 
 {
-
+	// Creo un item de nuevo registro
+	
 	ZipArchive::Ptr myArchive;
-	myArchive = ZipFile::Open(file_path);
+	myArchive = ZipFile::Open(archive->get_archive_name());
 
 	// Obtenemos el número de entradas totales
 	size_t entries = myArchive->GetEntriesCount();
@@ -42,7 +49,7 @@ const string ZipManager::file_content(const string& file_name)
 {
 
 	ZipArchive::Ptr myArchive;
-	myArchive = ZipFile::Open(file_path);
+	myArchive = ZipFile::Open(archive->get_archive_name());
 
 
 	ZipArchiveEntry::Ptr entry = myArchive->GetEntry(file_name);
@@ -71,7 +78,7 @@ const string ZipManager::file_content(const string& file_name)
 bool ZipManager::update_content(const string& file_name, const string& content) 
 {
 	ZipArchive::Ptr myArchive;
-	myArchive = ZipFile::Open(file_path);
+	myArchive = ZipFile::Open(archive->get_archive_name());
 	// Añadimos el contenido a un archivo temporal
 
 	ofstream temporal_writer(file_name.c_str(), std::ios::trunc | std::ios::out);
@@ -95,15 +102,15 @@ bool ZipManager::update_content(const string& file_name, const string& content)
 
 	entry->SetCompressionStream(temporal_reader);
 
-	ZipFile::Save(myArchive, file_path);
+	ZipFile::Save(myArchive, archive->get_archive_name());
 
-	//ZipFile::Save(archive, file_path);
+	//ZipFile::Save(archive_path, archive_path);
 
 	temporal_reader.close();
 
 	return true;
 }
 
-void ZipManager::delete_file(const string& file_name) { ZipFile::RemoveEntry(file_path.c_str(), file_name.c_str()); }
+void ZipManager::delete_file(const string& file_name) { ZipFile::RemoveEntry(archive->get_archive_name().c_str(), file_name.c_str()); }
 
-void ZipManager::create_file(const string& file_name) { ZipFile::AddFile(file_path.c_str(), file_name.c_str()); }
+void ZipManager::create_file(const string& file_name) { ZipFile::AddFile(archive->get_archive_name().c_str(), file_name.c_str()); }

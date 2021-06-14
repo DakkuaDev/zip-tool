@@ -9,22 +9,25 @@
 #pragma once
 
 #include "api.hpp"
+#include "DataModel.h";
 
 #include <string>
 #include <list>
+#include <memory>
+#include <vector>
 
 using namespace std;
 
 class TEST_API ZipManager
 {
+	class Entry;
 private:
 
-	string file_path;
-
+	unique_ptr<DataModel> model = nullptr;
+	unique_ptr<Item> archive = nullptr;
 
 public:
 
-	// Default
 	ZipManager(const string& path);
 	~ZipManager() = default;
 
@@ -45,6 +48,10 @@ public:
 
 	/* Añadimos un archivo al Zip */
 	void create_file(const string& file_name);
+
+	inline void set_file_path(const string& _path) { model.get()->set_archive_path(_path); }
+	//void push_entry(string& file_name) {model.get()->set_entry(make_shared<Entry>(file_name)); }
+	//void push_item(string& file_name) { model.get()->set_item(make_shared<Item>(file_name)); }
 
 
 };
