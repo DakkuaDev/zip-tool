@@ -1,8 +1,0 @@
-var searchData=
-[
-  ['teestream_4485',['teestream',['../teestream_8h.html#a25acc0733bafaa8f204fb58ad1947e8f',1,'teestream.h']]],
-  ['thread_5ffunc_5fret_5ftype_4486',['THREAD_FUNC_RET_TYPE',['../_threads_8h.html#af9264da4ca787c227d6cf5a66426032b',1,'THREAD_FUNC_RET_TYPE():&#160;Threads.h'],['../unix_2_threads_8h.html#af9264da4ca787c227d6cf5a66426032b',1,'THREAD_FUNC_RET_TYPE():&#160;Threads.h']]],
-  ['thread_5ffunc_5ftype_4487',['THREAD_FUNC_TYPE',['../_threads_8h.html#abeb46eb195a92134b29761a43e542052',1,'THREAD_FUNC_TYPE():&#160;Threads.h'],['../unix_2_threads_8h.html#abeb46eb195a92134b29761a43e542052',1,'THREAD_FUNC_TYPE():&#160;Threads.h']]],
-  ['traits_5ftype_4488',['traits_type',['../classcompression__decoder__streambuf.html#a2d0222692cda20138f4cf12bf801703b',1,'compression_decoder_streambuf::traits_type()'],['../classcompression__encoder__streambuf.html#a3408bfee769f94c5784259f4f1c165d8',1,'compression_encoder_streambuf::traits_type()'],['../classcrc32__streambuf.html#a3235419d8d9e0400ffd9478cc006944d',1,'crc32_streambuf::traits_type()'],['../classmem__streambuf.html#aa2ba7753842148259a93e3674aea562b',1,'mem_streambuf::traits_type()'],['../classnull__streambuf.html#af61b6c848865df0d651cd56ac60d5f3b',1,'null_streambuf::traits_type()'],['../classsub__streambuf.html#aab8d2df83a40f92aa8c3eccdb43532ba',1,'sub_streambuf::traits_type()'],['../classtee__streambuf.html#aa8c3790cd323c7083e2e528053b24bb3',1,'tee_streambuf::traits_type()'],['../classzip__crypto__streambuf.html#aa116a9b1c37a1b140bd4ae192e11505e',1,'zip_crypto_streambuf::traits_type()']]],
-  ['tree_5fdesc_4489',['tree_desc',['../deflate_8h.html#ae978a66d78f0d68f945f48951f9151ff',1,'deflate.h']]]
-];
