@@ -16,6 +16,8 @@ Author: Daniel Guerra Gallardo
 # Usefull Links
 
 Libraries: Lua, Qt6
+
 https://www.qt.io/
+
 https://www.lua.org/
 
