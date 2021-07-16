@@ -15,7 +15,7 @@ Author: Daniel Guerra Gallardo
 
 # Usefull Links
 
-Libraries: SFML, Box 2D
+Libraries: Lua, Qt6
 https://www.qt.io/
 https://www.lua.org/
 
